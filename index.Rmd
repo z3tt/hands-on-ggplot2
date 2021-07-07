@@ -15,7 +15,7 @@ This is the home page for the Pearson–O'Reilly Live Training Session "Hands–
 
 ### Details
 
-*Instructor:* [Dr Cédric Scherer](https://cedric-scherer.com/top/about)   
+*Instructor:* [Dr Cédric Scherer](https://z3tt.github.io/hands-on-ggplot2/about.html)   
 *Date:* September 3, 2021
 
 ### What You’ll Learn
@@ -56,7 +56,7 @@ To run any of the materials locally on your own machine, you will need the follo
 - A recent version of RStudio, [download from here.](https://rstudio.com/products/rstudio/download/#download)
 - The following R packages: [`tidyverse`](https://www.tidyverse.org/) (includes [`ggplot2`](https://ggplot2.tidyverse.org/)), [`ggrepel`](https://ggrepel.slowkow.com/), [`ggtext`](https://wilkelab.org/ggtext/), [`patchwork`](https://patchwork.data-imaginist.com/), [`ggforce`](https://ggforce.data-imaginist.com/), [`ragg`](https://ragg.r-lib.org/), [`magick`](https://docs.ropensci.org/magick/).  
 
-You can install all required R packages at once by running the following code in the R command line
+You can install all required R packages at once by running the following code in the R command line.
 
 ```{r install, eval=FALSE, echo=TRUE}
 # Package names
