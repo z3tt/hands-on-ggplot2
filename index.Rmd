@@ -72,4 +72,4 @@ if (any(packages %in% rownames(installed.packages()) == FALSE)) {
 
 ## Reuse {.appendix}
 
-<i style=font-size:10pt;>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i>
+<i>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i>
