@@ -19,10 +19,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Our First ggplot
 -  Basics of ggplot2
 
-<p class="nospace">Materials:</p>
-
-- [Slides](slides/introduction.html)  
-- [Worksheet](worksheets/introduction-rmarkdown.Rmd)
+→ [Slides](slides/introduction.html)  
+→ [Codes](codes/introduction-rmarkdown.Rmd)
 
 ## <b style='color:gray;'>Segment 2</b><br><b style='font-size:20pt;'>The Grammar of Graphics</b>
 
@@ -34,10 +32,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Working with Scales (Axes, Colors, Legends)
 -  Adding Titles and Labels
 
-<p class="nospace">Materials:</p>
-
-- [Slides](slides/grammar.html)  
-- [Worksheet](worksheets/grammar-rmarkdown.Rmd)
+→ [Slides](slides/grammar.html)  
+→ [Codes](codes/grammar-rmarkdown.Rmd)
 
 ## <b style='color:gray;'>Segment 3</b><br><b style='font-size:20pt;'>The Power of Themes for Custom Design</b>
 
@@ -48,10 +44,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Your Own Templates
 -  Working with Custom Fonts 
 
-<p class="nospace">Materials:</p>
-
-- [Slides](slides/themes.html)  
-- [Worksheet](worksheets/themes-rmarkdown.Rmd)
+→ [Slides](slides/themes.html)  
+→ [Codes](codes/themes-rmarkdown.Rmd)
 
 
 ## <b style='color:gray;'>Segment 4</b><br><b style='font-size:20pt;'>The Importance of Annotations</b>
@@ -62,10 +56,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Advanced Text Labeling with ggrepel and ggforce
 -  Adding Logos and Images
 
-<p class="nospace">Materials:</p>
-
-- [Slides](slides/annotation.html)  
-- [Worksheet](worksheets/annotation-rmarkdown.Rmd)
+→ [Slides](slides/annotation.html)  
+→ [Codes](codes/annotation-rmarkdown.Rmd)
 
 
 ## <b style='color:gray;'>Segment 5</b><br><b style='font-size:20pt;'>Creating Multi-Panel Figures</b>
@@ -75,10 +67,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Small Multiples (Facets)
 -  Combine Multiple Plots with patchwork
 
-<p class="nospace">Materials:</p>
-
-- [Slides](slides/multipanel.html)  
-- [Worksheet](worksheets/multipanel-rmarkdown.Rmd)
+→ [Slides](slides/multipanel.html)  
+→ [Codes](codes/multipanel-rmarkdown.Rmd)
 
 
 ## Reuse {.appendix}

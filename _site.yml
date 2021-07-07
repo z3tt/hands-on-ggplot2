@@ -2,7 +2,7 @@ name: "Hands-On-ggplot2"
 title: "Hands-On Data Visualization with ggplot2"
 description: |
   Hands-On Data Visualization with ggplot2
-output_dir: "docs"
+output_dir: "."
 theme: "theme.css"
 navbar:
   right:
