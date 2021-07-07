@@ -1,0 +1,75 @@
+---
+title: "Hands–On Data Visualization with ggplot2"
+description: |
+  How to Create Engaging and Well–Designed Visualizations in R
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Overview
+
+This is the home page for the Pearson–O'Reilly Live Training Session "Hands–On Data Visualization with ggplot2". All course materials will be posted on this site.
+
+### Details
+
+*Instructor:* [Dr Cédric Scherer](https://cedric-scherer.com/top/about)   
+*Date:* September 3, 2021
+
+### What You’ll Learn
+
+- Load data into R and visualize it with the help of the powerful ggplot2 library.
+- Customize your ggplot2 output as you like including theming, colors, annotations, and many more.
+- Get to know useful extension libraries that will boost your workflow and improve your ggplot2 design.
+- Use Rmarkdown notebooks to build reproducible reports.
+- Get insights how to prepare and wrangle data with the popular tidyverse package collection.
+
+### Who is the Training for
+
+- **Anyone** interested in creating visually appealing charts with R and ggplot2—no matter if you have no or minimal experience with R.
+- **Data scientists** aiming to use the powerful ggplot2 library in their workflow for exploration and communication.
+- **Business managers** that aim to quickly gain data insights based on reproducible and elegantly formatted charts and reports.
+
+---
+
+# Prerequisites and Preparation
+
+- **Familiarity with Rstudio** *(required)*
+  * Video: [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers 
+  * Book: [Chapter 1 of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham & Garrett Grolemund
+- **Basic Knowledge of R** *(helpful but not required)*
+  * Video: [Chapters 3, 4, and 7 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers 
+  * Book: [Chapter 4–6 of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham & Garrett Grolemund
+- **Data Wrangling with the tidyverse** *(helpful but not required)*
+  * Scenario: [“Format and Shape Your Data in R with the Tidyverse”](https://www.oreilly.com/scenarios/format-and-shape/9781492079064/) by Martin Frigaard 
+  * Book: [Chapter 9–16 (Section: Wrangle) of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham &  Garrett Grolemund
+
+---
+
+# Course Set-Up
+
+To run any of the materials locally on your own machine, you will need the following:
+
+- A recent version of R, [download from here.](https://cloud.r-project.org/)
+- A recent version of RStudio, [download from here.](https://rstudio.com/products/rstudio/download/#download)
+- The following R packages: [`tidyverse`](https://www.tidyverse.org/) (includes [`ggplot2`](https://ggplot2.tidyverse.org/)), [`ggrepel`](https://ggrepel.slowkow.com/), [`ggtext`](https://wilkelab.org/ggtext/), [`patchwork`](https://patchwork.data-imaginist.com/), [`ggforce`](https://ggforce.data-imaginist.com/), [`ragg`](https://ragg.r-lib.org/), [`magick`](https://docs.ropensci.org/magick/).  
+
+You can install all required R packages at once by running the following code in the R command line
+
+```{r install, eval=FALSE, echo=TRUE}
+# Package names
+packages <- c("tidyverse", "ggrepel", "ggtext", "patchwork", "ragg", "magick")
+
+# Install packages that are not yet installed
+if (any(packages %in% rownames(installed.packages()) == FALSE)) {
+  install.packages(packages[!packages %in% rownames(installed.packages())])
+}
+```
+
+
+
+## Reuse {.appendix}
+
+<i style=font-size:10pt;>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i>

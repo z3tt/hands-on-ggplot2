@@ -1,0 +1,84 @@
+---
+title: "Hands–On Data Visualization with ggplot2 — Cédric Scherer"
+author: "Cédric Scherer"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    seal: false
+    css: ["./css/style.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat:  |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      ratio: '16:9'
+---
+class: inverse, center
+background-image: url("img/darklight_RichardStrozynski.jpg")
+background-size: contain
+
+```{r options, include = FALSE, purl=FALSE}
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  message = FALSE, 
+  collapse = TRUE,
+  fig.height = 6.3,
+  fig.allign = 'center',
+  fig.retina = 3.5,
+  fig.showtext = TRUE
+)
+
+Sys.setlocale("LC_TIME", "C")
+
+options(width = 80)
+```
+
+<br><br>
+# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 5: Creating Multi-Panel Figures</b>
+<br><br><br><br><br><br><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b ><br>
+
+```{r prep, echo=FALSE}
+library(tidyverse)
+library(conflicted)
+library(showtext)
+filter <- dplyr::filter
+font_add_google("Roboto", "Roboto")
+font_add_google("Bitter", "Bitter")
+theme_set(theme_grey(base_size = 16))
+```
+
+---
+
+## A Descriptive Title
+
+... and some text to illustrate the size of the body text.
+
+.pull-left[
+```{r code, eval=FALSE}
+## Also, some code:
+mpg %>% 
+  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %>% 
+  count(manufacturer) %>% 
+  ggplot(aes(n, manufacturer)) + #<<
+  geom_col() +
+  theme_minimal(base_family = "Roboto")
+```
+]
+
+.pull-right[
+```{r plot, ref.label="code", echo=FALSE}
+```
+]

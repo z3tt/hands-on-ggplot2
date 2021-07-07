@@ -1,0 +1,39 @@
+name: "Hands-On-ggplot2"
+title: "Hands-On Data Visualization with ggplot2"
+description: |
+  Hands-On Data Visualization with ggplot2
+output_dir: "docs"
+theme: "theme.css"
+navbar:
+  right:
+    - text: "Schedule"
+      href: schedule.html
+    - text: "Slides"
+      menu:
+        - text: "Segment 1: Introduction"
+          href: slides/introduction.html
+        - text: "Segment 2: Grammar of Graphics"
+          href: slides/grammar.html
+        - text: "Segment 3: Custom Design"
+          href: slides/themes.html
+        - text: "Segment 4: Annotations"
+          href: slides/annotation.html
+        - text: "Segment 5: Multi-Panel Figures"
+          href: slides/multipanel.html
+          
+    - text: "Notebooks"
+      menu:
+        - text: "Segment 1: Introduction"
+          href: notebooks/introduction-rmarkdown.Rmd
+        - text: "Segment 2: Grammar of Graphics"
+          href: notebooks/grammar-rmarkdown.Rmd
+        - text: "Segment 3: Custom Design"
+          href: notebooks/themes-rmarkdown.html
+        - text: "Segment 4: Annotations"
+          href: notebooks/annotation-rmarkdown.html
+        - text: "Segment 5: Multi-Panel Figures"
+          href: notebooks/multipanel-markdown.html
+          
+    - text: "About"
+      href: about.html
+output: distill::distill_article
