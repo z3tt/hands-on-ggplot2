@@ -24,15 +24,15 @@ navbar:
     - text: "Notebooks"
       menu:
         - text: "1. The Grammar of Graphics"
-          href: codes/01-grammar-rmarkdown.html
+          href: 01-grammar-rmarkdown.html
         - text: "2. Build Plots Layer by Layer"
-          href: codes/02-layers-rmarkdown.html
+          href: 02-layers-rmarkdown.html
         - text: "3. Polish Your Visualization"
-          href: codes/03-polish-rmarkdown.html
+          href: 03-polish-rmarkdown.html
         - text: "4. Provide Context with Annotations"
-          href: codes/04-annotation-rmarkdown.html
+          href: 04-annotation-rmarkdown.html
         - text: "5. Create Multi-Panel Figures "
-          href: codes/05-multipanel-rmarkdown.html
+          href: 05-multipanel-rmarkdown.html
           
     - text: "Codes"
       menu:

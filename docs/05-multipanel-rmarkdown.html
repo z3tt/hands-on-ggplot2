@@ -86,29 +86,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Hands-On DataViz with ggplot2: Hands–On Data Visualization with ggplot2</title>
+  <title>Hands-On DataViz with ggplot2: Segment 5: Create Multi-Panel Figures</title>
 
-  <meta property="description" itemprop="description" content="How to Create Engaging and Well–Designed Visualizations in R"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Hands-On DataViz with ggplot2: Hands–On Data Visualization with ggplot2"/>
+  <meta property="og:title" content="Hands-On DataViz with ggplot2: Segment 5: Create Multi-Panel Figures"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="How to Create Engaging and Well–Designed Visualizations in R"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Hands-On DataViz with ggplot2"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Hands-On DataViz with ggplot2: Hands–On Data Visualization with ggplot2"/>
-  <meta property="twitter:description" content="How to Create Engaging and Well–Designed Visualizations in R"/>
+  <meta property="twitter:title" content="Hands-On DataViz with ggplot2: Segment 5: Create Multi-Panel Figures"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["Hands–On Data Visualization with ggplot2"]},{"type":"character","attributes":{},"value":["How to Create Engaging and Well–Designed Visualizations in R"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 5: Create Multi-Panel Figures"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2406,7 +2403,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Hands–On Data Visualization with ggplot2","description":"How to Create Engaging and Well–Designed Visualizations in R","authors":[]}
+{"title":"Segment 5: Create Multi-Panel Figures","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2470,76 +2467,46 @@ Codes
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Hands–On Data Visualization with ggplot2</h1>
+<h1>Segment 5: Create Multi-Panel Figures</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>How to Create Engaging and Well–Designed Visualizations in R</p>
+
 </div>
 
 
 <div class="d-article">
-<h1 id="overview">Overview</h1>
-<p>This is the home page for the Pearson–O’Reilly Live Training Session “Hands–On Data Visualization with ggplot2”. All course materials will be posted on this site.</p>
-<h3 id="details">Details</h3>
-<p><em>Instructor:</em> <a href="https://z3tt.github.io/hands-on-ggplot2/about.html">Dr Cédric Scherer</a><br />
-<em>Date:</em> September 3, 2021</p>
-<h3 id="what-youll-learn">What You’ll Learn</h3>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
 <ul>
-<li>Load data into R and visualize it with the help of the powerful ggplot2 library.</li>
-<li>Customize your ggplot2 output as you like including theming, colors, annotations, and many more.</li>
-<li>Get to know useful extension libraries that will boost your workflow and improve your ggplot2 design.</li>
-<li>Use Rmarkdown notebooks to build reproducible reports.</li>
-<li>Get insights how to prepare and wrangle data with the popular tidyverse package collection.</li>
+<li><a href="#r-markdown">R Markdown</a></li>
+<li><a href="#including-plots">Including Plots</a></li>
 </ul>
-<h3 id="who-is-the-training-for">Who is the Training for</h3>
-<ul>
-<li><strong>Anyone</strong> interested in creating visually appealing charts with R and ggplot2—no matter if you have no or minimal experience with R.</li>
-<li><strong>Data scientists</strong> aiming to use the powerful ggplot2 library in their workflow for exploration and communication.</li>
-<li><strong>Business managers</strong> that aim to quickly gain data insights based on reproducible and elegantly formatted charts and reports.</li>
-</ul>
-<hr />
-<h1 id="prerequisites-and-preparation">Prerequisites and Preparation</h1>
-<ul>
-<li><strong>Familiarity with Rstudio</strong> <em>(required)</em>
-<ul>
-<li>Video: <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter 2 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter 1 of “R for Data Science”</a> by Hadley Wickham &amp; Garrett Grolemund</li>
-</ul></li>
-<li><strong>Basic Knowledge of R</strong> <em>(helpful but not required)</em>
-<ul>
-<li>Video: <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapters 3, 4, and 7 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter 4–6 of “R for Data Science”</a> by Hadley Wickham &amp; Garrett Grolemund</li>
-</ul></li>
-<li><strong>Data Wrangling with the tidyverse</strong> <em>(helpful but not required)</em>
-<ul>
-<li>Scenario: <a href="https://www.oreilly.com/scenarios/format-and-shape/9781492079064/">“Format and Shape Your Data in R with the Tidyverse”</a> by Martin Frigaard</li>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter 9–16 (Section: Wrangle) of “R for Data Science”</a> by Hadley Wickham &amp; Garrett Grolemund</li>
-</ul></li>
-</ul>
-<hr />
-<h1 id="course-set-up">Course Set-Up</h1>
-<p>To run any of the materials locally on your own machine, you will need the following:</p>
-<ul>
-<li>A recent version of R, <a href="https://cloud.r-project.org/">download from here.</a></li>
-<li>A recent version of RStudio, <a href="https://rstudio.com/products/rstudio/download/#download">download from here.</a></li>
-<li>The following R packages: <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> (includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>), <a href="https://ggrepel.slowkow.com/"><code>ggrepel</code></a>, <a href="https://wilkelab.org/ggtext/"><code>ggtext</code></a>, <a href="https://patchwork.data-imaginist.com/"><code>patchwork</code></a>, <a href="https://ggforce.data-imaginist.com/"><code>ggforce</code></a>, <a href="https://ragg.r-lib.org/"><code>ragg</code></a>, <a href="https://docs.ropensci.org/magick/"><code>magick</code></a>.</li>
-</ul>
-<p>You can install all required R packages at once by running the following code in the R command line:</p>
+</nav>
+</div>
+<h2 id="r-markdown">R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Package names</span>
-<span class='va'>packages</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span>, <span class='st'>"ggrepel"</span>, <span class='st'>"ggtext"</span>, <span class='st'>"patchwork"</span>, <span class='st'>"ragg"</span>, <span class='st'>"magick"</span><span class='op'>)</span>
-
-<span class='co'># Install packages that are not yet installed</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/any.html'>any</a></span><span class='op'>(</span><span class='va'>packages</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/installed.packages.html'>installed.packages</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>==</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='va'>packages</span><span class='op'>[</span><span class='op'>!</span><span class='va'>packages</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/installed.packages.html'>installed.packages</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
-<span class='op'>}</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>cars</span><span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>     speed           dist       
+ Min.   : 4.0   Min.   :  2.00  
+ 1st Qu.:12.0   1st Qu.: 26.00  
+ Median :15.0   Median : 36.00  
+ Mean   :15.4   Mean   : 42.98  
+ 3rd Qu.:19.0   3rd Qu.: 56.00  
+ Max.   :25.0   Max.   :120.00  </code></pre>
 </div>
-<h2 class="appendix" id="reuse">Reuse</h2>
-<p><i>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="including-plots">Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/pressure-1.png" width="624" /></p>
+</div>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

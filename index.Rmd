@@ -1,7 +1,6 @@
 ---
 title: "Hands–On Data Visualization with ggplot2"
-description: |
-  How to Create Engaging and Well–Designed Visualizations in R
+description: "How to Create Engaging and Well–Designed Visualizations in R"
 site: distill::distill_website
 ---
 
