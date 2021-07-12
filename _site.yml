@@ -10,41 +10,41 @@ navbar:
       href: schedule.html
     - text: "Slides"
       menu:
-        - text: "Segment 1: The Grammar of Graphics"
+        - text: "1. The Grammar of Graphics"
           href: slides/01-grammar.html
-        - text: "Segment 2: Build Plots Layer by Layer"
+        - text: "2. Build Plots Layer by Layer"
           href: slides/02-layers.html
-        - text: "Segment 3: Polish Your Visualization"
+        - text: "3. Polish Your Visualization"
           href: slides/03-polish.html
-        - text: "Segment 4: Provide Context with Annotations"
+        - text: "4. Provide Context with Annotations"
           href: slides/04-annotation.html
-        - text: "Segment 5: Create Multi-Panel Figures "
+        - text: "5. Create Multi-Panel Figures "
           href: slides/05-multipanel.html
           
     - text: "Notebooks"
       menu:
-        - text: "Segment 1: The Grammar of Graphics"
+        - text: "1. The Grammar of Graphics"
           href: codes/01-grammar-rmarkdown.html
-        - text: "Segment 2: Build Plots Layer by Layer"
+        - text: "2. Build Plots Layer by Layer"
           href: codes/02-layers-rmarkdown.html
-        - text: "Segment 3: Polish Your Visualization"
+        - text: "3. Polish Your Visualization"
           href: codes/03-polish-rmarkdown.html
-        - text: "Segment 4: Provide Context with Annotations"
+        - text: "4. Provide Context with Annotations"
           href: codes/04-annotation-rmarkdown.html
-        - text: "Segment 5: Create Multi-Panel Figures "
+        - text: "5. Create Multi-Panel Figures "
           href: codes/05-multipanel-rmarkdown.html
           
     - text: "Codes"
       menu:
-        - text: "Segment 1: The Grammar of Graphics"
+        - text: "1. The Grammar of Graphics"
           href: codes/01-grammar-rmarkdown.Rmd
-        - text: "Segment 2: Build Plots Layer by Layer"
+        - text: "2. Build Plots Layer by Layer"
           href: codes/02-layers-rmarkdown.Rmd
-        - text: "Segment 3: Polish Your Visualization"
+        - text: "3. Polish Your Visualization"
           href: codes/03-polish-rmarkdown.Rmd
-        - text: "Segment 4: Provide Context with Annotations"
+        - text: "4. Provide Context with Annotations"
           href: codes/04-annotation-rmarkdown.Rmd
-        - text: "Segment 5: Create Multi-Panel Figures "
+        - text: "5. Create Multi-Panel Figures "
           href: codes/05-multipanel-rmarkdown.Rmd
           
     - text: "About"

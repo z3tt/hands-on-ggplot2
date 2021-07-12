@@ -3,7 +3,6 @@ title: "Segment 1: The Basics of ggplot2"
 author: "Cédric Scherer"
 date: "`r Sys.Date()`"
 output: html_document
-#output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
