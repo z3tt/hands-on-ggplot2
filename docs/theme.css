@@ -65,8 +65,8 @@ d-appendix {
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       19px;
-  --text-size:        19px;
+  --title-size:       16px;
+  --text-size:        16px;
   --text-color:       rgba(255, 255, 255, 1);
   --hover-color:      #114936;
   --bkgd-color:       #28A87D;
@@ -110,8 +110,8 @@ d-article li {
     --body-size: 1.08rem;
   }
   .distill-site-header {
-    --title-size:       16px;
-    --text-size:        16px;
+    --title-size:       15px;
+    --text-size:        15px;
   }
 }
 

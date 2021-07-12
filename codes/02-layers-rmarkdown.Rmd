@@ -1,6 +1,5 @@
 ---
-title: "Hands–On Data Visualization with ggplot2"
-subtitle: "Segment 2: The Grammar of Graphics"
+title: "Segment 2: Build Plots Layer by Layer"
 author: "Cédric Scherer"
 date: "`r Sys.Date()`"
 output: html_document
