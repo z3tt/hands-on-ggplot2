@@ -1,6 +1,5 @@
 ---
-title: "Hands–On Data Visualization with ggplot2"
-subtitle: "Segment 5: Creating Multi-Panel Figures"
+title: "Segment 5: Create Multi-Panel Figures"
 author: "Cédric Scherer"
 date: "`r Sys.Date()`"
 output: html_document

@@ -1,6 +1,5 @@
 ---
-title: "Hands–On Data Visualization with ggplot2"
-subtitle: "Segment 4: The Importance of Annotations"
+title: "Segment 4: Provide Context with Annotations"
 author: "Cédric Scherer"
 date: "`r Sys.Date()`"
 output: html_document

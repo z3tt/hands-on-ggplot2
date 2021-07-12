@@ -1,6 +1,5 @@
 ---
-title: "Hands–On Data Visualization with ggplot2"
-subtitle: "Segment 3: The Power of Themes for Custom Design"
+title: "Segment 3: Provide Context with Annotations"
 author: "Cédric Scherer"
 date: "`r Sys.Date()`"
 output: html_document
