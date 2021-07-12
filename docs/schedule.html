@@ -2427,11 +2427,11 @@ Slides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="slides/introduction.html">Segment 1: Introduction</a>
-<a href="slides/grammar.html">Segment 2: Grammar of Graphics</a>
-<a href="slides/themes.html">Segment 3: Custom Design</a>
-<a href="slides/annotation.html">Segment 4: Annotations</a>
-<a href="slides/multipanel.html">Segment 5: Multi-Panel Figures</a>
+<a href="slides/01-grammar.html">Segment 1: The Grammar of Graphics</a>
+<a href="slides/02-layers.html">Segment 2: Build Plots Layer by Layer</a>
+<a href="slides/03-polish.html">Segment 3: Polish Your Visualization</a>
+<a href="slides/04-annotation.html">Segment 4: Provide Context with Annotations</a>
+<a href="slides/05-multipanel.html">Segment 5: Create Multi-Panel Figures </a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2441,11 +2441,25 @@ Notebooks
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="notebooks/introduction-rmarkdown.Rmd">Segment 1: Introduction</a>
-<a href="notebooks/grammar-rmarkdown.Rmd">Segment 2: Grammar of Graphics</a>
-<a href="notebooks/themes-rmarkdown.html">Segment 3: Custom Design</a>
-<a href="notebooks/annotation-rmarkdown.html">Segment 4: Annotations</a>
-<a href="notebooks/multipanel-markdown.html">Segment 5: Multi-Panel Figures</a>
+<a href="codes/01-grammar-rmarkdown.html">Segment 1: The Grammar of Graphics</a>
+<a href="codes/02-layers-rmarkdown.html">Segment 2: Build Plots Layer by Layer</a>
+<a href="codes/03-polish-rmarkdown.html">Segment 3: Polish Your Visualization</a>
+<a href="codes/04-annotation-rmarkdown.html">Segment 4: Provide Context with Annotations</a>
+<a href="codes/05-multipanel-rmarkdown.html">Segment 5: Create Multi-Panel Figures </a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Codes
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="codes/01-grammar-rmarkdown.Rmd">Segment 1: The Grammar of Graphics</a>
+<a href="codes/02-layers-rmarkdown.Rmd">Segment 2: Build Plots Layer by Layer</a>
+<a href="codes/03-polish-rmarkdown.Rmd">Segment 3: Polish Your Visualization</a>
+<a href="codes/04-annotation-rmarkdown.Rmd">Segment 4: Provide Context with Annotations</a>
+<a href="codes/05-multipanel-rmarkdown.Rmd">Segment 5: Create Multi-Panel Figures </a>
 </div>
 </div>
 <a href="about.html">About</a>
@@ -2466,55 +2480,62 @@ Notebooks
 
 
 <div class="d-article">
-<h2 id="segment-1-introduction-to-r-and-ggplot2"><b style='color:gray;'>Segment 1</b><br><b style='font-size:20pt;'>Introduction to R and ggplot2</b></h2>
-<p><em>Duration: 45 min</em></p>
+<h2 id="segment-1-the-basics-of-ggplot2"><b style='color:gray;'>Segment 1</b><br><b style='font-size:20pt;'>The Basics of ggplot2</b></h2>
+<p><em>Duration: 60 min</em></p>
 <ul>
 <li>Motivation: The ggplot2 Showcase</li>
 <li>Loading data into R</li>
+<li>The Grammar of Graphics</li>
 <li>Our First ggplot</li>
-<li>Basics of ggplot2</li>
 </ul>
 <p>→ <a href="slides/introduction.html">Slides</a><br />
-→ <a href="codes/introduction-rmarkdown.Rmd">Codes</a></p>
-<h2 id="segment-2-the-grammar-of-graphics"><b style='color:gray;'>Segment 2</b><br><b style='font-size:20pt;'>The Grammar of Graphics</b></h2>
+→ <a href="codes/introduction-rmarkdown.Rmd">Codes</a><br />
+→ <a href="">Solutions</a> <em>TBA</em></p>
+<p><em>Break: 5 min</em></p>
+<h2 id="segment-2-build-plots-layer-by-layer"><b style='color:gray;'>Segment 2</b><br><b style='font-size:20pt;'>Build Plots Layer by Layer</b></h2>
 <p><em>Duration: 60 min</em></p>
 <p class="nospace">
 </p>
 <ul>
-<li>The Logic of ggplot2</li>
-<li>Statistical Transformations</li>
-<li>Working with Scales (Axes, Colors, Legends)</li>
-<li>Adding Titles and Labels</li>
+<li>Create any Chart Type</li>
+<li>Use Statistical Transformations</li>
+<li>Plot Spatial Maps</li>
 </ul>
 <p>→ <a href="slides/grammar.html">Slides</a><br />
-→ <a href="codes/grammar-rmarkdown.Rmd">Codes</a></p>
-<h2 id="segment-3-the-power-of-themes-for-custom-design"><b style='color:gray;'>Segment 3</b><br><b style='font-size:20pt;'>The Power of Themes for Custom Design</b></h2>
+→ <a href="codes/grammar-rmarkdown.Rmd">Codes</a><br />
+→ <a href="">Solutions</a> <em>TBA</em></p>
+<p><em>Break: 10 min</em></p>
+<h2 id="segment-3-polish-your-visualization"><b style='color:gray;'>Segment 3</b><br><b style='font-size:20pt;'>Polish Your Visualization</b></h2>
 <p><em>Duration: 60 min</em></p>
 <ul>
-<li>Using Template Themes</li>
-<li>The Theme Elements</li>
-<li>Create Your Own Templates</li>
-<li>Working with Custom Fonts</li>
+<li>Work with Colors, Shapes, and Guides</li>
+<li>Use Template Designs</li>
+<li>Create Custom Themes</li>
 </ul>
 <p>→ <a href="slides/themes.html">Slides</a><br />
-→ <a href="codes/themes-rmarkdown.Rmd">Codes</a></p>
-<h2 id="segment-4-the-importance-of-annotations"><b style='color:gray;'>Segment 4</b><br><b style='font-size:20pt;'>The Importance of Annotations</b></h2>
+→ <a href="codes/themes-rmarkdown.Rmd">Codes</a><br />
+→ <a href="">Solutions</a> <em>TBA</em></p>
+<p><em>Break: 5 min</em></p>
+<h2 id="segment-4-provide-context-with-annotations"><b style='color:gray;'>Segment 4</b><br><b style='font-size:20pt;'>Provide Context with Annotations</b></h2>
 <p><em>Duration: 45 min</em></p>
 <ul>
-<li>Basic Text Labeling</li>
-<li>Advanced Text Labeling with ggrepel and ggforce</li>
-<li>Adding Logos and Images</li>
+<li>Insert Titles and Labels</li>
+<li>Basic and Advanced Text Labeling</li>
+<li>Add Images and Illustrations</li>
 </ul>
 <p>→ <a href="slides/annotation.html">Slides</a><br />
-→ <a href="codes/annotation-rmarkdown.Rmd">Codes</a></p>
-<h2 id="segment-5-creating-multi-panel-figures"><b style='color:gray;'>Segment 5</b><br><b style='font-size:20pt;'>Creating Multi-Panel Figures</b></h2>
+→ <a href="codes/annotation-rmarkdown.Rmd">Codes</a><br />
+→ <a href="">Solutions</a> <em>TBA</em></p>
+<p><em>Break: 10 min</em></p>
+<h2 id="segment-5-create-multipanel-figures"><b style='color:gray;'>Segment 5</b><br><b style='font-size:20pt;'>Create Multi–Panel Figures</b></h2>
 <p><em>Duration: 30 min</em></p>
 <ul>
 <li>Create Small Multiples (Facets)</li>
 <li>Combine Multiple Plots with patchwork</li>
 </ul>
 <p>→ <a href="slides/multipanel.html">Slides</a><br />
-→ <a href="codes/multipanel-rmarkdown.Rmd">Codes</a></p>
+→ <a href="codes/multipanel-rmarkdown.Rmd">Codes</a><br />
+→ <a href="">Solutions</a> <em>TBA</em></p>
 <h2 class="appendix" id="reuse">Reuse</h2>
 <p><i style=font-size:10pt;>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

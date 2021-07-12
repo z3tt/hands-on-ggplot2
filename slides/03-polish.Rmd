@@ -1,5 +1,5 @@
 ---
-title: "Hands–On Data Visualization with ggplot2 — Cédric Scherer"
+title: "Hands–On Data Visualization with ggplot2 – Segment 3 – Cédric Scherer"
 author: "Cédric Scherer"
 date: "`r Sys.Date()`"
 output:
@@ -46,7 +46,7 @@ options(width = 80)
 ```
 
 <br><br>
-# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 3: The Power of Themes for Custom Design</b>
+# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 3: Polish Your Visualization</b>
 <br><br><br><br><br><br><br>
 #### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b ><br>
 

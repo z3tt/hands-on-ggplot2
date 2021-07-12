@@ -10,57 +10,67 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## <b style='color:gray;'>Segment 1</b><br><b style='font-size:20pt;'>Introduction to R and ggplot2</b>
+## <b style='color:gray;'>Segment 1</b><br><b style='font-size:20pt;'>The Basics of ggplot2</b>
 
-*Duration: 45 min*
+*Duration: 60 min*
 
 -  Motivation: The ggplot2 Showcase
 -  Loading data into R
+-  The Grammar of Graphics
 -  Our First ggplot
--  Basics of ggplot2
 
 → [Slides](slides/introduction.html)  
-→ [Codes](codes/introduction-rmarkdown.Rmd)
+→ [Codes](codes/introduction-rmarkdown.Rmd)  
+→ [Solutions]() *TBA*
 
-## <b style='color:gray;'>Segment 2</b><br><b style='font-size:20pt;'>The Grammar of Graphics</b>
+*Break: 5 min*
+
+## <b style='color:gray;'>Segment 2</b><br><b style='font-size:20pt;'>Build Plots Layer by Layer</b>
 
 *Duration: 60 min*
 
 <p class="nospace"></p>
--  The Logic of ggplot2
--  Statistical Transformations
--  Working with Scales (Axes, Colors, Legends)
--  Adding Titles and Labels
+-  Create any Chart Type
+-  Use Statistical Transformations
+-  Plot Spatial Maps
 
 → [Slides](slides/grammar.html)  
-→ [Codes](codes/grammar-rmarkdown.Rmd)
+→ [Codes](codes/grammar-rmarkdown.Rmd)  
+→ [Solutions]() *TBA*
 
-## <b style='color:gray;'>Segment 3</b><br><b style='font-size:20pt;'>The Power of Themes for Custom Design</b>
+*Break: 10 min*
+
+## <b style='color:gray;'>Segment 3</b><br><b style='font-size:20pt;'>Polish Your Visualization</b>
 
 *Duration: 60 min*
 
--  Using Template Themes
--  The Theme Elements
--  Create Your Own Templates
--  Working with Custom Fonts 
+-  Work with Colors, Shapes, and Guides
+-  Use Template Designs
+-  Create Custom Themes
 
 → [Slides](slides/themes.html)  
-→ [Codes](codes/themes-rmarkdown.Rmd)
+→ [Codes](codes/themes-rmarkdown.Rmd)  
+→ [Solutions]() *TBA*
 
+*Break: 5 min*
 
-## <b style='color:gray;'>Segment 4</b><br><b style='font-size:20pt;'>The Importance of Annotations</b>
+## <b style='color:gray;'>Segment 4</b><br><b style='font-size:20pt;'>Provide Context with Annotations</b>
 
 *Duration: 45 min*
 
--  Basic Text Labeling
--  Advanced Text Labeling with ggrepel and ggforce
--  Adding Logos and Images
+-  Insert Titles and Labels
+-  Basic and Advanced Text Labeling
+-  Add Images and Illustrations
+
 
 → [Slides](slides/annotation.html)  
-→ [Codes](codes/annotation-rmarkdown.Rmd)
+→ [Codes](codes/annotation-rmarkdown.Rmd)  
+→ [Solutions]() *TBA*
+
+*Break: 10 min*
 
 
-## <b style='color:gray;'>Segment 5</b><br><b style='font-size:20pt;'>Creating Multi-Panel Figures</b>
+## <b style='color:gray;'>Segment 5</b><br><b style='font-size:20pt;'>Create Multi–Panel Figures</b>
 
 *Duration: 30 min*
 
@@ -68,7 +78,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Combine Multiple Plots with patchwork
 
 → [Slides](slides/multipanel.html)  
-→ [Codes](codes/multipanel-rmarkdown.Rmd)
+→ [Codes](codes/multipanel-rmarkdown.Rmd)  
+→ [Solutions]() *TBA*
 
 
 ## Reuse {.appendix}
