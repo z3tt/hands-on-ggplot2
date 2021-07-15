@@ -33,7 +33,6 @@ navbar:
           href: 04-annotation-rmarkdown.html
         - text: "5. Create Multi-Panel Figures "
           href: 05-multipanel-rmarkdown.html
-          
     - text: "Codes"
       menu:
         - text: "1. The Grammar of Graphics"
@@ -46,7 +45,10 @@ navbar:
           href: codes/04-annotation-rmarkdown.Rmd
         - text: "5. Create Multi-Panel Figures "
           href: codes/05-multipanel-rmarkdown.Rmd
-          
     - text: "About"
       href: about.html
+    - icon: fa fa-github
+      href: "https://github.com/z3tt"
+    - icon: fa fa-twitter
+      href: "https://twitter.com/CedScherer"
 output: distill::distill_article
