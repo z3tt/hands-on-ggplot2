@@ -35,15 +35,20 @@ This is the home page for the Pearson–O'Reilly Live Training Session "Hands–
 
 # Prerequisites and Preparation
 
-- **Familiarity with Rstudio** *(required)*
-  * Video: [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers 
+- **Familiarity with Rstudio** *(required)*<br><br>Suggested Material:
   * Book: [Chapter 1 of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham & Garrett Grolemund
-- **Basic Knowledge of R** *(helpful but not required)*
-  * Video: [Chapters 3, 4, and 7 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers 
+  * Video: [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers 
+    
+- **Basic Knowledge of R** *(helpful but not required)*<br><br>Suggested Material:
   * Book: [Chapter 4–6 of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham & Garrett Grolemund
-- **Data Wrangling with the tidyverse** *(helpful but not required)*
-  * Scenario: [“Format and Shape Your Data in R with the Tidyverse”](https://www.oreilly.com/scenarios/format-and-shape/9781492079064/) by Martin Frigaard 
+  * Book: [Chapter 1–3 “R for Everyone: Advanced Analytics and Graphics, 2nd Edition”](https://learning.oreilly.com/library/view/r-for-everyone/9780134546988/) by Jared Lander 
+  * Book: [Section 1 and 3 “Programming Skills for Data Science: Start Writing Code to Wrangle, Analyze, and Visualize Data with R”](https://learning.oreilly.com/library/view/programming-skills-for/9780135159071/) by Joel Ross & Michael Freeman
+  * Video: [Chapters 3, 4, and 7 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers 
+
+    
+- **Data Wrangling with the tidyverse** *(helpful but not required)*<br><br>Suggested Material:
   * Book: [Chapter 9–16 (Section: Wrangle) of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham &  Garrett Grolemund
+  * Scenario: [“Format and Shape Your Data in R with the Tidyverse”](https://www.oreilly.com/scenarios/format-and-shape/9781492079064/) by Martin Frigaard 
 
 ---
 
@@ -51,8 +56,8 @@ This is the home page for the Pearson–O'Reilly Live Training Session "Hands–
 
 To run any of the materials locally on your own machine, you will need the following:
 
-- A recent version of R, [download from here.](https://cloud.r-project.org/)
-- A recent version of RStudio, [download from here.](https://rstudio.com/products/rstudio/download/#download)
+- A recent version of **R** (download from [here](https://cloud.r-project.org/)) and **RStudio**, (download from [here](https://rstudio.com/products/rstudio/download/#download)).
+    * for more detailed instructions see [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers
 - The following R packages: [`tidyverse`](https://www.tidyverse.org/) (includes [`ggplot2`](https://ggplot2.tidyverse.org/)), [`ggrepel`](https://ggrepel.slowkow.com/), [`ggtext`](https://wilkelab.org/ggtext/), [`patchwork`](https://patchwork.data-imaginist.com/), [`ggforce`](https://ggforce.data-imaginist.com/), [`ragg`](https://ragg.r-lib.org/), [`magick`](https://docs.ropensci.org/magick/).  
 
 You can install all required R packages at once by running the following code in the R command line:
@@ -60,11 +65,7 @@ You can install all required R packages at once by running the following code in
 ```{r install, eval=FALSE, echo=TRUE}
 # Package names
 packages <- c("tidyverse", "ggrepel", "ggtext", "patchwork", "ragg", "magick")
-
-# Install packages that are not yet installed
-if (any(packages %in% rownames(installed.packages()) == FALSE)) {
-  install.packages(packages[!packages %in% rownames(installed.packages())])
-}
+install.packages(packages)
 ```
 
 

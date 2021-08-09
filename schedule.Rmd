@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## <b style='color:gray;'>Segment 1</b><br><b style='font-size:20pt;'>The Basics of ggplot2</b>
+## <b style='color:gray;'>Segment 1</b><br><b style='font-size:20pt;'>The Grammar of Graphics</b>
 
 *Duration: 60 min*
 
