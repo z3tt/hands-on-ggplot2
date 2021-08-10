@@ -14,14 +14,15 @@ df_clean <- df %>%
     yday = lubridate::yday(date)
   ) %>% 
   drop_na() %>% 
-  filter(currency %in% c("litecoin", "bitcoin-sv", "binance-coin", "eos")) #, "tezos"
+  filter(currency %in% c("litecoin", "bitcoin-sv", "binance-coin", "eos")) %>% 
+  filter(year > 2016)
 
-write_rds(df_clean, here::here("data", "currency_cleaned.rds"))
-write_csv(df_clean, here::here("data", "currency_cleaned.csv"))
-xlsx::write.xlsx(df_clean, here::here("data", "currency_cleaned.xlsx"), sheetName = "Sheet1", col.names = TRUE, row.names = TRUE, append = FALSE)
+write_rds(df_clean, here::here("data", "crypto_cleaned.rds"))
+write_csv(df_clean, here::here("data", "crypto_cleaned.csv"))
+xlsx::write.xlsx(df_clean, here::here("data", "crypto_cleaned.xlsx"), 
+                 sheetName = "Sheet1", col.names = TRUE, row.names = TRUE, append = FALSE)
 
 d_clean %>% 
-  filter(year > 2016) %>% 
   ggplot(aes(date, close, color = currency)) +
   geom_line(size = .8, alpha = .8) + theme_gray(base_size = 18) + scale_x_date(expand = c(0, 0))
 
