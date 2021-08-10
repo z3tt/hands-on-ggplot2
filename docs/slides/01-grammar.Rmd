@@ -36,7 +36,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   fig.height = 6.3,
   fig.allign = 'center',
-  fig.retina = 3.5,
+  fig.retina = 1,
   fig.showtext = TRUE
 )
 
@@ -48,37 +48,912 @@ options(width = 80)
 <br><br>
 # Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 1: The Grammar of Graphics</b>
 <br><br><br><br><br><br><br>
-#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson|O'Reilly Live Training Session<br>September 3, 2021</b><br>
 
-```{r prep, echo=FALSE}
+```{r prep, echo=FALSE, purl=FALSE}
 library(tidyverse)
 library(conflicted)
-library(showtext)
+#library(showtext)
 filter <- dplyr::filter
-font_add_google("Roboto", "Roboto")
-font_add_google("Bitter", "Bitter")
-theme_set(theme_grey(base_size = 16))
+#font_add_google("Roboto", "Roboto")
+#font_add_google("Bitter", "Bitter")
+theme_set(theme_grey(base_size = 16, base_family = "DM Sans"))
+```
+
+---
+background-image: url("img/portfolio/Cards.png")
+background-position: center
+background-size: contain
+
+---
+class: center
+background-image: url("img/rtidy2.png")
+background-size: contain
+
+---
+class: inverse, center
+
+### Data Visualizations for Scientific Publications & Talks
+
+.pull-left[
+<p style='text-align:center;'><img src="img/portfolio/Fig2_disease-data_full_log.png" style='width:91%;border-style:solid; border-color:#606060;'><br><capinv>Scherer et al. 2019 Journal of Animal Ecology</capinv></p>
+]
+
+.pull-right[
+<p style='text-align:center;'><img src="img/portfolio/SwiFCoIBMove_density.png" style='width:92%;border-style:solid; border-color:#606060;'><br><capinv>Scherer et al. 2020 Oikos</capinv></p>
+<p style='text-align:center;'><img src="img/portfolio/NLMR_case_study.png" style='width:92%;border-style:solid; border-color:#606060;'><br><capinv>Sciaini et al. 2019 Methods in Ecology & Evolution</capinv></p>
+]
+
+---
+class: inverse, center
+
+### Data Visualizations for Client Projects
+
+<img src="img/portfolio/jupiter_daily_ma_candles.png", height=243px, style="position:absolute; top:16%; left:2%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/20201116_FP_2_5_rating_lolli_1.png", height=243px, style="position:absolute; top:16%; left:37.97%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/3_time_eandy_highlight_1.png", height=243px, style="position:absolute; top:16%; right:2%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/20200514_FP_12_1_statement_boykott_doughnut_1.png", height=259px, style="position:absolute; top:54%; left:2%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/20200723_FP_2_jpmorgan_line_change_1.png", height=259px, style="position:absolute; top:54%; left:26.7%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/fig_g3.png", height=259px, style="position:absolute; top:54%; right:2%; border-style:solid; border-color:#606060;"></img>
+
+---
+class: inverse, center
+
+### Data Visualizations as Personal Projects
+
+<img src="img/portfolio/20200630_TT_2020_27_Xmen_annotated.png", height=273px, style="position:absolute; top:14%; left:2%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/03_Polygons_GlobalMortality.png", height=273px, style="position:absolute; top:14%; left:32.9%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/2020_28_CoffeeRatings.png", height=273px, style="position:absolute; top:14%; right:2%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/19_global_change.png", height=266px, style="position:absolute; top:55.6%; left:2%; border-style:solid; border-color:#606060;"></img>
+
+<img src="img/portfolio/CheetahMap_rcarto_sd.png", height=266px, style="position:absolute; top:55.6%; right:2%; border-style:solid; border-color:#606060;"></img>
+
+---
+class: inverse, center
+exclude: true
+
+#### cedricscherer.com
+
+<p style='text-align:center;'><img src="img/portfolio/blog.png" style='width:53%;'><br><b style='color:lightgrey;font-size:12pt;'>cedricscherer.netlify.com</b></p>
+
+---
+class: inverse, center
+exclude: true
+
+.pull-left[
+<p style='text-align:center;'><img src="img/portfolio/blog-tutorial.png" style='width:64%;'></p>
+]
+
+.pull-right[
+<p style='text-align:center;'><img src="img/portfolio/blog-evol.png" style='width:64%;'></p>
+]
+
+---
+class: inverse, center
+exclude: true
+
+#### github.com/z3tt
+
+<p style='text-align:center;'><img src="img/portfolio/github.png" style='width:46%;'><br><b style='color:lightgrey;font-size:12pt;'>github.com/z3tt</b>
+
+---
+class: center, inverse
+
+<br>
+<p style="text-align:center;"><img src="img/ggplot2.png" style="width: 20%">
+<br><br>
+
+<b style='font-size:28pt;'><code style='color:#ebc500;'>ggplot2</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
+
+--
+
+<br>
+<span style='font-size:22pt;'>You provide the data, tell <code style='color:#ebc500;font-weight:700;'>ggplot2</code> how to <b>map variables to aesthetics</b>,<br>what graphical primitives to use, and it takes care of the details.</span><br>
+<br>
+<i style='font-size:12pt;color:grey;'>ggplot2 package description</i>
+
+---
+<br><br>
+
+# Advantages of `ggplot2`
+
+<br>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
+</ul>
+
+---
+<br><br>
+
+# Advantages of `ggplot2`
+
+<br>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
+<br>
+<li>very flexible, layered plot specification</li> 
+</ul>
+
+---
+<br><br>
+
+# Advantages of `ggplot2`
+
+<br>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
+<br>
+<li>very flexible, layered plot specification</li> 
+<br>
+<li>theme system for polishing plot appearance</li>
+</ul>
+
+---
+<br><br>
+
+# Advantages of `ggplot2`
+
+<br>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
+<br>
+<li>very flexible, layered plot specification</li> 
+<br>
+<li>theme system for polishing plot appearance</li>
+<br>  
+<li>active and helpful community</li>
+</ul>
+
+---
+class: center, middle
+
+<img src="img/ah_ggplot2_exploratory.png" style='width:53%;'><br><cap>Illustration by Allison Horst</cap>
+
+---
+class: center, middle
+
+<p style='text-align:center;'><img src="img/basic_ggplots.png" style='width:80%;'><br><cap>Source: Rstudio (ggplot2.tidyverse.org)</cap></p>
+
+---
+class: center, middle
+
+<img src="img/ah_ggplot2_masterpiece.png" style='width:64%;'><br><cap>Illustration by Allison Horst</cap>
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;'>The <code style='color:#ebc500;'>ggplot2</code> Showcase</b><br><br>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/bbc-gallery.png" style='width:90%;'><br><capinv>Collection of BBC Graphics<br><span style='color:grey;font-size:8pt;'>(modified from bbc.github.io/rcookbook)</span></capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/bbc-gallery-quote.png" style='width:90%;'><br><capinv>Collection of BBC Graphics<br><span style='color:grey;font-size:8pt;'>(modified from bbc.github.io/rcookbook)</span></capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/20201013_OurWorldInData_emissions_1.png" style='width:73%;'>
+<br><capinv>Reworked OurWorldInData Graph</capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/2020_31_PalmerPenguins.png" style='width:32%;'>
+<br><capinv>Contribution to #TidyTuesday 2020/31</capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/21_downwards_not_really_umpf.png" style='width:80%;'>
+<br><capinv>Contribution to #30DayChartChallenge 2021</capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/europe_sprengler.jpeg" style='width:49%;'><br><capinv>European Elections by Torsten Sprenger<br><span style='color:grey;font-size:8pt;'>(twitter.com/spren9er/status/1138000009306234880)</span></capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/20200307_TT_2020_08_CarbonFoodprint_alt.png" style='width:73%;'>
+<br><capinv>Contribution to #TidyTuesday</capinv></p>
+
+---
+class: inverse, center, middle
+exclude: true
+
+<p style='text-align:center;'><img src="img/showcase/20190908_SWD_2019_09_Uncertainty.png" style='width:73%;'>
+<br><capinv>Contribution to #SWDchallenge</capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/SWD_2020_01_SmallMultiples_grey.png" style='width:100%;'><br><capinv>Contribution to #SWDchallenge</capinv></p>
+
+---
+class: inverse, center, middle
+exclude: true
+
+<p style='text-align:center;'><img src="img/showcase/20200630_corona_map_yday_latest_1.png" style='width:60%;'><br><capinv>Personal Project "The Worst Days So Far"</capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/jack_davison.png" style='width:40%;'><br><capinv>#TidyTuesday Contribution by Jack Davison<br><span style='color:grey;font-size:8pt;'>(github.com/jack-davison/tidytuesday)</span></capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/20210131_BES_CheetahMap_rcarto_hd.png" style='width:65%;'><br><capinv>Contribution to the BES MoveMap Contest</capinv></p>
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/swiss_map.png" style='width:65%;'><br><capinv>Bivariate Choropleth Map by Timo Gossenbacher<br><span style='color:grey;font-size:8pt;'>(timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf)</span></capinv></p>
+
+---
+class: inverse, center, middle
+
+.pull-left[
+<p style='text-align:center;'><img src="img/showcase/gganimate-hurricane.gif" style='width:71%;'><br><capinv>Example of the {gganimate} Package<br><span style='color:grey;font-size:8pt;'>(github.com/thomasp85/gganimate/wiki)</span></capinv></p>
+]
+
+.pull-right[
+<p style='text-align:center;'><img src="img/showcase/dwd_anim_diff_yrs_short.gif" style='width:100%;'><br><capinv>Personal Project</capinv></p>
+]
+
+---
+class: inverse, center, middle
+
+<p style='text-align:center;'><img src="img/showcase/genart.png" style='width:71%;'><br><capinv>Generative art by Thomas Lin Pedersen<br></capinv></p>
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>The Setup</b><br><br>
+
+---
+## The Package
+
+<span style='font-size:16pt;'>`ggplot2` is a **data visualization package** for the programming language `R` created by Hadley Wickham.</span>
+
+```{r ggplot-package, eval=FALSE}
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+--
+
+<span style='font-size:16pt;'>`ggplot2` is part of the [`tidyverse`](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/), a set of packages to manipulate and explore data.</span>
+
+```{r tidyverse-package, eval=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+<p style="text-align:right;"><img src="img/tidyverse.png" style="width: 58%"><font color="grey" size=2><i>Source: dicook.org/files/rstudio/#3</i></font></p>
+
+---
+
+## The Data Set
+
+We use **cryptocurrency financial data**, pulled from [CoinMarketCap.com](https://www.kaggle.com/philmohun/cryptocurrency-financial-data).<br>
+
+<p style='text-align:left;'><img src="img/data-kaggle.png" style='width:59%;'>
+
+---
+
+We limit the data to the period 08/2017–12/2019 and the top 4 cryptocurrencies:
+
+![](./img/data.png)
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Import the Data</b><br><br>
+
+---
+
+## Import the Data
+
+Using the `read_csv()` function form the `{readr}` package, we can read the data directly from the web:
+
+```{r data-readr}
+url <- "https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv"
+
+data <- readr::read_csv(url)
 ```
 
 ---
 
-## A Descriptive Title
+## Short Explanation of `::`
 
-... and some text to illustrate the size of the body text.
+<br>The so–called **namespace** allows to access functions from a package directly without loading it first.
+
+<code style='font-size:30pt;'>packagename::function(argument)</code>
+
+--
+
+<br>Furthermore, it helps readers to understand from which package a function is imported from.
+
+---
+
+## Import the Data
+
+Using the `read_csv()` function form the `{readr}` package, we can read the data directly from the web:
+
+```{r data-readr-inspect}
+url <- "https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv"
+
+data <- readr::read_csv(url)
+
+data #<<
+```
+
+---
+
+## Import the Data
+
+Of course, one can import local files as well:
+
+```{r data-readr-local}
+data_local <- readr::read_csv("data/crypto_cleaned.csv")
+
+data_local
+```
+
+--
+
+This assumes that you have placed the file in a folder called `data` in your working directory.  
+You can specify this directory via `setwd()` or, and preferably, use R projects.
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;'>The Structure of<br><code style='color:#ebc500;'>ggplot2</code></b><br><br>
+# <span style='font-size:40pt;color:#a7a7a7;'>"The Grammar of Graphics"</span><br><br>
+
+---
+
+## The Structure of `ggplot2`
+
+<br>
+<table style='width:100%;font-size:15pt;font-family:DM Sans;'>
+  <tr>
+    <th>Layer</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code></td>
+    <td>The raw data that you want to visualise.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&emsp;&emsp;&emsp;&emsp;&emsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>Aesthetic mappings of the geometric and statistical objects.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Layers</b></td>
+    <td><code>geom_*()</code> and&nbsp;&nbsp;<code>stat_*()</code></td>
+    <td>The geometric shapes and statistical summaries representing the data.</td>
+  </tr>
+</table>
+
+---
+
+## The Structure of `ggplot2`
+
+<br>
+<table style='width:100%;font-size:15pt;font-family:DM Sans;'>
+  <tr>
+    <th>Layer</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code></td>
+    <td>The raw data that you want to visualise.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&emsp;&emsp;&emsp;&emsp;&emsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>Aesthetic mappings of the geometric and statistical objects.</td>
+  <tr>
+    <td><b style='color:#67676;'>Layers</b></td>
+    <td><code>geom_*()</code> and&nbsp;&nbsp;<code>stat_*()</code></td>
+    <td>The geometric shapes and statistical summaries representing the data.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Scales</b></td>
+    <td><code>scale_*()</code></td>
+    <td>Maps between the data and the aesthetic dimensions.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Coordinate System</b></td>
+    <td><code>coord_*()</code></td>
+    <td>Maps data into the plane of the data rectangle.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Facets</b></td>
+    <td><code>facet_*()</code></td>
+    <td>The arrangement of the data into a grid of plots.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Visual Themes</b></td>
+    <td><code>theme()</code> and&nbsp;&nbsp;<code>theme_*()</code></td>
+    <td>The overall visual defaults of a plot.</td>
+  </tr>
+</table>
+
+---
+
+## The Structure of `ggplot2`
+
+<br>
+<table style='width:100%;font-size:15pt;font-family:DM Sans;'>
+  <tr>
+    <th>Layer</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code></td>
+    <td>The raw data that you want to visualise.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&emsp;&emsp;&emsp;&emsp;&emsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>Aesthetic mappings of the geometric and statistical objects.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Layers</b></td>
+    <td><code>geom_*()</code> and&nbsp;&nbsp;<code>stat_*()</code></td>
+    <td>The geometric shapes and statistical summaries representing the data.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Scales</b></td>
+    <td><code>scale_*()</code></td>
+    <td>Maps between the data and the aesthetic dimensions.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Coordinate System</b></td>
+    <td><code>coord_*()</code></td>
+    <td>Maps data into the plane of the data rectangle.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Facets</b></td>
+    <td><code>facet_*()</code></td>
+    <td>The arrangement of the data into a grid of plots.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Visual Themes</b></td>
+    <td><code>theme()</code> and&nbsp;&nbsp;<code>theme_*()</code></td>
+    <td>The overall visual defaults of a plot.</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Annotations</b></td>
+    <td><code>annotate()</code></td>
+    <td>Add additional labels, geometries or images to a plot.</td>
+  </tr>
+</table>
+
+---
+
+## Data: <code style='color:#28a87d;font-weight:700;'>ggplot(data)</code>
+
+We need to specify the data in the `ggplot()` call:
+
+```{r structure-data, fig.width = 16, fig.height = 5.3}
+ggplot(data = data) #<<
+```
+
+--
+
+There is only an empty panel because `ggplot2` doesn't know **what** of the data it should plot.
+
+---
+
+## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+
+We need to specify two variables we want to plot as positional `aes`thetics:
+
+```{r structure-aes, fig.width = 16, fig.height = 5.3}
+ggplot(data = data, mapping = aes(x = date, y = close)) #<<
+```
+
+--
+
+There is only an empty panel because `ggplot2` doesn't know **how** it should plot the data.
+
+---
+
+## <code style='color:#28a87d;font-weight:700;'>ggplot(data, aes(x, y))</code>
+
+Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also write:
+
+```{r structure-aes-implicit, fig.width = 16, fig.height = 5.3}
+ggplot(data, aes(date, close)) #<<
+```
+
+---
+
+## Layers: <b><code>geom\_\*()</code>&nbsp;&nbsp;and&nbsp;&nbsp;<code>stat_*()</code></b>
+
+By adding one or multiple layers we can tell `ggplot2` *how*&nbsp;&nbsp;to represent the data.<br>
+There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
+
+<p style="text-align:center;"><img src="img/ggplot-layers.png" style="width: 54%"><i style='font-size:10pt;color:grey;'>Adapted from ggplot2.tidyverse.org/reference</i></p>
+
+---
+
+## Layers: <code style='color:#28a87d;font-weight:700;'>geom_*()</code>
+
+We can tell `ggplot2` to represent the data for example as a **scatter plot**:
+
+```{r structure-geom-point, fig.width = 16, fig.height = 5.8}
+ggplot(data, aes(date, close)) +
+  geom_point() #<<
+```
+
+---
+
+## Layers: <code style='color:#28a87d;font-weight:700;'>geom_*()</code>
+
+... or as a **line plot** to visualize the data as time series:
+
+```{r structure-geom-line, fig.width = 16, fig.height = 5.8}
+ggplot(data, aes(date, close)) +
+  geom_line() #<<
+```
+
+---
+
+## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+
+Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
+
+```{r structure-aes-line-groups, fig.width = 16, fig.height = 5.8}
+ggplot(data = data, mapping = aes(x = date, y = close, group = currency)) + #<<
+  geom_line()
+```
+
+---
+
+## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+
+Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
+
+```{r structure-aes-line-colors, fig.width = 16, fig.height = 5.8}
+ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) + #<<
+  geom_line()
+```
+
+---
+
+## Layers: <code style='color:#28a87d;font-weight:700;'>geom\_\*()</code> and <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+
+The exciting thing about layers is that you can combine several `geom_*()` and `stat_*()` calls:
+
+```{r structure-geom-point-smooth, fig.width = 16, fig.height = 5.5}
+ggplot(data, aes(date, close, color = currency)) +
+  stat_smooth() + #<<
+  geom_point() #<<
+```
+
+---
+
+## Layers: <code style='color:#28a87d;font-weight:700;'>geom\_\*()</code> and <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+
+... and aesthetics can be applied either **globally** or for each layer individually:
+
+```{r structure-geom-point-smooth-aes-global, fig.width = 16, fig.height = 5.5}
+ggplot(data, aes(date, close, color = currency, shape = currency)) + #<<
+  stat_smooth() +
+  geom_point()
+```
+
+---
+
+## Layers: <code style='color:#28a87d;font-weight:700;'>geom\_\*()</code> and <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+
+... and aesthetics can be applied either globally or for each layer **individually**:
+
+```{r structure-geom-point-smooth-aes-individual, fig.width = 16, fig.height = 5.5}
+ggplot(data, aes(date, close)) +
+  stat_smooth(aes(color = currency)) + #<<
+  geom_point(aes(shape = currency)) #<<
+```
+
+---
+
+## Exercise
+
+* Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
+  
+* Inspect the data.
+
+* Create a scatter plot of temperature (`temp`) versus day (`date`).
+
+* Color the points by season (`season`).
+
+* Color the points by year (`year`).
+  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
+
+--
+
+* **Bonus:** Turn the scatter plot, colored by season, into a line plot.
+  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
+
+---
+
+## Scales: <code style='color:#28a87d;font-weight:700;'>scales\_\*()</code>
+
+Scales are directly connected to aesthetics:
 
 .pull-left[
-```{r code, eval=FALSE}
-## Also, some code:
-mpg %>% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %>% 
-  count(manufacturer) %>% 
-  ggplot(aes(n, manufacturer)) + #<<
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
+```{r structure-scales, eval=FALSE}
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  stat_smooth() +
+  geom_point() +
+  scale_x_date() +  #<<
+  scale_y_continuous() +  #<<
+  scale_color_discrete() #<<
 ```
 ]
 
 .pull-right[
-```{r plot, ref.label="code", echo=FALSE}
+```{r plot-structure-scales, ref.label="structure-scales", echo=FALSE}
 ```
 ]
+
+---
+
+## Scales: <code style='color:#28a87d;font-weight:700;'>scales\_\*()</code>
+
+Scales are directly connected to aesthetics:
+
+.pull-left[
+```{r structure-scales-adj, eval=FALSE}
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  stat_smooth() +
+  geom_point() +
+  scale_x_date(
+    expand = c(0, 0), #<<
+    date_breaks = "4 months", #<< 
+    date_labels = "%m/%y", #<<
+    name = NULL #<<
+  ) +
+  scale_y_continuous(
+    labels = scales::dollar_format(), #<<
+    sec.axis = dup_axis(name = NULL), #<<
+    name = "Closing Price" #<<
+  ) + 
+  scale_color_discrete(
+    guide = "none" #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-structure-scales-adj, ref.label="structure-scales-adj", echo=FALSE}
+```
+]
+
+---
+
+## Coordinate Systems: <code style='color:#28a87d;font-weight:700;'>coord\_\*()</code>
+
+The coordinate system maps the two position to a 2d position on the plot:
+
+.pull-left[
+```{r structure-coord, eval=FALSE}
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  stat_smooth() +
+  geom_point() +
+  scale_x_date() + 
+  scale_y_continuous() + 
+  scale_color_discrete() +
+  coord_cartesian() #<<
+```
+]
+
+.pull-right[
+```{r plot-structure-coord, ref.label="structure-coord", echo=FALSE}
+```
+]
+
+---
+
+## Coordinate Systems: <code style='color:#28a87d;font-weight:700;'>coord\_\*()</code>
+
+The coordinate system maps the two position to a 2d position on the plot:
+
+.pull-left[
+```{r structure-coord-polar, eval=FALSE}
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  stat_smooth() +
+  geom_point() +
+  scale_x_date() + 
+  scale_y_continuous() + 
+  scale_color_discrete() +
+  coord_polar() #<<
+```
+]
+
+.pull-right[
+```{r plot-structure-coord-polar, ref.label="structure-coord-polar", echo=FALSE}
+```
+]
+
+---
+
+## Coordinate Systems: <code style='color:#28a87d;font-weight:700;'>coord\_\*()</code>
+
+Changing the limits on the coordinate system allows to zoom in:
+
+.pull-left[
+```{r structure-coord-zoom, eval=FALSE}
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  stat_smooth() +
+  geom_point() +
+  scale_x_date() + 
+  scale_y_continuous() + 
+  scale_color_discrete() +
+  coord_cartesian(
+    xlim = c(as.Date("2018-11-01"), #<<
+             as.Date("2019-11-01")), #<<
+    ylim = c(NA, 100) #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-structure-coord-zoom, ref.label="structure-coord-zoom", echo=FALSE}
+```
+]
+
+---
+class: center, middle
+
+## Facets, Themes, and Annotations will follow later!
+
+
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:lightgray;'>APPENDIX</b><br><br>
+
+---
+
+## Import the Data
+
+The base R function `read.csv()` works in the same way as `readr::read_csv()`:
+
+```{r data-base}
+data2 <- read.csv(url)
+
+data2
+```
+
+---
+
+## Import the Data
+
+... and we can turn it into a **tibble** afterwards:
+
+```{r data-base-tbl}
+data2 <- tibble::as_tibble(data2)
+
+data2
+```
+
+However, note that by default the date column is runed into type `character`.
+
+---
+
+## Import the Data
+
+The `import()` function from the `{rio}` package allows to load all kind of data formats:
+
+```{r data-rio-url}
+data3 <- rio::import(url)
+
+data3
+```
+
+---
+
+## Import the Data
+
+... and we can turn it into a **tibble** afterwards:
+
+```{r data-rio-tbl}
+data3 <- tibble::as_tibble(data3)
+
+data3
+```
+
+---
+
+## Import the Data
+
+The `import()` function from the `{rio}` package allows to load all kind of data formats:
+
+```{r data-rio-xlsx}
+data_xlsx <- rio::import(here::here("data", "crypto_cleaned.xlsx"))
+
+data_xlsx
+```
+
+---
+
+## Import the Data
+
+We can remove the first column by using the `select()` function from the `{dplyr}` package:
+
+```{r data-xlsx-select}
+data_xlsx <- dplyr::select(data_xlsx, -1)
+#data_xlsx <- dplyr::select(data_xlsx, currency:yday)
+
+data_xlsx
+```
+
+---
+
+## Import the Data
+
+... and turn it into a **tibble** afterwards:
+
+```{r data-xlsx-tibble}
+data_xlsx <- tibble::as_tibble(data_xlsx)
+
+data_xlsx
+```
+
+---
+
+## Import the Data
+
+Of course, one can load local files as well. Preferably with the help of the `{here}` package and R projects:
+
+```{r data-readr-local-here}
+here::here()
+
+data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
+
+data_local
+```
+
+---
+
+## <code style='color:#28a87d;font-weight:700;'>ggplot(data) + aes(x, y)</code>
+
+Some prefer to place the `aes()` outside the `ggplot()` call:
+
+```{r structure-aes-outside, fig.width = 16, fig.height = 5.5}
+ggplot(data) + #<<
+  aes(x = date, y = close) #<<
+```
