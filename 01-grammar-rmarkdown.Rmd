@@ -6,14 +6,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  echo = TRUE, 
-  warning = FALSE, 
-  message = FALSE,
-  fig.width = 10,
-  fig.height = 6,
-  fig.retina = 2
-)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.width = 10, fig.height = 6, fig.retina = 2)
 ```
 
 ### The ggplot2 Package
@@ -381,3 +375,17 @@ Some prefer to place the `aes()` outside the `ggplot()` call:
 ggplot(data) +
   aes(x = date, y = close)
 ```
+
+---
+
+## Session Info
+
+<details><summary>Expand for details</summary>
+
+```{r sessionInfo, echo = F}
+Sys.time()
+git2r::repository()
+sessionInfo()
+```
+
+</details>
