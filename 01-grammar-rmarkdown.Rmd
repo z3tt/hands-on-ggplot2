@@ -344,7 +344,7 @@ We can remove the first column by using the `select()` function from the `{dplyr
 data_xlsx <- dplyr::select(data_xlsx, -1)
 #data_xlsx <- dplyr::select(data_xlsx, currency:yday)
 
-data_xlsx
+head(data_xlsx)
 ```
 
 ... and turn it into a **tibble** afterwards:
