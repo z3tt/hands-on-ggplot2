@@ -16,12 +16,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-## The `ggplot2` Package
+### The ggplot2 Package
 
 > ggplot2 is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).
 > You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
-## Advantages of `ggplot2`
+### Advantages of ggplot2
 
 * consistent underlying grammar of graphics (Wilkinson, 2005)
 * very flexible, layered plot specification 
@@ -29,9 +29,9 @@ knitr::opts_chunk$set(
 * active and helpful community
 
 
-# The Setup
+## The Setup
 
-## The Package
+### The Package
 
 `ggplot2` is a **data visualization package** for the programming language `R` created by Hadley Wickham.
 
@@ -50,14 +50,14 @@ library(tidyverse)
 ```
 
 
-# The Data Set
+## The Data Set
 
 We use **cryptocurrency financial data**, pulled from [CoinMarketCap.com](https://www.kaggle.com/philmohun/cryptocurrency-financial-data).
 For our purposes, we limit the data to the period 08/2017–12/2019 and the top 4 cryptocurrencies.
 
 I have already prepared the data. If you want to know how, you can have a look [here]().
 
-## Import the Data
+### Import the Data
 
 Using the `read_csv()` function form the `{readr}` package, we can read the data directly from the web:
 
@@ -81,7 +81,7 @@ This assumes that you have placed the file in a folder called `data` in your wor
 You can specify this directory via `setwd()` or, and preferably, use R projects.
 
 
-### Short Explanation of `::`
+#### Short Explanation of ::
 
 The so–called **namespace** allows to access functions from a package directly without loading it first.
 
@@ -91,14 +91,14 @@ Furthermore, it helps readers to understand from which package a function is imp
 
 
 
-# The Grammar of Graphics
+## The Grammar of Graphics
 
-## The Structure of `ggplot2`
+### The Structure of ggplot2
 
 ![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/structure-table.png)
 
 
-## Data: `ggplot(data)`
+### Data: ggplot(data)
 
 We need to specify the data in the `ggplot()` call:
 
@@ -108,7 +108,7 @@ ggplot(data = data)
 
 There is only an empty panel because `ggplot2` doesn't know **what** of the data it should plot.
 
-## Aesthetics: `aes()`
+### Aesthetics: aes()
 
 We need to specify two variables we want to plot as positional `aes`thetics:
 
@@ -124,7 +124,8 @@ Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also 
 ggplot(data, aes(date, close))
 ```
 
-## Layers: `geom_*()` and `stat_*()`
+
+### Layers: geom_\*() and stat_*()
 
 By adding one or multiple layers we can tell `ggplot2` *how* to represent the data.
 There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
@@ -145,7 +146,7 @@ ggplot(data, aes(date, close)) +
   geom_line()
 ```
 
-## Aesthetics: `aes()` (again)
+### Aesthetics: aes() (again)
 
 Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
 
@@ -159,7 +160,7 @@ ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
   geom_line()
 ```
 
-## Layers: `geom\_\*()` and `stat_*()` (repeated)
+### Layers: geom_\*() and stat_*() (repeated)
 
 The exciting thing about layers is that you can combine several `geom_*()` and `stat_*()` calls:
 
@@ -187,7 +188,7 @@ ggplot(data, aes(date, close)) +
 
 ---
 
-# Exercise
+## Exercise
 
 * Import the data set on Chicago weather data: https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
   
@@ -206,9 +207,9 @@ ggplot(data, aes(date, close)) +
 ---
 
 
-# The Grammar of Graphics (continued)
+## The Grammar of Graphics (continued)
 
-## Scales: `scales_*()`
+### Scales: scales_*()
 
 Scales are directly connected to aesthetics:
 
@@ -241,7 +242,7 @@ ggplot(data, aes(x = date, y = close, color = currency)) +
   )
 ```
 
-## Coordinate Systems: `coord_*()`
+### Coordinate Systems: coord_*()
 
 The coordinate system maps the two position to a 2d position on the plot:
 
@@ -290,18 +291,18 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-# APPENDIX
+## APPENDIX
 
-## Import the Data
+### Import the Data
 
-### Base R
+#### Base R
 
 The base R function `read.csv()` works in the same way as `readr::read_csv()`:
 
 ```{r data-base}
 data2 <- read.csv(url)
 
-data2
+head(data2)
 ```
 
 ... and we can turn it into a **tibble** afterwards:
@@ -315,7 +316,7 @@ data2
 However, note that by default the date column is runed into type `character`.
 
 
-### `rio` Package
+#### The {rio} Package
 
 The `import()` function from the `{rio}` package allows to load all kind of data formats:
 
@@ -324,7 +325,7 @@ The `import()` function from the `{rio}` package allows to load all kind of data
 
 data3 <- rio::import(url)
 
-data3
+head(data3)
 ```
 
 ... and we can turn it into a **tibble** afterwards:
@@ -340,7 +341,7 @@ You could also load, for example, Excel files with the same function:
 ```{r data-rio-xlsx}
 data_xlsx <- rio::import( "https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.xlsx")
 
-data_xlsx
+head(data_xlsx)
 ```
 
 We can remove the first column by using the `select()` function from the `{dplyr}` package:
@@ -372,7 +373,7 @@ data_local
 
 ---
 
-## Aesthetics: `aes()`
+### Aesthetics: aes()
 
 Some prefer to place the `aes()` outside the `ggplot()` call:
 

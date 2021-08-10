@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-This is the home page for the Pearson–O'Reilly Live Training Session "Hands–On Data Visualization with ggplot2". All course materials will be posted on this site.
+This is the home page for the Pearson Live Training Session "Hands–On Data Visualization with ggplot2" for O'Reilly. All course materials will be posted on this site.
 
 ### Details
 
