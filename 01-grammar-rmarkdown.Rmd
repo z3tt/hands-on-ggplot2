@@ -25,6 +25,29 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
 
 ## The Setup
 
+### The Course Material
+
+* Clone the [repository](https://github.com/z3tt/hands-on-ggplot2-training).
+
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/repo.png)
+
+* Open the R Project: `hands-on-ggplot2.Rproj`
+
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/rproj.png)
+
+* Open the first script: `01-grammar.Rmd`
+
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/rstudio-file.png)
+
+* Run code locally
+
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/run-code.png)
+
+* ... or knit the report
+
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/knit.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/report.png)
+
 ### The Package
 
 `ggplot2` is a **data visualization package** for the programming language `R` created by Hadley Wickham.
