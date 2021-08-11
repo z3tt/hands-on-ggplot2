@@ -2487,6 +2487,7 @@ Codes
 <li><a href="#advantages-of-ggplot2">Advantages of ggplot2</a></li>
 <li><a href="#the-setup">The Setup</a>
 <ul>
+<li><a href="#the-course-material">The Course Material</a></li>
 <li><a href="#the-package">The Package</a></li>
 </ul></li>
 <li><a href="#the-data-set">The Data Set</a>
@@ -2529,6 +2530,27 @@ Codes
 <li>active and helpful community</li>
 </ul>
 <h2 id="the-setup">The Setup</h2>
+<h3 id="the-course-material">The Course Material</h3>
+<ul>
+<li>Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/repo.png" /></p>
+<ul>
+<li>Open the R Project: <code>hands-on-ggplot2.Rproj</code></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/rproj.png" /></p>
+<ul>
+<li>Open the first script: <code>01-grammar.Rmd</code></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/rstudio-file.png" /></p>
+<ul>
+<li>Run code locally</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/run-code.png" /></p>
+<ul>
+<li>… or knit the report</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/knit.png" /> <img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/report.png" /></p>
 <h3 id="the-package">The Package</h3>
 <p><code>ggplot2</code> is a <strong>data visualization package</strong> for the programming language <code>R</code> created by Hadley Wickham.</p>
 <p>It should be already installed on your system (if not run the first line in the following chunk). The functionality of the package can be loaded by calling <code>library()</code> as for any other package:</p>
@@ -2968,7 +2990,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/Hands-On-ggplot2&quot;</code></pre>
+<pre><code>[1] &quot;C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_local</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"crypto_cleaned.csv"</span><span class='op'>)</span><span class='op'>)</span>
 
@@ -3008,10 +3030,10 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-10 22:20:10 CEST&quot;</code></pre>
-<pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/Hands-On-ggplot2
+<pre><code>[1] &quot;2021-08-11 10:05:47 CEST&quot;</code></pre>
+<pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [21dcd87] 2021-08-10: update rmds</code></pre>
+Head:     [6609fbe] 2021-08-10: update rmd&#39;s</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)

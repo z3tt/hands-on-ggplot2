@@ -326,6 +326,67 @@ class: inverse, center, middle
 # <b style='font-size:70pt;color:#ebc500;'>The Setup</b><br><br>
 
 ---
+
+## The Course Material
+
+* **Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>**
+
+<p style='text-align:center;'><img src="img/setup/repo.png" style='width:69%;'>
+
+---
+
+## The Course Material
+
+* Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.
+* **Open the R Project: `hands-on-ggplot2.Rproj`**
+
+<p style='text-align:center;'><img src="img/setup/rproj.png" style='width:80%;'>
+
+---
+
+## The Course Material
+
+* Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.
+* Open the R Project: `hands-on-ggplot2.Rproj`
+* **Open the first script: `01-grammar.Rmd`**
+
+<p style='text-align:center;'><img src="img/setup/rstudio-file.png" style='width:69%;'>
+
+---
+
+## The Course Material
+
+* Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.
+* Open the R Project: `hands-on-ggplot2.Rproj`
+* Open the first script: `01-grammar.Rmd`
+* **Run code locally**
+
+<p style='text-align:center;'><img src="img/setup/run-code.png" style='width:66%;'>
+
+---
+
+## The Course Material
+
+* Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.
+* Open the R Project: `hands-on-ggplot2.Rproj`
+* Open the first script: `01-grammar.Rmd`
+* Run code locally or **knit the report**
+
+<p style='text-align:center;'><img src="img/setup/knit.png" style='width:66%;'>
+
+---
+
+## The Course Material
+
+* Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.
+* Open the R Project: `hands-on-ggplot2.Rproj`
+* Open the first script: `01-grammar.Rmd`
+* Run code locally or **knit the report**
+
+<p style='text-align:center;'><img src="img/setup/report.png" style='width:65%;'>
+
+---
+
 ## The Package
 
 <span style='font-size:16pt;'>`ggplot2` is a **data visualization package** for the programming language `R` created by Hadley Wickham.</span>
