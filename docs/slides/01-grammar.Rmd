@@ -37,7 +37,8 @@ knitr::opts_chunk$set(
   fig.height = 6.3,
   fig.allign = 'center',
   fig.retina = 1,
-  fig.showtext = TRUE
+  dev = "ragg_png", 
+  res = 1000
 )
 
 Sys.setlocale("LC_TIME", "C")
@@ -53,11 +54,8 @@ options(width = 80)
 ```{r prep, echo=FALSE, purl=FALSE}
 library(tidyverse)
 library(conflicted)
-#library(showtext)
 filter <- dplyr::filter
-#font_add_google("Roboto", "Roboto")
-#font_add_google("Bitter", "Bitter")
-theme_set(theme_grey(base_size = 16, base_family = "DM Sans"))
+theme_set(theme_grey(base_size = 15, base_family = "Roboto Condensed"))
 ```
 
 ---
@@ -165,8 +163,7 @@ class: center, inverse
 
 # Advantages of `ggplot2`
 
-<br>
-<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
 </ul>
 
@@ -175,8 +172,7 @@ class: center, inverse
 
 # Advantages of `ggplot2`
 
-<br>
-<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
 <br>
 <li>very flexible, layered plot specification</li> 
@@ -187,8 +183,7 @@ class: center, inverse
 
 # Advantages of `ggplot2`
 
-<br>
-<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
 <br>
 <li>very flexible, layered plot specification</li> 
@@ -201,8 +196,7 @@ class: center, inverse
 
 # Advantages of `ggplot2`
 
-<br>
-<ul style='font-size:22pt;color:#28a87d;font-weight:700;'>
+<ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
 <br>
 <li>very flexible, layered plot specification</li> 
@@ -386,6 +380,20 @@ class: inverse, center, middle
 <p style='text-align:center;'><img src="img/setup/report.png" style='width:65%;'>
 
 ---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: Do you use Rmarkdown reports?
+
+
+<ul style='font-size:26pt;margin: 50px 50px;'>
+<li style='margin-bottom: 15px;'>No, never heard of it.</li>
+<li style='margin-bottom: 15px;'>No, but I am aware they exist.</li>
+<li style='margin-bottom: 15px;'>Yes, rarely.</li>
+<li style='margin-bottom: 15px;'>Yes, extensively.</li>
+</ul>
+
+---
 
 ## The Package
 
@@ -420,6 +428,18 @@ We use **cryptocurrency financial data**, pulled from [CoinMarketCap.com](https:
 We limit the data to the period 08/2017–12/2019 and the top 4 cryptocurrencies:
 
 ![](./img/data.png)
+
+---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: Are you into cryptocurrencies?
+
+<ul style='font-size:26pt;margin: 50px 50px;'>
+<li style='margin-bottom: 15px;'> No, I don't care.</li>
+<li style='margin-bottom: 15px;'>Yes, I'm keeping an eye on that new technology (passively).</li>
+<li style='margin-bottom: 15px;'>Yes, I am part of the movement.</li>
+</ul>
 
 ---
 class: inverse, center, middle
@@ -480,6 +500,16 @@ data_local
 
 This assumes that you have placed the file in a folder called `data` in your working directory.  
 You can specify this directory via `setwd()` or, and preferably, use R projects.
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 1:
+
+* Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
+  
+* Inspect the data.
 
 ---
 class: inverse, center, middle
@@ -625,7 +655,15 @@ We need to specify the data in the `ggplot()` call:
 ggplot(data = data) #<<
 ```
 
---
+---
+
+## Data: <code style='color:#28a87d;font-weight:700;'>ggplot(data)</code>
+
+We need to specify the data in the `ggplot()` call:
+
+```{r structure-data-repeat, fig.width = 16, fig.height = 5.3}
+ggplot(data = data) #<<
+```
 
 There is only an empty panel because `ggplot2` doesn't know **what** of the data it should plot.
 
@@ -639,7 +677,15 @@ We need to specify two variables we want to plot as positional `aes`thetics:
 ggplot(data = data, mapping = aes(x = date, y = close)) #<<
 ```
 
---
+---
+
+## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+
+We need to specify two variables we want to plot as positional `aes`thetics:
+
+```{r structure-aes-repeat, fig.width = 16, fig.height = 5.3}
+ggplot(data = data, mapping = aes(x = date, y = close)) #<<
+```
 
 There is only an empty panel because `ggplot2` doesn't know **how** it should plot the data.
 
@@ -652,6 +698,17 @@ Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also 
 ```{r structure-aes-implicit, fig.width = 16, fig.height = 5.3}
 ggplot(data, aes(date, close)) #<<
 ```
+
+---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: Is `ggplot(data) + aes(x, y)` valid code?
+
+<ul style='font-size:26pt;margin: 50px 50px;'>
+<li style='margin-bottom: 15px;'>Yes.</li>
+<li style='margin-bottom: 15px;'>No.</li>
+</ul>
 
 ---
 
@@ -675,35 +732,39 @@ ggplot(data, aes(date, close)) +
 
 ---
 
-## Layers: <code style='color:#28a87d;font-weight:700;'>geom_*()</code>
-
-... or as a **line plot** to visualize the data as time series:
-
-```{r structure-geom-line, fig.width = 16, fig.height = 5.8}
-ggplot(data, aes(date, close)) +
-  geom_line() #<<
-```
-
----
-
 ## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
 
 Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
 
-```{r structure-aes-line-groups, fig.width = 16, fig.height = 5.8}
-ggplot(data = data, mapping = aes(x = date, y = close, group = currency)) + #<<
-  geom_line()
-```
-
----
-
-## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
-
-Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
-
-```{r structure-aes-line-colors, fig.width = 16, fig.height = 5.8}
+```{r structure-aes-point-groups, fig.width = 16, fig.height = 5.8}
 ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) + #<<
-  geom_line()
+  geom_point()
+```
+
+---
+
+## Important Things First: Change the Default Theme
+
+```{r theme}
+theme_set(theme_light(base_size = 18)) #<<
+```
+
+---
+
+## Important Things First: Change the Default Theme
+
+```{r theme-plot, eval=FALSE}
+theme_set(theme_light(base_size = 18))
+
+ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) + 
+  geom_point()
+```
+
+```{r theme-plot-eval, echo=FALSE, fig.width = 16, fig.height = 5.5}
+theme_set(theme_light(base_size = 18, base_family = "Roboto Condensed"))
+
+ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) + 
+  geom_point()
 ```
 
 ---
@@ -714,7 +775,7 @@ The exciting thing about layers is that you can combine several `geom_*()` and `
 
 ```{r structure-geom-point-smooth, fig.width = 16, fig.height = 5.5}
 ggplot(data, aes(date, close, color = currency)) +
-  stat_smooth() + #<<
+  geom_line() + #<<
   geom_point() #<<
 ```
 
@@ -726,7 +787,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ```{r structure-geom-point-smooth-aes-global, fig.width = 16, fig.height = 5.5}
 ggplot(data, aes(date, close, color = currency, shape = currency)) + #<<
-  stat_smooth() +
+  geom_line() +
   geom_point()
 ```
 
@@ -738,17 +799,23 @@ ggplot(data, aes(date, close, color = currency, shape = currency)) + #<<
 
 ```{r structure-geom-point-smooth-aes-individual, fig.width = 16, fig.height = 5.5}
 ggplot(data, aes(date, close)) +
-  stat_smooth(aes(color = currency)) + #<<
+  geom_line(aes(color = currency)) + #<<
   geom_point(aes(shape = currency)) #<<
 ```
 
 ---
+background-image: url("img/bg-exercise.png")
+background-size: cover
 
-## Exercise
+## Exercise 2:
 
-* Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
-  
-* Inspect the data.
+* If needed, import the Chicago weather data again:
+
+```{r import-chic-again}
+chic <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+```
 
 * Create a scatter plot of temperature (`temp`) versus day (`date`).
 
@@ -772,7 +839,7 @@ Scales are directly connected to aesthetics:
 ```{r structure-scales, eval=FALSE}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() +  #<<
   scale_y_continuous() +  #<<
@@ -795,7 +862,7 @@ Scales are directly connected to aesthetics:
 ```{r structure-scales-adj, eval=FALSE}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date(
     expand = c(0, 0), #<<
@@ -829,7 +896,7 @@ The coordinate system maps the two position to a 2d position on the plot:
 ```{r structure-coord, eval=FALSE}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 
@@ -853,7 +920,7 @@ The coordinate system maps the two position to a 2d position on the plot:
 ```{r structure-coord-polar, eval=FALSE}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 
@@ -877,7 +944,7 @@ Changing the limits on the coordinate system allows to zoom in:
 ```{r structure-coord-zoom, eval=FALSE}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 

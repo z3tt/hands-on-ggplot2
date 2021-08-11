@@ -2501,9 +2501,10 @@ Codes
 <li><a href="#aesthetics-aes">Aesthetics: aes()</a></li>
 <li><a href="#layers-geom_-and-stat_">Layers: geom_*() and stat_*()</a></li>
 <li><a href="#aesthetics-aes-again">Aesthetics: aes() (again)</a></li>
+<li><a href="#important-things-first-change-the-default-theme">Important Things First: Change the Default Theme</a></li>
 <li><a href="#layers-geom_-and-stat_-repeated">Layers: geom_*() and stat_*() (repeated)</a></li>
 </ul></li>
-<li><a href="#exercise">Exercise</a></li>
+<li><a href="#exercise-2">Exercise 2</a></li>
 <li><a href="#the-grammar-of-graphics-continued">The Grammar of Graphics (continued)</a>
 <ul>
 <li><a href="#scales-scales_">Scales: scales_*()</a></li>
@@ -2512,6 +2513,9 @@ Codes
 <li><a href="#appendix">APPENDIX</a>
 <ul>
 <li><a href="#import-the-data-1">Import the Data</a></li>
+</ul></li>
+<li><a href="#exercise-1">Exercise 1:</a>
+<ul>
 <li><a href="#aesthetics-aes-1">Aesthetics: aes()</a></li>
 </ul></li>
 <li><a href="#session-info">Session Info</a></li>
@@ -2672,39 +2676,31 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-geom-point-1.png" width="960" /></p>
 </div>
-<p>… or as a <strong>line plot</strong> to visualize the data as time series:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-<p><img src="01-grammar-rmarkdown_files/figure-html5/structure-geom-line-1.png" width="960" /></p>
-</div>
 <h3 id="aesthetics-aes-again">Aesthetics: aes() (again)</h3>
 <p>Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>data</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-<p><img src="01-grammar-rmarkdown_files/figure-html5/structure-aes-line-groups-1.png" width="960" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>data</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-aes-line-colors-1.png" width="960" /></p>
 </div>
+<h3 id="important-things-first-change-the-default-theme">Important Things First: Change the Default Theme</h3>
+<p>You can replace the default theme with one of the other in-built themes with <code>theme_set()</code>. Note that you can as well adjust some global settings, for example the <code>base_size</code> which is often too small in the default (11).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>By using <code>theme_set()</code> the new theme is used for any plot you create aftwerwards! Give it a try on go back to the last chunk and re-run the code to generate the colored scatter plot.</p>
 <h3 id="layers-geom_-and-stat_-repeated">Layers: geom_*() and stat_*() (repeated)</h3>
 <p>The exciting thing about layers is that you can combine several <code>geom_*()</code> and <code>stat_*()</code> calls:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2714,7 +2710,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span>, shape <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2724,17 +2720,26 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-geom-point-smooth-aes-individual-1.png" width="960" /></p>
 </div>
 <hr />
-<h2 id="exercise">Exercise</h2>
+<h2 id="exercise-2">Exercise 2</h2>
 <ul>
-<li><p>Import the data set on Chicago weather data: <a href="https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv" class="uri">https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv</a></p></li>
-<li><p>Inspect the data.</p></li>
+<li>If needed, import the Chicago weather data again:</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>chic</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span>
+  <span class='st'>"https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<ul>
 <li><p>Create a scatter plot of temperature (<code>temp</code>) versus day (<code>date</code>).</p></li>
 <li><p>Color the points by season (<code>season</code>).</p></li>
 <li><p>Color the points by year (<code>year</code>).</p>
@@ -2753,7 +2758,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2765,7 +2770,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span>
     expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>,
@@ -2791,7 +2796,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, 
                  color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2805,7 +2810,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, 
                  color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2820,7 +2825,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, 
                  color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -3013,6 +3018,12 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 # ... with 2,802 more rows</code></pre>
 </div>
 <hr />
+<h2 id="exercise-1">Exercise 1:</h2>
+<ul>
+<li><p>Import the data set on Chicago weather data:<br><a href="https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv" class="uri">https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv</a></p></li>
+<li><p>Inspect the data.</p></li>
+</ul>
+<hr />
 <h3 id="aesthetics-aes-1">Aesthetics: aes()</h3>
 <p>Some prefer to place the <code>aes()</code> outside the <code>ggplot()</code> call:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3030,10 +3041,10 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-11 10:07:19 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-11 11:07:07 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [d0c39bd] 2021-08-11: rebuild page</code></pre>
+Head:     [e810784] 2021-08-11: rebuild page</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -3057,29 +3068,29 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] httr_1.4.2        sass_0.4.0        jsonlite_1.7.2   
- [4] splines_4.1.0     here_1.0.1        modelr_0.1.8     
- [7] bslib_0.2.5.1     assertthat_0.2.1  highr_0.9        
-[10] cellranger_1.1.0  yaml_2.2.1        pillar_1.6.1     
-[13] backports_1.2.1   lattice_0.20-44   glue_1.4.2       
-[16] digest_0.6.27     rvest_1.0.0       colorspace_2.0-2 
-[19] htmltools_0.5.1.1 Matrix_1.3-3      pkgconfig_2.0.3  
-[22] broom_0.7.8       haven_2.4.1       scales_1.1.1     
-[25] openxlsx_4.2.4    distill_1.2       rio_0.5.27       
-[28] downlit_0.2.1     git2r_0.28.0      mgcv_1.8-35      
-[31] generics_0.1.0    farver_2.1.0      ellipsis_0.3.2   
-[34] withr_2.4.2       cli_3.0.0         magrittr_2.0.1   
-[37] crayon_1.4.1      readxl_1.3.1      evaluate_0.14    
-[40] fs_1.5.0          fansi_0.5.0       nlme_3.1-152     
-[43] xml2_1.3.2        foreign_0.8-81    tools_4.1.0      
-[46] data.table_1.14.0 hms_1.1.0         lifecycle_1.0.0  
-[49] munsell_0.5.0     reprex_2.0.0      zip_2.2.0        
-[52] compiler_4.1.0    jquerylib_0.1.4   rlang_0.4.11     
-[55] grid_4.1.0        rstudioapi_0.13   labeling_0.4.2   
-[58] rmarkdown_2.9     gtable_0.3.0      DBI_1.1.1        
-[61] curl_4.3.2        R6_2.5.0          lubridate_1.7.10 
-[64] knitr_1.33        utf8_1.2.1        rprojroot_2.0.2  
-[67] stringi_1.7.3     Rcpp_1.0.7        vctrs_0.3.8      
-[70] dbplyr_2.1.1      tidyselect_1.1.1  xfun_0.24        </code></pre>
+ [4] here_1.0.1        modelr_0.1.8      bslib_0.2.5.1    
+ [7] assertthat_0.2.1  highr_0.9         cellranger_1.1.0 
+[10] yaml_2.2.1        pillar_1.6.1      backports_1.2.1  
+[13] glue_1.4.2        digest_0.6.27     rvest_1.0.0      
+[16] colorspace_2.0-2  htmltools_0.5.1.1 pkgconfig_2.0.3  
+[19] broom_0.7.8       haven_2.4.1       scales_1.1.1     
+[22] openxlsx_4.2.4    distill_1.2       rio_0.5.27       
+[25] downlit_0.2.1     git2r_0.28.0      generics_0.1.0   
+[28] farver_2.1.0      ellipsis_0.3.2    withr_2.4.2      
+[31] cli_3.0.0         magrittr_2.0.1    crayon_1.4.1     
+[34] readxl_1.3.1      evaluate_0.14     fs_1.5.0         
+[37] fansi_0.5.0       xml2_1.3.2        foreign_0.8-81   
+[40] textshaping_0.3.5 tools_4.1.0       data.table_1.14.0
+[43] hms_1.1.0         lifecycle_1.0.0   munsell_0.5.0    
+[46] reprex_2.0.0      zip_2.2.0         compiler_4.1.0   
+[49] jquerylib_0.1.4   systemfonts_1.0.2 rlang_0.4.11     
+[52] grid_4.1.0        rstudioapi_0.13   labeling_0.4.2   
+[55] rmarkdown_2.9     gtable_0.3.0      DBI_1.1.1        
+[58] curl_4.3.2        R6_2.5.0          lubridate_1.7.10 
+[61] knitr_1.33        utf8_1.2.1        rprojroot_2.0.2  
+[64] ragg_1.1.3        stringi_1.7.3     Rcpp_1.0.7       
+[67] vctrs_0.3.8       dbplyr_2.1.1      tidyselect_1.1.1 
+[70] xfun_0.24        </code></pre>
 </div>
 </details>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

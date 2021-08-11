@@ -38,7 +38,8 @@ knitr::opts_chunk$set(
   fig.height = 5.7,
   fig.allign = 'center',
   fig.retina = 2,
-  fig.showtext = TRUE
+  dev = "ragg_png", 
+  res = 1000
 )
 
 Sys.setlocale("LC_TIME", "C")
@@ -54,28 +55,17 @@ options(width = 80)
 ```{r prep, echo=FALSE}
 library(tidyverse)
 library(conflicted)
-#library(showtext)
 filter <- dplyr::filter
-#font_add_google("Roboto", "Roboto")
-#font_add_google("Bitter", "Bitter")
 theme_set(theme_grey(base_size = 16, base_family = "DM Sans"))
 ```
 
 ---
 
+## Exercise 1:
+
 * Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
   
 * Inspect the data.
-
-* Create a scatter plot of temperature (`temp`) versus day (`date`).
-
-* Color the points by season (`season`).
-
-* Color the points by year (`year`).
-  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
-
-* **Bonus:** Turn the scatter plot, colored by season, into a line plot.
-  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
 
 ---
 
@@ -126,6 +116,20 @@ unique(chic$season)
 
 unique(chic$year)
 ```
+
+---
+
+## Exercise 2:
+
+* Create a scatter plot of temperature (`temp`) versus day (`date`).
+
+* Color the points by season (`season`).
+
+* Color the points by year (`year`).
+  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
+
+* **Bonus:** Turn the scatter plot, colored by season, into a line plot.
+  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
 
 ---
 

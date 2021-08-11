@@ -7,7 +7,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
-                      fig.width = 10, fig.height = 6, fig.retina = 2)
+                      fig.width = 10, fig.height = 6, fig.retina = 2,
+                      dev = "ragg_png", res = 1000)
 ```
 
 ### The ggplot2 Package
@@ -156,26 +157,28 @@ ggplot(data, aes(date, close)) +
   geom_point()
 ```
 
-... or as a **line plot** to visualize the data as time series:
-
-```{r structure-geom-line}
-ggplot(data, aes(date, close)) +
-  geom_line()
-```
 
 ### Aesthetics: aes() (again)
 
 Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
 
-```{r structure-aes-line-groups}
-ggplot(data = data, mapping = aes(x = date, y = close, group = currency)) +
-  geom_line()
-```
-
 ```{r structure-aes-line-colors}
 ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
-  geom_line()
+  geom_point()
 ```
+
+
+### Important Things First: Change the Default Theme
+
+You can replace the default theme with one of the other in-built themes with `theme_set()`.
+Note that you can as well adjust some global settings, for example the `base_size` which is often too small in the default (11).
+
+```{r theme}
+theme_set(theme_light(base_size = 18))
+```
+
+By using `theme_set()` the new theme is used for any plot you create aftwerwards! Give it a try on go back to the last chunk and re-run the code to generate the colored scatter plot.
+
 
 ### Layers: geom_\*() and stat_*() (repeated)
 
@@ -183,7 +186,7 @@ The exciting thing about layers is that you can combine several `geom_*()` and `
 
 ```{r structure-geom-point-smooth}
 ggplot(data, aes(date, close, color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point()
 ```
 
@@ -191,7 +194,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ```{r structure-geom-point-smooth-aes-global}
 ggplot(data, aes(date, close, color = currency, shape = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point()
 ```
 
@@ -199,17 +202,21 @@ ggplot(data, aes(date, close, color = currency, shape = currency)) +
 
 ```{r structure-geom-point-smooth-aes-individual}
 ggplot(data, aes(date, close)) +
-  stat_smooth(aes(color = currency)) +
+  geom_line(aes(color = currency)) +
   geom_point(aes(shape = currency))
 ```
 
 ---
 
-## Exercise
+## Exercise 2
 
-* Import the data set on Chicago weather data: https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
-  
-* Inspect the data.
+* If needed, import the Chicago weather data again:
+
+```{r import-chic-again}
+chic <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+```
 
 * Create a scatter plot of temperature (`temp`) versus day (`date`).
 
@@ -232,7 +239,7 @@ Scales are directly connected to aesthetics:
 
 ```{r structure-scales}
 ggplot(data, aes(x = date, y = close, color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 
@@ -241,7 +248,7 @@ ggplot(data, aes(x = date, y = close, color = currency)) +
 
 ```{r structure-scales-adj}
 ggplot(data, aes(x = date, y = close, color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date(
     expand = c(0, 0),
@@ -266,7 +273,7 @@ The coordinate system maps the two position to a 2d position on the plot:
 ```{r structure-coord}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 
@@ -277,7 +284,7 @@ ggplot(data, aes(x = date, y = close,
 ```{r structure-coord-polar}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 
@@ -290,7 +297,7 @@ Changing the limits on the coordinate system allows to zoom in:
 ```{r structure-coord-zoom}
 ggplot(data, aes(x = date, y = close, 
                  color = currency)) +
-  stat_smooth() +
+  geom_line() +
   geom_point() +
   scale_x_date() + 
   scale_y_continuous() + 
@@ -387,6 +394,14 @@ data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
 
 data_local
 ```
+
+---
+
+## Exercise 1:
+
+* Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
+  
+* Inspect the data.
 
 ---
 
