@@ -29,24 +29,24 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
 
 * Clone the [repository](https://github.com/z3tt/hands-on-ggplot2-training).
 
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/repo.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/repo.png)
 
 * Open the R Project: `hands-on-ggplot2.Rproj`
 
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/rproj.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/rproj.png)
 
 * Open the first script: `01-grammar.Rmd`
 
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/rstudio-file.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/rstudio-file.png)
 
 * Run code locally
 
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/run-code.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/run-code.png)
 
 * ... or knit the report
 
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/knit.png)
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/setup/report.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/knit.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/report.png)
 
 ### The Package
 
@@ -112,7 +112,7 @@ Furthermore, it helps readers to understand from which package a function is imp
 
 ### The Structure of ggplot2
 
-![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/structure-table.png)
+![](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/structure-table.png)
 
 
 ### Data: ggplot(data)
@@ -147,7 +147,7 @@ ggplot(data, aes(date, close))
 By adding one or multiple layers we can tell `ggplot2` *how* to represent the data.
 There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
 
-![Adapted from ggplot2.tidyverse.org/reference](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/dummy/slides/img/ggplot-layers.png)
+![Adapted from ggplot2.tidyverse.org/reference](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ggplot-layers.png)
 
 We can tell `ggplot2` to represent the data for example as a **scatter plot**:
 
