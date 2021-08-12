@@ -11,12 +11,12 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
                       dev = "ragg_png", res = 1000)
 ```
 
-### The ggplot2 Package
+### The `{ggplot2}` Package
 
-> ggplot2 is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).
-> You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
+> `{ggplot2}` is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).
+> You provide the data, tell `{ggplot2}` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
-### Advantages of ggplot2
+### Advantages of `{ggplot2}`
 
 * consistent underlying grammar of graphics (Wilkinson, 2005)
 * very flexible, layered plot specification 
@@ -107,7 +107,15 @@ The so–called **namespace** allows to access functions from a package directly
 
 Furthermore, it helps readers to understand from which package a function is imported from.
 
+---
 
+## Exercise 1
+
+* Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
+  
+* Inspect the data.
+
+---
 
 ## The Grammar of Graphics
 
@@ -230,7 +238,6 @@ chic <- readr::read_csv(
 
 ---
 
-
 ## The Grammar of Graphics (continued)
 
 ### Scales: scales_*()
@@ -311,7 +318,21 @@ ggplot(data, aes(x = date, y = close,
 
 -> Facets, Themes, and Annotations will follow later!
 
+## Saving a `ggplot`
 
+You can export your plot via the `ggsave()` function:
+
+```{r ggsave, eval=FALSE}
+ggsave(filename = "my_ggplot.pdf", 
+       width = 10, height = 7, 
+       device = cairo_pdf)
+
+ggsave(filename = "my_ggplot.png", 
+       width = 10, height = 7, 
+       dpi = 700)
+```
+
+![Source: canva.com](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png)
 
 ---
 
@@ -394,14 +415,6 @@ data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
 
 data_local
 ```
-
----
-
-## Exercise 1:
-
-* Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
-  
-* Inspect the data.
 
 ---
 

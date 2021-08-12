@@ -36,7 +36,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   fig.height = 6.3,
   fig.allign = 'center',
-  fig.retina = 1,
+  fig.retina = 2,
   dev = "ragg_png", 
   res = 1000
 )
@@ -512,6 +512,48 @@ background-size: cover
 * Inspect the data.
 
 ---
+
+## Exercise 1: Import the Data
+
+```{r import-chic}
+chic <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+
+# chic <- readr::read_csv("data/chicago-nmmaps.csv")
+```
+
+---
+
+## Exercise 1: Inspect the Data
+
+```{r inspect-chic-1}
+tibble::glimpse(chic)
+```
+
+---
+
+## Exercise 1: Inspect the Data
+
+```{r inspect-chic-2}
+summary(chic)
+```
+
+---
+
+## Exercise 1: Inspect the Data
+
+```{r inspect-chic-3}
+range(chic$date)
+
+range(chic$temp)
+
+unique(chic$season)
+
+unique(chic$year)
+```
+
+---
 class: inverse, center, middle
 
 # <b style='font-size:70pt;'>The Structure of<br><code style='color:#ebc500;'>ggplot2</code></b><br><br>
@@ -830,6 +872,137 @@ chic <- readr::read_csv(
   + <span style='color:grey;'>What's the problem? How could you fix it?</span>
 
 ---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2:
+
+* If needed, import the Chicago weather data again:
+
+```{r import-chic-again}
+chic <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+```
+
+* Create a scatter plot of temperature (`temp`) versus day (`date`).
+
+* Color the points by season (`season`).
+
+* Color the points by year (`year`).
+  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2:
+
+* If needed, import the Chicago weather data again:
+
+```{r import-chic-again}
+chic <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+```
+
+* Create a scatter plot of temperature (`temp`) versus day (`date`).
+
+* Color the points by season (`season`).
+
+* Color the points by year (`year`).
+  + What's the problem? How could you fix it?
+
+* **Bonus:** Turn the scatter plot, colored by season, into a line plot.
+  + What's the problem? How could you fix it?
+
+---
+
+## Exercise 2: Scatter Plot Temperature vs Day
+
+```{r plot-chic-scatter, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp)) + 
+  geom_point()
+```
+
+---
+
+## Exercise 2: Scatter Plot Colored by Season
+
+```{r plot-chic-scatter-season, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = season)) + 
+  geom_point()
+```
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+```{r plot-chic-scatter-year-cont, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = year)) + 
+  geom_point()
+```
+
+---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: The variable <code>year</code> should be of type... (MC)
+
+
+<ul style='font-size:26pt;margin: 50px 50px;'>
+<li style='margin-bottom: 15px;'>Integer</li>
+<li style='margin-bottom: 15px;'>Character</li>
+<li style='margin-bottom: 15px;'>Factor</li>
+<li style='margin-bottom: 15px;'>Date</li>
+</ul>
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+```{r plot-chic-scatter-year-fct, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = factor(year))) + 
+  geom_point()
+```
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+```{r plot-chic-scatter-year-char, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = as.character(year))) + 
+  geom_point()
+```
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+```{r plot-chic-scatter-year-int, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = as.integer(year))) + 
+  geom_point()
+```
+
+---
+
+## Exercise 2 — Bonus: Scatter Plot Colored by Year
+
+```{r plot-chic-line-season, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = season)) + 
+  geom_line()
+```
+
+---
+
+## Exercise 2 — Bonus: Scatter Plot Colored by Year
+
+```{r plot-chic-line-season-fixed, fig.width = 16, fig.height = 5.5}
+ggplot(chic, aes(date, temp, color = season, group = year)) + 
+  geom_line()
+```
+
+---
 
 ## Scales: <code style='color:#28a87d;font-weight:700;'>scales\_\*()</code>
 
@@ -965,9 +1138,28 @@ ggplot(data, aes(x = date, y = close,
 ---
 class: center, middle
 
-## Facets, Themes, and Annotations will follow later!
+<b style='font-family:DM Serif;font-size:34pt;color:#28a87d;font-weight:700;'>Facets, Themes, and Annotations will follow later!</b><br><br>
 
+---
 
+## Saving a `ggplot`
+
+You can export your plot via the `ggsave()` function:
+
+```{r ggsave, eval=FALSE}
+ggsave(filename = "my_ggplot.pdf", 
+       width = 10, height = 7, 
+       device = cairo_pdf)
+
+ggsave(filename = "my_ggplot.png", 
+       width = 10, height = 7, 
+       dpi = 700)
+```
+
+---
+class: center, middle
+
+<img src="img/canva_vector.png" style='width:100%;'><br><i style='font-size:10pt;color:grey;'>Source: canva.com</i>
 
 ---
 class: inverse, center, middle

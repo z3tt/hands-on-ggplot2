@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 2 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-07-12" />
+    <meta name="date" content="2021-08-12" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -25,27 +25,1231 @@ background-size: contain
 
 
 ---
+background-image: url("img/bg-poll.png")
+background-size: cover
 
-## A Descriptive Title
+## POLL: Which chart types do you use regularly? (MC)
 
-... and some text to illustrate the size of the body text.
+&lt;ul style='font-size:16pt;margin: 50px 50px;'&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Pie or donut chart&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Bubble chart&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Dumbbell Plot&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Heatmap&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Treemap&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Network graphs&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Dendrogram&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Gantt chart&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Candlestick chart&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Radar/spider chart&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Sankey diagram&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Maps (Bubble, Choropleth, ...)&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+## Create Any Chart Type
+
+As you've seen, we can quickly switch through different chart types:
 
 .pull-left[
 
 ```r
-## Also, some code:
-mpg %&gt;% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %&gt;% 
-  count(manufacturer) %&gt;% 
-* ggplot(aes(n, manufacturer)) +
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
+ggplot(data, aes(date, close, color = currency)) +
+  geom_point()
+```
+
+![](02-layers_files/figure-html/scatter-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line()
+```
+
+![](02-layers_files/figure-html/line-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Area Charts
+
+As you've seen, we can quickly switch through different chart types:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_area(aes(fill = currency), alpha = .5)
+```
+
+![](02-layers_files/figure-html/area-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Area Charts
+
+Many of the geom's can further adjusted:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+* geom_area(aes(fill = currency), alpha = .5, position = "dodge")
+```
+
+![](02-layers_files/figure-html/area-dodge-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Area Charts
+
+Many of the geom's can further adjusted:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+* geom_area(aes(fill = currency), alpha = .5, position = "fill")
+```
+
+![](02-layers_files/figure-html/area-fill-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Area Charts
+
+Many of the geom's can further adjusted:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_area(aes(fill = currency), alpha = .5, position = "fill") +
+* coord_cartesian(expand = FALSE)
+```
+
+![](02-layers_files/figure-html/area-fill-no-exp-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Box Plots
+
+Some geom's drastically change the appearance of the data:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+* geom_boxplot()
+```
+
+![](02-layers_files/figure-html/boxplot-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Box Plots
+
+And, as you already know, we can combine geom's to make the plot more insightful:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+  geom_boxplot(outlier.alpha = 0, color = "grey60", size = 1) + 
+* geom_point(alpha = .2)
+```
+
+![](02-layers_files/figure-html/boxplot-dots-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Jitterstrips
+
+... and also the point geom can be adjusted:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+  geom_boxplot(outlier.alpha = 0, color = "grey60", size = 1) + 
+* geom_point(alpha = .2, position = position_jitter(height = .2))
+```
+
+![](02-layers_files/figure-html/boxplot-jitter-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Barcode Plots
+
+... and also the point geom can be adjusted:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+  geom_boxplot(outlier.alpha = 0, color = "grey60", size = 1) + 
+* geom_point(alpha = .1, shape = "|", size = 9)
+```
+
+![](02-layers_files/figure-html/boxplot-barcode-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Barcode Plots
+
+... and also the point geom can be adjusted:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+* geom_boxplot(outlier.alpha = 0, width = .4, position = position_nudge(y = .2)) +
+* geom_point(alpha = .1, shape = "|", size = 9, position = position_nudge(y = -.2))
+```
+
+![](02-layers_files/figure-html/boxplot-barcode-nudge-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Hexagonal Bin Plot
+
+Plots that bin the data can be helpful to deal with overplotting:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_point(alpha = .3)
+```
+
+![](02-layers_files/figure-html/scatter-open-close-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_hex()
+```
+
+![](02-layers_files/figure-html/hex-open-close-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Hexagonal Bin Plot
+
+Let's add the diagonal to the plot:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+* geom_abline(slope = 1, intercept = 0) +
+  geom_point(alpha = .3) +
+* coord_fixed()
+```
+
+![](02-layers_files/figure-html/scatter-open-close-diag-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+* geom_abline(slope = 1, intercept = 0) +
+  geom_hex() +
+* coord_fixed()
+```
+
+![](02-layers_files/figure-html/hex-open-close-diag-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Rectangular Bin Plot
+
+If you don't like hexagonals, use rectangles!
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+  geom_point(alpha = .3) +
+  coord_fixed() 
+```
+
+![](02-layers_files/figure-html/scatter-open-close-diag-2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+* geom_bin2d() +
+  coord_fixed()
+```
+
+![](02-layers_files/figure-html/rect-open-close-diag-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Rectangular Bin Plot
+
+Actually, the map to a hidden third aesthetic that is calculated by `{ggplot2}`:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+* geom_bin2d(aes(fill = ..count..)) +
+  coord_fixed() 
+```
+
+![](02-layers_files/figure-html/rect-count-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+* geom_bin2d(aes(fill = ..density..)) +
+  coord_fixed()
+```
+
+![](02-layers_files/figure-html/rect-density-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Heatmaps
+
+With `geom_tile()` one can create heatmaps:
+
+
+```r
+ggplot(data, aes(date, currency, fill = close)) +
+  geom_tile()
+```
+
+![](02-layers_files/figure-html/heatmap-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Heatmaps
+
+With `geom_tile()` one can create heatmaps:
+
+
+```r
+ggplot(data, aes(date, currency, fill = close)) +
+  geom_tile() +
+* coord_cartesian(expand = FALSE)
+```
+
+![](02-layers_files/figure-html/heatmap-expand-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+
+```r
+ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high), size = 1) +
+  geom_linerange(aes(ymin = open, ymax = close), size = 5)
+```
+
+![](02-layers_files/figure-html/candle-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+
+```r
+ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
+* geom_linerange(aes(ymin = low, ymax = high, color = close &gt; open), size = 1) +
+* geom_linerange(aes(ymin = open, ymax = close, color = close &gt; open), size = 5)
+```
+
+![](02-layers_files/figure-html/candle-color-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+
+```r
+ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high, color = close &gt; open), size = 1) + 
+  geom_linerange(aes(ymin = open, ymax = close, color = close &gt; open), size = 5) +
+* scale_x_date(date_labels = "%b %d, %Y")
+```
+
+![](02-layers_files/figure-html/candle-scale-date-1.png)&lt;!-- --&gt;
+
+---
+
+## Statistical Transformations: &lt;code style='color:#28a87d;font-weight:700;'&gt;stat_*()&lt;/code&gt;
+
+You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+* stat_identity(geom = "point")
+```
+
+![](02-layers_files/figure-html/statgeom-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+* geom_point(stat = "identity")
+```
+
+![](02-layers_files/figure-html/geomstat-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: &lt;code style='color:#28a87d;font-weight:700;'&gt;stat_*()&lt;/code&gt;
+
+You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
+
+.pull-left[
+
+```r
+ggplot(data, aes(factor(month), close)) +
+* stat_summary(geom = "pointrange")
+```
+
+![](02-layers_files/figure-html/statgeom-2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(factor(month), close)) +
+* geom_pointrange(stat = "summary")
+```
+
+![](02-layers_files/figure-html/geomstat-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Draw Functions
+
+`stat_function()` makes it easy to add a function to a plot, either continuous or discrete:
+
+.pull-left[
+
+```r
+ggplot(tibble(x = c(-8, 8)), aes(x)) +
+* stat_function(fun = dnorm) +
+* stat_function(
+*   fun = dcauchy,
+*   color = "red",
+*   n = 75
+* )
 ```
 ]
 
 .pull-right[
-&lt;img src="grammar_files/figure-html/plot-1.png" width="504" /&gt;
+![](02-layers_files/figure-html/plot-stats-function-1.png)&lt;!-- --&gt;
 ]
+
+---
+
+## Statistical Transformations: Draw Fittings
+
+You can directly add smoothed conditional means:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_point(size = .1) +
+* stat_smooth()
+```
+
+![](02-layers_files/figure-html/stats-smooth2-1.png)&lt;!-- --&gt;
+
+---
+
+## Statistical Transformations: Draw Fittings
+
+You can directly add smoothed conditional means:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_point(size = .1) +
+* stat_smooth()
+```
+
+![](02-layers_files/figure-html/stats-smooth2-again-1.png)&lt;!-- --&gt;
+
+&lt;span style='font-size:13pt;'&gt;By default this adds a &lt;b&gt;LOESS&lt;/b&gt; (locally weighted scatter plot smoothing) or a &lt;b&gt;GAM&lt;/b&gt; (generalized additive model) depending on the&lt;br&gt;number of data points (GAM in case of ≥ 1000 observations).&lt;/span&gt;
+
+---
+
+## Statistical Transformations: Draw Fittings
+
+You can specify the fitting method and the formula:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_point(size = .1) +
+* stat_smooth(method = "lm", formula = y ~ x + I(x^2) +  I(x^3) + I(x^4))
+```
+
+![](02-layers_files/figure-html/stats-smooth-polynom-1.png)&lt;!-- --&gt;
+
+---
+
+## Statistical Transformations: Draw Fittings
+
+You can specify the fitting method and the formula:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_point(size = .1) +
+* stat_smooth(method = "lm", formula = y ~ x + I(x^2) +  I(x^3) + I(x^4))
+```
+
+![](02-layers_files/figure-html/stats-smooth-polynom-again-1.png)&lt;!-- --&gt;
+
+&lt;span style='font-size:13pt;'&gt;Other methods such as &lt;code&gt;method = "lm"&lt;/code&gt; (without an explicit formula) for simple linear regressions and &lt;code&gt;method = "glm"&lt;/code&gt; for&lt;br&gt;generalized linear models are available as well.&lt;/span&gt;
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary()
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+*   geom = "pointrange",
+*   fun.data = "mean_se"
+  )
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-default-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+*   fun = function(x) mean(x),
+*   fun.min = function(x) mean(x) - sd(x),
+*   fun.max = function(x) mean(x) + sd(x)
+  ) 
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-custom-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Dumbbell Plot
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+* stat_summary(
+*   geom = "linerange",
+*   fun.min = "min",
+*   fun.max = "max"
+* )
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-dumbbell-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Dumbbell Plot
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    geom = "linerange",
+    fun.min = "min",
+    fun.max = "max"
+  ) +
+* stat_summary(
+*   fun = "range"
+* )
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-dumbbell-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Dumbbell Plot
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    geom = "linerange",
+    fun.min = "min",
+    fun.max = "max"
+  ) +
+  stat_summary(
+    fun = "range"
+  ) +
+* stat_summary(
+*   fun = "range",
+*   aes(label = round(..y.., 2)),
+*   geom = "text",
+*   size = 4,
+*   hjust = 1,
+*   position = position_nudge(x = -.08)
+* )
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-dumbbell-3-1.png)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 1:
+
+* Import the password data set:&lt;br&gt;https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv
+
+* Visualize the number of passwords per category as bar chart.
+
+* Add to each bar a label of the number of passwords.
+
+---
+
+## Exercise 1: Import the Data
+
+
+```r
+passwords &lt;- readr::read_csv(
+  "https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv"
+)
+
+glimpse(passwords)
+## Rows: 500
+## Columns: 3
+## $ rank     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18~
+## $ password &lt;chr&gt; "password", "123456", "12345678", "1234", "qwerty", "12345", ~
+## $ category &lt;chr&gt; "password-related", "simple-alphanumeric", "simple-alphanumer~
+```
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+
+```r
+ggplot(passwords, aes(category)) +
+  geom_bar() ## stat = "count" is the default
+```
+
+![](02-layers_files/figure-html/password-geom-bar-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+
+```r
+ggplot(passwords, aes(category)) + 
+  stat_count() ## geom = "bar" is the default
+```
+
+![](02-layers_files/figure-html/password-geom-bar-stat-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+
+```r
+passwords %&gt;% 
+  count(category) %&gt;% 
+  ggplot(aes(category, n)) +
+  geom_col()
+```
+
+![](02-layers_files/figure-html/password-geom-col-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+
+```r
+*pw_count &lt;- count(passwords, category)
+
+ggplot(pw_count, aes(category, n)) +
+  geom_col()
+```
+
+![](02-layers_files/figure-html/password-geom-col-pre-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+.pull-left[
+
+```r
+ggplot(pw_count, aes(n, category)) +
+* geom_col()
+```
+
+![](02-layers_files/figure-html/geom-col-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(pw_count, aes(n, category)) +
+* geom_bar(stat = "identity")
+```
+
+![](02-layers_files/figure-html/geom-bar-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+
+```r
+pw_count &lt;- count(passwords, category)
+
+*ggplot(pw_count, aes(fct_reorder(category, -n), n)) +
+  geom_col()
+```
+
+![](02-layers_files/figure-html/password-col-sorted-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Labels Number of Passwords per Category
+
+
+```r
+ggplot(pw_count, aes(fct_reorder(category, -n), n)) +
+  geom_col() +
+* geom_text(aes(label = n), vjust = -.6, size = 6)
+```
+
+![](02-layers_files/figure-html/password-label-geom-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Fix Limits
+
+
+```r
+ggplot(pw_count, aes(fct_reorder(category, -n), n)) + 
+  geom_col() +
+  geom_text(aes(label = n), vjust = -.6, size = 6) +
+* scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
+```
+
+![](02-layers_files/figure-html/password-label-geom-yscale-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Labels Number of Passwords per Category
+
+
+```r
+ggplot(passwords, aes(category)) + 
+  stat_count() + 
+* stat_count(geom = "text", aes(label = ..count..), vjust = -.6, size = 6) +
+  scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
+```
+
+![](02-layers_files/figure-html/password-label-stat-count-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Labels Number of Passwords per Category
+
+
+```r
+ggplot(passwords, aes(category, 1)) + 
+* stat_summary(geom = "bar", fun = length) +
+* stat_summary(geom = "text", aes(label = ..y..), fun = length, vjust = -.6, size = 6) +
+  scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
+```
+
+![](02-layers_files/figure-html/password-label-stat-summary-1.png)&lt;!-- --&gt;
+
+---
+class: center, middle, inverse
+
+&lt;img src="img/extensions.png" style='width:78%;'&gt;&lt;br&gt;&lt;cap&gt;Collection of some chart types provided by ggplot2 extension packages.&lt;/cap&gt;
+
+---
+class: center, middle
+
+&lt;img src="img/ah_sf.png" style='width:78%;'&gt;&lt;br&gt;&lt;cap&gt;Illustration by Allison Horst&lt;/cap&gt;
+
+---
+
+## Spatial Maps
+
+&lt;br&gt;
+
+### Simple Features (Access)
+
+[**Simple features** or **simple features access**](https://r-spatial.github.io/sf/articles/sf1.html) refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the *spatial geometry*.
+
+`{sf}` is an R package that provides simple features access for R.
+
+---
+
+## Spatial Maps
+
+&lt;br&gt;
+
+### Simple Features (Access)
+
+[**Simple features** or **simple features access**](https://r-spatial.github.io/sf/articles/sf1.html) refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the *spatial geometry*.
+
+`{sf}` is an R package that provides simple features access for R.
+
+&lt;br&gt;
+
+### Natural Earth
+
+[**Natural Earth**](https://www.naturalearthdata.com/) is a &lt;u&gt;public domain map data set&lt;/u&gt; of *physical and cultural features*, available at 1:10m, 1:50m,&lt;br&gt;and 1:110 million scales. 
+
+`{rnaturalearth}` is an R package to hold and facilitate interaction with Natural Earth map data.
+
+---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: Have you used R to visualize spatial data? (MC)
+
+
+&lt;ul style='font-size:26pt;margin: 50px 50px;'&gt;
+&lt;li style='margin-bottom: 15px;'&gt;No, I never deal with spatial data.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;No, I use other tools for spatial data.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Yes, {ggplot2}'s geom_polygon().&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Yes, {ggplot2}'s geom_raster().&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Yes, {ggplot2}'s geom_sf().&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Yes, the {tmap} package.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Yes, the {ggmap} package.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Yes, some other R packages that are not mentioned here.&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+## Setup
+
+
+```r
+#install.packages("sf")
+library(sf)
+
+#install.packages("rnaturalearth")
+library(rnaturalearth)
+```
+
+---
+
+## Get the Data
+
+The `{rnaturalearth}` allows downloading the Natural Earth data sets in simple feature format.
+
+
+```r
+sf_world &lt;- ne_countries(returnclass = "sf")
+#sf_urban &lt;- ne_download(category = "cultural", type = "urban_areas", returnclass = "sf")
+#sf_ice &lt;- ne_download(category = "physical", type = "graticules_30", returnclass = "sf")
+#sf_airports &lt;- ne_download(scale = 'large', category = "cultural", type = "airports", returnclass = "sf")
+
+tibble::glimpse(sf_world)
+## Rows: 177
+## Columns: 64
+## $ scalerank  &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,~
+## $ featurecla &lt;chr&gt; "Admin-0 country", "Admin-0 country", "Admin-0 country", "A~
+## $ labelrank  &lt;dbl&gt; 3, 3, 6, 4, 2, 6, 4, 6, 2, 4, 5, 6, 2, 5, 3, 3, 4, 4, 5, 4,~
+## $ sovereignt &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ sov_a3     &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "FR1", "AU~
+## $ adm0_dif   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,~
+## $ level      &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,~
+## $ type       &lt;chr&gt; "Sovereign country", "Sovereign country", "Sovereign countr~
+## $ admin      &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ adm0_a3    &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ geou_dif   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,~
+## $ geounit    &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ gu_a3      &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ su_dif     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,~
+## $ subunit    &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ su_a3      &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ brk_diff   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,~
+## $ name       &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ name_long  &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ brk_a3     &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ brk_name   &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ brk_group  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ abbrev     &lt;chr&gt; "Afg.", "Ang.", "Alb.", "U.A.E.", "Arg.", "Arm.", "Ant.", "~
+## $ postal     &lt;chr&gt; "AF", "AO", "AL", "AE", "AR", "ARM", "AQ", "TF", "AU", "A",~
+## $ formal_en  &lt;chr&gt; "Islamic State of Afghanistan", "People's Republic of Angol~
+## $ formal_fr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ note_adm0  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "Fr.", NA, NA, NA, NA, NA, NA, ~
+## $ note_brk   &lt;chr&gt; NA, NA, NA, NA, NA, NA, "Multiple claims held in abeyance",~
+## $ name_sort  &lt;chr&gt; "Afghanistan", "Angola", "Albania", "United Arab Emirates",~
+## $ name_alt   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ mapcolor7  &lt;dbl&gt; 5, 3, 1, 2, 3, 3, 4, 7, 1, 3, 1, 2, 3, 1, 2, 3, 4, 1, 1, 1,~
+## $ mapcolor8  &lt;dbl&gt; 6, 2, 4, 1, 1, 1, 5, 5, 2, 1, 6, 2, 2, 2, 1, 4, 5, 1, 1, 1,~
+## $ mapcolor9  &lt;dbl&gt; 8, 6, 1, 3, 3, 2, 1, 9, 2, 3, 5, 5, 1, 2, 5, 7, 1, 2, 1, 5,~
+## $ mapcolor13 &lt;dbl&gt; 7, 1, 6, 3, 13, 10, NA, 11, 7, 4, 8, 8, 8, 12, 11, 7, 8, 5,~
+## $ pop_est    &lt;dbl&gt; 28400000, 12799293, 3639453, 4798491, 40913584, 2967004, 38~
+## $ gdp_md_est &lt;dbl&gt; 22270.0, 110300.0, 21810.0, 184300.0, 573900.0, 18770.0, 76~
+## $ pop_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ lastcensus &lt;dbl&gt; 1979, 1970, 2001, 2010, 2010, 2001, NA, NA, 2006, 2011, 200~
+## $ gdp_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ economy    &lt;chr&gt; "7. Least developed region", "7. Least developed region", "~
+## $ income_grp &lt;chr&gt; "5. Low income", "3. Upper middle income", "4. Lower middle~
+## $ wikipedia  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ fips_10    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ iso_a2     &lt;chr&gt; "AF", "AO", "AL", "AE", "AR", "AM", "AQ", "TF", "AU", "AT",~
+## $ iso_a3     &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ iso_n3     &lt;chr&gt; "004", "024", "008", "784", "032", "051", "010", "260", "03~
+## $ un_a3      &lt;chr&gt; "004", "024", "008", "784", "032", "051", NA, NA, "036", "0~
+## $ wb_a2      &lt;chr&gt; "AF", "AO", "AL", "AE", "AR", "AM", NA, NA, "AU", "AT", "AZ~
+## $ wb_a3      &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", NA, NA, "AUS", "A~
+## $ woe_id     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ adm0_a3_is &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ adm0_a3_us &lt;chr&gt; "AFG", "AGO", "ALB", "ARE", "ARG", "ARM", "ATA", "ATF", "AU~
+## $ adm0_a3_un &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ adm0_a3_wb &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ continent  &lt;chr&gt; "Asia", "Africa", "Europe", "Asia", "South America", "Asia"~
+## $ region_un  &lt;chr&gt; "Asia", "Africa", "Europe", "Asia", "Americas", "Asia", "An~
+## $ subregion  &lt;chr&gt; "Southern Asia", "Middle Africa", "Southern Europe", "Weste~
+## $ region_wb  &lt;chr&gt; "South Asia", "Sub-Saharan Africa", "Europe &amp; Central Asia"~
+## $ name_len   &lt;dbl&gt; 11, 6, 7, 20, 9, 7, 10, 22, 9, 7, 10, 7, 7, 5, 12, 10, 8, 7~
+## $ long_len   &lt;dbl&gt; 11, 6, 7, 20, 9, 7, 10, 35, 9, 7, 10, 7, 7, 5, 12, 10, 8, 7~
+## $ abbrev_len &lt;dbl&gt; 4, 4, 4, 6, 4, 4, 4, 10, 4, 5, 4, 4, 5, 5, 4, 5, 5, 4, 4, 5~
+## $ tiny       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2, NA, NA, NA, NA, NA, NA, NA, ~
+## $ homepart   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, NA, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+## $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((61.21082 35..., MULTIPOLYGON (~
+```
+
+---
+
+## Plot the Map
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+  geom_sf()
+```
+
+![](02-layers_files/figure-html/first-map-1.png)&lt;!-- --&gt;
+
+---
+
+## Plot the Map
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+* geom_sf(fill = "#AAD1AC")
+```
+
+![](02-layers_files/figure-html/first-map-fill-1.png)&lt;!-- --&gt;
+
+---
+
+## Plot the Map
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+* geom_sf(aes(fill = economy))
+```
+
+![](02-layers_files/figure-html/first-map-fill-economy-1.png)&lt;!-- --&gt;
+
+---
+
+## Plot the Map
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+* geom_sf(aes(fill = economy), color = "white", size = .2)
+```
+
+![](02-layers_files/figure-html/first-map-color-1.png)&lt;!-- --&gt;
+
+---
+
+## Change the Projection
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = economy), color = "white", size = .2) +
+* coord_sf(crs = "+proj=moll")
+```
+
+![](02-layers_files/figure-html/first-map-proj-moll-1.png)&lt;!-- --&gt;
+
+---
+
+## Change the Projection
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = economy), color = "white", size = .2) +
+* coord_sf(crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0")
+```
+
+![](02-layers_files/figure-html/first-map-proj-custom1-1.png)&lt;!-- --&gt;
+
+---
+
+## Change the Projection
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = economy), color = "white", size = .2) +
+* coord_sf(crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=-30 +lat_0=-25")
+```
+
+![](02-layers_files/figure-html/first-map-proj-custom2-1.png)&lt;!-- --&gt;
+
+---
+
+## Change the Projection
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = economy), color = "white", size = .2) +
+* coord_sf(crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=-70 +lat_0=0")
+```
+
+![](02-layers_files/figure-html/first-map-proj-custom3-1.png)&lt;!-- --&gt;
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2:
+
+* Download data sets for your home country and plot it.
+
+* Change the projection with `coord_sf` and observe how the spatial mapping changes.
+
+---
+
+## Exercise 2: Load the Data
+
+
+```r
+sf_germany &lt;- rnaturalearth::ne_countries(country = "Germany", returnclass = "sf")
+sf_germany_hd &lt;- rnaturalearth::ne_countries(country = "Germany", scale = 10, returnclass = "sf")
+
+class(sf_germany)
+## [1] "sf"         "data.frame"
+names(sf_germany)
+##  [1] "scalerank"  "featurecla" "labelrank"  "sovereignt" "sov_a3"    
+##  [6] "adm0_dif"   "level"      "type"       "admin"      "adm0_a3"   
+## [11] "geou_dif"   "geounit"    "gu_a3"      "su_dif"     "subunit"   
+## [16] "su_a3"      "brk_diff"   "name"       "name_long"  "brk_a3"    
+## [21] "brk_name"   "brk_group"  "abbrev"     "postal"     "formal_en" 
+## [26] "formal_fr"  "note_adm0"  "note_brk"   "name_sort"  "name_alt"  
+## [31] "mapcolor7"  "mapcolor8"  "mapcolor9"  "mapcolor13" "pop_est"   
+## [36] "gdp_md_est" "pop_year"   "lastcensus" "gdp_year"   "economy"   
+## [41] "income_grp" "wikipedia"  "fips_10"    "iso_a2"     "iso_a3"    
+## [46] "iso_n3"     "un_a3"      "wb_a2"      "wb_a3"      "woe_id"    
+## [51] "adm0_a3_is" "adm0_a3_us" "adm0_a3_un" "adm0_a3_wb" "continent" 
+## [56] "region_un"  "subregion"  "region_wb"  "name_len"   "long_len"  
+## [61] "abbrev_len" "tiny"       "homepart"   "geometry"
+```
+
+---
+
+## Exercise 2: Plot the Data
+
+.pull-left[
+
+```r
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE")
+```
+
+![](02-layers_files/figure-html/data-germany-lowres-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(sf_germany_hd) + 
+  geom_sf(fill = "#CBE7BE")
+```
+
+![](02-layers_files/figure-html/data-germany-highres-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Exercise 2: Change Projection
+
+.pull-left[
+
+```r
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE") +
+  coord_sf(crs = "+proj=lcc +lat_1=48.66 +lat_2=53.66 +lat_0=51 +lon_0=10.5 +ellps=GRS80")
+```
+
+![](02-layers_files/figure-html/data-germany-crs-proj4-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE") +
+  coord_sf(crs = st_crs(5243))
+```
+
+![](02-layers_files/figure-html/data-germany-crs-epsg-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Exercise 2: Change Projection
+
+.pull-left[
+
+```r
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE") +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](02-layers_files/figure-html/data-germany-crs-screwed-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE") +
+  coord_sf(crs = "+proj=laea +lon_0=-70 +lat_0=0")
+```
+
+![](02-layers_files/figure-html/data-germany-crs-screwed2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Resources
+
+* Chapters on [individual geom's](https://ggplot2-book.org/individual-geoms.html), [collective geom's](https://ggplot2-book.org/collective-geoms.html), [statistical summaries](https://ggplot2-book.org/statistical-summaries.html), and [maps](https://ggplot2-book.org/maps.html)&lt;br&gt;of the “ggplot2” book by Hadley Wickham et al.
+
+* [Overview of layers](https://ggplot2.tidyverse.org/reference/) contained in the `{ggplot2}` package
+
+* [R Graph Gallery](https://www.r-graph-gallery.com/) that provides hundreds of charts with their reproducible code
+
+* List of [`{ggplot2}` extension packages](https://exts.ggplot2.tidyverse.org/)
+
+* [“Geocomputation with R”](https://geocompr.robinlovelace.net/), free-access book by Robin Lovelace et al.
+
+* [`{sf}` package page](https://r-spatial.github.io/sf/)
+
+* [StackOverflow discussion](https://github.com/r-spatial/sf/issues/1050) and [code](https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1) to plot a true globe
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

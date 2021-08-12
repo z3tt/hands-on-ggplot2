@@ -511,6 +511,125 @@ background-size: cover
 * Inspect the data.
 
 ---
+
+## Exercise 1: Import the Data
+
+
+```r
+chic &lt;- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+
+# chic &lt;- readr::read_csv("data/chicago-nmmaps.csv")
+```
+
+---
+
+## Exercise 1: Inspect the Data
+
+
+```r
+str(chic)
+## spec_tbl_df [1,461 x 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ city    : chr [1:1461] "chic" "chic" "chic" "chic" ...
+##  $ date    : Date[1:1461], format: "1997-01-01" "1997-01-02" ...
+##  $ death   : num [1:1461] 137 123 127 146 102 127 116 118 148 121 ...
+##  $ temp    : num [1:1461] 36 45 40 51.5 27 17 16 19 26 16 ...
+##  $ dewpoint: num [1:1461] 37.5 47.2 38 45.5 11.2 ...
+##  $ pm10    : num [1:1461] 13.1 41.9 27 25.1 15.3 ...
+##  $ o3      : num [1:1461] 5.66 5.53 6.29 7.54 20.76 ...
+##  $ time    : num [1:1461] 3654 3655 3656 3657 3658 ...
+##  $ season  : chr [1:1461] "Winter" "Winter" "Winter" "Winter" ...
+##  $ year    : num [1:1461] 1997 1997 1997 1997 1997 ...
+##  - attr(*, "spec")=
+##   .. cols(
+##   ..   city = col_character(),
+##   ..   date = col_date(format = ""),
+##   ..   death = col_double(),
+##   ..   temp = col_double(),
+##   ..   dewpoint = col_double(),
+##   ..   pm10 = col_double(),
+##   ..   o3 = col_double(),
+##   ..   time = col_double(),
+##   ..   season = col_character(),
+##   ..   year = col_double()
+##   .. )
+```
+
+---
+
+## Exercise 1: Inspect the Data
+
+
+```r
+summary(chic)
+##      city                date                death            temp   
+##  Length:1461        Min.   :1997-01-01   Min.   : 69.0   Min.   :-3  
+##  Class :character   1st Qu.:1998-01-01   1st Qu.:101.0   1st Qu.:36  
+##  Mode  :character   Median :1999-01-01   Median :110.0   Median :52  
+##                     Mean   :1999-01-01   Mean   :111.3   Mean   :51  
+##                     3rd Qu.:2000-01-01   3rd Qu.:120.0   3rd Qu.:67  
+##                     Max.   :2000-12-31   Max.   :164.0   Max.   :90  
+##                                                                      
+##     dewpoint           pm10                o3                time     
+##  Min.   :-10.38   Min.   :  0.2033   Min.   : 0.08584   Min.   :3654  
+##  1st Qu.: 28.10   1st Qu.: 18.3844   1st Qu.:10.92419   1st Qu.:4019  
+##  Median : 41.20   Median : 28.8499   Median :18.65149   Median :4384  
+##  Mean   : 41.36   Mean   : 32.0928   Mean   :19.23597   Mean   :4384  
+##  3rd Qu.: 56.25   3rd Qu.: 41.0738   3rd Qu.:26.20476   3rd Qu.:4749  
+##  Max.   : 77.10   Max.   :125.3844   Max.   :54.68764   Max.   :5114  
+##                   NA's   :17                                          
+##     season               year     
+##  Length:1461        Min.   :1997  
+##  Class :character   1st Qu.:1998  
+##  Mode  :character   Median :1999  
+##                     Mean   :1999  
+##                     3rd Qu.:2000  
+##                     Max.   :2000  
+## 
+```
+
+---
+
+## vInspect the Data
+
+
+```r
+tibble::glimpse(chic)
+## Rows: 1,461
+## Columns: 10
+## $ city     &lt;chr&gt; "chic", "chic", "chic", "chic", "chic", "chic", "chic", "chic~
+## $ date     &lt;date&gt; 1997-01-01, 1997-01-02, 1997-01-03, 1997-01-04, 1997-01-05, ~
+## $ death    &lt;dbl&gt; 137, 123, 127, 146, 102, 127, 116, 118, 148, 121, 110, 127, 1~
+## $ temp     &lt;dbl&gt; 36.0, 45.0, 40.0, 51.5, 27.0, 17.0, 16.0, 19.0, 26.0, 16.0, 1~
+## $ dewpoint &lt;dbl&gt; 37.500, 47.250, 38.000, 45.500, 11.250, 5.750, 7.000, 17.750,~
+## $ pm10     &lt;dbl&gt; 13.052268, 41.948600, 27.041751, 25.072573, 15.343121, 9.3646~
+## $ o3       &lt;dbl&gt; 5.659256, 5.525417, 6.288548, 7.537758, 20.760798, 14.940874,~
+## $ time     &lt;dbl&gt; 3654, 3655, 3656, 3657, 3658, 3659, 3660, 3661, 3662, 3663, 3~
+## $ season   &lt;chr&gt; "Winter", "Winter", "Winter", "Winter", "Winter", "Winter", "~
+## $ year     &lt;dbl&gt; 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1~
+```
+
+---
+
+## Exercise 1: Inspect the Data
+
+
+```r
+range(chic$date)
+## [1] "1997-01-01" "2000-12-31"
+
+range(chic$temp)
+## [1] -3 90
+
+unique(chic$season)
+## [1] "Winter" "Spring" "Summer" "Autumn"
+
+unique(chic$year)
+## [1] 1997 1998 1999 2000
+```
+
+---
 class: inverse, center, middle
 
 # &lt;b style='font-size:70pt;'&gt;The Structure of&lt;br&gt;&lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;
@@ -655,7 +774,7 @@ We need to specify the data in the `ggplot()` call:
 *ggplot(data = data)
 ```
 
-![](01-grammar_files/figure-html/structure-data-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-data-1.png" width="1152" /&gt;
 
 ---
 
@@ -668,7 +787,7 @@ We need to specify the data in the `ggplot()` call:
 *ggplot(data = data)
 ```
 
-![](01-grammar_files/figure-html/structure-data-repeat-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-data-repeat-1.png" width="1152" /&gt;
 
 There is only an empty panel because `ggplot2` doesn't know **what** of the data it should plot.
 
@@ -683,7 +802,7 @@ We need to specify two variables we want to plot as positional `aes`thetics:
 *ggplot(data = data, mapping = aes(x = date, y = close))
 ```
 
-![](01-grammar_files/figure-html/structure-aes-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-aes-1.png" width="1152" /&gt;
 
 ---
 
@@ -696,7 +815,7 @@ We need to specify two variables we want to plot as positional `aes`thetics:
 *ggplot(data = data, mapping = aes(x = date, y = close))
 ```
 
-![](01-grammar_files/figure-html/structure-aes-repeat-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-aes-repeat-1.png" width="1152" /&gt;
 
 There is only an empty panel because `ggplot2` doesn't know **how** it should plot the data.
 
@@ -711,7 +830,7 @@ Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also 
 *ggplot(data, aes(date, close))
 ```
 
-![](01-grammar_files/figure-html/structure-aes-implicit-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-aes-implicit-1.png" width="1152" /&gt;
 
 ---
 background-image: url("img/bg-poll.png")
@@ -745,7 +864,7 @@ ggplot(data, aes(date, close)) +
 * geom_point()
 ```
 
-![](01-grammar_files/figure-html/structure-geom-point-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-geom-point-1.png" width="1152" /&gt;
 
 ---
 
@@ -759,7 +878,7 @@ Aesthetics do not only refer to x and y positions, but also groupings, colors, f
   geom_point()
 ```
 
-![](01-grammar_files/figure-html/structure-aes-point-groups-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-aes-point-groups-1.png" width="1152" /&gt;
 
 ---
 
@@ -782,7 +901,7 @@ ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
   geom_point()
 ```
 
-![](01-grammar_files/figure-html/theme-plot-eval-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/theme-plot-eval-1.png" width="1152" /&gt;
 
 ---
 
@@ -797,7 +916,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * geom_point()
 ```
 
-![](01-grammar_files/figure-html/structure-geom-point-smooth-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-geom-point-smooth-1.png" width="1152" /&gt;
 
 ---
 
@@ -812,7 +931,7 @@ ggplot(data, aes(date, close, color = currency)) +
   geom_point()
 ```
 
-![](01-grammar_files/figure-html/structure-geom-point-smooth-aes-global-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-geom-point-smooth-aes-global-1.png" width="1152" /&gt;
 
 ---
 
@@ -827,7 +946,7 @@ ggplot(data, aes(date, close)) +
 * geom_point(aes(shape = currency))
 ```
 
-![](01-grammar_files/figure-html/structure-geom-point-smooth-aes-individual-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-geom-point-smooth-aes-individual-1.png" width="1152" /&gt;
 
 ---
 background-image: url("img/bg-exercise.png")
@@ -858,6 +977,116 @@ chic &lt;- readr::read_csv(
 
 ---
 
+## Exercise 2: Scatter Plot Temperature vs Day
+
+
+```r
+ggplot(chic, aes(date, temp)) + 
+  geom_point()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-scatter-1.png" width="1152" /&gt;
+
+---
+
+## Exercise 2: Scatter Plot Colored by Season
+
+
+```r
+ggplot(chic, aes(date, temp, color = season)) + 
+  geom_point()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-scatter-season-1.png" width="1152" /&gt;
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+
+```r
+ggplot(chic, aes(date, temp, color = year)) + 
+  geom_point()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-scatter-year-cont-1.png" width="1152" /&gt;
+
+---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: The variable &lt;code&gt;year&lt;/code&gt; should be of type... (MC)
+
+
+&lt;ul style='font-size:26pt;margin: 50px 50px;'&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Integer&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Character&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Factor&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;Date&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+
+```r
+ggplot(chic, aes(date, temp, color = factor(year))) + 
+  geom_point()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-scatter-year-fct-1.png" width="1152" /&gt;
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+
+```r
+ggplot(chic, aes(date, temp, color = as.character(year))) + 
+  geom_point()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-scatter-year-char-1.png" width="1152" /&gt;
+
+---
+
+## Exercise 2: Scatter Plot Colored by Year
+
+
+```r
+ggplot(chic, aes(date, temp, color = as.integer(year))) + 
+  geom_point()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-scatter-year-int-1.png" width="1152" /&gt;
+
+---
+
+## Exercise 2 — Bonus: Scatter Plot Colored by Year
+
+
+```r
+ggplot(chic, aes(date, temp, color = season)) + 
+  geom_line()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-line-season-1.png" width="1152" /&gt;
+
+---
+
+## Exercise 2 — Bonus: Scatter Plot Colored by Year
+
+
+```r
+ggplot(chic, aes(date, temp, color = season, group = year)) + 
+  geom_line()
+```
+
+&lt;img src="01-grammar_files/figure-html/plot-chic-line-season-fixed-1.png" width="1152" /&gt;
+
+---
+
 ## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scales\_\*()&lt;/code&gt;
 
 Scales are directly connected to aesthetics:
@@ -876,7 +1105,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](01-grammar_files/figure-html/plot-structure-scales-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/plot-structure-scales-1.png" width="504" /&gt;
 ]
 
 ---
@@ -910,7 +1139,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](01-grammar_files/figure-html/plot-structure-scales-adj-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/plot-structure-scales-adj-1.png" width="504" /&gt;
 ]
 
 ---
@@ -934,7 +1163,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](01-grammar_files/figure-html/plot-structure-coord-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/plot-structure-coord-1.png" width="504" /&gt;
 ]
 
 ---
@@ -958,7 +1187,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](01-grammar_files/figure-html/plot-structure-coord-polar-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/plot-structure-coord-polar-1.png" width="504" /&gt;
 ]
 
 ---
@@ -986,15 +1215,35 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](01-grammar_files/figure-html/plot-structure-coord-zoom-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/plot-structure-coord-zoom-1.png" width="504" /&gt;
 ]
 
 ---
 class: center, middle
 
-## Facets, Themes, and Annotations will follow later!
+&lt;b style='font-family:DM Serif;font-size:30pt;color:#28a87d;'&gt;Facets, Themes, and Annotations will follow later!&lt;/b&gt;
+
+---
+
+## Saving a `ggplot`
+
+You can export your plot via the `ggsave()` function:
 
 
+```r
+ggsave(filename = "my_ggplot.pdf", 
+       width = 10, height = 7, 
+       device = cairo_pdf)
+
+ggsave(filename = "my_ggplot.png", 
+       width = 10, height = 7, 
+       dpi = 700)
+```
+
+---
+class: center, middle
+
+&lt;img src="img/canva_vector.png" style='width:100%;'&gt;&lt;br&gt;&lt;i style='font-size:10pt;color:grey;'&gt;Source: canva.com&lt;/i&gt;
 
 ---
 class: inverse, center, middle
@@ -12431,7 +12680,7 @@ Some prefer to place the `aes()` outside the `ggplot()` call:
 * aes(x = date, y = close)
 ```
 
-![](01-grammar_files/figure-html/structure-aes-outside-1.png)&lt;!-- --&gt;
+&lt;img src="01-grammar_files/figure-html/structure-aes-outside-1.png" width="1152" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

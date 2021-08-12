@@ -2494,6 +2494,7 @@ Codes
 <ul>
 <li><a href="#import-the-data">Import the Data</a></li>
 </ul></li>
+<li><a href="#exercise-1">Exercise 1</a></li>
 <li><a href="#the-grammar-of-graphics">The Grammar of Graphics</a>
 <ul>
 <li><a href="#the-structure-of-ggplot2">The Structure of ggplot2</a></li>
@@ -2510,12 +2511,10 @@ Codes
 <li><a href="#scales-scales_">Scales: scales_*()</a></li>
 <li><a href="#coordinate-systems-coord_">Coordinate Systems: coord_*()</a></li>
 </ul></li>
+<li><a href="#saving-a-ggplot">Saving a <code>ggplot</code></a></li>
 <li><a href="#appendix">APPENDIX</a>
 <ul>
 <li><a href="#import-the-data-1">Import the Data</a></li>
-</ul></li>
-<li><a href="#exercise-1">Exercise 1:</a>
-<ul>
 <li><a href="#aesthetics-aes-1">Aesthetics: aes()</a></li>
 </ul></li>
 <li><a href="#session-info">Session Info</a></li>
@@ -2631,6 +2630,13 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <p>The so–called <strong>namespace</strong> allows to access functions from a package directly without loading it first.</p>
 <p><code>packagename::function(argument)</code></p>
 <p>Furthermore, it helps readers to understand from which package a function is imported from.</p>
+<hr />
+<h2 id="exercise-1">Exercise 1</h2>
+<ul>
+<li><p>Import the data set on Chicago weather data:<br><a href="https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv" class="uri">https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv</a></p></li>
+<li><p>Inspect the data.</p></li>
+</ul>
+<hr />
 <h2 id="the-grammar-of-graphics">The Grammar of Graphics</h2>
 <h3 id="the-structure-of-ggplot2">The Structure of ggplot2</h3>
 <p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/structure-table.png" /></p>
@@ -2840,6 +2846,23 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-coord-zoom-1.png" width="960" /></p>
 </div>
 <p>-&gt; Facets, Themes, and Annotations will follow later!</p>
+<h2 id="saving-a-ggplot">Saving a <code>ggplot</code></h2>
+<p>You can export your plot via the <code>ggsave()</code> function:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>filename <span class='op'>=</span> <span class='st'>"my_ggplot.pdf"</span>, 
+       width <span class='op'>=</span> <span class='fl'>10</span>, height <span class='op'>=</span> <span class='fl'>7</span>, 
+       device <span class='op'>=</span> <span class='va'>cairo_pdf</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>filename <span class='op'>=</span> <span class='st'>"my_ggplot.png"</span>, 
+       width <span class='op'>=</span> <span class='fl'>10</span>, height <span class='op'>=</span> <span class='fl'>7</span>, 
+       dpi <span class='op'>=</span> <span class='fl'>700</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png" alt="Source: canva.com" /><figcaption aria-hidden="true">Source: canva.com</figcaption>
+</figure>
 <hr />
 <h2 id="appendix">APPENDIX</h2>
 <h3 id="import-the-data-1">Import the Data</h3>
@@ -3018,12 +3041,6 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 # ... with 2,802 more rows</code></pre>
 </div>
 <hr />
-<h2 id="exercise-1">Exercise 1:</h2>
-<ul>
-<li><p>Import the data set on Chicago weather data:<br><a href="https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv" class="uri">https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv</a></p></li>
-<li><p>Inspect the data.</p></li>
-</ul>
-<hr />
 <h3 id="aesthetics-aes-1">Aesthetics: aes()</h3>
 <p>Some prefer to place the <code>aes()</code> outside the <code>ggplot()</code> call:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3041,10 +3058,10 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-11 11:07:07 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-11 14:35:22 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [e810784] 2021-08-11: rebuild page</code></pre>
+Head:     [dda0265] 2021-08-11: update segment 1</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)

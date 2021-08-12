@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 2 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-07-12" />
+    <meta name="date" content="2021-08-11" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -26,25 +26,535 @@ background-size: contain
 
 ---
 
-## A Descriptive Title
+## Create Any Chart Type
 
-... and some text to illustrate the size of the body text.
+As you've seen, we can quickly switch through different chart types:
 
 .pull-left[
 
 ```r
-## Also, some code:
-mpg %&gt;% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %&gt;% 
-  count(manufacturer) %&gt;% 
-* ggplot(aes(n, manufacturer)) +
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
+ggplot(data, aes(date, close, color = currency)) +
+  geom_point()
+```
+
+![](02-layers_files/figure-html/scatter-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line()
+```
+
+![](02-layers_files/figure-html/line-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Area Charts
+
+As you've seen, we can quickly switch through different chart types:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+  geom_area(aes(fill = currency), alpha = .5)
+```
+
+![](02-layers_files/figure-html/area-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Area Charts
+
+Many of the geom's can further adjusted:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+* geom_area(aes(fill = currency), alpha = .5, position = "dodge")
+```
+
+![](02-layers_files/figure-html/area-dodge-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Area Charts
+
+Many of the geom's can further adjusted:
+
+
+```r
+ggplot(data, aes(date, close, color = currency)) +
+* geom_area(aes(fill = currency), position = "fill")
+```
+
+![](02-layers_files/figure-html/area-fill-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Box Plots
+
+Some geom's drastically change the appearance of the data:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+* geom_boxplot()
+```
+
+![](02-layers_files/figure-html/boxplot-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Box Plots
+
+And, as you already know, we can combine geom's to make the plot more insightful:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+  geom_boxplot(outlier.alpha = 0, color = "grey60", size = 1) + 
+* geom_point(alpha = .2)
+```
+
+![](02-layers_files/figure-html/boxplot-dots-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Jitterstrips
+
+... and also the point geom can be adjusted:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+  geom_boxplot(outlier.alpha = 0, color = "grey60", size = 1) + 
+* geom_point(alpha = .2, position = position_jitter(height = .2))
+```
+
+![](02-layers_files/figure-html/boxplot-jitter-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Barcode Plots
+
+... and also the point geom can be adjusted:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+  geom_boxplot(outlier.alpha = 0, color = "grey60", size = 1) + 
+* geom_point(alpha = .1, shape = "|", size = 9)
+```
+
+![](02-layers_files/figure-html/boxplot-barcode-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Barcode Plots
+
+... and also the point geom can be adjusted:
+
+
+```r
+ggplot(data, aes(close, currency)) +
+* geom_boxplot(outlier.alpha = 0, width = .4, position = position_nudge(y = .2)) +
+* geom_point(alpha = .1, shape = "|", size = 9, position = position_nudge(y = -.2))
+```
+
+![](02-layers_files/figure-html/boxplot-barcode-nudge-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Hexagonal Bin Plot
+
+Plots that bin the data can be helpful to deal with overplotting:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_point(alpha = .3)
+```
+
+![](02-layers_files/figure-html/scatter-open-close-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_hex()
+```
+
+![](02-layers_files/figure-html/hex-open-close-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Hexagonal Bin Plot
+
+Let's add the diagonal to the plot:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+* geom_abline(slope = 1, intercept = 0) +
+  geom_point(alpha = .3) +
+* coord_fixed()
+```
+
+![](02-layers_files/figure-html/scatter-open-close-diag-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+* geom_abline(slope = 1, intercept = 0) +
+  geom_hex() +
+* coord_fixed()
+```
+
+![](02-layers_files/figure-html/hex-open-close-diag-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Rectangular Bin Plot
+
+If you don't like hexagonals, use rectangles!
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+  geom_point(alpha = .3) +
+  coord_fixed() 
+```
+
+![](02-layers_files/figure-html/scatter-open-close-diag-2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+* geom_bin2d() +
+  coord_fixed()
+```
+
+![](02-layers_files/figure-html/rect-open-close-diag-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Rectangular Bin Plot
+
+Actually, the map to a hidden third aesthetic that is calculated by ggplot2:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+* geom_bin2d(aes(fill = ..count..)) +
+  coord_fixed() 
+```
+
+![](02-layers_files/figure-html/rect-count-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+  geom_abline(slope = 1, intercept = 0) +
+* geom_bin2d(aes(fill = ..density..)) +
+  coord_fixed()
+```
+
+![](02-layers_files/figure-html/rect-density-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Create Any Chart Type: Heatmaps
+
+With `geom_tile()` one can create heatmaps:
+
+
+```r
+ggplot(data, aes(date, currency, fill = close)) +
+  geom_tile()
+```
+
+![](02-layers_files/figure-html/heatmap-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Heatmaps
+
+With `geom_tile()` one can create heatmaps:
+
+
+```r
+ggplot(data, aes(date, currency, fill = close)) +
+  geom_tile() +
+  coord_cartesian(expand = FALSE)
+```
+
+![](02-layers_files/figure-html/heatmap-expand-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+
+```r
+ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high)) +
+  geom_linerange(aes(ymin = open, ymax = close), size = 5)
+```
+
+![](02-layers_files/figure-html/candle-1.png)&lt;!-- --&gt;
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+
+```r
+ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
+* geom_linerange(aes(ymin = low, ymax = high, color = close &gt; open)) +
+* geom_linerange(aes(ymin = open, ymax = close, color = close &gt; open), size = 5)
+```
+
+![](02-layers_files/figure-html/candle-color-1.png)&lt;!-- --&gt;
+
+---
+
+## Statistical Transformations: &lt;code style='color:#28a87d;font-weight:700;'&gt;stat_*()&lt;/code&gt;
+
+You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
+
+.pull-left[
+
+```r
+ggplot(data, aes(open, close)) +
+* stat_identity(geom = "point")
+```
+
+![](02-layers_files/figure-html/statgeom-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(open, close)) +
+* geom_point(stat = "identity")
+```
+
+![](02-layers_files/figure-html/geomstat-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: &lt;code style='color:#28a87d;font-weight:700;'&gt;stat_*()&lt;/code&gt;
+
+You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
+
+.pull-left[
+
+```r
+ggplot(data, aes(factor(month), close)) +
+* stat_summary(geom = "pointrange")
+```
+
+![](02-layers_files/figure-html/statgeom-2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(factor(month), close)) +
+* geom_pointrange(stat = "summary")
+```
+
+![](02-layers_files/figure-html/geomstat-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Draw Functions
+
+`stat_function()` makes it easy to add a function to a plot, either continuous or discrete:
+
+.pull-left[
+
+```r
+ggplot(tibble(x = c(-8, 8)), aes(x)) +
+* stat_function(fun = dnorm) +
+* stat_function(
+*   fun = dcauchy,
+*   color = "red",
+*   n = 75
+* )
 ```
 ]
 
 .pull-right[
-&lt;img src="grammar_files/figure-html/plot-1.png" width="504" /&gt;
+![](02-layers_files/figure-html/plot-stats-function-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Draw ECDFs
+
+You can also easily plot the empirical cumulative distribution function (ECDF) of a variable:
+
+
+```r
+ggplot(data, aes(close, color = currency)) +
+* stat_ecdf()
+```
+
+![](02-layers_files/figure-html/stats-ecdf-1.png)&lt;!-- --&gt;
+
+---
+
+## Statistical Transformations: Draw Fittings
+
+You can directly add smoothed conditional means:
+
+.pull-left[
+
+```r
+ggplot(data, aes(date, close)) +
+* stat_smooth()
+```
+
+![](02-layers_files/figure-html/stats-smooth2-1.png)&lt;!-- --&gt;
+
+By default this adds a **LOESS** (locally weighted scatter plot smoothing, `method = "loess"`) or a **GAM** (generalized additive model, `method = "gam"`) depending on the number of data points (GAM in case of ≥ 1000 observations).
+
+---
+
+## Statistical Transformations: Draw Fittings
+
+You can specify the fitting method and the formula:
+
+.pull-left[
+
+```r
+ggplot(data, aes(date, close)) +
+* stat_smooth(method = "lm", formula = y ~ x + I(x^2) +  I(x^3) + I(x^4))
+```
+
+![](02-layers_files/figure-html/stats-smooth-polynom-1.png)&lt;!-- --&gt;
+
+Other methods such as `method = "lm"` (without an explicit formula) for simple linear regressions and `method = "glm"` for generalized linear models are available as well.
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary()
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+*   geom = "errorbar",
+*   fun = "mean_se"
+  )
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-default-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    fun = function(x) mean(x),
+    fun.min = function(x) mean(x) - sd(x),
+    fun.max = function(x) mean(x) + sd(x)
+  ) 
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-custom-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+
+```r
+ggplot(data, aes(currency, close)) +
+    stat_summary(
+        geom = "linerange",
+        fun.min = "min",
+        fun.max = "max"
+    ) +
+    stat_summary(
+        fun = "range"
+    ) +
+    stat_summary(
+        fun = "range",
+        aes(label = round(..y.., 2)),
+        geom = "text",
+        hjust = 1,
+        position = position_nudge(x = -.05)
+    )
+```
+]
+
+.pull-right[
+![](02-layers_files/figure-html/plot-stats-summary-range-1.png)&lt;!-- --&gt;
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

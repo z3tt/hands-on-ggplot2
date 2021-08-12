@@ -36,8 +36,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   fig.height = 6.3,
   fig.allign = 'center',
-  fig.retina = 3.5,
-  fig.showtext = TRUE
+  fig.retina = 1,
+  dev = "ragg_png", 
+  res = 1000
 )
 
 Sys.setlocale("LC_TIME", "C")
@@ -46,39 +47,30 @@ options(width = 80)
 ```
 
 <br><br>
-# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 3: Polish Your Visualization</b>
+# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 2: Build Plots Layer by Layer</b>
 <br><br><br><br><br><br><br>
 #### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b ><br>
 
 ```{r prep, echo=FALSE}
 library(tidyverse)
 library(conflicted)
-library(showtext)
 filter <- dplyr::filter
-font_add_google("Roboto", "Roboto")
-font_add_google("Bitter", "Bitter")
-theme_set(theme_grey(base_size = 16))
+theme_set(theme_light(base_size = 18, base_family = "Roboto Condensed"))
+data <- readr::read_csv("https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv")
 ```
 
 ---
+background-image: url("img/bg-poll.png")
+background-size: cover
 
-## A Descriptive Title
+## POLL: Which chart types do you use regularly? (MC)
 
-... and some text to illustrate the size of the body text.
+<ul style='font-size:26pt;margin: 50px 50px;'>
+<li style='margin-bottom: 15px;'>a</li>
+<li style='margin-bottom: 15px;'>b</li>
+</ul>
 
-.pull-left[
-```{r code, eval=FALSE}
-## Also, some code:
-mpg %>% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %>% 
-  count(manufacturer) %>% 
-  ggplot(aes(n, manufacturer)) + #<<
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
-```
-]
+---
+class: center, middle
 
-.pull-right[
-```{r plot, ref.label="code", echo=FALSE}
-```
-]
+<p style='text-align:center;'><img src="img/basic_ggplots.png" style='width:80%;'><br><cap>Source: Rstudio (ggplot2.tidyverse.org)</cap></p>
