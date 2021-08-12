@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
   warning = FALSE, 
   message = FALSE, 
   collapse = TRUE,
-  fig.height = 6.3,
+  fig.height=6.3,
   fig.allign = 'center',
   fig.retina = 2,
   dev = "ragg_png", 
@@ -149,19 +149,19 @@ class: center, inverse
 <p style="text-align:center;"><img src="img/ggplot2.png" style="width: 20%">
 <br><br>
 
-<b style='font-size:28pt;'><code style='color:#ebc500;'>ggplot2</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
+<b style='font-size:28pt;'><code style='color:#ebc500;'>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
 
 --
 
 <br>
-<span style='font-size:22pt;'>You provide the data, tell <code style='color:#ebc500;font-weight:700;'>ggplot2</code> how to <b>map variables to aesthetics</b>,<br>what graphical primitives to use, and it takes care of the details.</span><br>
+<span style='font-size:22pt;'>You provide the data, tell <code style='color:#ebc500;font-weight:700;'>{ggplot2}</code> how to <b>map variables to aesthetics</b>,<br>what graphical primitives to use, and it takes care of the details.</span><br>
 <br>
 <i style='font-size:12pt;color:grey;'>ggplot2 package description</i>
 
 ---
 <br><br>
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 <ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
@@ -170,7 +170,7 @@ class: center, inverse
 ---
 <br><br>
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 <ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
@@ -181,7 +181,7 @@ class: center, inverse
 ---
 <br><br>
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 <ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
@@ -194,7 +194,7 @@ class: center, inverse
 ---
 <br><br>
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 <ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'>
 <li>consistent underlying grammar of graphics (Wilkinson, 2005)</li>
@@ -224,7 +224,7 @@ class: center, middle
 ---
 class: inverse, center, middle
 
-# <b style='font-size:70pt;'>The <code style='color:#ebc500;'>ggplot2</code> Showcase</b><br><br>
+# <b style='font-size:70pt;'>The <code style='color:#ebc500;'>{ggplot2}</code> Showcase</b><br><br>
 
 ---
 class: inverse, center, middle
@@ -397,7 +397,7 @@ background-size: cover
 
 ## The Package
 
-<span style='font-size:16pt;'>`ggplot2` is a **data visualization package** for the programming language `R` created by Hadley Wickham.</span>
+<span style='font-size:16pt;'>`{ggplot2}` is a **data visualization package** for the programming language `R` created by Hadley Wickham.</span>
 
 ```{r ggplot-package, eval=FALSE}
 install.packages("ggplot2")
@@ -406,7 +406,7 @@ library(ggplot2)
 
 --
 
-<span style='font-size:16pt;'>`ggplot2` is part of the [`tidyverse`](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/), a set of packages to manipulate and explore data.</span>
+<span style='font-size:16pt;'>`{ggplot2}` is part of the [`tidyverse`](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/), a set of packages to manipulate and explore data.</span>
 
 ```{r tidyverse-package, eval=FALSE}
 install.packages("tidyverse")
@@ -556,12 +556,12 @@ unique(chic$year)
 ---
 class: inverse, center, middle
 
-# <b style='font-size:70pt;'>The Structure of<br><code style='color:#ebc500;'>ggplot2</code></b><br><br>
+# <b style='font-size:70pt;'>The Structure of<br><code style='color:#ebc500;'>{ggplot2}</code></b><br><br>
 # <span style='font-size:40pt;color:#a7a7a7;'>"The Grammar of Graphics"</span><br><br>
 
 ---
 
-## The Structure of `ggplot2`
+## The Structure of `{ggplot2}`
 
 <br>
 <table style='width:100%;font-size:15pt;font-family:DM Sans;'>
@@ -589,7 +589,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `ggplot2`
+## The Structure of `{ggplot2}`
 
 <br>
 <table style='width:100%;font-size:15pt;font-family:DM Sans;'>
@@ -636,7 +636,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `ggplot2`
+## The Structure of `{ggplot2}`
 
 <br>
 <table style='width:100%;font-size:15pt;font-family:DM Sans;'>
@@ -693,7 +693,7 @@ class: inverse, center, middle
 
 We need to specify the data in the `ggplot()` call:
 
-```{r structure-data, fig.width = 16, fig.height = 5.3}
+```{r structure-data, fig.width=16, fig.height=5.3}
 ggplot(data = data) #<<
 ```
 
@@ -703,11 +703,11 @@ ggplot(data = data) #<<
 
 We need to specify the data in the `ggplot()` call:
 
-```{r structure-data-repeat, fig.width = 16, fig.height = 5.3}
+```{r structure-data-repeat, fig.width=16, fig.height=5.3}
 ggplot(data = data) #<<
 ```
 
-There is only an empty panel because `ggplot2` doesn't know **what** of the data it should plot.
+There is only an empty panel because `{ggplot2}` doesn't know **what** of the data it should plot.
 
 ---
 
@@ -715,7 +715,7 @@ There is only an empty panel because `ggplot2` doesn't know **what** of the data
 
 We need to specify two variables we want to plot as positional `aes`thetics:
 
-```{r structure-aes, fig.width = 16, fig.height = 5.3}
+```{r structure-aes, fig.width=16, fig.height=5.3}
 ggplot(data = data, mapping = aes(x = date, y = close)) #<<
 ```
 
@@ -725,11 +725,11 @@ ggplot(data = data, mapping = aes(x = date, y = close)) #<<
 
 We need to specify two variables we want to plot as positional `aes`thetics:
 
-```{r structure-aes-repeat, fig.width = 16, fig.height = 5.3}
+```{r structure-aes-repeat, fig.width=16, fig.height=5.3}
 ggplot(data = data, mapping = aes(x = date, y = close)) #<<
 ```
 
-There is only an empty panel because `ggplot2` doesn't know **how** it should plot the data.
+There is only an empty panel because `{ggplot2}` doesn't know **how** it should plot the data.
 
 ---
 
@@ -737,26 +737,15 @@ There is only an empty panel because `ggplot2` doesn't know **how** it should pl
 
 Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also write:
 
-```{r structure-aes-implicit, fig.width = 16, fig.height = 5.3}
+```{r structure-aes-implicit, fig.width=16, fig.height=5.3}
 ggplot(data, aes(date, close)) #<<
 ```
-
----
-background-image: url("img/bg-poll.png")
-background-size: cover
-
-## POLL: Is `ggplot(data) + aes(x, y)` valid code?
-
-<ul style='font-size:26pt;margin: 50px 50px;'>
-<li style='margin-bottom: 15px;'>Yes.</li>
-<li style='margin-bottom: 15px;'>No.</li>
-</ul>
 
 ---
 
 ## Layers: <b><code>geom\_\*()</code>&nbsp;&nbsp;and&nbsp;&nbsp;<code>stat_*()</code></b>
 
-By adding one or multiple layers we can tell `ggplot2` *how*&nbsp;&nbsp;to represent the data.<br>
+By adding one or multiple layers we can tell `{ggplot2}` *how*&nbsp;&nbsp;to represent the data.<br>
 There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
 
 <p style="text-align:center;"><img src="img/ggplot-layers.png" style="width: 54%"><i style='font-size:10pt;color:grey;'>Adapted from ggplot2.tidyverse.org/reference</i></p>
@@ -765,9 +754,9 @@ There are lots of build-in geometric elements (`geom's`) and statistical transfo
 
 ## Layers: <code style='color:#28a87d;font-weight:700;'>geom_*()</code>
 
-We can tell `ggplot2` to represent the data for example as a **scatter plot**:
+We can tell `{ggplot2}` to represent the data for example as a **scatter plot**:
 
-```{r structure-geom-point, fig.width = 16, fig.height = 5.8}
+```{r structure-geom-point, fig.width=16, fig.height=5.8}
 ggplot(data, aes(date, close)) +
   geom_point() #<<
 ```
@@ -778,7 +767,7 @@ ggplot(data, aes(date, close)) +
 
 Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
 
-```{r structure-aes-point-groups, fig.width = 16, fig.height = 5.8}
+```{r structure-aes-point-groups, fig.width=16, fig.height=5.8}
 ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) + #<<
   geom_point()
 ```
@@ -802,7 +791,7 @@ ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
   geom_point()
 ```
 
-```{r theme-plot-eval, echo=FALSE, fig.width = 16, fig.height = 5.5}
+```{r theme-plot-eval, echo=FALSE, fig.width=16, fig.height=5.5}
 theme_set(theme_light(base_size = 18, base_family = "Roboto Condensed"))
 
 ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) + 
@@ -815,7 +804,7 @@ ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
 
 The exciting thing about layers is that you can combine several `geom_*()` and `stat_*()` calls:
 
-```{r structure-geom-point-smooth, fig.width = 16, fig.height = 5.5}
+```{r structure-geom-point-smooth, fig.width=16, fig.height=5.5}
 ggplot(data, aes(date, close, color = currency)) +
   geom_line() + #<<
   geom_point() #<<
@@ -827,7 +816,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ... and aesthetics can be applied either **globally** or for each layer individually:
 
-```{r structure-geom-point-smooth-aes-global, fig.width = 16, fig.height = 5.5}
+```{r structure-geom-point-smooth-aes-global, fig.width=16, fig.height=5.5}
 ggplot(data, aes(date, close, color = currency, shape = currency)) + #<<
   geom_line() +
   geom_point()
@@ -839,7 +828,7 @@ ggplot(data, aes(date, close, color = currency, shape = currency)) + #<<
 
 ... and aesthetics can be applied either globally or for each layer **individually**:
 
-```{r structure-geom-point-smooth-aes-individual, fig.width = 16, fig.height = 5.5}
+```{r structure-geom-point-smooth-aes-individual, fig.width=16, fig.height=5.5}
 ggplot(data, aes(date, close)) +
   geom_line(aes(color = currency)) + #<<
   geom_point(aes(shape = currency)) #<<
@@ -866,11 +855,6 @@ chic <- readr::read_csv(
 * Color the points by year (`year`).
   + <span style='color:grey;'>What's the problem? How could you fix it?</span>
 
---
-
-* **Bonus:** Turn the scatter plot, colored by season, into a line plot.
-  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
-
 ---
 background-image: url("img/bg-exercise.png")
 background-size: cover
@@ -879,28 +863,7 @@ background-size: cover
 
 * If needed, import the Chicago weather data again:
 
-```{r import-chic-again}
-chic <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
-)
-```
-
-* Create a scatter plot of temperature (`temp`) versus day (`date`).
-
-* Color the points by season (`season`).
-
-* Color the points by year (`year`).
-  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
-
----
-background-image: url("img/bg-exercise.png")
-background-size: cover
-
-## Exercise 2:
-
-* If needed, import the Chicago weather data again:
-
-```{r import-chic-again}
+```{r import-chic-again2}
 chic <- readr::read_csv(
   "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
 )
@@ -920,7 +883,7 @@ chic <- readr::read_csv(
 
 ## Exercise 2: Scatter Plot Temperature vs Day
 
-```{r plot-chic-scatter, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-scatter, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp)) + 
   geom_point()
 ```
@@ -929,7 +892,7 @@ ggplot(chic, aes(date, temp)) +
 
 ## Exercise 2: Scatter Plot Colored by Season
 
-```{r plot-chic-scatter-season, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-scatter-season, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = season)) + 
   geom_point()
 ```
@@ -938,7 +901,7 @@ ggplot(chic, aes(date, temp, color = season)) +
 
 ## Exercise 2: Scatter Plot Colored by Year
 
-```{r plot-chic-scatter-year-cont, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-scatter-year-cont, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = year)) + 
   geom_point()
 ```
@@ -961,7 +924,7 @@ background-size: cover
 
 ## Exercise 2: Scatter Plot Colored by Year
 
-```{r plot-chic-scatter-year-fct, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-scatter-year-fct, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = factor(year))) + 
   geom_point()
 ```
@@ -970,7 +933,7 @@ ggplot(chic, aes(date, temp, color = factor(year))) +
 
 ## Exercise 2: Scatter Plot Colored by Year
 
-```{r plot-chic-scatter-year-char, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-scatter-year-char, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = as.character(year))) + 
   geom_point()
 ```
@@ -979,7 +942,7 @@ ggplot(chic, aes(date, temp, color = as.character(year))) +
 
 ## Exercise 2: Scatter Plot Colored by Year
 
-```{r plot-chic-scatter-year-int, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-scatter-year-int, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = as.integer(year))) + 
   geom_point()
 ```
@@ -988,7 +951,7 @@ ggplot(chic, aes(date, temp, color = as.integer(year))) +
 
 ## Exercise 2 — Bonus: Scatter Plot Colored by Year
 
-```{r plot-chic-line-season, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-line-season, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = season)) + 
   geom_line()
 ```
@@ -997,7 +960,7 @@ ggplot(chic, aes(date, temp, color = season)) +
 
 ## Exercise 2 — Bonus: Scatter Plot Colored by Year
 
-```{r plot-chic-line-season-fixed, fig.width = 16, fig.height = 5.5}
+```{r plot-chic-line-season-fixed, fig.width=16, fig.height=5.5}
 ggplot(chic, aes(date, temp, color = season, group = year)) + 
   geom_line()
 ```
@@ -1162,6 +1125,22 @@ class: center, middle
 <img src="img/canva_vector.png" style='width:100%;'><br><i style='font-size:10pt;color:grey;'>Source: canva.com</i>
 
 ---
+
+## Resources
+
+* [“ggplot2: Elegant Graphics for Data Analysis”](https://ggplot2-book.org/), free–access book by Hadley Wickham et al.
+
+* [{ggplot2} reference](https://ggplot2.tidyverse.org/reference/)
+
+* [{ggplot2} reference](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+* [“R for Data Science”](https://4ds.had.co.nz), free–access book by Hadley Wickham
+
+* [“Data Visualization: A Practical Introduction”](https://socviz.co), free–access book  by Kieran Healy
+
+* ["A `{ggplot2}` Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), an extensive "How to"-tutorial based on a [version from 2016 by Zev Ross](http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/)
+
+---
 class: inverse, center, middle
 
 # <b style='font-size:70pt;color:lightgray;'>APPENDIX</b><br><br>
@@ -1273,7 +1252,7 @@ data_local
 
 Some prefer to place the `aes()` outside the `ggplot()` call:
 
-```{r structure-aes-outside, fig.width = 16, fig.height = 5.5}
+```{r structure-aes-outside, fig.width=16, fig.height=5.5}
 ggplot(data) + #<<
   aes(x = date, y = close) #<<
 ```

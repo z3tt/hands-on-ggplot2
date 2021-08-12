@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 1 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-11" />
+    <meta name="date" content="2021-08-12" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -115,19 +115,19 @@ class: center, inverse
 &lt;p style="text-align:center;"&gt;&lt;img src="img/ggplot2.png" style="width: 20%"&gt;
 &lt;br&gt;&lt;br&gt;
 
-&lt;b style='font-size:28pt;'&gt;&lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt; is a system for declaratively creating graphics,&lt;br&gt;based on "The Grammar of Graphics" (Wilkinson, 2005).&lt;/b&gt;
+&lt;b style='font-size:28pt;'&gt;&lt;code style='color:#ebc500;'&gt;{ggplot2}&lt;/code&gt; is a system for declaratively creating graphics,&lt;br&gt;based on "The Grammar of Graphics" (Wilkinson, 2005).&lt;/b&gt;
 
 --
 
 &lt;br&gt;
-&lt;span style='font-size:22pt;'&gt;You provide the data, tell &lt;code style='color:#ebc500;font-weight:700;'&gt;ggplot2&lt;/code&gt; how to &lt;b&gt;map variables to aesthetics&lt;/b&gt;,&lt;br&gt;what graphical primitives to use, and it takes care of the details.&lt;/span&gt;&lt;br&gt;
+&lt;span style='font-size:22pt;'&gt;You provide the data, tell &lt;code style='color:#ebc500;font-weight:700;'&gt;{ggplot2}&lt;/code&gt; how to &lt;b&gt;map variables to aesthetics&lt;/b&gt;,&lt;br&gt;what graphical primitives to use, and it takes care of the details.&lt;/span&gt;&lt;br&gt;
 &lt;br&gt;
 &lt;i style='font-size:12pt;color:grey;'&gt;ggplot2 package description&lt;/i&gt;
 
 ---
 &lt;br&gt;&lt;br&gt;
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 &lt;ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'&gt;
 &lt;li&gt;consistent underlying grammar of graphics (Wilkinson, 2005)&lt;/li&gt;
@@ -136,7 +136,7 @@ class: center, inverse
 ---
 &lt;br&gt;&lt;br&gt;
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 &lt;ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'&gt;
 &lt;li&gt;consistent underlying grammar of graphics (Wilkinson, 2005)&lt;/li&gt;
@@ -147,7 +147,7 @@ class: center, inverse
 ---
 &lt;br&gt;&lt;br&gt;
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 &lt;ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'&gt;
 &lt;li&gt;consistent underlying grammar of graphics (Wilkinson, 2005)&lt;/li&gt;
@@ -160,7 +160,7 @@ class: center, inverse
 ---
 &lt;br&gt;&lt;br&gt;
 
-# Advantages of `ggplot2`
+# Advantages of `{ggplot2}`
 
 &lt;ul style='font-size:22pt;color:#28a87d;font-weight:700;margin: 50px 50px;'&gt;
 &lt;li&gt;consistent underlying grammar of graphics (Wilkinson, 2005)&lt;/li&gt;
@@ -190,7 +190,7 @@ class: center, middle
 ---
 class: inverse, center, middle
 
-# &lt;b style='font-size:70pt;'&gt;The &lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt; Showcase&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+# &lt;b style='font-size:70pt;'&gt;The &lt;code style='color:#ebc500;'&gt;{ggplot2}&lt;/code&gt; Showcase&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 
 ---
 class: inverse, center, middle
@@ -363,7 +363,7 @@ background-size: cover
 
 ## The Package
 
-&lt;span style='font-size:16pt;'&gt;`ggplot2` is a **data visualization package** for the programming language `R` created by Hadley Wickham.&lt;/span&gt;
+&lt;span style='font-size:16pt;'&gt;`{ggplot2}` is a **data visualization package** for the programming language `R` created by Hadley Wickham.&lt;/span&gt;
 
 
 ```r
@@ -373,7 +373,7 @@ library(ggplot2)
 
 --
 
-&lt;span style='font-size:16pt;'&gt;`ggplot2` is part of the [`tidyverse`](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/), a set of packages to manipulate and explore data.&lt;/span&gt;
+&lt;span style='font-size:16pt;'&gt;`{ggplot2}` is part of the [`tidyverse`](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/), a set of packages to manipulate and explore data.&lt;/span&gt;
 
 
 ```r
@@ -529,31 +529,19 @@ chic &lt;- readr::read_csv(
 
 
 ```r
-str(chic)
-## spec_tbl_df [1,461 x 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
-##  $ city    : chr [1:1461] "chic" "chic" "chic" "chic" ...
-##  $ date    : Date[1:1461], format: "1997-01-01" "1997-01-02" ...
-##  $ death   : num [1:1461] 137 123 127 146 102 127 116 118 148 121 ...
-##  $ temp    : num [1:1461] 36 45 40 51.5 27 17 16 19 26 16 ...
-##  $ dewpoint: num [1:1461] 37.5 47.2 38 45.5 11.2 ...
-##  $ pm10    : num [1:1461] 13.1 41.9 27 25.1 15.3 ...
-##  $ o3      : num [1:1461] 5.66 5.53 6.29 7.54 20.76 ...
-##  $ time    : num [1:1461] 3654 3655 3656 3657 3658 ...
-##  $ season  : chr [1:1461] "Winter" "Winter" "Winter" "Winter" ...
-##  $ year    : num [1:1461] 1997 1997 1997 1997 1997 ...
-##  - attr(*, "spec")=
-##   .. cols(
-##   ..   city = col_character(),
-##   ..   date = col_date(format = ""),
-##   ..   death = col_double(),
-##   ..   temp = col_double(),
-##   ..   dewpoint = col_double(),
-##   ..   pm10 = col_double(),
-##   ..   o3 = col_double(),
-##   ..   time = col_double(),
-##   ..   season = col_character(),
-##   ..   year = col_double()
-##   .. )
+tibble::glimpse(chic)
+## Rows: 1,461
+## Columns: 10
+## $ city     &lt;chr&gt; "chic", "chic", "chic", "chic", "chic", "chic", "chic", "chic~
+## $ date     &lt;date&gt; 1997-01-01, 1997-01-02, 1997-01-03, 1997-01-04, 1997-01-05, ~
+## $ death    &lt;dbl&gt; 137, 123, 127, 146, 102, 127, 116, 118, 148, 121, 110, 127, 1~
+## $ temp     &lt;dbl&gt; 36.0, 45.0, 40.0, 51.5, 27.0, 17.0, 16.0, 19.0, 26.0, 16.0, 1~
+## $ dewpoint &lt;dbl&gt; 37.500, 47.250, 38.000, 45.500, 11.250, 5.750, 7.000, 17.750,~
+## $ pm10     &lt;dbl&gt; 13.052268, 41.948600, 27.041751, 25.072573, 15.343121, 9.3646~
+## $ o3       &lt;dbl&gt; 5.659256, 5.525417, 6.288548, 7.537758, 20.760798, 14.940874,~
+## $ time     &lt;dbl&gt; 3654, 3655, 3656, 3657, 3658, 3659, 3660, 3661, 3662, 3663, 3~
+## $ season   &lt;chr&gt; "Winter", "Winter", "Winter", "Winter", "Winter", "Winter", "~
+## $ year     &lt;dbl&gt; 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1~
 ```
 
 ---
@@ -591,27 +579,6 @@ summary(chic)
 
 ---
 
-## vInspect the Data
-
-
-```r
-tibble::glimpse(chic)
-## Rows: 1,461
-## Columns: 10
-## $ city     &lt;chr&gt; "chic", "chic", "chic", "chic", "chic", "chic", "chic", "chic~
-## $ date     &lt;date&gt; 1997-01-01, 1997-01-02, 1997-01-03, 1997-01-04, 1997-01-05, ~
-## $ death    &lt;dbl&gt; 137, 123, 127, 146, 102, 127, 116, 118, 148, 121, 110, 127, 1~
-## $ temp     &lt;dbl&gt; 36.0, 45.0, 40.0, 51.5, 27.0, 17.0, 16.0, 19.0, 26.0, 16.0, 1~
-## $ dewpoint &lt;dbl&gt; 37.500, 47.250, 38.000, 45.500, 11.250, 5.750, 7.000, 17.750,~
-## $ pm10     &lt;dbl&gt; 13.052268, 41.948600, 27.041751, 25.072573, 15.343121, 9.3646~
-## $ o3       &lt;dbl&gt; 5.659256, 5.525417, 6.288548, 7.537758, 20.760798, 14.940874,~
-## $ time     &lt;dbl&gt; 3654, 3655, 3656, 3657, 3658, 3659, 3660, 3661, 3662, 3663, 3~
-## $ season   &lt;chr&gt; "Winter", "Winter", "Winter", "Winter", "Winter", "Winter", "~
-## $ year     &lt;dbl&gt; 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1997, 1~
-```
-
----
-
 ## Exercise 1: Inspect the Data
 
 
@@ -632,12 +599,12 @@ unique(chic$year)
 ---
 class: inverse, center, middle
 
-# &lt;b style='font-size:70pt;'&gt;The Structure of&lt;br&gt;&lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+# &lt;b style='font-size:70pt;'&gt;The Structure of&lt;br&gt;&lt;code style='color:#ebc500;'&gt;{ggplot2}&lt;/code&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 # &lt;span style='font-size:40pt;color:#a7a7a7;'&gt;"The Grammar of Graphics"&lt;/span&gt;&lt;br&gt;&lt;br&gt;
 
 ---
 
-## The Structure of `ggplot2`
+## The Structure of `{ggplot2}`
 
 &lt;br&gt;
 &lt;table style='width:100%;font-size:15pt;font-family:DM Sans;'&gt;
@@ -665,7 +632,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `ggplot2`
+## The Structure of `{ggplot2}`
 
 &lt;br&gt;
 &lt;table style='width:100%;font-size:15pt;font-family:DM Sans;'&gt;
@@ -712,7 +679,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `ggplot2`
+## The Structure of `{ggplot2}`
 
 &lt;br&gt;
 &lt;table style='width:100%;font-size:15pt;font-family:DM Sans;'&gt;
@@ -789,7 +756,7 @@ We need to specify the data in the `ggplot()` call:
 
 &lt;img src="01-grammar_files/figure-html/structure-data-repeat-1.png" width="1152" /&gt;
 
-There is only an empty panel because `ggplot2` doesn't know **what** of the data it should plot.
+There is only an empty panel because `{ggplot2}` doesn't know **what** of the data it should plot.
 
 ---
 
@@ -817,7 +784,7 @@ We need to specify two variables we want to plot as positional `aes`thetics:
 
 &lt;img src="01-grammar_files/figure-html/structure-aes-repeat-1.png" width="1152" /&gt;
 
-There is only an empty panel because `ggplot2` doesn't know **how** it should plot the data.
+There is only an empty panel because `{ggplot2}` doesn't know **how** it should plot the data.
 
 ---
 
@@ -833,21 +800,10 @@ Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also 
 &lt;img src="01-grammar_files/figure-html/structure-aes-implicit-1.png" width="1152" /&gt;
 
 ---
-background-image: url("img/bg-poll.png")
-background-size: cover
-
-## POLL: Is `ggplot(data) + aes(x, y)` valid code?
-
-&lt;ul style='font-size:26pt;margin: 50px 50px;'&gt;
-&lt;li style='margin-bottom: 15px;'&gt;Yes.&lt;/li&gt;
-&lt;li style='margin-bottom: 15px;'&gt;No.&lt;/li&gt;
-&lt;/ul&gt;
-
----
 
 ## Layers: &lt;b&gt;&lt;code&gt;geom\_\*()&lt;/code&gt;&amp;nbsp;&amp;nbsp;and&amp;nbsp;&amp;nbsp;&lt;code&gt;stat_*()&lt;/code&gt;&lt;/b&gt;
 
-By adding one or multiple layers we can tell `ggplot2` *how*&amp;nbsp;&amp;nbsp;to represent the data.&lt;br&gt;
+By adding one or multiple layers we can tell `{ggplot2}` *how*&amp;nbsp;&amp;nbsp;to represent the data.&lt;br&gt;
 There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
 
 &lt;p style="text-align:center;"&gt;&lt;img src="img/ggplot-layers.png" style="width: 54%"&gt;&lt;i style='font-size:10pt;color:grey;'&gt;Adapted from ggplot2.tidyverse.org/reference&lt;/i&gt;&lt;/p&gt;
@@ -856,7 +812,7 @@ There are lots of build-in geometric elements (`geom's`) and statistical transfo
 
 ## Layers: &lt;code style='color:#28a87d;font-weight:700;'&gt;geom_*()&lt;/code&gt;
 
-We can tell `ggplot2` to represent the data for example as a **scatter plot**:
+We can tell `{ggplot2}` to represent the data for example as a **scatter plot**:
 
 
 ```r
@@ -970,10 +926,30 @@ chic &lt;- readr::read_csv(
 * Color the points by year (`year`).
   + &lt;span style='color:grey;'&gt;What's the problem? How could you fix it?&lt;/span&gt;
 
---
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2:
+
+* If needed, import the Chicago weather data again:
+
+
+```r
+chic &lt;- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+)
+```
+
+* Create a scatter plot of temperature (`temp`) versus day (`date`).
+
+* Color the points by season (`season`).
+
+* Color the points by year (`year`).
+  + What's the problem? How could you fix it?
 
 * **Bonus:** Turn the scatter plot, colored by season, into a line plot.
-  + &lt;span style='color:grey;'&gt;What's the problem? How could you fix it?&lt;/span&gt;
+  + What's the problem? How could you fix it?
 
 ---
 
@@ -1221,7 +1197,7 @@ ggplot(data, aes(x = date, y = close,
 ---
 class: center, middle
 
-&lt;b style='font-family:DM Serif;font-size:30pt;color:#28a87d;'&gt;Facets, Themes, and Annotations will follow later!&lt;/b&gt;
+&lt;b style='font-family:DM Serif;font-size:34pt;color:#28a87d;font-weight:700;'&gt;Facets, Themes, and Annotations will follow later!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 
 ---
 
@@ -1244,6 +1220,22 @@ ggsave(filename = "my_ggplot.png",
 class: center, middle
 
 &lt;img src="img/canva_vector.png" style='width:100%;'&gt;&lt;br&gt;&lt;i style='font-size:10pt;color:grey;'&gt;Source: canva.com&lt;/i&gt;
+
+---
+
+## Resources
+
+* [“ggplot2: Elegant Graphics for Data Analysis”](https://ggplot2-book.org/), free–access book by Hadley Wickham et al.
+
+* [{ggplot2} reference](https://ggplot2.tidyverse.org/reference/)
+
+* [{ggplot2} reference](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+* [“R for Data Science”](https://4ds.had.co.nz), free–access book by Hadley Wickham
+
+* [“Data Visualization: A Practical Introduction”](https://socviz.co), free–access book  by Kieran Healy
+
+* ["A `{ggplot2}` Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), an extensive "How to"-tutorial based on a [version from 2016 by Zev Ross](http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/)
 
 ---
 class: inverse, center, middle
