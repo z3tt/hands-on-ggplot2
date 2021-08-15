@@ -62,23 +62,30 @@ theme_set(theme_grey(base_size = 16))
 
 ---
 
-## A Descriptive Title
 
-... and some text to illustrate the size of the body text.
 
-.pull-left[
-```{r code, eval=FALSE}
-## Also, some code:
-mpg %>% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %>% 
-  count(manufacturer) %>% 
-  ggplot(aes(n, manufacturer)) + #<<
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
+---
+
+## Labels: <code style='color:#28a87d;font-weight:700;'>labs()</code>
+
+To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
+
+```{r structure-labs-1, fig.width=16, fig.height=5.3}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(x = NULL, y = "Closing Price", color = "Cryptocurrency") #<<
 ```
-]
 
-.pull-right[
-```{r plot, ref.label="code", echo=FALSE}
+---
+
+## Labels: <code style='color:#28a87d;font-weight:700;'>labs()</code>
+
+To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
+
+```{r structure-labs-2, fig.width=16, fig.height=4.7}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(x = NULL, y = "Closing Price", color = "Cryptocurrency", tag = "A)", #<<
+       title = "Performance of the Top 4 Cryptocurrencies", caption = "Data: CoinMarketCap.com", #<<
+       subtitle = "The time series show daily closing prices from 2018 to 2020.") #<<
 ```
-]

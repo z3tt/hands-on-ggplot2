@@ -154,7 +154,7 @@ ggplot(data, aes(date, close))
 ### Layers: geom_\*() and stat_*()
 
 By adding one or multiple layers we can tell `ggplot2` *how* to represent the data.
-There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
+There are lots of built-in geometric elements (`geom's`) and statistical transformations (`stat's`):
 
 ![Adapted from ggplot2.tidyverse.org/reference](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ggplot-layers.png)
 
@@ -178,7 +178,7 @@ ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
 
 ### Important Things First: Change the Default Theme
 
-You can replace the default theme with one of the other in-built themes with `theme_set()`.
+You can replace the default theme with one of the other built-in themes with `theme_set()`.
 Note that you can as well adjust some global settings, for example the `base_size` which is often too small in the default (11).
 
 ```{r theme}

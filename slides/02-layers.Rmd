@@ -1025,3 +1025,5 @@ ggplot(sf_germany) +
 * [`{sf}` package page](https://r-spatial.github.io/sf/)
 
 * [StackOverflow discussion](https://github.com/r-spatial/sf/issues/1050) and [code](https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1) to plot a true globe
+
+* [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial

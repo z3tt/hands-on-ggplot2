@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 1 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-12" />
+    <meta name="date" content="2021-08-15" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -804,7 +804,7 @@ Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also 
 ## Layers: &lt;b&gt;&lt;code&gt;geom\_\*()&lt;/code&gt;&amp;nbsp;&amp;nbsp;and&amp;nbsp;&amp;nbsp;&lt;code&gt;stat_*()&lt;/code&gt;&lt;/b&gt;
 
 By adding one or multiple layers we can tell `{ggplot2}` *how*&amp;nbsp;&amp;nbsp;to represent the data.&lt;br&gt;
-There are lots of build-in geometric elements (`geom's`) and statistical transformations (`stat's`):
+There are lots of built-in geometric elements (`geom's`) and statistical transformations (`stat's`):
 
 &lt;p style="text-align:center;"&gt;&lt;img src="img/ggplot-layers.png" style="width: 54%"&gt;&lt;i style='font-size:10pt;color:grey;'&gt;Adapted from ggplot2.tidyverse.org/reference&lt;/i&gt;&lt;/p&gt;
 
@@ -1062,142 +1062,9 @@ ggplot(chic, aes(date, temp, color = season, group = year)) +
 &lt;img src="01-grammar_files/figure-html/plot-chic-line-season-fixed-1.png" width="1152" /&gt;
 
 ---
-
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scales\_\*()&lt;/code&gt;
-
-Scales are directly connected to aesthetics:
-
-.pull-left[
-
-```r
-ggplot(data, aes(x = date, y = close, 
-                 color = currency)) +
-  geom_line() +
-  geom_point() +
-* scale_x_date() +
-* scale_y_continuous() +
-* scale_color_discrete()
-```
-]
-
-.pull-right[
-&lt;img src="01-grammar_files/figure-html/plot-structure-scales-1.png" width="504" /&gt;
-]
-
----
-
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scales\_\*()&lt;/code&gt;
-
-Scales are directly connected to aesthetics:
-
-.pull-left[
-
-```r
-ggplot(data, aes(x = date, y = close, 
-                 color = currency)) +
-  geom_line() +
-  geom_point() +
-  scale_x_date(
-*   expand = c(0, 0),
-*   date_breaks = "4 months",
-*   date_labels = "%m/%y",
-*   name = NULL
-  ) +
-  scale_y_continuous(
-*   labels = scales::dollar_format(),
-*   sec.axis = dup_axis(name = NULL),
-*   name = "Closing Price"
-  ) + 
-  scale_color_discrete(
-*   guide = "none"
-  )
-```
-]
-
-.pull-right[
-&lt;img src="01-grammar_files/figure-html/plot-structure-scales-adj-1.png" width="504" /&gt;
-]
-
----
-
-## Coordinate Systems: &lt;code style='color:#28a87d;font-weight:700;'&gt;coord\_\*()&lt;/code&gt;
-
-The coordinate system maps the two position to a 2d position on the plot:
-
-.pull-left[
-
-```r
-ggplot(data, aes(x = date, y = close, 
-                 color = currency)) +
-  geom_line() +
-  geom_point() +
-  scale_x_date() + 
-  scale_y_continuous() + 
-  scale_color_discrete() +
-* coord_cartesian()
-```
-]
-
-.pull-right[
-&lt;img src="01-grammar_files/figure-html/plot-structure-coord-1.png" width="504" /&gt;
-]
-
----
-
-## Coordinate Systems: &lt;code style='color:#28a87d;font-weight:700;'&gt;coord\_\*()&lt;/code&gt;
-
-The coordinate system maps the two position to a 2d position on the plot:
-
-.pull-left[
-
-```r
-ggplot(data, aes(x = date, y = close, 
-                 color = currency)) +
-  geom_line() +
-  geom_point() +
-  scale_x_date() + 
-  scale_y_continuous() + 
-  scale_color_discrete() +
-* coord_polar()
-```
-]
-
-.pull-right[
-&lt;img src="01-grammar_files/figure-html/plot-structure-coord-polar-1.png" width="504" /&gt;
-]
-
----
-
-## Coordinate Systems: &lt;code style='color:#28a87d;font-weight:700;'&gt;coord\_\*()&lt;/code&gt;
-
-Changing the limits on the coordinate system allows to zoom in:
-
-.pull-left[
-
-```r
-ggplot(data, aes(x = date, y = close, 
-                 color = currency)) +
-  geom_line() +
-  geom_point() +
-  scale_x_date() + 
-  scale_y_continuous() + 
-  scale_color_discrete() +
-  coord_cartesian(
-*   xlim = c(as.Date("2018-11-01"),
-*            as.Date("2019-11-01")),
-*   ylim = c(NA, 100)
-  )
-```
-]
-
-.pull-right[
-&lt;img src="01-grammar_files/figure-html/plot-structure-coord-zoom-1.png" width="504" /&gt;
-]
-
----
 class: center, middle
 
-&lt;b style='font-family:DM Serif;font-size:34pt;color:#28a87d;font-weight:700;'&gt;Facets, Themes, and Annotations will follow later!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+&lt;b style='font-family:DM Serif;font-size:40pt;color:#28a87d;font-weight:600;'&gt;Scales, Coordinate Systems, Facets,&lt;br&gt;Themes, and Annotations will follow later!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 
 ---
 
@@ -1229,13 +1096,13 @@ class: center, middle
 
 * [{ggplot2} reference](https://ggplot2.tidyverse.org/reference/)
 
-* [{ggplot2} reference](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+* [{ggplot2} cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 
 * [“R for Data Science”](https://4ds.had.co.nz), free–access book by Hadley Wickham
 
 * [“Data Visualization: A Practical Introduction”](https://socviz.co), free–access book  by Kieran Healy
 
-* ["A `{ggplot2}` Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), an extensive "How to"-tutorial based on a [version from 2016 by Zev Ross](http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/)
+* [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial
 
 ---
 class: inverse, center, middle
@@ -12673,6 +12540,82 @@ Some prefer to place the `aes()` outside the `ggplot()` call:
 ```
 
 &lt;img src="01-grammar_files/figure-html/structure-aes-outside-1.png" width="1152" /&gt;
+
+---
+
+## Coordinate Systems: &lt;code style='color:#28a87d;font-weight:700;'&gt;coord\_\*()&lt;/code&gt;
+
+The coordinate system maps the two position to a 2d position on the plot:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  geom_point() +
+  scale_x_date() + 
+  scale_y_continuous() + 
+  scale_color_discrete() +
+* coord_cartesian()
+```
+]
+
+.pull-right[
+&lt;img src="01-grammar_files/figure-html/plot-structure-coord-1.png" width="504" /&gt;
+]
+
+---
+
+## Coordinate Systems: &lt;code style='color:#28a87d;font-weight:700;'&gt;coord\_\*()&lt;/code&gt;
+
+The coordinate system maps the two position to a 2d position on the plot:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  geom_point() +
+  scale_x_date() + 
+  scale_y_continuous() + 
+  scale_color_discrete() +
+* coord_polar()
+```
+]
+
+.pull-right[
+&lt;img src="01-grammar_files/figure-html/plot-structure-coord-polar-1.png" width="504" /&gt;
+]
+
+---
+
+## Coordinate Systems: &lt;code style='color:#28a87d;font-weight:700;'&gt;coord\_\*()&lt;/code&gt;
+
+Changing the limits on the coordinate system allows to zoom in:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  geom_point() +
+  scale_x_date() + 
+  scale_y_continuous() + 
+  scale_color_discrete() +
+  coord_cartesian(
+*   xlim = c(as.Date("2018-11-01"),
+*            as.Date("2019-11-01")),
+*   ylim = c(NA, 100)
+  )
+```
+]
+
+.pull-right[
+&lt;img src="01-grammar_files/figure-html/plot-structure-coord-zoom-1.png" width="504" /&gt;
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 3 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-07-12" />
+    <meta name="date" content="2021-08-15" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -25,27 +25,1163 @@ background-size: contain
 
 
 ---
+class: center, middle
 
-## A Descriptive Title
+&lt;img src="img/ah_ggplot2_masterpiece.png" style='width:64%;'&gt;&lt;br&gt;&lt;cap&gt;Illustration by Allison Horst&lt;/cap&gt;
 
-... and some text to illustrate the size of the body text.
+---
+
+## Adjust Colors and Other &lt;code style='color:#28a87d;font-weight:700;'&gt;aes&lt;/code&gt;thetics
+
+One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
+
+---
+
+## Adjust Colors and Other &lt;code style='color:#28a87d;font-weight:700;'&gt;aes&lt;/code&gt;thetics
+
+One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
+
+&lt;br&gt;Consequently, there are `scale_*()` functions for all aesthetics such as:
+
+* **positions** via `scale_x_*()` and `scale_y_*()`
+
+* **colors** via `scale_color_*()` and `scale_fill_*()`
+
+* **sizes** via `scale_size_*()` and `scale_radius_*()`
+
+* **shapes** via `scale_shape_*()`  and `scale_linetype_*()`
+
+* **transparency** via `scale_alpha_*()`
+
+---
+
+## Adjust Colors and Other &lt;code style='color:#28a87d;font-weight:700;'&gt;aes&lt;/code&gt;thetics
+
+One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**
+
+&lt;br&gt;The extensions (`*`) can be filled by e.g.:
+
+* `continuous()`, `discrete()`, `reverse()`, `log10()`, `sqrt()`, `date()` for positions
+
+* `continuous()`, `discrete()`, `manual()`, `gradient()`, `gradient2()`, `brewer()` for colors
+
+* `continuous()`, `discrete()`, `manual()`, `ordinal()`, `area()`, `date()` for sizes
+
+* `continuous()`, `discrete()`, `manual()`, `ordinal()` for shapes
+
+* `continuous()`, `discrete()`, `manual()`, `ordinal()`, `date()` for transparency
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+
+Scales are directly connected to aesthetics:
 
 .pull-left[
 
 ```r
-## Also, some code:
-mpg %&gt;% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %&gt;% 
-  count(manufacturer) %&gt;% 
-* ggplot(aes(n, manufacturer)) +
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+* scale_x_date() +
+* scale_y_continuous() +
+* scale_color_discrete()
 ```
 ]
 
 .pull-right[
-&lt;img src="themes_files/figure-html/plot-1.png" width="504" /&gt;
+![](03-polish_files/figure-html/plot-structure-scales-1.png)&lt;!-- --&gt;
 ]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+
+All scales come with some general and specific arguments to change the appearance:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  scale_x_date(
+*   expand = c(0, 0), ## general
+*   date_breaks = "4 months", ## date-only
+*   date_labels = "%m/%y", ## date only
+*   name = NULL ## general
+  ) +
+  scale_y_continuous() +  
+  scale_color_discrete() 
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-adj-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+
+All scales come with some general and specific arguments to change the appearance:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  scale_x_date(
+    expand = c(0, 0), ## general
+    date_breaks = "4 months", ## date-only  
+    date_labels = "%m/%y", ## date only
+    name = NULL ## general 
+  ) +
+  scale_y_continuous(
+*   labels = scales::dollar_format(), ## general
+*   sec.axis = dup_axis(name = NULL), ## axis only
+*   name = "Closing Price" ## general
+  ) + 
+  scale_color_discrete()
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-adj2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+
+All scales come with some general and specific arguments to change the appearance:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  scale_x_date(
+    expand = c(0, 0), ## general 
+    date_breaks = "4 months", ## date-only 
+    date_labels = "%m/%y", ## date only 
+    name = NULL ## general 
+  ) +
+  scale_y_continuous(
+    labels = scales::dollar_format(), ## general  
+    sec.axis = dup_axis(name = NULL), ## axis only 
+    name = "Closing Price" ## general 
+  ) + 
+  scale_color_discrete(
+*   type = c("#F0B90B", "#4d4d4e",
+*            "#810080", "#00aeff"),  ## color only
+*   name = "Cryptocurrency:" ## general
+  )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-adj3-1.png)&lt;!-- --&gt;
+]
+
+---
+class: center, middle
+
+&lt;img src="img/color-pal-types.png" style='width:88%;'&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+All colors and fills that are mapped to **categorical** variables can be manipulated with either `scale_color|fill_discrete()` or `scale_color|fill_manual()`.
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+* scale_color_discrete(
+*   type = c("#F0B90B", "#4d4d4e",
+*            "#810080", "#00aeff")
+* )
+```
+
+![](03-polish_files/figure-html/structure-scales-color-discrete-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+* scale_color_manual(
+*   values = c("#F0B90B", "#4d4d4e",
+*              "#810080", "#00aeff")
+* )
+```
+
+![](03-polish_files/figure-html/structure-scales-color-manual-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  scale_color_manual(
+    values = c("#F0B90B", "#4d4d4e",
+               "#810080", "#00aeff"),
+*   labels = c("Binance", "Bitcoin",
+*              "EOS", "Litecoin"),
+    name = "Cryptocurrency:" 
+  )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-manual-labels-1.png)&lt;!-- --&gt;
+]
+
+---
+class: middle, center
+
+&lt;img src="img/rainbow_alternatives.png" style='width:68%;'&gt;&lt;br&gt;&lt;cap&gt;{viridis} package reference&lt;/cap&gt;
+
+---
+class: middle, center
+
+&lt;img src="img/rainbow_alternatives_coblis.png" style='width:93%;'&gt;&lt;br&gt;&lt;cap&gt;Modified from the {viridis} package reference&lt;/cap&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+* scale_color_viridis_d()
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-viridis-default-1.png)&lt;!-- --&gt;
+]
+
+---
+class: middle, center
+
+&lt;img src="img/viridis-scales.png" style='width:49%;'&gt;&lt;br&gt;&lt;cap&gt;{viridis} package reference&lt;/cap&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+  geom_line() +
+  scale_color_viridis_d(
+*   option = "turbo",
+*   begin = .1,
+*   end = .9,
+*   name = "Cryptocurrency:"
+  )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-viridis-turbo-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+The viridis palettes are more suitable for continuous data:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+*                color = yday,
+*                group = currency)) +
+  geom_line() +
+* scale_color_viridis_c(
+    option = "turbo",
+    begin = .1,
+    end = .9, 
+*   name = "Julian Day:"
+  )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-viridis-cont-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+The viridis palettes are more suitable for continuous data:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+*                color = open,
+                 group = currency)) +
+* geom_point() +
+  scale_color_viridis_c(
+*   option = "rocket",
+*   direction = -1,
+    end = .9,
+*   labels = scales::dollar_format(),
+    name = "Julian Day:"
+  )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-viridis-cont-rocket-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+The viridis palettes are more suitable for continuous data:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+*                color = open,
+                 group = currency)) +
+* geom_point() +
+  scale_color_viridis_c(
+    option = "rocket",
+    direction = -1, 
+    end = .9,
+*   breaks = seq(50, 300, by = 100),
+    labels = scales::dollar_format(), 
+    name = "Julian Day:"
+  )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-breaks-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+Colorbrewer provides color schemes for maps.
+
+
+```r
+RColorBrewer::display.brewer.all()
+```
+
+![](03-polish_files/figure-html/brewer-apls-1.png)&lt;!-- --&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+
+Colorbrewer provides color schemes for maps.
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, 
+                 color = currency)) +
+    geom_line() +
+*   scale_color_brewer(
+*       palette = "Set2",
+*       name = "Cryptocurrency:"
+*   )
+```
+]
+
+.pull-right[
+![](03-polish_files/figure-html/plot-structure-scales-color-brewer-default-1.png)&lt;!-- --&gt;
+]
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 1:
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+* Download the country data set from `{rnaturalearth}`.
+  + see segment 2 if you don't remember how
+
+* Visualize the economy classes (`economy`) as a choropleth map and use one of the&lt;br&gt;categorical colorbrewer palettes.
+
+* Now change the code so the fill colors encode the estimated population (`pop_est`). 
+  + What's the problem? How can you fix it?
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 1:
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+* Download the country data set from `{rnaturalearth}`.
+  + see segment 2 if you don't remember how
+
+* Visualize the economy classes (`economy`) as a choropleth map and use one of the&lt;br&gt;categorical colorbrewer palettes.
+
+* Now change the code so the fill colors encode the estimated population (`pop_est`). 
+  + What's the problem? How can you fix it?&lt;br&gt;&lt;br&gt;
+  + Tip: Have a look at the note and examples on the help page: `?scale_fill_brewer`
+
+---
+
+## Exercise 1: Choropleth Map of Economy Classes
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+
+```r
+sf_world &lt;- rnaturalearth::ne_countries(returnclass = "sf")
+ggplot(sf_world) +
+  geom_sf(aes(fill = economy)) +
+* scale_fill_brewer(palette = "Set2") +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-brewer-disc-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Choropleth Map of Estimated Population
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+
+```r
+ggplot(sf_world) +
+* geom_sf(aes(fill = pop_est)) +
+  scale_fill_brewer(palette = "Set2") + 
+  coord_sf(crs = "+proj=moll")
+```
+&lt;br&gt;
+
+```text
+Error: Continuous value supplied to discrete scale
+```
+
+---
+
+## Exercise 1: Choropleth Map of Estimated Population
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = pop_est)) +
+* scale_fill_brewer(palette = "RdPu") +
+  coord_sf(crs = "+proj=moll")
+```
+&lt;br&gt;
+
+```text
+Error: Continuous value supplied to discrete scale
+```
+
+---
+
+## Exercise 1: Choropleth Map of Estimated Population
+
+&lt;img src="img/help-brewer.png" style='width:78%;'&gt;
+
+---
+
+## Exercise 1: Choropleth Map of Estimated Population
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = pop_est)) + 
+* scale_fill_distiller(palette = "RdPu") +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-brewer-cont-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Choropleth Map of Estimated Population
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = pop_est)) + 
+* scale_fill_distiller(palette = "RdPu", direction = 1) +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-brewer-cont-rev-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 1: Choropleth Map of Estimated Population
+
+Colorbrewer provides color schemes for &lt;u style='font-weight:600;'&gt;maps&lt;/u&gt;.
+
+
+```r
+ggplot(sf_world) +
+* geom_sf(aes(fill = pop_est), color = NA) +
+  scale_fill_distiller(palette = "RdPu", direction = 1) + 
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-brewer-cont-rev-color-1.png)&lt;!-- --&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_fill\_gradient()&lt;/code&gt;
+
+You can also build your own **sequential color palettes**:
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = pop_est), color = NA) + 
+* scale_fill_gradient(low = "grey90", high = "firebrick4") +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-gradient-1.png)&lt;!-- --&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_fill\_gradient2()&lt;/code&gt;
+
+You can also build your own **diverging color palettes**:
+
+
+```r
+ggplot(sf_world) +
+* geom_sf(aes(fill = as.numeric(factor(income_grp))), color = NA) +
+* scale_fill_gradient2(low = "firebrick4", high = "darkcyan", mid = "grey90", name = "Income group:") +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-gradient-div-1.png)&lt;!-- --&gt;
+
+---
+
+## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_fill\_gradient2()&lt;/code&gt;
+
+You can also build your own **diverging color palettes**:
+
+
+```r
+ggplot(sf_world) +
+  geom_sf(aes(fill = as.numeric(factor(income_grp))), color = NA) +
+  scale_fill_gradient2(low = "firebrick4", high = "darkcyan", mid = "grey90", name = "Income group:", 
+*                      midpoint = 3) +
+  coord_sf(crs = "+proj=moll")
+```
+
+![](03-polish_files/figure-html/map-gradient-div-midpoint-1.png)&lt;!-- --&gt;
+
+---
+
+## Color Palettes in &lt;code style='color:#28a87d;font-weight:700;'&gt;R&lt;/code&gt;
+
+&lt;span style='font-size:18pt;'&gt;Several packages offer predefined palettes, e.g.:&lt;/span&gt;
+
+* &lt;span style='font-size:18pt;'&gt;`{viridis}` for perceptually uniform palettes&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+* &lt;span style='font-size:18pt;'&gt;`{scico}` for more perceptually uniform palettes&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+* &lt;span style='font-size:18pt;'&gt;`{rcartocolor}` for map color palettes&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+* &lt;span style='font-size:18pt;'&gt;`{ggsci}` for scientific journal and sci-fi themed color&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+* &lt;span style='font-size:18pt;'&gt;`{ggthemes}` for colors of popular software &amp; publishers&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+* &lt;span style='font-size:18pt;'&gt;`{LaCroixColoR}` for vibrant summery colors&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;span style='font-size:18pt;'&gt;Check the [collection by Emil Hvitfeldt](https://github.com/EmilHvitfeldt/r-color-palettes/blob/master/type-sorted-palettes.md) for an extensive list of color palettes available in `R`&lt;/span&gt;
+
+---
+
+## A ggplot Object
+
+By the way, you can store ggplots in objects and extend them later:
+
+
+```r
+*g &lt;- ggplot(sf_world) +
+  geom_sf(aes(fill = as.numeric(factor(income_grp))), color = NA) +
+  scale_fill_gradient2(low = "firebrick4", high = "darkcyan", mid = "grey90", name = "Income group:", 
+                       midpoint = 3) +
+  coord_sf(crs = "+proj=moll")
+
+*class(g)
+## [1] "gg"     "ggplot"
+```
+
+---
+
+## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;guides()&lt;/code&gt;
+
+The `guides()` function allows to adjust the appearance of each legend:
+
+
+```r
+g +
+* guides(fill = guide_legend(reverse = TRUE))
+```
+
+![](03-polish_files/figure-html/guide-legend-1.png)&lt;!-- --&gt;
+
+---
+
+## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;guides()&lt;/code&gt;
+
+The `guides()` function allows to adjust the appearance of each legend:
+
+
+```r
+g +
+* guides(fill = guide_legend(reverse = TRUE, keyheight = unit(2, "lines")))
+```
+
+![](03-polish_files/figure-html/guide-legend-height-1.png)&lt;!-- --&gt;
+
+---
+
+## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;guides()&lt;/code&gt;
+
+The `guides()` function allows to adjust the appearance of each legend:
+
+
+```r
+g +
+* guides(fill = guide_colorbar(barheight = unit(12, "lines"),
+*                              barwidth = unit(1, "lines")))
+```
+
+![](03-polish_files/figure-html/guide-colorbar-height-width-1.png)&lt;!-- --&gt;
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2:
+
+* Create the following visualization with a viridis palette:
+  
+&lt;img src="03-polish_files/figure-html/exercise-plot-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 2: Create a Colored Scatterplot
+  
+
+```r
+ggplot(data, aes(close, open, color = high)) +
+  geom_point(size = 4) +
+  scale_color_viridis_c(option = "mako", direction = -1)
+```
+
+![](03-polish_files/figure-html/exercise-plot-solution-1-1.png)&lt;!-- --&gt;
+
+---
+class: middle, center
+
+&lt;img src="img/points-symbols.png" style='width:76%;'&gt;
+
+---
+
+## Exercise 2: Adjust Point Style
+  
+
+```r
+ggplot(data, aes(close, open, color = high)) +
+* geom_point(shape = 5, size = 4, stroke = 1.2) +
+  scale_color_viridis_c(option = "mako", direction = -1)
+```
+
+![](03-polish_files/figure-html/exercise-plot-solution-2-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 2: Adjust Breaks
+  
+
+```r
+ggplot(data, aes(close, open, color = high)) +
+  geom_point(shape = 5, size = 4, stroke = 1.2) +
+* scale_color_viridis_c(option = "mako", direction = -1, breaks = seq(50, 350, by = 50))
+```
+
+![](03-polish_files/figure-html/exercise-plot-solution-3-1.png)&lt;!-- --&gt;
+
+---
+
+## Exercise 2: Adjust Guide Type and Style
+  
+
+```r
+ggplot(data, aes(close, open, color = high)) +
+  geom_point(shape = 5, size = 4, stroke = 1.2) +
+  scale_color_viridis_c(option = "mako", direction = -1, breaks = seq(50, 350, by = 50)) +
+* guides(color = guide_colorsteps(barheight = unit(16, "lines")))
+```
+
+![](03-polish_files/figure-html/exercise-plot-solution-4-1.png)&lt;!-- --&gt;
+
+---
+
+## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme()&lt;/code&gt;
+
+The position of the legend and some other properties can be changed via `theme()`
+
+
+```r
+g +
+  guides(fill = guide_legend()) +
+* theme(legend.position = "top", legend.key.height = unit(.5, "lines"),
+*       legend.key.width = unit(4, "lines"))
+```
+
+![](03-polish_files/figure-html/guide-colorbar-theme-1.png)&lt;!-- --&gt;
+
+---
+
+## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme()&lt;/code&gt;
+
+You can change the position of the legend title and labels in `guides()`:
+
+
+```r
+g +
+* guides(fill = guide_legend(title.position = "top", title.hjust = .5, label.position = "bottom")) +
+  theme(legend.position = "top", legend.key.height = unit(.5, "lines"),
+        legend.key.width = unit(4, "lines")) 
+```
+
+![](03-polish_files/figure-html/guide-colorbar-theme-legendtitlepos-1.png)&lt;!-- --&gt;
+
+---
+
+## Themes: &lt;b&gt;&lt;code&gt;theme_*()&lt;/code&gt;&lt;/b&gt;
+
+You have already seen built-in themes in segment 1:
+
+&lt;img src="03-polish_files/figure-html/themes-1-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Themes: &lt;b&gt;&lt;code&gt;theme_*()&lt;/code&gt;&lt;/b&gt;
+
+You have already seen built-in themes in segment 1:
+
+&lt;img src="03-polish_files/figure-html/themes-2-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Themes: &lt;b&gt;&lt;code&gt;theme_*()&lt;/code&gt;&lt;/b&gt;
+
+You can either add theme changes to each plot or globally for all plots:
+
+.pull-left[
+
+```r
+ggplot(data, aes(x = date, y = close, color = currency)) +
+  geom_line(size = 1.5) + 
+* theme_classic(base_size = 16)
+```
+
+![](03-polish_files/figure-html/theme-local-1.png)&lt;!-- --&gt;
+]
+
+.pull-left[
+
+```r
+*theme_set(theme_classic(base_size = 16))
+ggplot(data, aes(x = date, y = close, color = currency)) +
+  geom_line(size = 1.5)
+```
+
+![](03-polish_files/figure-html/theme-global-1.png)&lt;!-- --&gt;
+]
+
+---
+
+
+```r
+theme_grey
+## function (base_size = 11, base_family = "", base_line_size = base_size/22, 
+##     base_rect_size = base_size/22) 
+## {
+##     half_line &lt;- base_size/2
+##     t &lt;- theme(line = element_line(colour = "black", size = base_line_size, 
+##         linetype = 1, lineend = "butt"), rect = element_rect(fill = "white", 
+##         colour = "black", size = base_rect_size, linetype = 1), 
+##         text = element_text(family = base_family, face = "plain", 
+##             colour = "black", size = base_size, lineheight = 0.9, 
+##             hjust = 0.5, vjust = 0.5, angle = 0, margin = margin(), 
+##             debug = FALSE), axis.line = element_blank(), axis.line.x = NULL, 
+##         axis.line.y = NULL, axis.text = element_text(size = rel(0.8), 
+##             colour = "grey30"), axis.text.x = element_text(margin = margin(t = 0.8 * 
+##             half_line/2), vjust = 1), axis.text.x.top = element_text(margin = margin(b = 0.8 * 
+##             half_line/2), vjust = 0), axis.text.y = element_text(margin = margin(r = 0.8 * 
+##             half_line/2), hjust = 1), axis.text.y.right = element_text(margin = margin(l = 0.8 * 
+##             half_line/2), hjust = 0), axis.ticks = element_line(colour = "grey20"), 
+##         axis.ticks.length = unit(half_line/2, "pt"), axis.ticks.length.x = NULL, 
+##         axis.ticks.length.x.top = NULL, axis.ticks.length.x.bottom = NULL, 
+##         axis.ticks.length.y = NULL, axis.ticks.length.y.left = NULL, 
+##         axis.ticks.length.y.right = NULL, axis.title.x = element_text(margin = margin(t = half_line/2), 
+##             vjust = 1), axis.title.x.top = element_text(margin = margin(b = half_line/2), 
+##             vjust = 0), axis.title.y = element_text(angle = 90, 
+##             margin = margin(r = half_line/2), vjust = 1), axis.title.y.right = element_text(angle = -90, 
+##             margin = margin(l = half_line/2), vjust = 0), legend.background = element_rect(colour = NA), 
+##         legend.spacing = unit(2 * half_line, "pt"), legend.spacing.x = NULL, 
+##         legend.spacing.y = NULL, legend.margin = margin(half_line, 
+##             half_line, half_line, half_line), legend.key = element_rect(fill = "grey95", 
+##             colour = NA), legend.key.size = unit(1.2, "lines"), 
+##         legend.key.height = NULL, legend.key.width = NULL, legend.text = element_text(size = rel(0.8)), 
+##         legend.text.align = NULL, legend.title = element_text(hjust = 0), 
+##         legend.title.align = NULL, legend.position = "right", 
+##         legend.direction = NULL, legend.justification = "center", 
+##         legend.box = NULL, legend.box.margin = margin(0, 0, 0, 
+##             0, "cm"), legend.box.background = element_blank(), 
+##         legend.box.spacing = unit(2 * half_line, "pt"), panel.background = element_rect(fill = "grey92", 
+##             colour = NA), panel.border = element_blank(), panel.grid = element_line(colour = "white"), 
+##         panel.grid.minor = element_line(size = rel(0.5)), panel.spacing = unit(half_line, 
+##             "pt"), panel.spacing.x = NULL, panel.spacing.y = NULL, 
+##         panel.ontop = FALSE, strip.background = element_rect(fill = "grey85", 
+##             colour = NA), strip.text = element_text(colour = "grey10", 
+##             size = rel(0.8), margin = margin(0.8 * half_line, 
+##                 0.8 * half_line, 0.8 * half_line, 0.8 * half_line)), 
+##         strip.text.x = NULL, strip.text.y = element_text(angle = -90), 
+##         strip.text.y.left = element_text(angle = 90), strip.placement = "inside", 
+##         strip.placement.x = NULL, strip.placement.y = NULL, strip.switch.pad.grid = unit(half_line/2, 
+##             "pt"), strip.switch.pad.wrap = unit(half_line/2, 
+##             "pt"), plot.background = element_rect(colour = "white"), 
+##         plot.title = element_text(size = rel(1.2), hjust = 0, 
+##             vjust = 1, margin = margin(b = half_line)), plot.title.position = "panel", 
+##         plot.subtitle = element_text(hjust = 0, vjust = 1, margin = margin(b = half_line)), 
+##         plot.caption = element_text(size = rel(0.8), hjust = 1, 
+##             vjust = 1, margin = margin(t = half_line)), plot.caption.position = "panel", 
+##         plot.tag = element_text(size = rel(1.2), hjust = 0.5, 
+##             vjust = 0.5), plot.tag.position = "topleft", plot.margin = margin(half_line, 
+##             half_line, half_line, half_line), complete = TRUE)
+##     ggplot_global$theme_all_null %+replace% t
+## }
+## &lt;bytecode: 0x000000001d43df88&gt;
+## &lt;environment: namespace:ggplot2&gt;
+```
+
+---
+
+## &lt;b&gt;&lt;code&gt;theme()&lt;/code&gt; Arguments&lt;/b&gt;
+
+There are many elements you can customize. You can either group them by their type or by their category:
+
+* element types: 
+
+  - `text`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; all labels, axis text, legend title and text
+  - `line`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; axis lines, ticks, grid lines
+  - `rect`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; plot area, panel area, legend and legend keys, facets
+
+--
+
+* element category:
+
+  - `axis.*`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; titles, text, ticks, lines
+  - `legend.*`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; background, margin, spacing, keys, text, title, position, direction, box
+  - `panel.*`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; background, border, margin, spacing, grid (major and minor)
+  - `plot.*`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; background, title, subtitle, caption, tag, margin
+  - `strip.*`&amp;nbsp;&amp;nbsp;&amp;rarr;&amp;nbsp;&amp;nbsp; background, placement, text
+
+---
+
+## Text Elements via `element_text()`
+
+&lt;p style='text-align:center;'&gt;&lt;img src="img/element-text.png" style='width:85%;'&gt;&lt;/p&gt;
+
+---
+
+## Text Elements via `element_text()`
+
+
+```r
+my_text_element &lt;- 
+  element_text(
+    family = "Roboto", ## you need {systemfonts} for this
+    face = "bold", ## plain, italic, bolditalic
+    size = 24,
+    color = "firebrick",
+    lineheight = .7,
+    angle = 180,
+    hjust = .5,
+    vjust = .0,
+    margin = margin(
+      10, ## t (top)
+      0,  ## r (right)
+      30, ## b (bottom)
+      0   ## l (left)
+    )
+  )
+```
+
+---
+
+## Text Elements via `element_text()`
+
+You can directly alter the appearance by adding `theme()` to a ggplot:
+
+
+```r
+g +
+  ggtitle("My New\nTitle") +
+  theme(plot.title = my_text_element)
+```
+
+![](03-polish_files/figure-html/element-text-example-1.png)&lt;!-- --&gt;
+
+---
+
+## Line Elements via `element_line()`
+
+
+```r
+my_line_element &lt;- 
+  element_line(
+    color = "black",
+    size = 3,
+    linetype = "dashed",
+    lineend = "square", # round, butt
+    arrow = arrow(
+      angle = 30, 
+      length = unit(0.25, "inches")
+    )
+  )
+```
+
+---
+
+## Line Elements via `element_line()`
+
+You can directly alter the appearance by adding `theme()` to a ggplot:
+
+
+```r
+g +
+  theme(panel.grid = my_line_element)
+```
+
+![](03-polish_files/figure-html/element-line-example-1.png)&lt;!-- --&gt;
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 3:
+
+* Have a closer look at the code of `theme_grey` and of the other themes. What's the difference? 
+
+* Create a theme that is as ugly as possible!&lt;br&gt;&lt;br&gt;&lt;u&gt;or:&lt;/u&gt;&lt;br&gt;
+
+* Create a theme that you can use ass personal theme.
+
+* Apply it to a plot.
+
+---
+
+## Exercise 3: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme_grey|gray()&lt;/code
+
+
+```r
+theme_grey
+## function (base_size = 11, base_family = "", base_line_size = base_size/22, 
+##     base_rect_size = base_size/22) 
+## {
+##     half_line &lt;- base_size/2
+##     t &lt;- theme(line = element_line(colour = "black", size = base_line_size, 
+##         linetype = 1, lineend = "butt"), rect = element_rect(fill = "white", 
+##         colour = "black", size = base_rect_size, linetype = 1), 
+##         text = element_text(family = base_family, face = "plain", 
+##             colour = "black", size = base_size, lineheight = 0.9, 
+##             hjust = 0.5, vjust = 0.5, angle = 0, margin = margin(), 
+##             debug = FALSE), axis.line = element_blank(), axis.line.x = NULL, 
+##         axis.line.y = NULL, axis.text = element_text(size = rel(0.8), 
+##             colour = "grey30"), axis.text.x = element_text(margin = margin(t = 0.8 * 
+##             half_line/2), vjust = 1), axis.text.x.top = element_text(margin = margin(b = 0.8 * 
+##             half_line/2), vjust = 0), axis.text.y = element_text(margin = margin(r = 0.8 * 
+##             half_line/2), hjust = 1), axis.text.y.right = element_text(margin = margin(l = 0.8 * 
+##             half_line/2), hjust = 0), axis.ticks = element_line(colour = "grey20"), 
+##         axis.ticks.length = unit(half_line/2, "pt"), axis.ticks.length.x = NULL, 
+##         axis.ticks.length.x.top = NULL, axis.ticks.length.x.bottom = NULL, 
+##         axis.ticks.length.y = NULL, axis.ticks.length.y.left = NULL, 
+##         axis.ticks.length.y.right = NULL, axis.title.x = element_text(margin = margin(t = half_line/2), 
+##             vjust = 1), axis.title.x.top = element_text(margin = margin(b = half_line/2), 
+##             vjust = 0), axis.title.y = element_text(angle = 90, 
+##             margin = margin(r = half_line/2), vjust = 1), axis.title.y.right = element_text(angle = -90, 
+##             margin = margin(l = half_line/2), vjust = 0), legend.background = element_rect(colour = NA), 
+##         legend.spacing = unit(2 * half_line, "pt"), legend.spacing.x = NULL, 
+##         legend.spacing.y = NULL, legend.margin = margin(half_line, 
+##             half_line, half_line, half_line), legend.key = element_rect(fill = "grey95", 
+##             colour = NA), legend.key.size = unit(1.2, "lines"), 
+##         legend.key.height = NULL, legend.key.width = NULL, legend.text = element_text(size = rel(0.8)), 
+##         legend.text.align = NULL, legend.title = element_text(hjust = 0), 
+##         legend.title.align = NULL, legend.position = "right", 
+##         legend.direction = NULL, legend.justification = "center", 
+##         legend.box = NULL, legend.box.margin = margin(0, 0, 0, 
+##             0, "cm"), legend.box.background = element_blank(), 
+##         legend.box.spacing = unit(2 * half_line, "pt"), panel.background = element_rect(fill = "grey92", 
+##             colour = NA), panel.border = element_blank(), panel.grid = element_line(colour = "white"), 
+##         panel.grid.minor = element_line(size = rel(0.5)), panel.spacing = unit(half_line, 
+##             "pt"), panel.spacing.x = NULL, panel.spacing.y = NULL, 
+##         panel.ontop = FALSE, strip.background = element_rect(fill = "grey85", 
+##             colour = NA), strip.text = element_text(colour = "grey10", 
+##             size = rel(0.8), margin = margin(0.8 * half_line, 
+##                 0.8 * half_line, 0.8 * half_line, 0.8 * half_line)), 
+##         strip.text.x = NULL, strip.text.y = element_text(angle = -90), 
+##         strip.text.y.left = element_text(angle = 90), strip.placement = "inside", 
+##         strip.placement.x = NULL, strip.placement.y = NULL, strip.switch.pad.grid = unit(half_line/2, 
+##             "pt"), strip.switch.pad.wrap = unit(half_line/2, 
+##             "pt"), plot.background = element_rect(colour = "white"), 
+##         plot.title = element_text(size = rel(1.2), hjust = 0, 
+##             vjust = 1, margin = margin(b = half_line)), plot.title.position = "panel", 
+##         plot.subtitle = element_text(hjust = 0, vjust = 1, margin = margin(b = half_line)), 
+##         plot.caption = element_text(size = rel(0.8), hjust = 1, 
+##             vjust = 1, margin = margin(t = half_line)), plot.caption.position = "panel", 
+##         plot.tag = element_text(size = rel(1.2), hjust = 0.5, 
+##             vjust = 0.5), plot.tag.position = "topleft", plot.margin = margin(half_line, 
+##             half_line, half_line, half_line), complete = TRUE)
+##     ggplot_global$theme_all_null %+replace% t
+## }
+## &lt;bytecode: 0x000000001d43df88&gt;
+## &lt;environment: namespace:ggplot2&gt;
+```
+
+---
+
+## Exercise 3: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme_bw()&lt;/code&gt;
+
+
+```r
+theme_bw
+## function (base_size = 11, base_family = "", base_line_size = base_size/22, 
+##     base_rect_size = base_size/22) 
+## {
+##     theme_grey(base_size = base_size, base_family = base_family, 
+##         base_line_size = base_line_size, base_rect_size = base_rect_size) %+replace% 
+##         theme(panel.background = element_rect(fill = "white", 
+##             colour = NA), panel.border = element_rect(fill = NA, 
+##             colour = "grey20"), panel.grid = element_line(colour = "grey92"), 
+##             panel.grid.minor = element_line(size = rel(0.5)), 
+##             strip.background = element_rect(fill = "grey85", 
+##                 colour = "grey20"), legend.key = element_rect(fill = "white", 
+##                 colour = NA), complete = TRUE)
+## }
+## &lt;bytecode: 0x00000000323e9c70&gt;
+## &lt;environment: namespace:ggplot2&gt;
+```
+
+---
+
+## Exercise 3: Create Your Own Theme!
+
+
+```r
+theme_ugly &lt;-
+  function(base_size = 14, ...) {
+    theme_dark(base_size = base_size) %+replace% 
+        theme(
+          text = element_text(color = "coral1", family = "Sniglet", size = base_size),
+          axis.text = element_text(color = "grey80", size = rel(.7)),
+          axis.ticks = element_line(color = "grey90"),
+          plot.title = element_text(
+            family = "Bigfish Black",
+            color = "red", size = rel(1.5), lineheight = 1.2,
+            margin = margin(base_size, 0, base_size * 2, 0)
+          ),
+          plot.title.position = "plot",
+          panel.grid = element_line(color = "red", linetype = "4127"),
+          plot.background = element_rect(fill = "grey10", color = "red", size = 5),
+          plot.margin = margin(rep(25, 4)),
+          legend.background = element_rect(fill = "black", color = "red", size = 2), 
+          complete = TRUE
+        )
+}
+```
+
+---
+
+&lt;img src="03-polish_files/figure-html/theme-ugly-apply-plot-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 3: Apply Your Own Theme!
+
+
+```r
+ggplot(data, aes(x = date, y = close, color = high)) +
+  geom_point() +
+  scale_x_date(expand = c(0, 0), date_breaks = "4 months", date_labels = "%m/%Y") +
+  scale_y_continuous(labels = scales::dollar_format(), 
+                     sec.axis = dup_axis(name = NULL)) + 
+  scale_color_viridis_c(option = "turbo", breaks = seq(50, 350, by = 50), 
+                        labels = scales::dollar_format(), name = "Highest Price") +
+  guides(color = guide_colorsteps(barheight = unit(15, "lines"))) +
+  coord_polar() +
+  ggtitle("I went to Cédric's ggplot2 course and\nall I got is this ridiculous chart") +
+  theme_ugly(base_size = 20)
+```
+
+---
+
+## Resources
+
+* [Modify theme components](https://ggplot2.tidyverse.org/reference/theme.html) on the ggplot reference page
+
+* Chapter 19 [Themes](https://ggplot2-book.org/polishing.html) of the “ggplot2” book by Hadley Wickham et al.
+
+* [“Creating and Using Custom ggplot2 Themes”](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/) and [“Add a Logo to Your Plot”](https://themockup.blog/posts/2019-01-09-add-a-logo-to-your-plot/), blog posts by Thomas Mock
+
+* [“How to Add a Logo to ggplot by Magick”](https://www.danielphadley.com/ggplot-logo/), blog post by Daniel Hadley
+
+* [“Themes to Improve Your ggplot Figures”](https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/) from [R for the Rest of Us](https://rfortherestofus.com/) with a collection of additional themes
+
+* [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
