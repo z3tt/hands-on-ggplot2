@@ -357,6 +357,11 @@ ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
 ```
 
 ---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Statistical Transformations</b><br><br>
+
+---
 
 ## Statistical Transformations: <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
 
@@ -758,6 +763,11 @@ class: center, middle, inverse
 class: center, middle
 
 <img src="img/ah_sf.png" style='width:78%;'><br><cap>Illustration by Allison Horst</cap>
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Spatial Maps</b><br><br>
 
 ---
 

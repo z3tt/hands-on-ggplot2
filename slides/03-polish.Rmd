@@ -65,6 +65,11 @@ class: center, middle
 <img src="img/ah_ggplot2_masterpiece.png" style='width:64%;'><br><cap>Illustration by Allison Horst</cap>
 
 ---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Aesthetics + Scales</b><br><br>
+
+---
 
 ## Adjust Colors and Other <code style='color:#28a87d;font-weight:700;'>aes</code>thetics
 
@@ -654,6 +659,11 @@ class(g) #<<
 ```
 
 ---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Legends</b><br><br>
+
+---
 
 ## Style Legends: <code style='color:#28a87d;font-weight:700;'>guides()</code>
 
@@ -773,6 +783,11 @@ g +
   theme(legend.position = "top", legend.key.height = unit(.5, "lines"),
         legend.key.width = unit(4, "lines")) 
 ```
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Template and Custom Theming</b><br><br>
 
 ---
 
