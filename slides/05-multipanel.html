@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 5 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-07-12" />
+    <meta name="date" content="2021-08-16" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -25,27 +25,852 @@ background-size: contain
 
 
 ---
+class: inverse, center, middle
 
-## A Descriptive Title
+# &lt;b style='font-size:70pt;color:#ebc500;'&gt;Facets&lt;/b&gt;&lt;br&gt;&lt;b style='font-size:45pt;color:white;'&gt;Small Multiples&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 
-... and some text to illustrate the size of the body text.
+---
+
+## &lt;b&gt;&lt;code&gt;facet\_\*()&lt;/code&gt;&lt;/b&gt;
+
+&lt;p style='text-align:center;'&gt;&lt;img src="img/position-facets.png" style='width:75%;'&gt;&lt;br&gt;&lt;br&gt;&lt;cap&gt;Adapted from "ggplot2: Elegant Graphics for Data Analysis" by Hadley Wickham&lt;/cap&gt;&lt;/p&gt;
+
+---
+
+## Our Small-Multiple Candidate
+
+The well-known plot we are going to use for our small multiples, saved as `g`.
 
 .pull-left[
 
 ```r
-## Also, some code:
-mpg %&gt;% 
-  dplyr::mutate(manufacturer = str_to_title(manufacturer)) %&gt;% 
-  count(manufacturer) %&gt;% 
-* ggplot(aes(n, manufacturer)) +
-  geom_col() +
-  theme_minimal(base_family = "Roboto")
+g &lt;- 
+  ggplot(data, aes(date, close)) +
+    geom_line(
+      aes(color = currency),
+      size = 1
+    ) +
+    scale_x_date(
+      date_labels = "%m/%y",
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(
+      labels = scales::dollar_format()
+    ) +
+    scale_color_brewer(
+      palette = "Set1",
+      guide = "none"
+    )
+
+g
 ```
 ]
 
 .pull-right[
-&lt;img src="multipanel_files/figure-html/plot-1.png" width="504" /&gt;
+&lt;img src="05-multipanel_files/figure-html/plot-facet-no-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+
+.pull-left[
+
+```r
+g +
+* facet_wrap(vars(year))
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-year-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+
+.pull-left[
+
+```r
+g +
+* facet_wrap(vars(currency))
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-currency-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+.pull-left[
+
+```r
+g +
+* facet_wrap(~ currency)
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-currency-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+.pull-left[
+
+```r
+g +
+  facet_wrap(
+    vars(currency),
+*   scales = "free"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-scales-free-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+.pull-left[
+
+```r
+g +
+  facet_wrap(
+    vars(currency),
+*   scales = "free_y"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-scales-free-y-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+.pull-left[
+
+```r
+g +
+  facet_wrap(
+    vars(currency),
+*   nrow = 1
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-nrow-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_wrap()&lt;/code&gt;&lt;/b&gt;
+
+`facet_wrap()` splits the data into small multiples based on **one grouping variable**:
+
+.pull-left[
+
+```r
+g +
+  facet_wrap(
+    vars(currency),
+*   ncol = 1
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-wrap-ncol-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_grid()&lt;/code&gt;&lt;/b&gt;
+
+`facet_grid()` spans a grid of each combination of **two grouping variables**:
+
+.pull-left[
+
+```r
+g +
+* facet_grid(
+*   cols = vars(currency),
+*   rows = vars(year)
+* )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-grid-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_grid()&lt;/code&gt;&lt;/b&gt;
+
+`facet_grid()` spans a grid of each combination of **two grouping variables**:
+
+.pull-left[
+
+```r
+g +
+  facet_grid(
+*   year ~ currency
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-grid-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_grid()&lt;/code&gt;&lt;/b&gt;
+
+`facet_grid()` spans a grid of each combination of **two grouping variables**:
+
+.pull-left[
+
+```r
+g +
+  facet_grid(
+*   currency ~ year
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-grid-2-inv-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_grid()&lt;/code&gt;&lt;/b&gt;
+
+`facet_grid()` spans a grid of each combination of **two grouping variables**:
+
+.pull-left[
+
+```r
+g +
+  facet_grid(
+    currency ~ year,
+*   scales = "free"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-grid-inv-scales-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## &lt;b&gt;&lt;code&gt;facet_grid()&lt;/code&gt;&lt;/b&gt;
+
+`facet_grid()` spans a grid of each combination of **two grouping variables**:
+
+.pull-left[
+
+```r
+g +
+  facet_grid(
+    currency ~ year,
+*   scales = "free_y"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-facet-grid-inv-scales-y-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 1: 
+
+* A famous statistical data set is the [“Datasaurus Dozen”](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html), which is based on [“Anscome's Quartet”](https://en.wikipedia.org/wiki/Anscombe%27s_quartet).&lt;br&gt;&lt;br&gt;Import the according data into R and inspect it: `datasaurus.csv`
+
+* Visualize all 12 sets as small multiples of scatter plots.
+
+* Also, add to each facet a linear fitting in the back.
+  
+* Use a built-in theme and add a title and explanation of the visual.
+
+---
+
+## Exercise 1: Import and Inspect Data
+
+
+```r
+saurus &lt;- readr::read_csv(here::here("data", "datasaurus.csv"))
+
+unique(saurus$dataset)
+##  [1] "dino"       "away"       "h_lines"    "v_lines"    "x_shape"   
+##  [6] "star"       "high_lines" "dots"       "circle"     "bullseye"  
+## [11] "slant_up"   "slant_down" "wide_lines"
+```
+
+---
+
+## Exercise 1: Import and Inspect Data
+
+
+```r
+saurus &lt;- readr::read_csv(here::here("data", "datasaurus.csv"))
+
+saurus %&gt;% 
+  group_by(dataset) %&gt;% 
+  summarize(mean_x = mean(x), sd_x = sd(x), mean_y = mean(y), sd_y = sd(y))
+## # A tibble: 13 x 5
+##    dataset    mean_x  sd_x mean_y  sd_y
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 away         54.3  16.8   47.8  26.9
+##  2 bullseye     54.3  16.8   47.8  26.9
+##  3 circle       54.3  16.8   47.8  26.9
+##  4 dino         54.3  16.8   47.8  26.9
+##  5 dots         54.3  16.8   47.8  26.9
+##  6 h_lines      54.3  16.8   47.8  26.9
+##  7 high_lines   54.3  16.8   47.8  26.9
+##  8 slant_down   54.3  16.8   47.8  26.9
+##  9 slant_up     54.3  16.8   47.8  26.9
+## 10 star         54.3  16.8   47.8  26.9
+## 11 v_lines      54.3  16.8   47.8  26.9
+## 12 wide_lines   54.3  16.8   47.8  26.9
+## 13 x_shape      54.3  16.8   47.8  26.9
+```
+
+---
+
+## Exercise 1: Plot the Data
+
+
+```r
+ggplot(saurus, aes(x, y, color = dataset)) +
+  geom_point(alpha = .4)
+```
+
+&lt;img src="05-multipanel_files/figure-html/basic-plot-saurus-1.png" width="612" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 1: Turn into Small Multiples
+
+
+```r
+*ggplot(saurus, aes(x, y)) +
+  geom_point(alpha = .4) +
+* facet_wrap(~ dataset)
+```
+
+&lt;img src="05-multipanel_files/figure-html/saurus-facet-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 1: Turn into Small Multiples
+
+
+```r
+ggplot(saurus, aes(x, y))  +
+  geom_point(alpha = .4) +
+* facet_wrap(~ dataset, nrow = 2)
+```
+
+&lt;img src="05-multipanel_files/figure-html/saurus-facet-nrow-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 1: Fix Aspect Ratio
+
+
+```r
+ggplot(saurus, aes(x, y))  +
+  geom_point(alpha = .4) +
+  facet_wrap(~ dataset, nrow = 2) +
+* coord_fixed()
+```
+
+&lt;img src="05-multipanel_files/figure-html/saurus-facet-fixed-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 1: Add Linear Regression Line
+
+
+```r
+(g &lt;- ggplot(saurus, aes(x, y)) + 
+* geom_smooth(method = "lm", aes(color = dataset), se = FALSE, show.legend = FALSE) +
+  geom_point(alpha = .4) +
+  facet_wrap(~ dataset, nrow = 2) +
+  coord_fixed())
+```
+
+&lt;img src="05-multipanel_files/figure-html/saurus-facet-smooth-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 1: Remove Chart Junk
+
+
+```r
+g +
+* scale_x_continuous(guide = "none", name = NULL) +
+* scale_y_continuous(guide = "none", name = NULL)
+```
+
+&lt;img src="05-multipanel_files/figure-html/saurus-facet-guides-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 1: Add Title and Caption
+
+
+```r
+g +
+  scale_x_continuous(guide = "none", name = NULL) +
+  scale_y_continuous(guide = "none", name = NULL) +
+* labs(title = "Same Stats, Different Graphs", subtitle = "The Datasaurus by Alberto Cairo shows us why visualisation is important, not just summary statistics.")
+```
+
+&lt;img src="05-multipanel_files/figure-html/saurus-facet-titles-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center, middle
+
+&lt;img src="img/patchwork.png" style='width: 23%;'&gt;&lt;br&gt;&lt;br&gt;
+# &lt;b style='font-size:60pt;'&gt;The &lt;code style='color:#ebc500;'&gt;patchwork&lt;/code&gt; Package&lt;/b&gt;&lt;br&gt;
+# &lt;b style='font-size:35pt;color:grey;'&gt;The Composer of Plots&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+---
+class: middle, center
+
+&lt;img src="img/ah_patchwork.jpg" style='width:73%;'&gt;&lt;br&gt;&lt;cap&gt;Illustration by Allison Horst&lt;/cap&gt;
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+(time &lt;- ggplot(data, aes(date, close)) +
+  geom_line(aes(color = currency)) +
+  scale_color_brewer(palette = "Set1",
+                     guide = "none"))
+```
+
+&lt;img src="05-multipanel_files/figure-html/patchwork-basic-plot-1-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+```r
+(box &lt;- ggplot(data, aes(currency, close)) +
+  geom_boxplot(aes(color = currency)) +
+  scale_color_brewer(palette = "Set1",
+                     guide = "none"))
+```
+
+&lt;img src="05-multipanel_files/figure-html/patchwork-basic-plot-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+
+```r
+#install.packages("patchwork")
+*library(patchwork)
+*time + box
+```
+
+&lt;img src="05-multipanel_files/figure-html/patchwork-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+
+```r
+*time / box
+```
+
+&lt;img src="05-multipanel_files/figure-html/patchwork-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+
+```r
+time + box + 
+* plot_layout(widths = c(2, 1))
+```
+
+&lt;img src="05-multipanel_files/figure-html/patchwork-widths-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+
+```r
+*time + plot_spacer() + box +
+* plot_layout(widths = c(2, .5, 1))
+```
+
+&lt;img src="05-multipanel_files/figure-html/patchwork-spacer-1.png" width="1008" style="display: block; margin: auto;" /&gt;
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+scatter &lt;-
+  ggplot(data,
+         aes(close, open)) +
+  geom_point(
+    aes(color = currency),
+    size = 1.5,
+    alpha = .25
+  ) +
+  scale_color_brewer(
+    palette = "Set1",
+    guide = "none"
+  )
+
+*time / (box + scatter) +
+* plot_layout(heights = c(1, 2))
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-adv-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+scatter_guide &lt;-
+  ggplot(data,
+         aes(close, open)) +
+  geom_point(
+    aes(color = currency),
+    size = 1.5,
+    alpha = .25
+  ) +
+  scale_color_brewer(
+    palette = "Set1",
+*   #guide = "none"
+  )
+
+time / (box + scatter_guide) +
+  plot_layout(heights = c(1, 2))
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-adv-legend-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+time / (box + scatter_guide) +
+  plot_layout(
+    heights = c(1, 2),
+*   guides = "collect"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-adv-legend-collect-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+time / (box + scatter_guide) +
+  plot_layout(
+    heights = c(1, 2),
+    guides = "collect"
+  ) +
+* plot_annotation(
+*   title = "Performance of Top 4 Cryptocurrencies"
+* )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-annotate-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+time / (box + scatter_guide) +
+  plot_layout(
+    heights = c(1, 2),
+    guides = "collect"
+  ) +
+  plot_annotation(
+    title = "Performance of Top 4 Cryptocurrencies",
+*   tag_levels = "A",
+*   tag_suffix = ")"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-annotate-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+time / (box + scatter_guide) +
+  plot_layout(
+    heights = c(1, 2),
+    guides = "collect"
+  ) +
+  plot_annotation(
+    title = "Performance of Top 4 Cryptocurrencies",
+*   tag_levels = "i",
+*   tag_prefix = "(",
+*   tag_suffix = ")"
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-annotate-3-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+*box &lt;- box +
+* theme(plot.background = element_blank())
+
+scatter +
+* inset_element(
+*   box,
+*   top = .55,
+*   right = 1,
+*   bottom = 0,
+*   left = .6
+* )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-inset-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
+
+Build up your multi-panel plot sequentially using **The Composer of Plots**:
+
+.pull-left[
+
+```r
+*box &lt;- box +
+* theme(panel.background = element_blank())
+
+scatter +
+  inset_element(
+    box, 
+*   top = .9,
+*   right = .9,
+*   bottom = .1,
+*   left = .1
+  )
+```
+]
+
+.pull-right[
+&lt;img src="05-multipanel_files/figure-html/plot-patchwork-inset-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2: 
+
+* Using the [“Datasaurus Dozen”](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) data set and the previous codes, create this multi-panel visualization&lt;br&gt;with the help of `facet_wrap()` and the `{patchwork}` package.
+
+&lt;img src="05-multipanel_files/figure-html/exercise-saurus-patchwork-1.png" width="1080" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 2: Create Plots
+
+
+```r
+facet &lt;- 
+* ggplot(filter(saurus, dataset != "dino"), aes(x, y)) +
+    geom_smooth(method = "lm", se = FALSE) +
+    geom_point(alpha = .4) +
+    facet_wrap(~ dataset, nrow = 2) +
+    scale_x_continuous(guide = "none", name = NULL) + 
+    scale_y_continuous(guide = "none", name = NULL)
+```
+
+---
+
+## Exercise 2: Create Plots
+
+
+```r
+facet &lt;- 
+  ggplot(filter(saurus, dataset != "dino"), aes(x, y)) +
+    geom_smooth(method = "lm", se = FALSE) +
+    geom_point(alpha = .4) +
+    facet_wrap(~ dataset, nrow = 2) +
+    scale_x_continuous(guide = "none", name = NULL) + 
+    scale_y_continuous(guide = "none", name = NULL)
+
+dino &lt;- 
+* ggplot(filter(saurus, dataset == "dino"), aes(x, y)) +
+    geom_smooth(method = "lm", se = FALSE) + 
+    geom_point(alpha = .4) + 
+*   facet_wrap(~ dataset) +
+    scale_x_continuous(guide = "none", name = NULL) + 
+    scale_y_continuous(guide = "none", name = NULL)
+```
+
+---
+
+## Exercise 2: Create Multi-Panel Plot
+
+
+```r
+dino + facet
+```
+
+&lt;img src="05-multipanel_files/figure-html/facet-patchwork-1.png" width="1080" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 2: Adjust Widths
+
+
+```r
+dino + facet + plot_layout(widths = c(1, 2.5))
+```
+
+&lt;img src="05-multipanel_files/figure-html/facet-patchwork-widths-1.png" width="1080" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 2: Add the Title
+
+
+```r
+dino + facet + plot_layout(widths = c(1, 2.5)) + 
+  plot_annotation(title = "The Datasaurus by Alberto Cairo shows us why visualisation is important, not just summary statistics.")
+```
+
+&lt;img src="05-multipanel_files/figure-html/facet-patchwork-title-1.png" width="1080" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Resources
+
+* Chapters on [faceting](https://ggplot2-book.org/facet.html) and [arranging plots](https://ggplot2-book.org/arranging-plots.html) of the “ggplot2” book by Hadley Wickham et al.
+
+* [`{patchwork}` package reference](https://patchwork.data-imaginist.com/index.html) with lots of articles on ho to create (more complex) layouts
+
+* [`{cowplot}` package reference](https://wilkelab.org/cowplot/articles/plot_grid.html), another package to arrange multiple plots in a grid&lt;br&gt;(and to add insets and images)
+
+* [How to add annotations to individual facets](https://r-graphics.org/recipe-annotate-facet), part of the “R Graphics Cookbook” book by Winston Chang 
+
+* [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

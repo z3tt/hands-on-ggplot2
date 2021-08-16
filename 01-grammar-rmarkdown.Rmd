@@ -236,42 +236,122 @@ chic <- readr::read_csv(
 * **Bonus:** Turn the scatter plot, colored by season, into a line plot.
   + What's the problem? How could you fix it?
 
+
+## Saving a `ggplot`
+
+You can export your plot via the `ggsave()` function:
+
+```{r ggsave, eval=FALSE}
+ggsave(filename = "my_ggplot.pdf", 
+       width = 10, height = 7, 
+       device = cairo_pdf)
+
+ggsave(filename = "my_ggplot.png", 
+       width = 10, height = 7, 
+       dpi = 700)
+```
+
+![Source: canva.com](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png)
+
+-> Scales, Coordinate Systems, Facets, Themes, and Annotations will follow later
+
 ---
 
-## The Grammar of Graphics (continued)
+## APPENDIX
 
-### Scales: scales_*()
+### Import the Data
 
-Scales are directly connected to aesthetics:
+#### The `{here}` Package
 
-```{r structure-scales}
-ggplot(data, aes(x = date, y = close, color = currency)) +
-  geom_line() +
-  geom_point() +
-  scale_x_date() + 
-  scale_y_continuous() + 
-  scale_color_discrete()
+A good workflow when working with local files is offered by the `{here}` package in combination with R projects:
+
+```{r data-readr-local-here}
+here::here()
+
+data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
+
+data_local
 ```
 
-```{r structure-scales-adj}
-ggplot(data, aes(x = date, y = close, color = currency)) +
-  geom_line() +
-  geom_point() +
-  scale_x_date(
-    expand = c(0, 0),
-    date_breaks = "4 months", 
-    date_labels = "%m/%y",
-    name = NULL
-  ) +
-  scale_y_continuous(
-    labels = scales::dollar_format(),
-    sec.axis = dup_axis(name = NULL),
-    name = "Closing Price"
-  ) + 
-  scale_color_discrete(
-    guide = "none"
-  )
+#### Base R
+
+The base R function `read.csv()` works in the same way as `readr::read_csv()`:
+
+```{r data-base}
+data <- read.csv(here::here("data", "crypto_cleaned.csv"))
+
+head(data)
 ```
+
+... and we can turn it into a **tibble** afterwards:
+
+```{r data-base-tbl}
+data <- tibble::as_tibble(data)
+
+data
+```
+
+However, note that by default the date column is runed into type `character`.
+
+
+#### The {rio} Package
+
+The `import()` function from the `{rio}` package allows to load all kind of data formats:
+
+```{r data-rio-url}
+#install.packages("rio")
+
+data <- rio::import(here::here("data", "crypto_cleaned.csv"))
+
+head(data) ## use just head because the output is very long
+```
+
+We can turn it into a **tibble** afterwards—or specify it directly when importing the data set:
+
+```{r data-rio-tbl}
+data <- rio::import(here::here("data", "crypto_cleaned.csv"), setclass = "tbl")
+
+data
+```
+
+You could also load, for example, JSON or Excel files with the same function:
+
+```{r data-rio-json}
+data_json <- rio::import(here::here("data", "crypto_cleaned.json"), setclass = "tbl")
+
+data_json
+```
+
+```{r data-rio-xlsx}
+data_xlsx <- rio::import(
+  here::here("data", "crypto_cleaned.xlsx"),
+  setclass = "tbl"
+)
+
+data_xlsx
+```
+
+We can remove the first column by using the `select()` function from the `{dplyr}` package:
+
+```{r data-xlsx-select}
+data_xlsx <- dplyr::select(data_xlsx, -1)
+#data_xlsx <- dplyr::select(data_xlsx, currency:yday)
+
+data_xlsx
+```
+
+---
+
+### Aesthetics: aes()
+
+Some prefer to place the `aes()` outside the `ggplot()` call:
+
+```{r structure-aes-outside}
+ggplot(data) +
+  aes(x = date, y = close)
+```
+
+
 
 ### Coordinate Systems: coord_*()
 
@@ -314,117 +394,6 @@ ggplot(data, aes(x = date, y = close,
              as.Date("2019-11-01")),
     ylim = c(NA, 100)
   )
-```
-
--> Facets, Themes, and Annotations will follow later!
-
-## Saving a `ggplot`
-
-You can export your plot via the `ggsave()` function:
-
-```{r ggsave, eval=FALSE}
-ggsave(filename = "my_ggplot.pdf", 
-       width = 10, height = 7, 
-       device = cairo_pdf)
-
-ggsave(filename = "my_ggplot.png", 
-       width = 10, height = 7, 
-       dpi = 700)
-```
-
-![Source: canva.com](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png)
-
----
-
-## APPENDIX
-
-### Import the Data
-
-#### Base R
-
-The base R function `read.csv()` works in the same way as `readr::read_csv()`:
-
-```{r data-base}
-data2 <- read.csv(url)
-
-head(data2)
-```
-
-... and we can turn it into a **tibble** afterwards:
-
-```{r data-base-tbl}
-data2 <- tibble::as_tibble(data2)
-
-data2
-```
-
-However, note that by default the date column is runed into type `character`.
-
-
-#### The {rio} Package
-
-The `import()` function from the `{rio}` package allows to load all kind of data formats:
-
-```{r data-rio-url}
-#install.packages("rio")
-
-data3 <- rio::import(url)
-
-head(data3)
-```
-
-... and we can turn it into a **tibble** afterwards:
-
-```{r data-rio-tbl}
-data3 <- tibble::as_tibble(data3)
-
-data3
-```
-
-You could also load, for example, Excel files with the same function:
-
-```{r data-rio-xlsx}
-data_xlsx <- rio::import( "https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.xlsx")
-
-head(data_xlsx)
-```
-
-We can remove the first column by using the `select()` function from the `{dplyr}` package:
-
-```{r data-xlsx-select}
-data_xlsx <- dplyr::select(data_xlsx, -1)
-#data_xlsx <- dplyr::select(data_xlsx, currency:yday)
-
-head(data_xlsx)
-```
-
-... and turn it into a **tibble** afterwards:
-
-```{r data-xlsx-tibble}
-data_xlsx <- tibble::as_tibble(data_xlsx)
-
-data_xlsx
-```
-
-Of course, one can load local files as well. Preferably with the help of the `{here}` package and R projects:
-
-```{r data-readr-local-here}
-here::here()
-
-data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
-
-data_local
-```
-
----
-
-### Aesthetics: aes()
-
-Some prefer to place the `aes()` outside the `ggplot()` call:
-
-```{r structure-aes-outside}
-ggplot(data) +
-  aes(x = date, y = close)
 ```
 
 ---

@@ -19,9 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  The Grammar of Graphics
 -  Our First ggplot
 
-→ [Slides](slides/introduction.html)  
+→ [Slides (html)](slides/introduction.html)  
+→ [Slides (pdf)](slides/introduction.pdf)  
 → [Codes](codes/introduction-rmarkdown.Rmd)  
-→ [Solutions]() *TBA*
 
 *Break: 5 min*
 
@@ -34,9 +34,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Statistical Transformations
 -  Plot Spatial Maps
 
-→ [Slides](slides/grammar.html)  
+→ [Slides (html)](slides/grammar.html)  
+→ [Slides (pdf)](slides/grammar.pdf)  
 → [Codes](codes/grammar-rmarkdown.Rmd)  
-→ [Solutions]() *TBA*
 
 *Break: 10 min*
 
@@ -48,9 +48,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Template Designs
 -  Create Custom Themes
 
-→ [Slides](slides/themes.html)  
+→ [Slides (html)](slides/themes.html)  
+→ [Slides (pdf)](slides/themes.pdf)  
 → [Codes](codes/themes-rmarkdown.Rmd)  
-→ [Solutions]() *TBA*
 
 *Break: 5 min*
 
@@ -63,9 +63,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Add Images and Illustrations
 
 
-→ [Slides](slides/annotation.html)  
+→ [Slides (html)](slides/annotation.html)  
+→ [Slides (pdf)](slides/annotation.pdf)  
 → [Codes](codes/annotation-rmarkdown.Rmd)  
-→ [Solutions]() *TBA*
 
 *Break: 10 min*
 
@@ -77,9 +77,14 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Small Multiples (Facets)
 -  Combine Multiple Plots with patchwork
 
-→ [Slides](slides/multipanel.html)  
+→ [Slides (html)](slides/multipanel.html)  
+→ [Slides (pdf)](slides/multipanel.pdf)  
 → [Codes](codes/multipanel-rmarkdown.Rmd)  
-→ [Solutions]() *TBA*
+
+
+## <b style='color:gray;'Course Wrap–Up</b><br><b style='font-size:20pt;'>Next Steps and Q&A</b>
+
+*Duration: 15 min*
 
 
 ## Reuse {.appendix}

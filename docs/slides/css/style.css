@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Bitter:400,600,700,900,400italic,600italic,700italic');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,600,700,400italic,600italic,700italic');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
@@ -16,15 +14,15 @@ h1 {
 }
 h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 18pt;
+  font-size: 17.2pt;
   font-weight: 600;
   line-height: 1;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   margin-top: 10px;
 }
 h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 16pt;
+  font-size: 15.7pt;
   font-weight: 600;
   line-height: 1;
   margin-bottom: 0;
@@ -32,7 +30,7 @@ h3 {
 }
 h4 {
   font-family: 'DM Sans', sans-serif;
-  font-size: 16pt;
+  font-size: 15.7;
   font-weight: 600;
   line-height: 1;
   margin-bottom: 0;

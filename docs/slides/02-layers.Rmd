@@ -35,8 +35,8 @@ knitr::opts_chunk$set(
   message = FALSE, 
   collapse = TRUE,
   fig.height = 6.3,
-  fig.allign = 'center',
-  fig.retina = 1,
+  fig.align = 'center',
+  fig.retina = 3,
   dev = "ragg_png", 
   res = 1000
 )
@@ -57,6 +57,7 @@ library(conflicted)
 filter <- dplyr::filter
 theme_set(theme_light(base_size = 18, base_family = "Roboto Condensed"))
 data <- readr::read_csv("https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv")
+set.seed(1)
 ```
 
 ---
@@ -325,10 +326,21 @@ ggplot(data, aes(date, currency, fill = close)) +
 
 There is a package for that — but it's simple enough to do it manually!
 
-```{r candle, fig.width=16, fig.height=5.6}
+```{r candle-step-1, fig.width=16, fig.height=5.6}
+ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high), size = 1) #<<
+```
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+```{r candle-step-2, fig.width=16, fig.height=5.6}
 ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
   geom_linerange(aes(ymin = low, ymax = high), size = 1) +
-  geom_linerange(aes(ymin = open, ymax = close), size = 5)
+  geom_linerange(aes(ymin = open, ymax = close), size = 5) #<<
 ```
 
 ---
@@ -357,8 +369,13 @@ ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
 ```
 
 ---
+class: inverse, center, middle
 
-## Statistical Transformations: <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+# <b style='font-size:70pt;color:#ebc500;'>Statistical Transformations</b><br><br>
+
+---
+
+## Statistical Transformations: <code style='font-weight:700;'>stat_*()</code>
 
 You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
 
@@ -378,7 +395,7 @@ ggplot(data, aes(open, close)) +
 
 ---
 
-## Statistical Transformations: <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+## Statistical Transformations: <code style='font-weight:700;'>stat_*()</code>
 
 You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
 
@@ -758,6 +775,11 @@ class: center, middle, inverse
 class: center, middle
 
 <img src="img/ah_sf.png" style='width:78%;'><br><cap>Illustration by Allison Horst</cap>
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Spatial Maps</b><br><br>
 
 ---
 

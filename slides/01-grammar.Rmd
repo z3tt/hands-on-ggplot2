@@ -35,8 +35,8 @@ knitr::opts_chunk$set(
   message = FALSE, 
   collapse = TRUE,
   fig.height=6.3,
-  fig.allign = 'center',
-  fig.retina = 2,
+  fig.align = 'center',
+  fig.retina = 3,
   dev = "ragg_png", 
   res = 1000
 )
@@ -561,7 +561,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `{ggplot2}`
+## The Structure of <code style='font-weight:700;'>{ggplot2}</code>
 
 <br>
 <table style='width:100%;font-size:15pt;font-family:DM Sans;'>
@@ -589,7 +589,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `{ggplot2}`
+## The Structure of <code style='font-weight:700;'>{ggplot2}</code>
 
 <br>
 <table style='width:100%;font-size:15pt;font-family:DM Sans;'>
@@ -636,7 +636,7 @@ class: inverse, center, middle
 
 ---
 
-## The Structure of `{ggplot2}`
+## The Structure of <code style='font-weight:700;'>{ggplot2}</code>
 
 <br>
 <table style='width:100%;font-size:15pt;font-family:DM Sans;'>
@@ -689,7 +689,7 @@ class: inverse, center, middle
 
 ---
 
-## Data: <code style='color:#28a87d;font-weight:700;'>ggplot(data)</code>
+## Data: <code style='font-weight:700;'>ggplot(data)</code>
 
 We need to specify the data in the `ggplot()` call:
 
@@ -699,7 +699,7 @@ ggplot(data = data) #<<
 
 ---
 
-## Data: <code style='color:#28a87d;font-weight:700;'>ggplot(data)</code>
+## Data: <code style='font-weight:700;'>ggplot(data)</code>
 
 We need to specify the data in the `ggplot()` call:
 
@@ -711,7 +711,7 @@ There is only an empty panel because `{ggplot2}` doesn't know **what** of the da
 
 ---
 
-## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+## Aesthetics: <code style='font-weight:700;'>aes()</code>
 
 We need to specify two variables we want to plot as positional `aes`thetics:
 
@@ -721,7 +721,7 @@ ggplot(data = data, mapping = aes(x = date, y = close)) #<<
 
 ---
 
-## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+## Aesthetics: <code style='font-weight:700;'>aes()</code>
 
 We need to specify two variables we want to plot as positional `aes`thetics:
 
@@ -733,7 +733,7 @@ There is only an empty panel because `{ggplot2}` doesn't know **how** it should 
 
 ---
 
-## <code style='color:#28a87d;font-weight:700;'>ggplot(data, aes(x, y))</code>
+## <code style='font-weight:700;'>ggplot(data, aes(x, y))</code>
 
 Thanks to implicit matching of arguments in `ggplot()` and `aes()`, we can also write:
 
@@ -743,7 +743,7 @@ ggplot(data, aes(date, close)) #<<
 
 ---
 
-## Layers: <b><code>geom\_\*()</code>&nbsp;&nbsp;and&nbsp;&nbsp;<code>stat_*()</code></b>
+## Layers: <code style='font-weight:700;'>geom\_\*()</code>&nbsp;&nbsp;and&nbsp;&nbsp;<code>stat_*()</code>
 
 By adding one or multiple layers we can tell `{ggplot2}` *how*&nbsp;&nbsp;to represent the data.<br>
 There are lots of built-in geometric elements (`geom's`) and statistical transformations (`stat's`):
@@ -752,7 +752,7 @@ There are lots of built-in geometric elements (`geom's`) and statistical transfo
 
 ---
 
-## Layers: <code style='color:#28a87d;font-weight:700;'>geom_*()</code>
+## Layers: <code style='font-weight:700;'>geom_*()</code>
 
 We can tell `{ggplot2}` to represent the data for example as a **scatter plot**:
 
@@ -763,7 +763,7 @@ ggplot(data, aes(date, close)) +
 
 ---
 
-## Aesthetics: <code style='color:#28a87d;font-weight:700;'>aes()</code>
+## Aesthetics: <code style='font-weight:700;'>aes()</code>
 
 Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.
 
@@ -800,7 +800,7 @@ ggplot(data = data, mapping = aes(x = date, y = close, color = currency)) +
 
 ---
 
-## Layers: <code style='color:#28a87d;font-weight:700;'>geom\_\*()</code> and <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+## Layers: <code style='font-weight:700;'>geom\_\*()</code> and <code style='font-weight:700;'>stat_*()</code>
 
 The exciting thing about layers is that you can combine several `geom_*()` and `stat_*()` calls:
 
@@ -812,7 +812,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Layers: <code style='color:#28a87d;font-weight:700;'>geom\_\*()</code> and <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+## Layers: <code style='font-weight:700;'>geom\_\*()</code> and <code style='font-weight:700;'>stat_*()</code>
 
 ... and aesthetics can be applied either **globally** or for each layer individually:
 
@@ -824,7 +824,7 @@ ggplot(data, aes(date, close, color = currency, shape = currency)) + #<<
 
 ---
 
-## Layers: <code style='color:#28a87d;font-weight:700;'>geom\_\*()</code> and <code style='color:#28a87d;font-weight:700;'>stat_*()</code>
+## Layers: <code style='font-weight:700;'>geom\_\*()</code> and <code style='font-weight:700;'>stat_*()</code>
 
 ... and aesthetics can be applied either globally or for each layer **individually**:
 
@@ -1016,12 +1016,26 @@ class: inverse, center, middle
 
 ## Import the Data
 
+A good workflow when working with local files is offered by the `{here}` package in combination with R projects:
+
+```{r data-readr-local-here}
+here::here()
+
+data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
+
+data_local
+```
+
+---
+
+## Import the Data
+
 The base R function `read.csv()` works in the same way as `readr::read_csv()`:
 
 ```{r data-base}
-data2 <- read.csv(url)
+data <- read.csv(here::here("data", "crypto_cleaned.csv"))
 
-data2
+head(data)
 ```
 
 ---
@@ -1031,12 +1045,12 @@ data2
 ... and we can turn it into a **tibble** afterwards:
 
 ```{r data-base-tbl}
-data2 <- tibble::as_tibble(data2)
+data <- tibble::as_tibble(data)
 
-data2
+data
 ```
 
-However, note that by default the date column is runed into type `character`.
+However, note that by default the date column is turned into type `character`.
 
 ---
 
@@ -1045,21 +1059,21 @@ However, note that by default the date column is runed into type `character`.
 The `import()` function from the `{rio}` package allows to load all kind of data formats:
 
 ```{r data-rio-url}
-data3 <- rio::import(url)
+data <- rio::import(here::here("data", "crypto_cleaned.csv"), setclass = "tbl")
 
-data3
+data
 ```
 
 ---
 
 ## Import the Data
 
-... and we can turn it into a **tibble** afterwards:
+The `import()` function from the `{rio}` package allows to load all kind of data formats:
 
-```{r data-rio-tbl}
-data3 <- tibble::as_tibble(data3)
+```{r data-rio-json}
+data_json <- rio::import(here::here("data", "crypto_cleaned.json"), setclass = "tbl")
 
-data3
+data_json
 ```
 
 ---
@@ -1069,7 +1083,7 @@ data3
 The `import()` function from the `{rio}` package allows to load all kind of data formats:
 
 ```{r data-rio-xlsx}
-data_xlsx <- rio::import(here::here("data", "crypto_cleaned.xlsx"))
+data_xlsx <- rio::import(here::here("data", "crypto_cleaned.xlsx"), setclass = "tbl")
 
 data_xlsx
 ```
@@ -1089,33 +1103,7 @@ data_xlsx
 
 ---
 
-## Import the Data
-
-... and turn it into a **tibble** afterwards:
-
-```{r data-xlsx-tibble}
-data_xlsx <- tibble::as_tibble(data_xlsx)
-
-data_xlsx
-```
-
----
-
-## Import the Data
-
-Of course, one can load local files as well. Preferably with the help of the `{here}` package and R projects:
-
-```{r data-readr-local-here}
-here::here()
-
-data_local <- readr::read_csv(here::here("data", "crypto_cleaned.csv"))
-
-data_local
-```
-
----
-
-## <code style='color:#28a87d;font-weight:700;'>ggplot(data) + aes(x, y)</code>
+## <code style='font-weight:700;'>ggplot(data) + aes(x, y)</code>
 
 Some prefer to place the `aes()` outside the `ggplot()` call:
 
@@ -1126,7 +1114,7 @@ ggplot(data) + #<<
 
 ---
 
-## Coordinate Systems: <code style='color:#28a87d;font-weight:700;'>coord\_\*()</code>
+## Coordinate Systems: <code style='font-weight:700;'>coord\_\*()</code>
 
 The coordinate system maps the two position to a 2d position on the plot:
 
@@ -1150,7 +1138,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Coordinate Systems: <code style='color:#28a87d;font-weight:700;'>coord\_\*()</code>
+## Coordinate Systems: <code style='font-weight:700;'>coord\_\*()</code>
 
 The coordinate system maps the two position to a 2d position on the plot:
 
@@ -1174,7 +1162,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Coordinate Systems: <code style='color:#28a87d;font-weight:700;'>coord\_\*()</code>
+## Coordinate Systems: <code style='font-weight:700;'>coord\_\*()</code>
 
 Changing the limits on the coordinate system allows to zoom in:
 

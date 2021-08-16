@@ -35,8 +35,8 @@ knitr::opts_chunk$set(
   message = FALSE, 
   collapse = TRUE,
   fig.height = 6.3,
-  fig.allign = 'center',
-  fig.retina = 1,
+  fig.align = 'center',
+  fig.retina = 3,
   dev = "ragg_png", 
   res = 1000
 )
@@ -71,13 +71,13 @@ class: inverse, center, middle
 
 ---
 
-## Adjust Colors and Other <code style='color:#28a87d;font-weight:700;'>aes</code>thetics
+## Adjust Colors and Other <code style='font-weight:700;'>aes</code>thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
 
 ---
 
-## Adjust Colors and Other <code style='color:#28a87d;font-weight:700;'>aes</code>thetics
+## Adjust Colors and Other <code style='font-weight:700;'>aes</code>thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
 
@@ -95,7 +95,7 @@ One can use `scale_*()` to change properties of all the **aesthetic dimensions m
 
 ---
 
-## Adjust Colors and Other <code style='color:#28a87d;font-weight:700;'>aes</code>thetics
+## Adjust Colors and Other <code style='font-weight:700;'>aes</code>thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**
 
@@ -113,7 +113,7 @@ One can use `scale_*()` to change properties of all the **aesthetic dimensions m
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_\*()</code>
 
 Scales are directly connected to aesthetics:
 
@@ -135,7 +135,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_\*()</code>
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -162,7 +162,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_\*()</code>
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -193,7 +193,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_\*()</code>
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -233,7 +233,7 @@ class: center, middle
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 All colors and fills that are mapped to **categorical** variables can be manipulated with either `scale_color|fill_discrete()` or `scale_color|fill_manual()`.
 
@@ -263,7 +263,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!
 
@@ -299,7 +299,7 @@ class: middle, center
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -324,7 +324,7 @@ class: middle, center
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -349,7 +349,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -375,7 +375,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -402,7 +402,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -430,7 +430,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 Colorbrewer provides color schemes for maps.
 
@@ -440,7 +440,7 @@ RColorBrewer::display.brewer.all()
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
 
 Colorbrewer provides color schemes for maps.
 
@@ -589,7 +589,7 @@ ggplot(sf_world) +
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_fill\_gradient()</code>
+## Scales: <code style='font-weight:700;'>scale\_fill\_gradient()</code>
 
 You can also build your own **sequential color palettes**:
 
@@ -602,7 +602,7 @@ ggplot(sf_world) +
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_fill\_gradient2()</code>
+## Scales: <code style='font-weight:700;'>scale\_fill\_gradient2()</code>
 
 You can also build your own **diverging color palettes**:
 
@@ -615,7 +615,7 @@ ggplot(sf_world) +
 
 ---
 
-## Scales: <code style='color:#28a87d;font-weight:700;'>scale\_fill\_gradient2()</code>
+## Scales: <code style='font-weight:700;'>scale\_fill\_gradient2()</code>
 
 You can also build your own **diverging color palettes**:
 
@@ -629,7 +629,7 @@ ggplot(sf_world) +
 
 ---
 
-## Color Palettes in <code style='color:#28a87d;font-weight:700;'>R</code>
+## Color Palettes in <code style='font-weight:700;'>R</code>
 
 <span style='font-size:18pt;'>Several packages offer predefined palettes, e.g.:</span>
 
@@ -665,7 +665,7 @@ class: inverse, center, middle
 
 ---
 
-## Style Legends: <code style='color:#28a87d;font-weight:700;'>guides()</code>
+## Style Legends: <code style='font-weight:700;'>guides()</code>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -676,7 +676,7 @@ g +
 
 ---
 
-## Style Legends: <code style='color:#28a87d;font-weight:700;'>guides()</code>
+## Style Legends: <code style='font-weight:700;'>guides()</code>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -687,7 +687,7 @@ g +
 
 ---
 
-## Style Legends: <code style='color:#28a87d;font-weight:700;'>guides()</code>
+## Style Legends: <code style='font-weight:700;'>guides()</code>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -705,7 +705,7 @@ background-size: cover
 
 * Create the following visualization with a viridis palette:
   
-```{r exercise-plot, echo=FALSE, fig.width=12, fig.height=7, fig.align='center'}
+```{r exercise-plot, echo=FALSE, fig.width=12, fig.height=7}
 ggplot(data, aes(close, open, color = high)) +
   geom_point(shape = 5, size = 4, stroke = 1.2) +
   scale_color_viridis_c(option = "mako", direction = -1, breaks = seq(50, 350, by = 50)) +
@@ -760,7 +760,7 @@ ggplot(data, aes(close, open, color = high)) +
 
 ---
 
-## Style Legends: <code style='color:#28a87d;font-weight:700;'>theme()</code>
+## Style Legends: <code style='font-weight:700;'>theme()</code>
 
 The position of the legend and some other properties can be changed via `theme()`
 
@@ -773,7 +773,7 @@ g +
 
 ---
 
-## Style Legends: <code style='color:#28a87d;font-weight:700;'>theme()</code>
+## Style Legends: <code style='font-weight:700;'>theme()</code>
 
 You can change the position of the legend title and labels in `guides()`:
 
@@ -791,7 +791,7 @@ class: inverse, center, middle
 
 ---
 
-## Themes: <b><code>theme_*()</code></b>
+## Themes: <code style='font-weight:700;'>theme_*()</code>
 
 You have already seen built-in themes in segment 1:
 
@@ -822,7 +822,7 @@ d <- gg +
 
 ---
 
-## Themes: <b><code>theme_*()</code></b>
+## Themes: <code style='font-weight:700;'>theme_*()</code>
 
 You have already seen built-in themes in segment 1:
 
@@ -848,7 +848,7 @@ d <- gg +
 
 ---
 
-## Themes: <b><code>theme_*()</code></b>
+## Themes: <code style='font-weight:700;'>theme_*()</code>
 
 You can either add theme changes to each plot or globally for all plots:
 
@@ -876,7 +876,7 @@ theme_grey
 
 ---
 
-## <b><code>theme()</code> Arguments</b>
+## <code style='font-weight:700;'>theme()</code> Arguments</b>
 
 There are many elements you can customize. You can either group them by their type or by their category:
 
@@ -983,7 +983,7 @@ background-size: cover
 
 ---
 
-## Exercise 3: <code style='color:#28a87d;font-weight:700;'>theme_grey|gray()</code
+## Exercise 3: <code style='font-weight:700;'>theme_grey|gray()</code
 
 ```{r theme-grey}
 theme_grey
@@ -991,7 +991,7 @@ theme_grey
 
 ---
 
-## Exercise 3: <code style='color:#28a87d;font-weight:700;'>theme_bw()</code>
+## Exercise 3: <code style='font-weight:700;'>theme_bw()</code>
 
 ```{r theme-bw}
 theme_bw
@@ -1026,7 +1026,7 @@ theme_ugly <-
 
 ---
 
-```{r theme-ugly-apply-plot, echo=FALSE, fig.width=13, fig.height=8, fig.align='center'}
+```{r theme-ugly-apply-plot, echo=FALSE, fig.width=13, fig.height=8}
 library(ragg)
 
 register_variant(
@@ -1074,9 +1074,7 @@ ggplot(data, aes(x = date, y = close, color = high)) +
 
 * Chapter 19 [Themes](https://ggplot2-book.org/polishing.html) of the “ggplot2” book by Hadley Wickham et al.
 
-* [“Creating and Using Custom ggplot2 Themes”](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/) and [“Add a Logo to Your Plot”](https://themockup.blog/posts/2019-01-09-add-a-logo-to-your-plot/), blog posts by Thomas Mock
-
-* [“How to Add a Logo to ggplot by Magick”](https://www.danielphadley.com/ggplot-logo/), blog post by Daniel Hadley
+* [“Creating and Using Custom ggplot2 Themes”](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/), blog post by Thomas Mock
 
 * [“Themes to Improve Your ggplot Figures”](https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/) from [R for the Rest of Us](https://rfortherestofus.com/) with a collection of additional themes
 

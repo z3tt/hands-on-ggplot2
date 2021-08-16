@@ -35,9 +35,10 @@ knitr::opts_chunk$set(
   message = FALSE, 
   collapse = TRUE,
   fig.height = 6.3,
-  fig.allign = 'center',
-  fig.retina = 3.5,
-  fig.showtext = TRUE
+  fig.align = 'center',
+  fig.retina = 3,
+  dev = "ragg_png", 
+  res = 1000
 )
 
 Sys.setlocale("LC_TIME", "C")
@@ -53,39 +54,1258 @@ options(width = 80)
 ```{r prep, echo=FALSE}
 library(tidyverse)
 library(conflicted)
-library(showtext)
 filter <- dplyr::filter
-font_add_google("Roboto", "Roboto")
-font_add_google("Bitter", "Bitter")
-theme_set(theme_grey(base_size = 16))
+theme_set(theme_light(base_size = 18, base_family = "Roboto Condensed"))
+data <- readr::read_csv("https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv")
+penguins <- read_csv(here::here("data", "penguins.csv"))
+set.seed(1)
+```
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Titles, Labels & Co</b><br><br>
+
+---
+
+## Labels: <code style='font-weight:700;'>labs()</code>
+
+To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
+
+```{r structure-labs, fig.width=16, fig.height=5.4}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(x = NULL, y = "Closing Price", color = "Cryptocurrency:") #<<
 ```
 
 ---
 
+## Labels: <code style='font-weight:700;'>labs()</code>
 
+There are multiple ways to add labels:
 
----
-
-## Labels: <code style='color:#28a87d;font-weight:700;'>labs()</code>
-
-To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
-
-```{r structure-labs-1, fig.width=16, fig.height=5.3}
+.pull-left[
+```{r structure-labs-alt, eval=FALSE}
 ggplot(data, aes(date, close, color = currency)) +
   geom_line() + 
-  labs(x = NULL, y = "Closing Price", color = "Cryptocurrency") #<<
+  xlab(NULL) +  #<<
+  # scale_x_date(name = NULL) +
+  ylab("Closing Price") + #<<
+  # scale_y_continuous(name = "Closing Price") +
+  scale_color_discrete(name = "Cryptocurrency:") #<<
 ```
+]
+
+.pull-right[
+```{r plot-structure-labs-alt, ref.label="structure-labs-alt", echo=FALSE}
+```
+]
 
 ---
 
-## Labels: <code style='color:#28a87d;font-weight:700;'>labs()</code>
+## Labels: <code style='font-weight:700;'>labs()</code>
 
 To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
 
-```{r structure-labs-2, fig.width=16, fig.height=4.7}
+```{r structure-titles, fig.width=16, fig.height=4.7}
 ggplot(data, aes(date, close, color = currency)) +
   geom_line() + 
-  labs(x = NULL, y = "Closing Price", color = "Cryptocurrency", tag = "A)", #<<
+  labs(x = NULL, y = "Closing Price", color = "Cryptocurrency:",
        title = "Performance of the Top 4 Cryptocurrencies", caption = "Data: CoinMarketCap.com", #<<
-       subtitle = "The time series show daily closing prices from 2018 to 2020.") #<<
+       subtitle = "The time series show daily closing prices from 2018 to 2020.", tag = "A)") #<<
 ```
+
+---
+
+## Plot Position
+
+.pull-left[
+```{r boxplot-title-position-panel, fig.height=5.7}
+ggplot(data, aes(close, currency)) +
+  geom_boxplot() +
+  ggtitle("Closing Prices of the Top 4 Cryptocurrencies, 2018–2020") +
+  theme(plot.title.position = "panel") #<<
+```
+]
+
+.pull-right[
+```{r boxplot-title-position-plot, fig.height=5.7}
+ggplot(data, aes(close, currency)) +
+  geom_boxplot() +
+  ggtitle("Closing Prices of the Top 4 Cryptocurrencies, 2018–2020") +
+  theme(plot.title.position = "plot") #<<
+```
+]
+
+---
+
+## Text Rendering with <code style='font-weight:700;'>{ggtext}</code>
+
+The `{ggtext}` package provides simple <u>Markdown</u> and HTML rendering for `{ggplot2}`.
+
+```{r ggtext-showcase, fig.width=16, fig.height=4.7}
+#install.packages("ggtext")
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(title = "Performance of the **Top 4 Cryptocurrencies**", caption = "Data: *CoinMarketCap.com*") + #<<
+  theme(plot.title = ggtext::element_markdown(), plot.caption = ggtext::element_markdown()) #<<
+```
+
+---
+
+## Text Rendering with <code style='font-weight:700;'>{ggtext}</code>
+
+The `{ggtext}` package provides simple Markdown and <u>HTML</u> rendering for `{ggplot2}`.
+
+```{r ggtext-showcase-2, fig.width=16, fig.height=4.7}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(title = "Performance of the <b style='font-size:34pt;'>Top 4 Cryptocurrencies</b>",  #<<
+       caption = "<span style='color:firebrick;'>Data:</span> <i>CoinMarketCap.com</i>") + #<<
+  theme(plot.title = ggtext::element_markdown(), plot.caption = ggtext::element_markdown())
+```
+
+---
+
+## Text Rendering with <code style='font-weight:700;'>{ggtext}</code>
+
+The `{ggtext}` package provides simple <u>Markdown</u> and HTML rendering for `{ggplot2}`.
+
+```{r ggtext-wrap-title, fig.width=16, fig.height=4.7}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero.") + #<<
+  theme(plot.title = ggtext::element_textbox_simple()) #<<
+```
+
+---
+
+## Text Rendering with <code style='font-weight:700;'>{ggtext}</code>
+
+`element_textbox` and `element_textbox_simple` automatically wrap long text:
+
+```{r ggtext-wrap-title-2, fig.width=16, fig.height=4.7}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero.") + 
+  theme(plot.title = ggtext::element_textbox_simple(margin = margin(b = 15), lineheight = .9)) #<<
+```
+
+---
+
+## Text Rendering with <code style='font-weight:700;'>{ggtext}</code>
+
+`element_textbox` and `element_textbox_simple` automatically wrap long text:
+
+```{r ggtext-wrap-title-3, fig.width=16, fig.height=4.7}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero.") +
+  theme(plot.title = ggtext::element_textbox_simple(margin = margin(b = 15), lineheight = .9,
+                                                    linetype = 1, padding = margin(rep(10, 4)))) #<<
+```
+
+---
+
+## Text Rendering with <code style='font-weight:700;'>{ggtext}</code>
+
+`element_textbox` and `element_textbox_simple` automatically wrap long text:
+
+```{r ggtext-wrap-title-4, fig.width=16, fig.height=4.4}
+ggplot(data, aes(date, close, color = currency)) +
+  geom_line() + 
+  labs(title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero.") +
+  theme(plot.title = ggtext::element_textbox_simple(margin = margin(b = 15), lineheight = .9,
+                                                    linetype = 1, padding = margin(rep(10, 4)),
+                                                    r = unit(10, "pt"), fill = "moccasin")) #<<
+```
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Basic Text Labelling</b><br><br>
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-text, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  annotate( #<<
+    geom = "text", #<<
+    x = 250, #<<
+    y = 50, #<<
+    label = "Some\nadditional\ntext" #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-annotate-text, ref.label="annotate-text", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-text-adj, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  annotate( 
+    geom = "text", 
+    x = 250, 
+    y = 50,
+    label = "Some\nadditional\ntext",
+    size = 6, #<<
+    color = "firebrick", #<<
+    fontface = "bold", #<<
+    lineheight = .9 #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-annotate-text-adj, ref.label="annotate-text-adj", echo=FALSE}
+```
+]
+
+---
+
+## Annotations with  <code style='font-weight:700;'>{ggtext}</code>
+
+The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
+
+.pull-left[
+```{r ggtext-richtext, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  ggtext::geom_richtext( #<<
+    aes(x = 250, y = 50,  #<<
+        label = #<<
+  "Some<br>**additional**<br>text" #<<
+    ),  #<<
+    stat = "unique" #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-ggtext-richtext, ref.label="ggtext-richtext", echo=FALSE}
+```
+]
+
+---
+
+## Annotations with  <code style='font-weight:700;'>{ggtext}</code>
+
+The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
+
+.pull-left[
+```{r ggtext-richtext-2, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  ggtext::geom_richtext( 
+    aes(x = 250, y = 50,  
+        label = 
+  "Some<br>**additional**<br>text" 
+  ),  
+  stat = "unique",
+  color = "firebrick", #<
+  size = 5, #<<
+  fill = NA,  #<
+  label.color = NA #<
+  ) 
+```
+]
+
+.pull-right[
+```{r plot-ggtext-richtext-2, ref.label="ggtext-richtext-2", echo=FALSE}
+```
+]
+
+---
+
+## Annotations with  <code style='font-weight:700;'>{ggtext}</code>
+
+The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
+
+.pull-left[
+```{r ggtext-textbox, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  ggtext::geom_textbox( #<<
+    aes(x = 210, y = 50,  
+        label =  "**Lorem ipsum** dolor sit amet, *consectetur adipiscing elit,* sed do eiusmod tempor incididunt ut labore et dolore <span style='color:red;'>magna</span> aliqua. *Accumsan tortor posuere ac ut consequat semper* ***viverra nam libero.***" #<<
+    ), 
+  stat = "unique",
+  width = unit(15, "lines") #<<
+  ) 
+```
+]
+
+.pull-right[
+```{r plot-ggtext-textbox, ref.label="ggtext-textbox", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-box, eval=FALSE}
+ggplot(data, aes(close, open))  +
+  geom_point(size = 2)  +
+  annotate(
+    geom = "rect", #<<
+    xmin = 150,  #<<
+    xmax = Inf,  #<<
+    ymin = 150,  #<<
+    ymax = Inf, #<<
+    fill = "firebrick"  #<< 
+  )
+```
+]
+
+.pull-right[
+```{r plot-annotate-box, ref.label="annotate-box", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-box-adj, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  annotate(
+    geom = "rect", 
+    xmin = 150, 
+    xmax = Inf, 
+    ymin = 150, 
+    ymax = Inf,
+    fill = "firebrick"
+  )  +
+  geom_point(size = 2) #<<
+```
+]
+
+.pull-right[
+```{r plot-annotate-box-adj, ref.label="annotate-box-adj", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-text-line, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  annotate(
+    geom = "text", 
+    x = 250, y = 50,
+    label = "Some\nadditional\ntext",
+    size = 6,
+    lineheight = .9 
+  ) +
+  annotate( #<<
+    geom = "curve", #<<
+    x = 250, y = 75, #<<
+    xend = 180, yend = 160 #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-annotate-text-line, ref.label="annotate-text-line", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-text-arrow, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  annotate( 
+    geom = "text", 
+    x = 250, y = 50,
+    label = "Some\nadditional\ntext",
+    size = 6,
+    lineheight = .9 
+  ) +
+  annotate(
+    geom = "curve",
+    x = 250, y = 75, 
+    xend = 180, yend = 160,
+    curvature = .4, #<<
+    arrow = arrow() #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-annotate-text-arrow, ref.label="annotate-text-arrow", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-text-arrow-type2, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  annotate( 
+    geom = "text", 
+    x = 250, y = 50,
+    label = "Some\nadditional\ntext",
+    size = 6,
+    lineheight = .9 
+  ) +
+  annotate(
+    geom = "curve",
+    x = 250, y = 75, 
+    xend = 180, yend = 160,
+    curvature = .4,
+    arrow = arrow(length = unit(0.4, "lines"), #<<
+                  type = "closed", #<<
+                  ends = "both") #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-annotate-text-arrow-type2, ref.label="annotate-text-arrow-type2", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>annotate()</code>
+
+The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+
+.pull-left[
+```{r annotate-text-arrow-skewed, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  annotate( 
+    geom = "text", 
+    x = 250, y = 50,
+    label = "Some\nadditional\ntext",
+    size = 6,
+    lineheight = .9 
+  ) +
+  annotate(
+    geom = "curve",
+    x = 250, y = 75, 
+    xend = 180, yend = 160,
+    curvature = .8, 
+    angle = 130, #<<
+    arrow = arrow(length = unit(0.4, "lines"),
+                  type = "closed",
+                  ends = "both")
+  )
+```
+]
+
+.pull-right[
+```{r plot-annotate-text-arrow-skewed, ref.label="annotate-text-arrow-skewed", echo=FALSE}
+```
+]
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 1:
+
+* Create the following visualization:
+
+```{r exercise-plot, echo=FALSE, fig.width=12, fig.height=7}
+ggplot(data, aes(date, close, color = currency)) + 
+  geom_line(size = 1) +
+  geom_text(
+    data = data %>% group_by(currency) %>% filter(close == max(close)),
+    aes(label = currency), size = 6, nudge_y = 10,  hjust = 0, fontface = "bold"
+  ) + 
+  scale_x_date(expand = c(0, 0)) +
+  scale_y_continuous(labels = scales::dollar_format()) +
+  scale_color_brewer(palette = "Set1", guide = "none") +
+  labs(x = NULL, y = NULL, title = "Closing Prices of the Top 4 Cryptocurrencies") +
+  theme_classic(base_size = 20) +
+  theme(plot.title.position = "plot")
+```
+
+---
+
+## Exercise 1: Create Line Plot
+
+```{r exercise-plot-basic, fig.width=12, fig.height=4.9}
+(g <- ggplot(data, aes(date, close, color = currency)) + 
+  geom_line(size = 1) +
+  scale_x_date(expand = c(0, 0)) +
+  scale_y_continuous(labels = scales::dollar_format()) +
+  scale_color_brewer(palette = "Set1", guide = "none") +
+  labs(x = NULL, y = NULL, title = "Closing Prices of the Top 4 Cryptocurrencies"))
+```
+
+---
+
+## Exercise 1: Modify Theme
+
+```{r exercise-plot-theme, fig.width=12, fig.height=5.6}
+(g <- g +
+  theme_classic(base_size = 20) +
+  theme(plot.title.position = "plot"))
+```
+
+---
+
+## Exercise 1: Add Labels with <code style='font-weight:700;'>annotate()</code>
+
+```{r exercise-annotate-data, eval=FALSE}
+annotate <- data %>% group_by(currency) %>% filter(close == max(close))
+```
+
+---
+
+## Exercise 1: Add Labels with <code style='font-weight:700;'>annotate()</code>
+
+```{r exercise-annotate-data-output}
+annotate <- data %>% group_by(currency) %>% filter(close == max(close))
+
+annotate
+```
+
+---
+
+## Exercise 1: Add Labels with <code style='font-weight:700;'>annotate()</code>
+
+```{r exercise-annotate-each, fig.width=12, fig.height=5.6}
+g + 
+  annotate(geom = "text", x = annotate$date, y = annotate$close + 10,
+           label = annotate$currency, hjust = 0, size = 5, fontface = "bold")
+```
+
+---
+
+## Exercise 1: Add Labels with <code style='font-weight:700;'>annotate()</code>
+
+```{r exercise-annotate-each-col, fig.width=12, fig.height=4.2}
+g + 
+  annotate(geom = "text", x = annotate$date[1], y = annotate$close[1] + 10,
+           label = annotate$currency[1], hjust = 0, size = 6, fontface = "bold", color = "#E41A1C") + 
+  annotate(geom = "text", x = annotate$date[2], y = annotate$close[2] + 10,
+           label = annotate$currency[2], hjust = 0, size = 6, fontface = "bold", color = "#4DAF4A") + 
+  annotate(geom = "text", x = annotate$date[3], y = annotate$close[3] + 10,
+           label = annotate$currency[3], hjust = 0, size = 6, fontface = "bold", color = "#984EA3") + 
+  annotate(geom = "text", x = annotate$date[4], y = annotate$close[4] + 10,
+           label = annotate$currency[4], hjust = 0, size = 6, fontface = "bold", color = "#377EB8")
+```
+
+---
+
+## Exercise 1: Add Labels with <code style='font-weight:700;'>geom_text|label()</code>
+
+```{r exercise-plot-geom-text, fig.width=12, fig.height=5.6}
+g +
+  geom_text(data = annotate,
+            aes(label = currency), size = 6, nudge_y = 10, hjust = 0, fontface = "bold")
+```
+
+---
+
+## Exercise 1: Add Labels with <code style='font-weight:700;'>geom_text|label()</code>
+
+```{r exercise-plot-geom-text-data, fig.width=12, fig.height=5.6}
+(g <- g +
+  geom_text(data = data %>% group_by(currency) %>% filter(close == max(close)),
+            aes(label = currency), size = 6, nudge_y = 10, hjust = 0, fontface = "bold"))
+```
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom_text|label()</code>
+
+You already know `geom_text()`:
+
+.pull-left[
+```{r geom-text, eval=FALSE}
+ggplot(data, aes(close, open)) +
+  geom_point(size = 2) +
+  geom_text( #<<
+    aes(label = currency), #<<
+    size = 5 #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-geom-text, ref.label="geom-text", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom_text|label()</code>
+
+Let's tag those days that are considerably far from the diagonal:
+
+```{r geom-text-outlier-data, eval=FALSE}
+outliers <- data %>%
+  mutate(dist = abs(close - open) / sqrt(2)) %>% 
+  filter(dist > 20)
+```
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom_text|label()</code>
+
+Let's tag those days that are considerably far from the diagonal:
+
+```{r geom-text-outlier-data-output}
+outliers <- data %>%
+  mutate(dist = abs(close - open) / sqrt(2)) %>% 
+  filter(dist > 20)
+
+outliers
+```
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom_text|label()</code>
+
+You already know `geom_text()`:
+
+.pull-left[
+```{r geom-text-outlier, eval=FALSE}
+ggplot(outliers, aes(close, open)) + 
+  geom_point(data = data, color = "grey80") + #<<
+  geom_point(size = 2) +
+  geom_text(
+    aes(label = currency),
+    size = 5
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-text-outlier, ref.label="geom-text-outlier", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom_text|label()</code>
+
+We can offset the labels with the help of the nudge arguments:
+
+.pull-left[
+```{r geom-text-outlier-adj, eval=FALSE}
+ggplot(outliers, aes(close, open)) + 
+  geom_point(data = data, color = "grey80") + #<<
+  geom_point(size = 2) +
+  geom_text(
+    aes(label = currency),
+    size = 5,
+    hjust = 0, #<<
+    nudge_x = 5, #<<
+    nudge_y = -5 #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-text-outlier-adj, ref.label="geom-text-outlier-adj", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom_text|label()</code>
+
+We can offset the labels with the help of the nudge arguments:
+
+.pull-left[
+```{r geom-text-outlier-adj-limits, eval=FALSE}
+ggplot(outliers, aes(close, open)) + 
+  geom_point(data = data, color = "grey80") + 
+  geom_point(size = 2) +
+  geom_text(
+    aes(label = currency),
+    size = 5,
+    hjust = 0,
+    nudge_x = 5, 
+    nudge_y = -5 
+  ) +
+  scale_x_continuous(
+    limits = c(NA, 320)
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-text-outlier-adj-limits, ref.label="geom-text-outlier-adj-limits", echo=FALSE}
+```
+]
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Advanced Text Labelling</b><br><br>
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_text|label\_repel()</code>
+
+The `{ggrepel}` package provides two geom's to repel overlapping text labels:
+
+.pull-left[
+```{r geom-text-repel, eval=FALSE}
+#install.packages("ggrepel")
+
+ggplot(outliers, aes(close, open)) + 
+  geom_point(data = data, color = "grey80") +
+  geom_point(size = 2) +
+  ggrepel::geom_text_repel( #<<
+    aes(label = currency),
+    size = 5,
+    hjust = 0
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-text-repel, ref.label="geom-text-repel", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_text|label\_repel()</code>
+
+The `{ggrepel}` package provides two geom's to repel overlapping text labels:
+
+.pull-left[
+```{r geom-label-repel, eval=FALSE}
+#install.packages("ggrepel")
+
+ggplot(outliers, aes(close, open)) + 
+  geom_point(data = data, color = "grey80") +
+  geom_point(size = 2) +
+  ggrepel::geom_label_repel( #<<
+    aes(label = currency),
+    size = 5
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-label-repel, ref.label="geom-label-repel", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_text|label\_repel()</code>
+
+The `{ggrepel}` package provides two geom's to repel overlapping text labels:
+
+.pull-left[
+```{r geom-label-repel-adj, eval=FALSE}
+#install.packages("ggrepel")
+
+ggplot(outliers, aes(close, open)) + 
+  geom_point(data = data, color = "grey80") +
+  geom_point(size = 2) +
+  ggrepel::geom_label_repel(
+    aes(label = currency),
+    size = 5,
+    ## space between points + labels
+    box.padding = .5, #<<
+    ## always draw segments
+    min.segment.length = 0 #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-label-repel-adj, ref.label="geom-label-repel-adj", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_text|label\_repel()</code>
+
+We use another data set, this time about Palmer penguins (Horst, Hill & Gorman 2020).
+
+.pull-left[
+```{r penguin-scatter, eval=FALSE}
+penguins <- read_csv(here::here("data", "penguins.csv"))
+
+ggplot(
+  penguins, 
+  aes(flipper_length_mm, bill_length_mm,
+      color = species)
+  ) + 
+  geom_point() 
+```
+]
+
+.pull-right[
+```{r plot-penguin-scatter, ref.label="geom-penguin-scatter", echo=FALSE}
+```
+]
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_mark\_*()</code>
+
+The `{ggforce}` package provides functionality to highlight groups:
+
+.pull-left[
+```{r geom-mark-ellipse, eval=FALSE}
+#install.packages("ggforce")
+
+ggplot(
+  penguins, 
+  aes(flipper_length_mm, bill_length_mm,
+      color = species)
+  ) + 
+  geom_point() +
+  ggforce::geom_mark_ellipse(
+    aes(label = species)
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-mark-ellipse, ref.label="geom-mark-ellipse", echo=FALSE}
+```
+]
+
+---
+class: center, middle
+
+```{r plot-geom-mark-ellipse-again, ref.label="geom-mark-ellipse", echo=FALSE, fig.width=14, fig.height=8}
+```
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_mark\_*()</code>
+
+The `{ggforce}` package provides functionality to highlight groups:
+
+.pull-left[
+```{r geom-mark-ellipse-desc-adj, eval=FALSE}
+ggplot(
+  penguins, 
+  aes(flipper_length_mm, bill_length_mm,
+      color = species)
+  ) + 
+  geom_point() +
+  ggforce::geom_mark_ellipse(
+    aes(label = species)
+  ) +
+  coord_cartesian( #<<
+    xlim = c(170, 240),  #<<
+    ylim = c(25, 65) #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-geom-mark-ellipse-desc-adj-again, ref.label="geom-mark-ellipse-desc-adj", echo=FALSE}
+```
+]
+
+---
+class: center, middle
+
+```{r plot-geom-mark-ellipse-desc-adj, ref.label="geom-mark-ellipse-desc-adj", echo=FALSE, fig.width=14, fig.height=8}
+```
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_mark\_*()</code>
+
+The `{ggforce}` package provides functionality to highlight groups:
+
+.pull-left[
+```{r geom-mark-ellipse-desc, eval=FALSE}
+ggplot(
+  penguins, 
+  aes(flipper_length_mm, bill_length_mm,
+      color = species, size = body_mass_g)
+  ) + 
+  geom_point() +
+  ggforce::geom_mark_ellipse(
+    aes(label = species,
+        description = latin_name) #<<
+  ) +
+  coord_cartesian( 
+    xlim = c(170, 240), 
+    ylim = c(25, 65)
+  )
+```
+]
+
+.pull-right[
+```{r plot-geom-mark-ellipse-desc, ref.label="geom-mark-ellipse-desc", echo=FALSE}
+```
+]
+
+---
+class: center, middle
+
+```{r geom-mark-ellipse-desc-again, ref.label="geom-mark-ellipse-desc", echo=FALSE, fig.width=14, fig.height=8}
+```
+
+---
+
+## Annotations via <code style='font-weight:700;'>geom\_mark\_*()</code>
+
+The `{ggforce}` package provides functionality to highlight groups:
+
+.pull-left[
+```{r geom-mark-hull-filter, eval=FALSE}
+ggplot(
+  penguins, 
+  aes(flipper_length_mm, bill_length_mm,
+      color = species == "Adelie") #<<
+  ) + 
+  geom_point() +
+  ggforce::geom_mark_hull(
+    aes(label = species,
+        filter = species == "Adelie") #<<
+  ) +
+  coord_cartesian( 
+    xlim = c(170, 240), 
+    ylim = c(25, 65)
+  ) +
+  theme(legend.position = "none")
+```
+]
+
+.pull-right[
+```{r plot-geom-mark-hull-filter, ref.label="geom-mark-hull-filter", echo=FALSE}
+```
+]
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:#ebc500;'>Add Images</b><br><br>
+
+---
+
+## Add Images: <b><code>annotation_custom()</code></b>
+
+`annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
+
+.pull-left[
+```{r annotation-custom-img, eval=FALSE}
+#install.packages("magick")
+url <- "https://pbs.twimg.com/profile_images/1047066510387228672/1CARzYCu_400x400.jpg" #<<
+
+ggplot(data, aes(date, close, 
+                 color = currency)) +
+  annotation_custom( #<<
+    grid::rasterGrob( #<<
+      image = magick::image_read(url) #<<
+    )  #<<
+  ) + #<<
+  geom_line(size = .8)
+```
+]
+
+.pull-right[
+```{r plot-annotation-custom-img, ref.label="annotation-custom-img", echo=FALSE}
+```
+]
+
+---
+
+## Add Images: <b><code>annotation_custom()</code></b>
+
+`annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
+
+.pull-left[
+```{r annotation-custom-img-mod, eval=FALSE}
+#install.packages("magick")
+url <- "https://image.shutterstock.com/image-vector/set-gold-silver-crypto-currencies-260nw-775898248.jpg"
+
+ggplot(data, aes(date, close, 
+                 color = currency)) +
+  annotation_custom(
+    grid::rasterGrob(
+      image = magick::image_read(url),
+      width = unit(.4, "npc") #<<
+    ) 
+  ) +
+  geom_line(size = .8) 
+```
+]
+
+.pull-right[
+```{r plot-annotation-custom-img-mod, ref.label="annotation-custom-img-mod", echo=FALSE, eval = -1}
+```
+]
+
+---
+
+## Add Images: <b><code>annotation_custom()</code></b>
+
+`annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
+
+.pull-left[
+```{r annotation-custom-img-mod2, eval=FALSE}
+#install.packages("magick")
+url <- "https://pbs.twimg.com/profile_images/1047066510387228672/1CARzYCu_400x400.jpg"
+
+ggplot(data, aes(date, close, 
+                 color = currency)) +
+  annotation_custom(
+    grid::rasterGrob(
+      image = magick::image_read(url),
+      x = .5, #<<
+      y = .9, #<<
+      width = .9  #<<
+    ) 
+  ) +
+  geom_line(size = .8)
+```
+]
+
+.pull-right[
+```{r plot-annotation-custom-img-mod2, ref.label="annotation-custom-img-mod2", echo=FALSE, eval = -1}
+```
+]
+
+---
+
+## Add Images: <b><code>annotation_custom()</code></b>
+
+`annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
+
+.pull-left[
+```{r annotation-custom-img-below, eval=FALSE}
+#install.packages("magick")
+url <- "https://pbs.twimg.com/profile_images/1047066510387228672/1CARzYCu_400x400.jpg"
+
+ggplot(data, aes(date, close, 
+                 color = currency)) +
+  annotation_custom(
+    grid::rasterGrob(
+        image = magick::image_read(url),
+        x = .5,
+        y = -.25, #<<
+        width = .9 
+    ) 
+  ) +
+  geom_line(size = .8) +
+  coord_cartesian(clip = "off") + #<<
+  theme(plot.margin = margin(12, 12, 130, 12)) #<<
+```
+]
+
+.pull-right[
+```{r plot-annotation-custom-img-below, ref.label="annotation-custom-img-below", echo=FALSE, eval = -1}
+```
+]
+
+---
+
+## Add Image: The <b><code>{cowplot}</code></b> Package
+
+The `cowplot` package can also be used to add images:
+
+.pull-left[
+```{r cowplot-img, eval=FALSE}
+#install.packages("cowplot")
+g <- ggplot(data, aes(close, open)) +
+  geom_point(alpha = .4) +
+  theme(plot.margin = margin(12, 12, 70, 12))
+
+img <- magick::image_read(url)
+
+cowplot::ggdraw(g) + #<<
+  cowplot::draw_image( #<<
+    img,  #<<
+    x = 1,  #<<
+    y = 0, #<<
+    hjust = .5, #<<
+    vjust = .65, #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-cowplot-img, ref.label="cowplot-img", echo=FALSE}
+```
+]
+
+---
+
+## Add Image: The <b><code>{cowplot}</code></b> Package
+
+The `cowplot` package can not only add plots to other plots but also images:
+
+.pull-left[
+```{r cowplot-img-2, eval=FALSE}
+g <- ggplot(data, aes(close, open)) +
+  geom_point(alpha = .4) +
+  theme(panel.background = element_blank(), #<<
+        plot.background = element_blank()) #<<
+
+cowplot::ggdraw() + #<<
+  cowplot::draw_image(
+    img, 
+    scale = 1 #<<
+  ) +
+  cowplot::draw_plot(g) #<<
+```
+]
+
+.pull-right[
+```{r plot-cowplot-img-2, ref.label="cowplot-img-2", echo=FALSE}
+```
+]
+
+---
+
+## Add Image: The <b><code>{cowplot}</code></b> Package
+
+The `cowplot` package can also be used to add images:
+
+.pull-left[
+```{r cowplot-img-3, eval=FALSE}
+g <- ggplot(data, aes(close, open)) +
+  geom_point(alpha = .4) +
+  theme(plot.margin = margin(12, 12, 45, 12))
+
+url <- "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Pearson_logo.svg/1280px-Pearson_logo.svg.png"
+logo <- magick::image_read(url)
+
+cowplot::ggdraw(g) +
+  cowplot::draw_image(
+    logo,  
+    scale = .2, 
+    x = 1,
+    hjust = 1, 
+    halign = 1, #<< 
+    valign = 0 #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-cowplot-img-3, ref.label="cowplot-img-3", echo=FALSE}
+```
+]
+
+---
+background-image: url("img/bg-exercise.png")
+background-size: cover
+
+## Exercise 2:
+
+* Play around with the two different approaches and how they differ in placing and scaling the images.
+
+* **Bonus:** Write a function that lets you add your comapny's logo to a ggplot object.
+
+---
+
+## Exercise 2: 
+
+```{r logo-function}
+add_logo <- function(g) {
+  url <- "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Pearson_logo.svg/1280px-Pearson_logo.svg.png"
+  logo <- magick::image_read(url)
+  
+  g <- g +
+    theme(plot.margin = margin(12, 12, 45, 12))
+  
+  plot <- 
+    cowplot::ggdraw(g) +
+    cowplot::draw_image(
+      logo,  
+      scale = .2, 
+      x = 1,
+      hjust = 1, 
+      halign = 1, 
+      valign = 0
+    )
+  
+  return(plot)
+}
+```
+
+---
+
+## Exercise 2: 
+
+```{r logo-function-test-a, fig.width=12, fig.height=6.5}
+my_plot <- ggplot(data, aes(close, open)) + geom_point()
+add_logo(my_plot)
+```
+
+---
+
+## Exercise 2: 
+
+```{r logo-function-test-b, fig.width=5, fig.height=6.5}
+my_plot <- ggplot(data, aes(close, open)) + geom_point()
+add_logo(my_plot)
+```
+
+---
+
+## Exercise 2: 
+
+```{r logo-function-test-c, fig.width=16, fig.height=3.5}
+my_plot <- ggplot(data, aes(close, open)) + geom_point()
+add_logo(my_plot)
+```
+
+---
+
+## Ressources
+
+* Chapter 8 [Annotations](https://ggplot2-book.org/annotations.html) of the “ggplot2” book by Hadley Wickham et al.
+
+* Chapter 7 [Annotations](https://r-graphics.org/chapter-annotate) of the “R Graphics Cookbook” book by Winston Chang
+
+* [“Add a Logo to Your Plot”](https://themockup.blog/posts/2019-01-09-add-a-logo-to-your-plot/), blog post by Thomas Mock
+
+* [“How to Add a Logo to ggplot by Magick”](https://www.danielphadley.com/ggplot-logo/), blog post by Daniel Hadley
+
+* [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial
+

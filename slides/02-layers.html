@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 2 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-15" />
+    <meta name="date" content="2021-08-16" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -58,7 +58,7 @@ ggplot(data, aes(date, close, color = currency)) +
   geom_point()
 ```
 
-![](02-layers_files/figure-html/scatter-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/scatter-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -68,7 +68,7 @@ ggplot(data, aes(date, close, color = currency)) +
   geom_line()
 ```
 
-![](02-layers_files/figure-html/line-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/line-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -83,7 +83,7 @@ ggplot(data, aes(date, close, color = currency)) +
   geom_area(aes(fill = currency), alpha = .5)
 ```
 
-![](02-layers_files/figure-html/area-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/area-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -97,7 +97,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * geom_area(aes(fill = currency), alpha = .5, position = "dodge")
 ```
 
-![](02-layers_files/figure-html/area-dodge-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/area-dodge-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -111,7 +111,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * geom_area(aes(fill = currency), alpha = .5, position = "fill")
 ```
 
-![](02-layers_files/figure-html/area-fill-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/area-fill-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -126,7 +126,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * coord_cartesian(expand = FALSE)
 ```
 
-![](02-layers_files/figure-html/area-fill-no-exp-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/area-fill-no-exp-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -140,7 +140,7 @@ ggplot(data, aes(close, currency)) +
 * geom_boxplot()
 ```
 
-![](02-layers_files/figure-html/boxplot-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/boxplot-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -155,7 +155,7 @@ ggplot(data, aes(close, currency)) +
 * geom_point(alpha = .2)
 ```
 
-![](02-layers_files/figure-html/boxplot-dots-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/boxplot-dots-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -170,7 +170,7 @@ ggplot(data, aes(close, currency)) +
 * geom_point(alpha = .2, position = position_jitter(height = .2))
 ```
 
-![](02-layers_files/figure-html/boxplot-jitter-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/boxplot-jitter-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -185,7 +185,7 @@ ggplot(data, aes(close, currency)) +
 * geom_point(alpha = .1, shape = "|", size = 9)
 ```
 
-![](02-layers_files/figure-html/boxplot-barcode-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/boxplot-barcode-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -200,7 +200,7 @@ ggplot(data, aes(close, currency)) +
 * geom_point(alpha = .1, shape = "|", size = 9, position = position_nudge(y = -.2))
 ```
 
-![](02-layers_files/figure-html/boxplot-barcode-nudge-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/boxplot-barcode-nudge-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -215,7 +215,7 @@ ggplot(data, aes(open, close)) +
   geom_point(alpha = .3)
 ```
 
-![](02-layers_files/figure-html/scatter-open-close-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/scatter-open-close-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -225,7 +225,7 @@ ggplot(data, aes(open, close)) +
   geom_hex()
 ```
 
-![](02-layers_files/figure-html/hex-open-close-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/hex-open-close-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -243,7 +243,7 @@ ggplot(data, aes(open, close)) +
 * coord_fixed()
 ```
 
-![](02-layers_files/figure-html/scatter-open-close-diag-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/scatter-open-close-diag-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -255,7 +255,7 @@ ggplot(data, aes(open, close)) +
 * coord_fixed()
 ```
 
-![](02-layers_files/figure-html/hex-open-close-diag-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/hex-open-close-diag-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -273,7 +273,7 @@ ggplot(data, aes(open, close)) +
   coord_fixed() 
 ```
 
-![](02-layers_files/figure-html/scatter-open-close-diag-2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/scatter-open-close-diag-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -285,7 +285,7 @@ ggplot(data, aes(open, close)) +
   coord_fixed()
 ```
 
-![](02-layers_files/figure-html/rect-open-close-diag-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/rect-open-close-diag-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -303,7 +303,7 @@ ggplot(data, aes(open, close)) +
   coord_fixed() 
 ```
 
-![](02-layers_files/figure-html/rect-count-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/rect-count-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -315,7 +315,7 @@ ggplot(data, aes(open, close)) +
   coord_fixed()
 ```
 
-![](02-layers_files/figure-html/rect-density-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/rect-density-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -330,7 +330,7 @@ ggplot(data, aes(date, currency, fill = close)) +
   geom_tile()
 ```
 
-![](02-layers_files/figure-html/heatmap-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/heatmap-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -345,7 +345,21 @@ ggplot(data, aes(date, currency, fill = close)) +
 * coord_cartesian(expand = FALSE)
 ```
 
-![](02-layers_files/figure-html/heatmap-expand-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/heatmap-expand-1.png" width="1152" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Create Any Chart Type: Candlestick
+
+There is a package for that — but it's simple enough to do it manually!
+
+
+```r
+ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
+* geom_linerange(aes(ymin = low, ymax = high), size = 1)
+```
+
+&lt;img src="02-layers_files/figure-html/candle-step-1-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -357,10 +371,10 @@ There is a package for that — but it's simple enough to do it manually!
 ```r
 ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
   geom_linerange(aes(ymin = low, ymax = high), size = 1) +
-  geom_linerange(aes(ymin = open, ymax = close), size = 5)
+* geom_linerange(aes(ymin = open, ymax = close), size = 5)
 ```
 
-![](02-layers_files/figure-html/candle-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/candle-step-2-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -375,7 +389,7 @@ ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
 * geom_linerange(aes(ymin = open, ymax = close, color = close &gt; open), size = 5)
 ```
 
-![](02-layers_files/figure-html/candle-color-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/candle-color-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -391,7 +405,7 @@ ggplot(filter(data, year == 2019, month &gt; 9), aes(date, close)) +
 * scale_x_date(date_labels = "%b %d, %Y")
 ```
 
-![](02-layers_files/figure-html/candle-scale-date-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/candle-scale-date-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 class: inverse, center, middle
@@ -400,7 +414,7 @@ class: inverse, center, middle
 
 ---
 
-## Statistical Transformations: &lt;code style='color:#28a87d;font-weight:700;'&gt;stat_*()&lt;/code&gt;
+## Statistical Transformations: &lt;code style='font-weight:700;'&gt;stat_*()&lt;/code&gt;
 
 You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
 
@@ -411,7 +425,7 @@ ggplot(data, aes(open, close)) +
 * stat_identity(geom = "point")
 ```
 
-![](02-layers_files/figure-html/statgeom-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/statgeom-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -421,12 +435,12 @@ ggplot(data, aes(open, close)) +
 * geom_point(stat = "identity")
 ```
 
-![](02-layers_files/figure-html/geomstat-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/geomstat-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Statistical Transformations: &lt;code style='color:#28a87d;font-weight:700;'&gt;stat_*()&lt;/code&gt;
+## Statistical Transformations: &lt;code style='font-weight:700;'&gt;stat_*()&lt;/code&gt;
 
 You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
 
@@ -437,7 +451,7 @@ ggplot(data, aes(factor(month), close)) +
 * stat_summary(geom = "pointrange")
 ```
 
-![](02-layers_files/figure-html/statgeom-2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/statgeom-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -447,7 +461,7 @@ ggplot(data, aes(factor(month), close)) +
 * geom_pointrange(stat = "summary")
 ```
 
-![](02-layers_files/figure-html/geomstat-2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/geomstat-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -470,7 +484,7 @@ ggplot(tibble(x = c(-8, 8)), aes(x)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-function-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-function-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -486,7 +500,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * stat_smooth()
 ```
 
-![](02-layers_files/figure-html/stats-smooth2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/stats-smooth2-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -501,7 +515,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * stat_smooth()
 ```
 
-![](02-layers_files/figure-html/stats-smooth2-again-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/stats-smooth2-again-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 &lt;span style='font-size:13pt;'&gt;By default this adds a &lt;b&gt;LOESS&lt;/b&gt; (locally weighted scatter plot smoothing) or a &lt;b&gt;GAM&lt;/b&gt; (generalized additive model) depending on the&lt;br&gt;number of data points (GAM in case of ≥ 1000 observations).&lt;/span&gt;
 
@@ -518,7 +532,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * stat_smooth(method = "lm", formula = y ~ x + I(x^2) +  I(x^3) + I(x^4))
 ```
 
-![](02-layers_files/figure-html/stats-smooth-polynom-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/stats-smooth-polynom-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -533,7 +547,7 @@ ggplot(data, aes(date, close, color = currency)) +
 * stat_smooth(method = "lm", formula = y ~ x + I(x^2) +  I(x^3) + I(x^4))
 ```
 
-![](02-layers_files/figure-html/stats-smooth-polynom-again-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/stats-smooth-polynom-again-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 &lt;span style='font-size:13pt;'&gt;Other methods such as &lt;code&gt;method = "lm"&lt;/code&gt; (without an explicit formula) for simple linear regressions and &lt;code&gt;method = "glm"&lt;/code&gt; for&lt;br&gt;generalized linear models are available as well.&lt;/span&gt;
 
@@ -552,7 +566,7 @@ ggplot(data, aes(currency, close)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-summary-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-summary-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -573,7 +587,7 @@ ggplot(data, aes(currency, close)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-summary-default-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-summary-default-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -595,7 +609,7 @@ ggplot(data, aes(currency, close)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-summary-custom-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-summary-custom-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -617,7 +631,7 @@ ggplot(data, aes(currency, close)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-summary-dumbbell-1-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-summary-dumbbell-1-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -642,7 +656,7 @@ ggplot(data, aes(currency, close)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-summary-dumbbell-2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-summary-dumbbell-2-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -675,7 +689,7 @@ ggplot(data, aes(currency, close)) +
 ]
 
 .pull-right[
-![](02-layers_files/figure-html/plot-stats-summary-dumbbell-3-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/plot-stats-summary-dumbbell-3-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -719,7 +733,7 @@ ggplot(passwords, aes(category)) +
   geom_bar() ## stat = "count" is the default
 ```
 
-![](02-layers_files/figure-html/password-geom-bar-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-geom-bar-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -731,7 +745,7 @@ ggplot(passwords, aes(category)) +
   stat_count() ## geom = "bar" is the default
 ```
 
-![](02-layers_files/figure-html/password-geom-bar-stat-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-geom-bar-stat-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -745,7 +759,7 @@ passwords %&gt;%
   geom_col()
 ```
 
-![](02-layers_files/figure-html/password-geom-col-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-geom-col-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -759,7 +773,7 @@ ggplot(pw_count, aes(category, n)) +
   geom_col()
 ```
 
-![](02-layers_files/figure-html/password-geom-col-pre-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-geom-col-pre-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -772,7 +786,7 @@ ggplot(pw_count, aes(n, category)) +
 * geom_col()
 ```
 
-![](02-layers_files/figure-html/geom-col-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/geom-col-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -782,7 +796,7 @@ ggplot(pw_count, aes(n, category)) +
 * geom_bar(stat = "identity")
 ```
 
-![](02-layers_files/figure-html/geom-bar-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/geom-bar-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -797,7 +811,7 @@ pw_count &lt;- count(passwords, category)
   geom_col()
 ```
 
-![](02-layers_files/figure-html/password-col-sorted-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-col-sorted-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -810,7 +824,7 @@ ggplot(pw_count, aes(fct_reorder(category, -n), n)) +
 * geom_text(aes(label = n), vjust = -.6, size = 6)
 ```
 
-![](02-layers_files/figure-html/password-label-geom-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-label-geom-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -824,7 +838,7 @@ ggplot(pw_count, aes(fct_reorder(category, -n), n)) +
 * scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
 ```
 
-![](02-layers_files/figure-html/password-label-geom-yscale-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-label-geom-yscale-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -838,7 +852,7 @@ ggplot(passwords, aes(category)) +
   scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
 ```
 
-![](02-layers_files/figure-html/password-label-stat-count-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-label-stat-count-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -852,7 +866,7 @@ ggplot(passwords, aes(category, 1)) +
   scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
 ```
 
-![](02-layers_files/figure-html/password-label-stat-summary-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/password-label-stat-summary-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 class: center, middle, inverse
@@ -1026,7 +1040,7 @@ ggplot(sf_world) +
   geom_sf()
 ```
 
-![](02-layers_files/figure-html/first-map-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1040,7 +1054,7 @@ ggplot(sf_world) +
 * geom_sf(fill = "#AAD1AC")
 ```
 
-![](02-layers_files/figure-html/first-map-fill-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-fill-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1054,7 +1068,7 @@ ggplot(sf_world) +
 * geom_sf(aes(fill = economy))
 ```
 
-![](02-layers_files/figure-html/first-map-fill-economy-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-fill-economy-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1068,7 +1082,7 @@ ggplot(sf_world) +
 * geom_sf(aes(fill = economy), color = "white", size = .2)
 ```
 
-![](02-layers_files/figure-html/first-map-color-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-color-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1083,7 +1097,7 @@ ggplot(sf_world) +
 * coord_sf(crs = "+proj=moll")
 ```
 
-![](02-layers_files/figure-html/first-map-proj-moll-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-proj-moll-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1098,7 +1112,7 @@ ggplot(sf_world) +
 * coord_sf(crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0")
 ```
 
-![](02-layers_files/figure-html/first-map-proj-custom1-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-proj-custom1-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1113,7 +1127,7 @@ ggplot(sf_world) +
 * coord_sf(crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=-30 +lat_0=-25")
 ```
 
-![](02-layers_files/figure-html/first-map-proj-custom2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-proj-custom2-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1128,7 +1142,7 @@ ggplot(sf_world) +
 * coord_sf(crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=-70 +lat_0=0")
 ```
 
-![](02-layers_files/figure-html/first-map-proj-custom3-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/first-map-proj-custom3-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 background-image: url("img/bg-exercise.png")
@@ -1178,7 +1192,7 @@ ggplot(sf_germany) +
   geom_sf(fill = "#CBE7BE")
 ```
 
-![](02-layers_files/figure-html/data-germany-lowres-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/data-germany-lowres-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1188,7 +1202,7 @@ ggplot(sf_germany_hd) +
   geom_sf(fill = "#CBE7BE")
 ```
 
-![](02-layers_files/figure-html/data-germany-highres-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/data-germany-highres-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1203,7 +1217,7 @@ ggplot(sf_germany) +
   coord_sf(crs = "+proj=lcc +lat_1=48.66 +lat_2=53.66 +lat_0=51 +lon_0=10.5 +ellps=GRS80")
 ```
 
-![](02-layers_files/figure-html/data-germany-crs-proj4-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/data-germany-crs-proj4-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1214,7 +1228,7 @@ ggplot(sf_germany) +
   coord_sf(crs = st_crs(5243))
 ```
 
-![](02-layers_files/figure-html/data-germany-crs-epsg-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/data-germany-crs-epsg-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1229,7 +1243,7 @@ ggplot(sf_germany) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](02-layers_files/figure-html/data-germany-crs-screwed-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/data-germany-crs-screwed-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1240,7 +1254,7 @@ ggplot(sf_germany) +
   coord_sf(crs = "+proj=laea +lon_0=-70 +lat_0=0")
 ```
 
-![](02-layers_files/figure-html/data-germany-crs-screwed2-1.png)&lt;!-- --&gt;
+&lt;img src="02-layers_files/figure-html/data-germany-crs-screwed2-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---

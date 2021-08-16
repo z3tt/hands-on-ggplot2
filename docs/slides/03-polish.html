@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 3 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-15" />
+    <meta name="date" content="2021-08-16" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -30,14 +30,19 @@ class: center, middle
 &lt;img src="img/ah_ggplot2_masterpiece.png" style='width:64%;'&gt;&lt;br&gt;&lt;cap&gt;Illustration by Allison Horst&lt;/cap&gt;
 
 ---
+class: inverse, center, middle
 
-## Adjust Colors and Other &lt;code style='color:#28a87d;font-weight:700;'&gt;aes&lt;/code&gt;thetics
+# &lt;b style='font-size:70pt;color:#ebc500;'&gt;Aesthetics + Scales&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+---
+
+## Adjust Colors and Other &lt;code style='font-weight:700;'&gt;aes&lt;/code&gt;thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
 
 ---
 
-## Adjust Colors and Other &lt;code style='color:#28a87d;font-weight:700;'&gt;aes&lt;/code&gt;thetics
+## Adjust Colors and Other &lt;code style='font-weight:700;'&gt;aes&lt;/code&gt;thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
 
@@ -55,7 +60,7 @@ One can use `scale_*()` to change properties of all the **aesthetic dimensions m
 
 ---
 
-## Adjust Colors and Other &lt;code style='color:#28a87d;font-weight:700;'&gt;aes&lt;/code&gt;thetics
+## Adjust Colors and Other &lt;code style='font-weight:700;'&gt;aes&lt;/code&gt;thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**
 
@@ -73,7 +78,7 @@ One can use `scale_*()` to change properties of all the **aesthetic dimensions m
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
 
 Scales are directly connected to aesthetics:
 
@@ -90,12 +95,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -117,12 +122,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-adj-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-adj-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -148,12 +153,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-adj2-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-adj2-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_\*()&lt;/code&gt;
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -183,7 +188,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-adj3-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-adj3-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -193,7 +198,7 @@ class: center, middle
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 All colors and fills that are mapped to **categorical** variables can be manipulated with either `scale_color|fill_discrete()` or `scale_color|fill_manual()`.
 
@@ -209,7 +214,7 @@ ggplot(data, aes(x = date, y = close,
 * )
 ```
 
-![](03-polish_files/figure-html/structure-scales-color-discrete-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/structure-scales-color-discrete-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -224,12 +229,12 @@ ggplot(data, aes(x = date, y = close,
 * )
 ```
 
-![](03-polish_files/figure-html/structure-scales-color-manual-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/structure-scales-color-manual-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!
 
@@ -250,7 +255,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-manual-labels-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-manual-labels-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -265,7 +270,7 @@ class: middle, center
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -280,7 +285,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-viridis-default-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-viridis-default-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -290,7 +295,7 @@ class: middle, center
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -310,12 +315,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-viridis-turbo-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-viridis-turbo-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 The viridis palettes are more suitable for continuous data:
 
@@ -336,12 +341,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-viridis-cont-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-viridis-cont-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 The viridis palettes are more suitable for continuous data:
 
@@ -363,12 +368,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-viridis-cont-rocket-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-viridis-cont-rocket-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 The viridis palettes are more suitable for continuous data:
 
@@ -391,12 +396,12 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-breaks-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-breaks-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 Colorbrewer provides color schemes for maps.
 
@@ -405,11 +410,11 @@ Colorbrewer provides color schemes for maps.
 RColorBrewer::display.brewer.all()
 ```
 
-![](03-polish_files/figure-html/brewer-apls-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/brewer-apls-1.png" width="504" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_color\_\*()&lt;/code&gt;
 
 Colorbrewer provides color schemes for maps.
 
@@ -427,7 +432,7 @@ ggplot(data, aes(x = date, y = close,
 ]
 
 .pull-right[
-![](03-polish_files/figure-html/plot-structure-scales-color-brewer-default-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/plot-structure-scales-color-brewer-default-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -478,7 +483,7 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-brewer-disc-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-brewer-disc-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -538,7 +543,7 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-brewer-cont-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-brewer-cont-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -554,7 +559,7 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-brewer-cont-rev-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-brewer-cont-rev-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -570,11 +575,11 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-brewer-cont-rev-color-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-brewer-cont-rev-color-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_fill\_gradient()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_fill\_gradient()&lt;/code&gt;
 
 You can also build your own **sequential color palettes**:
 
@@ -586,11 +591,11 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-gradient-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-gradient-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_fill\_gradient2()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_fill\_gradient2()&lt;/code&gt;
 
 You can also build your own **diverging color palettes**:
 
@@ -602,11 +607,11 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-gradient-div-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-gradient-div-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Scales: &lt;code style='color:#28a87d;font-weight:700;'&gt;scale\_fill\_gradient2()&lt;/code&gt;
+## Scales: &lt;code style='font-weight:700;'&gt;scale\_fill\_gradient2()&lt;/code&gt;
 
 You can also build your own **diverging color palettes**:
 
@@ -619,11 +624,11 @@ ggplot(sf_world) +
   coord_sf(crs = "+proj=moll")
 ```
 
-![](03-polish_files/figure-html/map-gradient-div-midpoint-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/map-gradient-div-midpoint-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Color Palettes in &lt;code style='color:#28a87d;font-weight:700;'&gt;R&lt;/code&gt;
+## Color Palettes in &lt;code style='font-weight:700;'&gt;R&lt;/code&gt;
 
 &lt;span style='font-size:18pt;'&gt;Several packages offer predefined palettes, e.g.:&lt;/span&gt;
 
@@ -655,8 +660,13 @@ By the way, you can store ggplots in objects and extend them later:
 ```
 
 ---
+class: inverse, center, middle
 
-## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;guides()&lt;/code&gt;
+# &lt;b style='font-size:70pt;color:#ebc500;'&gt;Legends&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+---
+
+## Style Legends: &lt;code style='font-weight:700;'&gt;guides()&lt;/code&gt;
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -666,11 +676,11 @@ g +
 * guides(fill = guide_legend(reverse = TRUE))
 ```
 
-![](03-polish_files/figure-html/guide-legend-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/guide-legend-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;guides()&lt;/code&gt;
+## Style Legends: &lt;code style='font-weight:700;'&gt;guides()&lt;/code&gt;
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -680,11 +690,11 @@ g +
 * guides(fill = guide_legend(reverse = TRUE, keyheight = unit(2, "lines")))
 ```
 
-![](03-polish_files/figure-html/guide-legend-height-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/guide-legend-height-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;guides()&lt;/code&gt;
+## Style Legends: &lt;code style='font-weight:700;'&gt;guides()&lt;/code&gt;
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -695,7 +705,7 @@ g +
 *                              barwidth = unit(1, "lines")))
 ```
 
-![](03-polish_files/figure-html/guide-colorbar-height-width-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/guide-colorbar-height-width-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 background-image: url("img/bg-exercise.png")
@@ -705,7 +715,7 @@ background-size: cover
 
 * Create the following visualization with a viridis palette:
   
-&lt;img src="03-polish_files/figure-html/exercise-plot-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-polish_files/figure-html/exercise-plot-1.png" width="864" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -718,7 +728,7 @@ ggplot(data, aes(close, open, color = high)) +
   scale_color_viridis_c(option = "mako", direction = -1)
 ```
 
-![](03-polish_files/figure-html/exercise-plot-solution-1-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/exercise-plot-solution-1-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 class: middle, center
@@ -736,7 +746,7 @@ ggplot(data, aes(close, open, color = high)) +
   scale_color_viridis_c(option = "mako", direction = -1)
 ```
 
-![](03-polish_files/figure-html/exercise-plot-solution-2-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/exercise-plot-solution-2-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -749,7 +759,7 @@ ggplot(data, aes(close, open, color = high)) +
 * scale_color_viridis_c(option = "mako", direction = -1, breaks = seq(50, 350, by = 50))
 ```
 
-![](03-polish_files/figure-html/exercise-plot-solution-3-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/exercise-plot-solution-3-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -763,11 +773,11 @@ ggplot(data, aes(close, open, color = high)) +
 * guides(color = guide_colorsteps(barheight = unit(16, "lines")))
 ```
 
-![](03-polish_files/figure-html/exercise-plot-solution-4-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/exercise-plot-solution-4-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme()&lt;/code&gt;
+## Style Legends: &lt;code style='font-weight:700;'&gt;theme()&lt;/code&gt;
 
 The position of the legend and some other properties can be changed via `theme()`
 
@@ -779,11 +789,11 @@ g +
 *       legend.key.width = unit(4, "lines"))
 ```
 
-![](03-polish_files/figure-html/guide-colorbar-theme-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/guide-colorbar-theme-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Style Legends: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme()&lt;/code&gt;
+## Style Legends: &lt;code style='font-weight:700;'&gt;theme()&lt;/code&gt;
 
 You can change the position of the legend title and labels in `guides()`:
 
@@ -795,27 +805,32 @@ g +
         legend.key.width = unit(4, "lines")) 
 ```
 
-![](03-polish_files/figure-html/guide-colorbar-theme-legendtitlepos-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/guide-colorbar-theme-legendtitlepos-1.png" width="1152" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center, middle
+
+# &lt;b style='font-size:70pt;color:#ebc500;'&gt;Template and Custom Theming&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 
 ---
 
-## Themes: &lt;b&gt;&lt;code&gt;theme_*()&lt;/code&gt;&lt;/b&gt;
+## Themes: &lt;code style='font-weight:700;'&gt;theme_*()&lt;/code&gt;
 
 You have already seen built-in themes in segment 1:
 
-&lt;img src="03-polish_files/figure-html/themes-1-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-polish_files/figure-html/themes-1-1.png" width="1080" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Themes: &lt;b&gt;&lt;code&gt;theme_*()&lt;/code&gt;&lt;/b&gt;
+## Themes: &lt;code style='font-weight:700;'&gt;theme_*()&lt;/code&gt;
 
 You have already seen built-in themes in segment 1:
 
-&lt;img src="03-polish_files/figure-html/themes-2-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-polish_files/figure-html/themes-2-1.png" width="1080" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Themes: &lt;b&gt;&lt;code&gt;theme_*()&lt;/code&gt;&lt;/b&gt;
+## Themes: &lt;code style='font-weight:700;'&gt;theme_*()&lt;/code&gt;
 
 You can either add theme changes to each plot or globally for all plots:
 
@@ -827,7 +842,7 @@ ggplot(data, aes(x = date, y = close, color = currency)) +
 * theme_classic(base_size = 16)
 ```
 
-![](03-polish_files/figure-html/theme-local-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/theme-local-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-left[
@@ -838,7 +853,7 @@ ggplot(data, aes(x = date, y = close, color = currency)) +
   geom_line(size = 1.5)
 ```
 
-![](03-polish_files/figure-html/theme-global-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/theme-global-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -904,13 +919,13 @@ theme_grey
 ##             half_line, half_line, half_line), complete = TRUE)
 ##     ggplot_global$theme_all_null %+replace% t
 ## }
-## &lt;bytecode: 0x000000001d43df88&gt;
+## &lt;bytecode: 0x000000001d202b30&gt;
 ## &lt;environment: namespace:ggplot2&gt;
 ```
 
 ---
 
-## &lt;b&gt;&lt;code&gt;theme()&lt;/code&gt; Arguments&lt;/b&gt;
+## &lt;code style='font-weight:700;'&gt;theme()&lt;/code&gt; Arguments&lt;/b&gt;
 
 There are many elements you can customize. You can either group them by their type or by their category:
 
@@ -974,7 +989,7 @@ g +
   theme(plot.title = my_text_element)
 ```
 
-![](03-polish_files/figure-html/element-text-example-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/element-text-example-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1007,7 +1022,7 @@ g +
   theme(panel.grid = my_line_element)
 ```
 
-![](03-polish_files/figure-html/element-line-example-1.png)&lt;!-- --&gt;
+&lt;img src="03-polish_files/figure-html/element-line-example-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 background-image: url("img/bg-exercise.png")
@@ -1025,7 +1040,7 @@ background-size: cover
 
 ---
 
-## Exercise 3: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme_grey|gray()&lt;/code
+## Exercise 3: &lt;code style='font-weight:700;'&gt;theme_grey|gray()&lt;/code
 
 
 ```r
@@ -1088,13 +1103,13 @@ theme_grey
 ##             half_line, half_line, half_line), complete = TRUE)
 ##     ggplot_global$theme_all_null %+replace% t
 ## }
-## &lt;bytecode: 0x000000001d43df88&gt;
+## &lt;bytecode: 0x000000001d202b30&gt;
 ## &lt;environment: namespace:ggplot2&gt;
 ```
 
 ---
 
-## Exercise 3: &lt;code style='color:#28a87d;font-weight:700;'&gt;theme_bw()&lt;/code&gt;
+## Exercise 3: &lt;code style='font-weight:700;'&gt;theme_bw()&lt;/code&gt;
 
 
 ```r
@@ -1112,7 +1127,7 @@ theme_bw
 ##                 colour = "grey20"), legend.key = element_rect(fill = "white", 
 ##                 colour = NA), complete = TRUE)
 ## }
-## &lt;bytecode: 0x00000000323e9c70&gt;
+## &lt;bytecode: 0x0000000039b36148&gt;
 ## &lt;environment: namespace:ggplot2&gt;
 ```
 
@@ -1146,7 +1161,7 @@ theme_ugly &lt;-
 
 ---
 
-&lt;img src="03-polish_files/figure-html/theme-ugly-apply-plot-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-polish_files/figure-html/theme-ugly-apply-plot-1.png" width="936" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1175,9 +1190,7 @@ ggplot(data, aes(x = date, y = close, color = high)) +
 
 * Chapter 19 [Themes](https://ggplot2-book.org/polishing.html) of the “ggplot2” book by Hadley Wickham et al.
 
-* [“Creating and Using Custom ggplot2 Themes”](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/) and [“Add a Logo to Your Plot”](https://themockup.blog/posts/2019-01-09-add-a-logo-to-your-plot/), blog posts by Thomas Mock
-
-* [“How to Add a Logo to ggplot by Magick”](https://www.danielphadley.com/ggplot-logo/), blog post by Daniel Hadley
+* [“Creating and Using Custom ggplot2 Themes”](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/), blog post by Thomas Mock
 
 * [“Themes to Improve Your ggplot Figures”](https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/) from [R for the Rest of Us](https://rfortherestofus.com/) with a collection of additional themes
 
