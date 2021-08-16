@@ -59,7 +59,7 @@ packages <- c("tidyverse", "ggrepel", "ggtext", "ggforce", "sf", "rnaturalearth"
 install.packages(packages)
 ```
 
-To run the code, open up Rstudio and copy–paste the code in **console windonw** and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.
+To run the code, open up Rstudio and copy–paste the code in **console window** and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.
 
 ---
 
