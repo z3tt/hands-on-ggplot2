@@ -49,7 +49,7 @@ options(width = 80)
 <br><br>
 # Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 2: Build Plots Layer by Layer</b>
 <br><br><br><br><br><br><br>
-#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b ><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>September 3, 2021</b ><br>
 
 ```{r prep, echo=FALSE}
 library(tidyverse)
@@ -69,16 +69,16 @@ background-size: cover
 <ul style='font-size:16pt;margin: 50px 50px;'>
 <li style='margin-bottom: 15px;'>Pie or donut chart</li>
 <li style='margin-bottom: 15px;'>Bubble chart</li>
-<li style='margin-bottom: 15px;'>Dumbbell Plot</li>
+<li style='margin-bottom: 15px;'>Dumbbell plot</li>
 <li style='margin-bottom: 15px;'>Heatmap</li>
 <li style='margin-bottom: 15px;'>Treemap</li>
-<li style='margin-bottom: 15px;'>Network graphs</li>
+<li style='margin-bottom: 15px;'>Network graph</li>
 <li style='margin-bottom: 15px;'>Dendrogram</li>
 <li style='margin-bottom: 15px;'>Gantt chart</li>
 <li style='margin-bottom: 15px;'>Candlestick chart</li>
 <li style='margin-bottom: 15px;'>Radar/spider chart</li>
 <li style='margin-bottom: 15px;'>Sankey diagram</li>
-<li style='margin-bottom: 15px;'>Maps (Bubble, Choropleth, ...)</li>
+<li style='margin-bottom: 15px;'>Maps (bubble, choropleth, ...)</li>
 </ul>
 
 ---
@@ -90,14 +90,14 @@ As you've seen, we can quickly switch through different chart types:
 .pull-left[
 ```{r scatter, fig.height=5.6}
 ggplot(data, aes(date, close, color = currency)) +
-  geom_point()
+  geom_point() #<<
 ```
 ]
 
 .pull-right[
 ```{r line, fig.height=5.6}
 ggplot(data, aes(date, close, color = currency)) +
-  geom_line()
+  geom_line() #<<
 ```
 ]
 
@@ -109,7 +109,7 @@ As you've seen, we can quickly switch through different chart types:
 
 ```{r area, fig.width=16, fig.height=5.6}
 ggplot(data, aes(date, close, color = currency)) +
-  geom_area(aes(fill = currency), alpha = .5)
+  geom_area(aes(fill = currency), alpha = .5) #<<
 ```
 
 ---
@@ -138,7 +138,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ## Create Any Chart Type: Area Charts
 
-Many of the geom's can further adjusted:
+Many of the geom's can be further adjusted:
 
 ```{r area-fill-no-exp, fig.width=16, fig.height=5.6}
 ggplot(data, aes(date, close, color = currency)) +
@@ -277,22 +277,22 @@ ggplot(data, aes(open, close)) +
 
 ## Create Any Chart Type: Rectangular Bin Plot
 
-Actually, the map to a hidden third aesthetic that is calculated by `{ggplot2}`:
+Actually, they map to a hidden summary statistic that is calculated by `{ggplot2}`:
 
 .pull-left[
-```{r rect-count, fig.height=5.1}
+```{r rect-density, fig.height=5.1}
 ggplot(data, aes(open, close)) +
   geom_abline(slope = 1, intercept = 0) +
-  geom_bin2d(aes(fill = ..count..)) + #<<
+  geom_bin2d(aes(fill = ..density..)) + #<<
   coord_fixed() 
 ```
 ]
 
 .pull-right[
-```{r rect-density, fig.height=5.1}
+```{r rect-count, fig.height=5.1}
 ggplot(data, aes(open, close)) +
   geom_abline(slope = 1, intercept = 0) +
-  geom_bin2d(aes(fill = ..density..)) + #<<
+  geom_bin2d(aes(fill = ..count..)) + #<<
   coord_fixed()
 ```
 ]
@@ -321,120 +321,9 @@ ggplot(data, aes(date, currency, fill = close)) +
 ```
 
 ---
-
-## Create Any Chart Type: Candlestick
-
-There is a package for that — but it's simple enough to do it manually!
-
-```{r candle-step-1, fig.width=16, fig.height=5.6}
-ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
-  geom_linerange(aes(ymin = low, ymax = high), size = 1) #<<
-```
-
----
-
-## Create Any Chart Type: Candlestick
-
-There is a package for that — but it's simple enough to do it manually!
-
-```{r candle-step-2, fig.width=16, fig.height=5.6}
-ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
-  geom_linerange(aes(ymin = low, ymax = high), size = 1) +
-  geom_linerange(aes(ymin = open, ymax = close), size = 5) #<<
-```
-
----
-
-## Create Any Chart Type: Candlestick
-
-There is a package for that — but it's simple enough to do it manually!
-
-```{r candle-color, fig.width=16, fig.height=5.6}
-ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
-  geom_linerange(aes(ymin = low, ymax = high, color = close > open), size = 1) + #<<
-  geom_linerange(aes(ymin = open, ymax = close, color = close > open), size = 5) #<<
-```
-
----
-
-## Create Any Chart Type: Candlestick
-
-There is a package for that — but it's simple enough to do it manually!
-
-```{r candle-scale-date, fig.width=16, fig.height=5.3}
-ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
-  geom_linerange(aes(ymin = low, ymax = high, color = close > open), size = 1) + 
-  geom_linerange(aes(ymin = open, ymax = close, color = close > open), size = 5) +
-  scale_x_date(date_labels = "%b %d, %Y") #<<
-```
-
----
 class: inverse, center, middle
 
 # <b style='font-size:70pt;color:#ebc500;'>Statistical Transformations</b><br><br>
-
----
-
-## Statistical Transformations: <code style='font-weight:700;'>stat_*()</code>
-
-You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
-
-.pull-left[
-```{r statgeom, fig.height=5.1}
-ggplot(data, aes(open, close)) +
-  stat_identity(geom = "point") #<<
-```
-]
-
-.pull-right[
-```{r geomstat, fig.height=5.1}
-ggplot(data, aes(open, close)) +
-  geom_point(stat = "identity") #<<
-```
-]
-
----
-
-## Statistical Transformations: <code style='font-weight:700;'>stat_*()</code>
-
-You can go both ways – `stat_x(geom = "y") == geom_y(stat = "x")`:
-
-.pull-left[
-```{r statgeom-2, fig.height=5.1}
-ggplot(data, aes(factor(month), close)) +
-  stat_summary(geom = "pointrange") #<<
-```
-]
-
-.pull-right[
-```{r geomstat-2, fig.height=5.1}
-ggplot(data, aes(factor(month), close)) +
-  geom_pointrange(stat = "summary") #<<
-```
-]
-
----
-
-## Statistical Transformations: Draw Functions
-
-`stat_function()` makes it easy to add a function to a plot, either continuous or discrete:
-
-.pull-left[
-```{r stats-function, eval=FALSE}
-ggplot(tibble(x = c(-8, 8)), aes(x)) +
-  stat_function(fun = dnorm) + #<<
-  stat_function( #<<
-    fun = dcauchy, #<<
-    color = "red", #<<
-    n = 75 #<<
-  )  #<<
-```
-]
-
-.pull-right[
-```{r plot-stats-function, ref.label="stats-function", echo=FALSE}
-```
-]
 
 ---
 
@@ -497,12 +386,52 @@ Without pre-calculations one can easily plot data summaries:
 .pull-left[
 ```{r stats-summary, eval=FALSE}
 ggplot(data, aes(currency, close)) +
-  stat_summary()
+  stat_summary() #<<
 ```
 ]
 
 .pull-right[
 ```{r plot-stats-summary, ref.label="stats-summary", echo=FALSE}
+```
+]
+
+---
+
+## <code style='font-weight:700;'>stat\_\*()</code> versus <code style='font-weight:700;'>geom\_\*()</code>
+
+You can go both ways — `stat_x(geom = "y") == geom_y(stat = "x")`:
+
+.pull-left[
+```{r statgeom, fig.height=5.1}
+ggplot(data, aes(open, close)) +
+  stat_identity(geom = "point") #<<
+```
+]
+
+.pull-right[
+```{r geomstat, fig.height=5.1}
+ggplot(data, aes(open, close)) +
+  geom_point(stat = "identity") #<<
+```
+]
+
+---
+
+## <code style='font-weight:700;'>stat\_\*()</code> versus <code style='font-weight:700;'>geom\_\*()</code>
+
+You can go both ways — `stat_x(geom = "y") == geom_y(stat = "x")`:
+
+.pull-left[
+```{r statgeom-2, fig.height=5.1}
+ggplot(data, aes(factor(month), close)) +
+  stat_summary(geom = "pointrange") #<<
+```
+]
+
+.pull-right[
+```{r geomstat-2, fig.height=5.1}
+ggplot(data, aes(factor(month), close)) +
+  geom_pointrange(stat = "summary") #<<
 ```
 ]
 
@@ -551,7 +480,89 @@ ggplot(data, aes(currency, close)) +
 
 ---
 
-## Statistical Transformations: Dumbbell Plot
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+```{r stats-summary-custom-label, eval=FALSE}
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    fun = function(x) mean(x),
+    fun.min = function(x) mean(x) - sd(x),
+    fun.max = function(x) mean(x) + sd(x)
+  ) +
+  stat_summary( #<<
+      geom = "text", #<<
+      aes(label = round(..y.., 2)) #<<
+  ) #<<
+```
+]
+
+.pull-right[
+```{r plot-stats-summary-custom-label, ref.label="stats-summary-custom-label", echo=FALSE}
+```
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+```{r stats-summary-custom-label-warning, eval=FALSE}
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    fun = function(x) mean(x),
+    fun.min = function(x) mean(x) - sd(x),
+    fun.max = function(x) mean(x) + sd(x)
+  ) +
+  stat_summary(
+      geom = "text",
+      fun = function(x) mean(x), #<<
+      aes(label = round(..y.., 2))
+  )
+```
+]
+
+.pull-right[
+```{r plot-stats-summary-custom-label-warning, ref.label="stats-summary-custom-label-warning", echo=FALSE}
+```
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
+```{r stats-summary-custom-label-adj, eval=FALSE}
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    fun = function(x) mean(x),
+    fun.min = function(x) mean(x) - sd(x),
+    fun.max = function(x) mean(x) + sd(x)
+  ) +
+  stat_summary(
+      geom = "text",
+      fun = function(x) mean(x),
+      aes(label = round(..y.., 2)),
+      size = 5, #<<
+      hjust = -.5 #<<
+  )
+```
+]
+
+.pull-right[
+```{r plot-stats-summary-custom-label-adj, ref.label="stats-summary-custom-label-adj", echo=FALSE}
+```
+]
+
+---
+
+## Create Any Chart Type: Dumbbell Plot
 
 Without pre-calculations one can easily plot data summaries:
 
@@ -573,7 +584,7 @@ ggplot(data, aes(currency, close)) +
 
 ---
 
-## Statistical Transformations: Dumbbell Plot
+## Create Any Chart Type: Dumbbell Plot
 
 Without pre-calculations one can easily plot data summaries:
 
@@ -598,7 +609,7 @@ ggplot(data, aes(currency, close)) +
 
 ---
 
-## Statistical Transformations: Dumbbell Plot
+## Create Any Chart Type: Dumbbell Plot
 
 Without pre-calculations one can easily plot data summaries:
 
@@ -631,6 +642,23 @@ ggplot(data, aes(currency, close)) +
 
 ---
 
+## Statistical Transformations: <code style='font-weight:700;'>stat\_\*()</code>
+
+<br>
+There are several other statistical transformations available:
+
+<ul style='font-size:16pt;margin: 20px 20px;'>
+<li style='margin-bottom: 17px;'><code>stat_count</code> to count observations (e.g. for bar charts)</li>
+<li style='margin-bottom: 17px;'><code>stat_bin</code> and <code>stat_bin2d</code> to count observations per bin (e.g. for histograms)</li>
+<li style='margin-bottom: 17px;'><code>stat_density</code>  and <code>stat_density2d</code> to compute kernel density estimates (e.g. for density curves)</li>
+<li style='margin-bottom: 17px;'><code>stat_contour</code> and <code>stat_contour_filled</code> to retrieve threshold levels (e.g. for contour maps)</li>
+<li style='margin-bottom: 17px;'><code>stat_function</code> to draw functions as continuous curves</li>
+<li style='margin-bottom: 17px;'><code>stat_boxplot</code> to calculate the five summary statistics for a box plot</li>
+<li style='margin-bottom: 17px;'><code>stat_ydensity</code> to compute vertical density estimates (e.g. for violin plots)</li>
+</ul>
+
+---
+
 background-image: url("img/bg-exercise.png")
 background-size: cover
 
@@ -660,7 +688,7 @@ glimpse(passwords)
 
 ```{r password-geom-bar, fig.width=16, fig.height=5.6}
 ggplot(passwords, aes(category)) +
-  geom_bar() ## stat = "count" is the default
+  geom_bar() ## stat = "count" is the default #<<
 ```
 
 ---
@@ -669,7 +697,16 @@ ggplot(passwords, aes(category)) +
 
 ```{r password-geom-bar-stat, fig.width=16, fig.height=5.6}
 ggplot(passwords, aes(category)) + 
-  stat_count() ## geom = "bar" is the default
+  stat_count() ## geom = "bar" is the default #<<
+```
+
+---
+
+## Exercise 1: Number of Passwords per Category
+
+```{r password-geom-col-data}
+passwords %>% #<<
+  count(category) #<<
 ```
 
 ---
@@ -678,9 +715,9 @@ ggplot(passwords, aes(category)) +
 
 ```{r password-geom-col, fig.width=16, fig.height=5.3}
 passwords %>% 
-  count(category) %>% 
-  ggplot(aes(category, n)) +
-  geom_col()
+  count(category) %>%  
+  ggplot(aes(category, n)) + #<<
+  geom_col() #<<
 ```
 
 ---
@@ -690,7 +727,7 @@ passwords %>%
 ```{r password-geom-col-pre, fig.width=16, fig.height=5.3}
 pw_count <- count(passwords, category) #<<
 
-ggplot(pw_count, aes(category, n)) +
+ggplot(pw_count, aes(category, n)) + #<<
   geom_col()
 ```
 
@@ -749,8 +786,8 @@ ggplot(pw_count, aes(fct_reorder(category, -n), n)) +
 ## Exercise 1: Labels Number of Passwords per Category
 
 ```{r password-label-stat-count, fig.width=16, fig.height=5.3}
-ggplot(passwords, aes(category)) + 
-  stat_count() + 
+ggplot(passwords, aes(category)) + #<<
+  stat_count() +  #<<
   stat_count(geom = "text", aes(label = ..count..), vjust = -.6, size = 6) + #<<
   scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
 ```
@@ -760,7 +797,7 @@ ggplot(passwords, aes(category)) +
 ## Exercise 1: Labels Number of Passwords per Category
 
 ```{r password-label-stat-summary, fig.width=16, fig.height=5.3}
-ggplot(passwords, aes(category, 1)) + 
+ggplot(passwords, aes(category, 1)) + #<<
   stat_summary(geom = "bar", fun = length) + #<<
   stat_summary(geom = "text", aes(label = ..y..), fun = length, vjust = -.6, size = 6) + #<<
   scale_y_continuous(limits = c(NA, 210), expand = c(0, 0))
@@ -823,11 +860,11 @@ background-size: cover
 <ul style='font-size:26pt;margin: 50px 50px;'>
 <li style='margin-bottom: 15px;'>No, I never deal with spatial data.</li>
 <li style='margin-bottom: 15px;'>No, I use other tools for spatial data.</li>
-<li style='margin-bottom: 15px;'>Yes, {ggplot2}'s geom_polygon().</li>
-<li style='margin-bottom: 15px;'>Yes, {ggplot2}'s geom_raster().</li>
-<li style='margin-bottom: 15px;'>Yes, {ggplot2}'s geom_sf().</li>
-<li style='margin-bottom: 15px;'>Yes, the {tmap} package.</li>
-<li style='margin-bottom: 15px;'>Yes, the {ggmap} package.</li>
+<li style='margin-bottom: 15px;'>Yes, <code>ggplot2::geom_polygon()</code>.</li>
+<li style='margin-bottom: 15px;'>Yes, <code>ggplot2::geom_raster()</code>.</li>
+<li style='margin-bottom: 15px;'>Yes, <code>ggplot2::geom_sf()</code>.</li>
+<li style='margin-bottom: 15px;'>Yes, the <code>{tmap}</code> package.</li>
+<li style='margin-bottom: 15px;'>Yes, the <code>{ggmap}</code> package.</li>
 <li style='margin-bottom: 15px;'>Yes, some other R packages that are not mentioned here.</li>
 </ul>
 
@@ -851,9 +888,7 @@ The `{rnaturalearth}` allows downloading the Natural Earth data sets in simple f
 
 ```{r rnatural-earth-download}
 sf_world <- ne_countries(returnclass = "sf")
-#sf_urban <- ne_download(category = "cultural", type = "urban_areas", returnclass = "sf")
-#sf_ice <- ne_download(category = "physical", type = "graticules_30", returnclass = "sf")
-#sf_airports <- ne_download(scale = 'large', category = "cultural", type = "airports", returnclass = "sf")
+sf_airports <- ne_download(scale = 'large', category = "cultural", type = "airports", returnclass = "sf")
 
 tibble::glimpse(sf_world)
 ```
@@ -873,11 +908,59 @@ ggplot(sf_world) +
 
 ## Plot the Map
 
-`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects. 
+`geom_sf()` works with all types of vector data and returns geometries depending on the simple features:
+
+```{r sf-polygon-point, fig.width=16, fig.height=5.6}
+ggplot(sf_world) +
+  geom_sf() +
+  geom_sf(data = sf_airports) #<<
+```
+
+---
+
+## Plot the Map
+
+`geom_sf()` works with all types of vector data and returns geometries depending on the simple features:
+
+```{r first-map-colors, fig.width=16, fig.height=5.6}
+ggplot(sf_world) +
+  geom_sf(color = "forestgreen", alpha = .4) + #<<
+  geom_sf(data = sf_airports, color = "purple", alpha = .4) #<<
+```
+
+---
+
+## Generate Own Simple Features Objects
+
+`geom_sf()` works with all types of vector data and returns geometries depending on the simple features:
+
+```{r data-locator}
+sf_bln <- sf::st_sfc(sf::st_point(c(13.4050, 52.5200)), crs = sf::st_crs(sf_world)) #<<
+
+sf_bln
+```
+
+---
+
+## Plot the Map
+
+`geom_sf()` works with all types of vector data and returns geometries depending on the simple features:
+
+```{r first-map-locator, fig.width=16, fig.height=5.6}
+ggplot(sf_world) +
+  geom_sf(color = NA) + #<<
+  geom_sf(data = sf_bln, shape = 21, color = "firebrick", fill = NA, size = 5, stroke = 2) #<<
+```
+
+---
+
+## Plot the Map
+
+`{ggplot2}` comes with a set of `geom`, `stat`, and `coord` are used to visualize sf objects.
 
 ```{r first-map-fill, fig.width=16, fig.height=5.6}
 ggplot(sf_world) +
-  geom_sf(fill = "#AAD1AC") #<<
+  geom_sf(color = "forestgreen", fill = "forestgreen", alpha = .4) #<<
 ```
 
 ---
@@ -956,7 +1039,7 @@ background-size: cover
 
 ## Exercise 2:
 
-* Download data sets for your home country and plot it.
+* Download data set(s) for your home country and plot it/them.
 
 * Change the projection with `coord_sf` and observe how the spatial mapping changes.
 
@@ -978,14 +1061,14 @@ names(sf_germany)
 
 .pull-left[
 ```{r data-germany-lowres}
-ggplot(sf_germany) + 
+ggplot(sf_germany) +  #<<
   geom_sf(fill = "#CBE7BE")
 ```
 ]
 
 .pull-right[
 ```{r data-germany-highres}
-ggplot(sf_germany_hd) + 
+ggplot(sf_germany_hd) + #<<
   geom_sf(fill = "#CBE7BE")
 ```
 ]
@@ -998,7 +1081,7 @@ ggplot(sf_germany_hd) +
 ```{r data-germany-crs-proj4, fig.height=6.2}
 ggplot(sf_germany) + 
   geom_sf(fill = "#CBE7BE") +
-  coord_sf(crs = "+proj=lcc +lat_1=48.66 +lat_2=53.66 +lat_0=51 +lon_0=10.5 +ellps=GRS80")
+  coord_sf(crs = "+proj=lcc +lat_1=48.66 +lat_2=53.66 +lat_0=51 +lon_0=10.5 +ellps=GRS80") #<<
 ```
 ]
 
@@ -1006,7 +1089,7 @@ ggplot(sf_germany) +
 ```{r data-germany-crs-epsg}
 ggplot(sf_germany) + 
   geom_sf(fill = "#CBE7BE") +
-  coord_sf(crs = st_crs(5243))
+  coord_sf(crs = st_crs(5243)) #<<
 ```
 ]
 
@@ -1015,17 +1098,39 @@ ggplot(sf_germany) +
 ## Exercise 2: Change Projection
 
 .pull-left[
-```{r data-germany-crs-screwed}
+```{r data-germany-crs-screwed, fig.height = 5.8}
 ggplot(sf_germany) + 
   geom_sf(fill = "#CBE7BE") +
+  coord_sf(crs = "+proj=moll") #<<
+```
+]
+
+.pull-right[
+```{r data-germany-crs-screwed2, fig.height = 5.8}
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE") +
+  coord_sf(crs = "+proj=laea +lon_0=-70 +lat_0=0") #<<
+```
+]
+
+---
+
+## Exercise 2: Add Location
+
+.pull-left[
+```{r data-germany-crs-screwed-loc, fig.height = 5.8}
+ggplot(sf_germany) + 
+  geom_sf(fill = "#CBE7BE") +
+  geom_sf(data = sf_bln, size = 5) + #<<
   coord_sf(crs = "+proj=moll")
 ```
 ]
 
 .pull-right[
-```{r data-germany-crs-screwed2}
+```{r data-germany-crs-screwed2-loc, fig.height = 5.8}
 ggplot(sf_germany) + 
   geom_sf(fill = "#CBE7BE") +
+  geom_sf(data = sf_bln, size = 5) + #<<
   coord_sf(crs = "+proj=laea +lon_0=-70 +lat_0=0")
 ```
 ]
@@ -1049,3 +1154,79 @@ ggplot(sf_germany) +
 * [StackOverflow discussion](https://github.com/r-spatial/sf/issues/1050) and [code](https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1) to plot a true globe
 
 * [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial
+
+---
+class: inverse, center, middle
+
+# <b style='font-size:70pt;color:lightgray;'>APPENDIX</b><br><br>
+
+---
+
+## Create Any Chart Type: Candlestick Charts
+
+There is a package for that — but it's simple enough to do it manually!
+
+```{r candle-step-1, fig.width=16, fig.height=5.6}
+ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high), size = 1) #<<
+```
+
+---
+
+## Create Any Chart Type: Candlestick Charts
+
+There is a package for that — but it's simple enough to do it manually!
+
+```{r candle-step-2, fig.width=16, fig.height=5.6}
+ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high), size = 1) +
+  geom_linerange(aes(ymin = open, ymax = close), size = 5) #<<
+```
+
+---
+
+## Create Any Chart Type: Candlestick Charts
+
+There is a package for that — but it's simple enough to do it manually!
+
+```{r candle-color, fig.width=16, fig.height=5.6}
+ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high, color = close > open), size = 1) + #<<
+  geom_linerange(aes(ymin = open, ymax = close, color = close > open), size = 5) #<<
+```
+
+---
+
+## Create Any Chart Type: Candlestick Charts
+
+There is a package for that — but it's simple enough to do it manually!
+
+```{r candle-scale-date, fig.width=16, fig.height=5.3}
+ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
+  geom_linerange(aes(ymin = low, ymax = high, color = close > open), size = 1) + 
+  geom_linerange(aes(ymin = open, ymax = close, color = close > open), size = 5) +
+  scale_x_date(date_labels = "%b %d, %Y") #<<
+```
+
+---
+
+## Statistical Transformations: Draw Functions
+
+`stat_function()` makes it easy to add a function to a plot, either continuous or discrete:
+
+.pull-left[
+```{r stats-function, eval=FALSE}
+ggplot(tibble(x = c(-8, 8)), aes(x)) +
+  stat_function(fun = dnorm) + #<<
+  stat_function( #<<
+    fun = dcauchy, #<<
+    color = "red", #<<
+    n = 75 #<<
+  )  #<<
+```
+]
+
+.pull-right[
+```{r plot-stats-function, ref.label="stats-function", echo=FALSE}
+```
+]

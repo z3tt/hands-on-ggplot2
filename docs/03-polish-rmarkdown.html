@@ -88,24 +88,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Hands-On DataViz with ggplot2: Segment 3: Provide Context with Annotations</title>
 
+  <meta property="description" itemprop="description" content="Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
 
 
+  <meta name="article:author" content="Cédric Scherer"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Hands-On DataViz with ggplot2: Segment 3: Provide Context with Annotations"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Hands-On DataViz with ggplot2"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Hands-On DataViz with ggplot2: Segment 3: Provide Context with Annotations"/>
+  <meta property="twitter:description" content="Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 3: Provide Context with Annotations"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 3: Provide Context with Annotations"]},{"type":"character","attributes":{},"value":["Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Cédric Scherer"]},{"type":"character","attributes":{},"value":["https://cedricscherer.com"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2401,7 +2405,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Segment 3: Provide Context with Annotations","authors":[]}
+{"title":"Segment 3: Provide Context with Annotations","description":"Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly","authors":[{"author":"Cédric Scherer","authorURL":"https://cedricscherer.com","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2474,19 +2478,708 @@ Codes
 <h1>Segment 3: Provide Context with Annotations</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p>Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
 </div>
 
+<div class="d-byline">
+  Cédric Scherer <a href="https://cedricscherer.com" class="uri">https://cedricscherer.com</a> 
+  
+
+</div>
 
 <div class="d-article">
 <div class="d-contents d-contents-float">
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#adjust-colors-and-other-aesthetics">Adjust Colors and Other <code>aes</code>thetics</a>
+<ul>
+<li><a href="#scales-scale_">Scales: <code>scale_*()</code></a></li>
+<li><a href="#scales-scale_color_">Scales: <code>scale_color_*()</code></a></li>
+<li><a href="#scales-scale_color_viridis_">Scales: <code>scale_color_viridis_*()</code></a></li>
+<li><a href="#scales-scale_color_brewer_">Scales: <code>scale_color_brewer_*()</code></a></li>
+<li><a href="#exercise-1">Exercise 1</a></li>
+<li><a href="#scales-scale_fill_gradient">Scales: <code>scale_fill_gradient()</code></code>`</a></li>
+<li><a href="#scales-scale_fill_gradient2">Scales: <code>scale_fill_gradient2()</code></code>`</a></li>
+<li><a href="#color-palettes-in-r">Color Palettes in <code>R</code></a></li>
+</ul></li>
+<li><a href="#a-ggplot-object">A ggplot Object</a></li>
+<li><a href="#legends-guides">Legends (Guides)</a>
+<ul>
+<li><a href="#style-legends-guides">Style Legends: <code>guides()</code></a></li>
+</ul></li>
+<li><a href="#exercise-2">Exercise 2</a>
+<ul>
+<li><a href="#style-legends-theme">Style Legends: <code>theme()</code></a></li>
+</ul></li>
+<li><a href="#template-and-custom-theming">Template and Custom Theming</a>
+<ul>
+<li><a href="#themes-theme_">Themes: <code>theme_*()</code></a></li>
+<li><a href="#theme-arguments"><code>theme()</code> Arguments</a></li>
+</ul></li>
+<li><a href="#exercise-3">Exercise 3</a></li>
+<li><a href="#resources">Resources</a></li>
 <li><a href="#session-info">Session Info</a></li>
 </ul>
 </nav>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='fu'>theme_set</span><span class='op'>(</span><span class='fu'>theme_light</span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="adjust-colors-and-other-aesthetics">Adjust Colors and Other <code>aes</code>thetics</h2>
+<p>One can use <code>scale_*()</code> to change properties of all the <strong>aesthetic dimensions mapped to the data</strong>.</p>
+<p>Consequently, there are <code>scale_*()</code> functions for all aesthetics such as:</p>
+<ul>
+<li><strong>positions</strong> via <code>scale_x_*()</code> and <code>scale_y_*()</code></li>
+<li><strong>colors</strong> via <code>scale_color_*()</code> and <code>scale_fill_*()</code></li>
+<li><strong>sizes</strong> via <code>scale_size_*()</code> and <code>scale_radius_*()</code></li>
+<li><strong>shapes</strong> via <code>scale_shape_*()</code> and <code>scale_linetype_*()</code></li>
+<li><strong>transparency</strong> via <code>scale_alpha_*()</code></li>
+</ul>
+<p>The extensions (<code>*</code>) can be filled by e.g.:</p>
+<ul>
+<li><code>continuous()</code>, <code>discrete()</code>, <code>reverse()</code>, <code>log10()</code>, <code>sqrt()</code>, <code>date()</code> for positions</li>
+<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>gradient()</code>, <code>gradient2()</code>, <code>brewer()</code> for colors</li>
+<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>ordinal()</code>, <code>area()</code>, <code>date()</code> for sizes</li>
+<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>ordinal()</code> for shapes</li>
+<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>ordinal()</code>, <code>date()</code> for transparency</li>
+</ul>
+<h3 id="scales-scale_">Scales: <code>scale_*()</code></h3>
+<p>Scales are directly connected to aesthetics:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_date</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_color_discrete</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-1.png" width="960" /></p>
+</div>
+<p>All scales come with some general and specific arguments to change the appearance:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_date</span><span class='op'>(</span>
+    expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## general</span>
+    date_breaks <span class='op'>=</span> <span class='st'>"4 months"</span>, <span class='co'>## date-only </span>
+    date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>, <span class='co'>## date only</span>
+    name <span class='op'>=</span> <span class='cn'>NULL</span> <span class='co'>## general </span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>  
+  <span class='fu'>scale_color_discrete</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-adj-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_date</span><span class='op'>(</span>
+    expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## general</span>
+    date_breaks <span class='op'>=</span> <span class='st'>"4 months"</span>, <span class='co'>## date-only  </span>
+    date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>, <span class='co'>## date only</span>
+    name <span class='op'>=</span> <span class='cn'>NULL</span> <span class='co'>## general </span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>
+    labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='co'>## general </span>
+    sec.axis <span class='op'>=</span> <span class='fu'>dup_axis</span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, <span class='co'>## axis only</span>
+    name <span class='op'>=</span> <span class='st'>"Closing Price"</span> <span class='co'>## general </span>
+  <span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_color_discrete</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-adj2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_date</span><span class='op'>(</span>
+    expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## general </span>
+    date_breaks <span class='op'>=</span> <span class='st'>"4 months"</span>, <span class='co'>## date-only </span>
+    date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>, <span class='co'>## date only </span>
+    name <span class='op'>=</span> <span class='cn'>NULL</span> <span class='co'>## general </span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>
+    labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='co'>## general  </span>
+    sec.axis <span class='op'>=</span> <span class='fu'>dup_axis</span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, <span class='co'>## axis only </span>
+    name <span class='op'>=</span> <span class='st'>"Closing Price"</span> <span class='co'>## general </span>
+  <span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_color_discrete</span><span class='op'>(</span>
+    type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span>,  <span class='co'>## color only</span>
+    name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span> <span class='co'>## general </span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-adj3-1.png" width="960" /></p>
+</div>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ah_continuous_discrete.png" alt="Illustration by Allison Horst" /><figcaption aria-hidden="true">Illustration by Allison Horst</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/color-pal-types.png" alt="Color palette types" /><figcaption aria-hidden="true">Color palette types</figcaption>
+</figure>
+<h3 id="scales-scale_color_">Scales: <code>scale_color_*()</code></h3>
+<p>All colors and fills that are mapped to <strong>categorical</strong> variables can be manipulated with either <code>scale_color|fill_discrete()</code> or <code>scale_color|fill_manual()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_discrete</span><span class='op'>(</span>type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>,<span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-discrete-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-manual-1.png" width="960" /></p>
+</div>
+<p>Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_manual</span><span class='op'>(</span>
+    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span>,
+    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Binance"</span>, <span class='st'>"Bitcoin"</span>, <span class='st'>"EOS"</span>, <span class='st'>"Litecoin"</span><span class='op'>)</span>,
+    name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span> 
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-manual-labels-1.png" width="960" /></p>
+</div>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/rainbow_alternatives.png" alt="Comparison of continuous color palettes, taken from the {viridis} package reference" /><figcaption aria-hidden="true">Comparison of continuous color palettes, taken from the {viridis} package reference</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/rainbow_alternatives_coblis.png" alt="The same collection of palettes for diferent color vision deficiencies" /><figcaption aria-hidden="true">The same collection of palettes for diferent color vision deficiencies</figcaption>
+</figure>
+<p>There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).</p>
+<h3 id="scales-scale_color_viridis_">Scales: <code>scale_color_viridis_*()</code></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_viridis_d</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-viridis-default-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_viridis_d</span><span class='op'>(</span>
+    option <span class='op'>=</span> <span class='st'>"turbo"</span>,
+    begin <span class='op'>=</span> <span class='fl'>.1</span>,
+    end <span class='op'>=</span> <span class='fl'>.9</span>,
+    name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-viridis-turbo-1.png" width="960" /></p>
+</div>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/viridis-scales.png" alt="Color palettes contained in the latest version of the {viridis} package, taken from the {viridis} package reference" /><figcaption aria-hidden="true">Color palettes contained in the latest version of the <code>{viridis}</code> package, taken from the {viridis} package reference</figcaption>
+</figure>
+<p>The viridis palettes are more suitable for continuous data:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>yday</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_viridis_c</span><span class='op'>(</span>
+    option <span class='op'>=</span> <span class='st'>"turbo"</span>,
+    begin <span class='op'>=</span> <span class='fl'>.1</span>,
+    end <span class='op'>=</span> <span class='fl'>.9</span>, 
+    name <span class='op'>=</span> <span class='st'>"Julian Day:"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-viridis-cont-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>open</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_viridis_c</span><span class='op'>(</span>
+    option <span class='op'>=</span> <span class='st'>"rocket"</span>,
+    direction <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,
+    end <span class='op'>=</span> <span class='fl'>.9</span>,
+    labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>,
+    name <span class='op'>=</span> <span class='st'>"Julian Day:"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-viridis-cont-rocket-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>open</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_viridis_c</span><span class='op'>(</span>
+    option <span class='op'>=</span> <span class='st'>"rocket"</span>,
+    direction <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>, 
+    end <span class='op'>=</span> <span class='fl'>.9</span>,
+    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>50</span>, <span class='fl'>300</span>, by <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,
+    labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>, 
+    name <span class='op'>=</span> <span class='st'>"Julian Day:"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-breaks-1.png" width="960" /></p>
+</div>
+<h3 id="scales-scale_color_brewer_">Scales: <code>scale_color_brewer_*()</code></h3>
+<p>Colorbrewer provides color schemes for maps.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>RColorBrewer</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html'>display.brewer.all</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/brewer-apls-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_brewer</span><span class='op'>(</span>
+        palette <span class='op'>=</span> <span class='st'>"Set2"</span>,
+        name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span>
+    <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-brewer-default-1.png" width="960" /></p>
+</div>
+<hr />
+<h3 id="exercise-1">Exercise 1</h3>
+<p>Colorbrewer provides color schemes for <u>maps</u>.</p>
+<ul>
+<li>Download the country data set from <code>{rnaturalearth}</code>.
+<ul>
+<li>see segment 2 if you don’t remember how</li>
+</ul></li>
+<li>Visualize the economy classes (<code>economy</code>) as a choropleth map and use one of the categorical colorbrewer palettes.</li>
+<li>Now change the code so the fill colors encode the estimated population (<code>pop_est</code>).
+<ul>
+<li>What’s the problem? How can you fix it?</li>
+<li>Tip: Have a look at the note and examples on the help page: <code>?scale_fill_brewer</code></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="scales-scale_fill_gradient">Scales: <code>scale_fill_gradient()</code></code>`</h3>
+<p>You can also build your own <strong>sequential color palettes</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sf_world</span> <span class='op'>&lt;-</span> <span class='fu'>rnaturalearth</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html'>ne_countries</a></span><span class='op'>(</span>returnclass <span class='op'>=</span> <span class='st'>"sf"</span><span class='op'>)</span>
+
+<span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>pop_est</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_fill_gradient</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"grey90"</span>, high <span class='op'>=</span> <span class='st'>"firebrick4"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-1.png" width="960" /></p>
+</div>
+<h3 id="scales-scale_fill_gradient2">Scales: <code>scale_fill_gradient2()</code></code>`</h3>
+<p>You can also build your own <strong>diverging color palettes</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-div-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span>, 
+                       midpoint <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-div-midpoint-1.png" width="1622.4" /></p>
+</div>
+<h3 id="color-palettes-in-r">Color Palettes in <code>R</code></h3>
+<p>Several packages offer predefined palettes, e.g.:</p>
+<ul>
+<li><code>{viridis}</code> for perceptually uniform palettes</li>
+<li><code>{scico}</code> for more perceptually uniform palettes</li>
+<li><code>{rcartocolor}</code> for map color palettes</li>
+<li><code>{ggsci}</code> for scientific journal and sci-fi themed color</li>
+<li><code>{ggthemes}</code> for colors of popular software &amp; publishers</li>
+<li><code>{LaCroixColoR}</code> for vibrant summery colors</li>
+</ul>
+<p>Check the <a href="https://github.com/EmilHvitfeldt/r-color-palettes/blob/master/type-sorted-palettes.md">collection by Emil Hvitfeldt</a> for an extensive list of color palettes available in <code>R</code></p>
+<h2 id="a-ggplot-object">A ggplot Object</h2>
+<p>By the way, you can store ggplots in objects and extend them later:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span>, 
+                       midpoint <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>g</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;gg&quot;     &quot;ggplot&quot;</code></pre>
+</div>
+<h2 id="legends-guides">Legends (Guides)</h2>
+<h3 id="style-legends-guides">Style Legends: <code>guides()</code></h3>
+<p>The <code>guides()</code> function allows to adjust the appearance of each legend:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_colorbar</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-default-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-legend-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>reverse <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-legend-rev-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>reverse <span class='op'>=</span> <span class='cn'>TRUE</span>, keyheight <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>2</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-legend-height-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_colorbar</span><span class='op'>(</span>barheight <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>12</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+                               barwidth <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>1</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-height-width-1.png" width="960" /></p>
+</div>
+<hr />
+<h2 id="exercise-2">Exercise 2</h2>
+<ul>
+<li>Create the following visualization with a viridis palette: <img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/img/exercise-3-2.png" /></li>
+</ul>
+<hr />
+<h3 id="style-legends-theme">Style Legends: <code>theme()</code></h3>
+<p>The position of the legend and some other properties can be changed via <code>theme()</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span>, legend.key.height <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>.5</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+        legend.key.width <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-key-size-1.png" width="960" /></p>
+</div>
+<p>You can change the position of the legend title and labels in <code>guides()</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>title.position <span class='op'>=</span> <span class='st'>"top"</span>, title.hjust <span class='op'>=</span> <span class='fl'>.5</span>, label.position <span class='op'>=</span> <span class='st'>"bottom"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span>, legend.key.height <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>.5</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+        legend.key.width <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-legendtitlepos-1.png" width="960" /></p>
+</div>
+<h2 id="template-and-custom-theming">Template and Custom Theming</h2>
+<h3 id="themes-theme_">Themes: <code>theme_*()</code></h3>
+<p>You have already seen built-in themes in segment 1:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+       <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span>
+
+<span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_grey</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_grey()  or  theme_gray()"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-1.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_classic()"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-2.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_bw()"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-3.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_light</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_light()"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-4.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_minimal()"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-5.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_dark</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_dark()"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-6.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_linedraw()"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="03-polish-rmarkdown_files/figure-html5/themes-7.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'>theme_void</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_void()"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/themes-8.png" width="960" /></p>
+</div>
+<p>You can either add theme changes to each plot or globally for all plots:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_classic</span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/theme-local-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>theme_set</span><span class='op'>(</span><span class='fu'>theme_classic</span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/theme-global-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>theme_grey</span>
+</code></pre>
+</div>
+<pre><code>function (base_size = 11, base_family = &quot;&quot;, base_line_size = base_size/22, 
+    base_rect_size = base_size/22) 
+{
+    half_line &lt;- base_size/2
+    t &lt;- theme(line = element_line(colour = &quot;black&quot;, size = base_line_size, 
+        linetype = 1, lineend = &quot;butt&quot;), rect = element_rect(fill = &quot;white&quot;, 
+        colour = &quot;black&quot;, size = base_rect_size, linetype = 1), 
+        text = element_text(family = base_family, face = &quot;plain&quot;, 
+            colour = &quot;black&quot;, size = base_size, lineheight = 0.9, 
+            hjust = 0.5, vjust = 0.5, angle = 0, margin = margin(), 
+            debug = FALSE), axis.line = element_blank(), axis.line.x = NULL, 
+        axis.line.y = NULL, axis.text = element_text(size = rel(0.8), 
+            colour = &quot;grey30&quot;), axis.text.x = element_text(margin = margin(t = 0.8 * 
+            half_line/2), vjust = 1), axis.text.x.top = element_text(margin = margin(b = 0.8 * 
+            half_line/2), vjust = 0), axis.text.y = element_text(margin = margin(r = 0.8 * 
+            half_line/2), hjust = 1), axis.text.y.right = element_text(margin = margin(l = 0.8 * 
+            half_line/2), hjust = 0), axis.ticks = element_line(colour = &quot;grey20&quot;), 
+        axis.ticks.length = unit(half_line/2, &quot;pt&quot;), axis.ticks.length.x = NULL, 
+        axis.ticks.length.x.top = NULL, axis.ticks.length.x.bottom = NULL, 
+        axis.ticks.length.y = NULL, axis.ticks.length.y.left = NULL, 
+        axis.ticks.length.y.right = NULL, axis.title.x = element_text(margin = margin(t = half_line/2), 
+            vjust = 1), axis.title.x.top = element_text(margin = margin(b = half_line/2), 
+            vjust = 0), axis.title.y = element_text(angle = 90, 
+            margin = margin(r = half_line/2), vjust = 1), axis.title.y.right = element_text(angle = -90, 
+            margin = margin(l = half_line/2), vjust = 0), legend.background = element_rect(colour = NA), 
+        legend.spacing = unit(2 * half_line, &quot;pt&quot;), legend.spacing.x = NULL, 
+        legend.spacing.y = NULL, legend.margin = margin(half_line, 
+            half_line, half_line, half_line), legend.key = element_rect(fill = &quot;grey95&quot;, 
+            colour = NA), legend.key.size = unit(1.2, &quot;lines&quot;), 
+        legend.key.height = NULL, legend.key.width = NULL, legend.text = element_text(size = rel(0.8)), 
+        legend.text.align = NULL, legend.title = element_text(hjust = 0), 
+        legend.title.align = NULL, legend.position = &quot;right&quot;, 
+        legend.direction = NULL, legend.justification = &quot;center&quot;, 
+        legend.box = NULL, legend.box.margin = margin(0, 0, 0, 
+            0, &quot;cm&quot;), legend.box.background = element_blank(), 
+        legend.box.spacing = unit(2 * half_line, &quot;pt&quot;), panel.background = element_rect(fill = &quot;grey92&quot;, 
+            colour = NA), panel.border = element_blank(), panel.grid = element_line(colour = &quot;white&quot;), 
+        panel.grid.minor = element_line(size = rel(0.5)), panel.spacing = unit(half_line, 
+            &quot;pt&quot;), panel.spacing.x = NULL, panel.spacing.y = NULL, 
+        panel.ontop = FALSE, strip.background = element_rect(fill = &quot;grey85&quot;, 
+            colour = NA), strip.text = element_text(colour = &quot;grey10&quot;, 
+            size = rel(0.8), margin = margin(0.8 * half_line, 
+                0.8 * half_line, 0.8 * half_line, 0.8 * half_line)), 
+        strip.text.x = NULL, strip.text.y = element_text(angle = -90), 
+        strip.text.y.left = element_text(angle = 90), strip.placement = &quot;inside&quot;, 
+        strip.placement.x = NULL, strip.placement.y = NULL, strip.switch.pad.grid = unit(half_line/2, 
+            &quot;pt&quot;), strip.switch.pad.wrap = unit(half_line/2, 
+            &quot;pt&quot;), plot.background = element_rect(colour = &quot;white&quot;), 
+        plot.title = element_text(size = rel(1.2), hjust = 0, 
+            vjust = 1, margin = margin(b = half_line)), plot.title.position = &quot;panel&quot;, 
+        plot.subtitle = element_text(hjust = 0, vjust = 1, margin = margin(b = half_line)), 
+        plot.caption = element_text(size = rel(0.8), hjust = 1, 
+            vjust = 1, margin = margin(t = half_line)), plot.caption.position = &quot;panel&quot;, 
+        plot.tag = element_text(size = rel(1.2), hjust = 0.5, 
+            vjust = 0.5), plot.tag.position = &quot;topleft&quot;, plot.margin = margin(half_line, 
+            half_line, half_line, half_line), complete = TRUE)
+    ggplot_global$theme_all_null %+replace% t
+}
+&lt;bytecode: 0x000000001902d2c0&gt;
+&lt;environment: namespace:ggplot2&gt;</code></pre>
+</div>
+<h3 id="theme-arguments"><code>theme()</code> Arguments</h3>
+<p>There are many elements you can customize. You can either group them by their type or by their category:</p>
+<ul>
+<li>element types:
+<ul>
+<li><code>text</code> → all labels, axis text, legend title and text</li>
+<li><code>line</code> → axis lines, ticks, grid lines</li>
+<li><code>rect</code> → plot area, panel area, legend and legend keys, facets</li>
+</ul></li>
+<li>element category:
+<ul>
+<li><code>axis.*</code> → titles, text, ticks, lines</li>
+<li><code>legend.*</code> → background, margin, spacing, keys, text, title, position, direction, box</li>
+<li><code>panel.*</code> → background, border, margin, spacing, grid (major and minor)</li>
+<li><code>plot.*</code> → background, title, subtitle, caption, tag, margin</li>
+<li><code>strip.*</code> → background, placement, text</li>
+</ul></li>
+</ul>
+<p>You can directly alter the appearance by adding <code>theme()</code> to a ggplot.</p>
+<h4 id="rectangular-elements-via-element_rect">Rectangular Elements via <code>element_rect()</code></h4>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-rect-1.png" alt="Theme components that are element_rect (Part 1)" /><figcaption aria-hidden="true">Theme components that are <code>element_rect</code> (Part 1)</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-rect-2.png" alt="Theme components that are element_rect (Part 2)" /><figcaption aria-hidden="true">Theme components that are <code>element_rect</code> (Part 2)</figcaption>
+</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>plot.background <span class='op'>=</span> <span class='fu'>element_rect</span><span class='op'>(</span>
+    color <span class='op'>=</span> <span class='st'>"black"</span>,
+    fill <span class='op'>=</span> <span class='st'>"orange"</span>,
+    size <span class='op'>=</span> <span class='fl'>2</span>,
+    linetype <span class='op'>=</span> <span class='st'>"dotted"</span>
+  <span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/element-rect-example-1.png" width="960" /></p>
+</div>
+<h4 id="line-elements-via-element_line">Line Elements via <code>element_line()</code></h4>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-line.png" alt="Theme components that are element_line" /><figcaption aria-hidden="true">Theme components that are <code>element_line</code></figcaption>
+</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>panel.grid <span class='op'>=</span> <span class='fu'>element_line</span><span class='op'>(</span>
+    color <span class='op'>=</span> <span class='st'>"black"</span>,
+    size <span class='op'>=</span> <span class='fl'>3</span>,
+    linetype <span class='op'>=</span> <span class='st'>"dashed"</span>,
+    lineend <span class='op'>=</span> <span class='st'>"square"</span>, <span class='co'># round, butt</span>
+    arrow <span class='op'>=</span> <span class='fu'>arrow</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>30</span>, length <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='st'>"inches"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/element-line-example-1.png" width="960" /></p>
+</div>
+<h4 id="text-elements-via-element_text">Text Elements via <code>element_text()</code></h4>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-text.png" alt="Theme components that are element_text" /><figcaption aria-hidden="true">Theme components that are <code>element_text</code></figcaption>
+</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"My New\nTitle"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>
+    <span class='co'>#family = "Roboto", ## you need {systemfonts} for this</span>
+    face <span class='op'>=</span> <span class='st'>"bold"</span>, <span class='co'>## plain, italic, bolditalic</span>
+    size <span class='op'>=</span> <span class='fl'>24</span>,
+    color <span class='op'>=</span> <span class='st'>"firebrick"</span>,
+    lineheight <span class='op'>=</span> <span class='fl'>.7</span>,
+    angle <span class='op'>=</span> <span class='fl'>180</span>,
+    hjust <span class='op'>=</span> <span class='fl'>.5</span>,
+    vjust <span class='op'>=</span> <span class='fl'>.0</span>,
+    margin <span class='op'>=</span> <span class='fu'>margin</span><span class='op'>(</span>
+      <span class='fl'>10</span>, <span class='co'>## t (top)</span>
+      <span class='fl'>0</span>,  <span class='co'>## r (right)</span>
+      <span class='fl'>30</span>, <span class='co'>## b (bottom)</span>
+      <span class='fl'>0</span>   <span class='co'>## l (left)</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-polish-rmarkdown_files/figure-html5/element-text-example-1.png" width="960" /></p>
+</div>
+<hr />
+<h2 id="exercise-3">Exercise 3</h2>
+<ul>
+<li>Have a closer look at the codes of <code>theme_grey</code>/<code>theme_gray</code> and one of the other themes. What’s the difference?</li>
+<li>Create a theme that is as ugly as possible!<br />
+or:<br />
+Create a theme that you can use ass personal theme.<br />
+</li>
+<li>Apply it to a plot.</li>
+</ul>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/theme.html">Modify theme components</a> on the ggplot reference page</p></li>
+<li><p>Chapter 19 <a href="https://ggplot2-book.org/polishing.html">Themes</a> of the “ggplot2” book by Hadley Wickham et al.</p></li>
+<li><p><a href="https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/">“Creating and Using Custom ggplot2 Themes”</a>, blog post by Thomas Mock</p></li>
+<li><p><a href="https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/">“Themes to Improve Your ggplot Figures”</a> from <a href="https://rfortherestofus.com/">R for the Rest of Us</a> with a collection of additional themes</p></li>
+<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+</ul>
 <hr />
 <h2 id="session-info">Session Info</h2>
 <details>
@@ -2494,10 +3187,10 @@ Codes
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-16 13:18:05 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-16 23:33:57 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [f444bee] 2021-08-16: finalize slides</code></pre>
+Head:     [6f43476] 2021-08-16: update slide links</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -2520,33 +3213,35 @@ other attached packages:
 [9] tidyverse_1.3.1
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2        sass_0.4.0        jsonlite_1.7.2   
- [4] here_1.0.1        modelr_0.1.8      bslib_0.2.5.1    
- [7] assertthat_0.2.1  highr_0.9         cellranger_1.1.0 
-[10] yaml_2.2.1        pillar_1.6.1      backports_1.2.1  
-[13] glue_1.4.2        digest_0.6.27     rvest_1.0.0      
-[16] colorspace_2.0-2  htmltools_0.5.1.1 pkgconfig_2.0.3  
-[19] broom_0.7.8       haven_2.4.1       bookdown_0.22    
-[22] scales_1.1.1      openxlsx_4.2.4    distill_1.2      
-[25] rio_0.5.27        downlit_0.2.1     git2r_0.28.0     
-[28] generics_0.1.0    farver_2.1.0      ellipsis_0.3.2   
-[31] withr_2.4.2       cli_3.0.0         magrittr_2.0.1   
-[34] crayon_1.4.1      readxl_1.3.1      evaluate_0.14    
-[37] fs_1.5.0          fansi_0.5.0       xml2_1.3.2       
-[40] foreign_0.8-81    textshaping_0.3.5 tools_4.1.0      
-[43] data.table_1.14.0 hms_1.1.0         lifecycle_1.0.0  
-[46] munsell_0.5.0     reprex_2.0.0      zip_2.2.0        
-[49] compiler_4.1.0    jquerylib_0.1.4   systemfonts_1.0.2
-[52] rlang_0.4.11      grid_4.1.0        rstudioapi_0.13  
-[55] labeling_0.4.2    rmarkdown_2.9     gtable_0.3.0     
-[58] DBI_1.1.1         curl_4.3.2        R6_2.5.0         
-[61] lubridate_1.7.10  knitr_1.33        utf8_1.2.1       
-[64] rprojroot_2.0.2   ragg_1.1.3        stringi_1.7.3    
-[67] Rcpp_1.0.7        vctrs_0.3.8       dbplyr_2.1.1     
-[70] tidyselect_1.1.1  xfun_0.24        </code></pre>
+ [1] httr_1.4.2          rnaturalearth_0.1.0 sass_0.4.0         
+ [4] jsonlite_1.7.2      viridisLite_0.4.0   modelr_0.1.8       
+ [7] bslib_0.2.5.1       assertthat_0.2.1    sp_1.4-5           
+[10] highr_0.9           cellranger_1.1.0    yaml_2.2.1         
+[13] lattice_0.20-44     pillar_1.6.1        backports_1.2.1    
+[16] glue_1.4.2          digest_0.6.27       RColorBrewer_1.1-2 
+[19] rvest_1.0.0         colorspace_2.0-2    htmltools_0.5.1.1  
+[22] pkgconfig_2.0.3     broom_0.7.8         haven_2.4.1        
+[25] scales_1.1.1        distill_1.2         downlit_0.2.1      
+[28] git2r_0.28.0        proxy_0.4-26        generics_0.1.0     
+[31] farver_2.1.0        ellipsis_0.3.2      withr_2.4.2        
+[34] cli_3.0.0           magrittr_2.0.1      crayon_1.4.1       
+[37] readxl_1.3.1        evaluate_0.14       fs_1.5.0           
+[40] fansi_0.5.0         xml2_1.3.2          class_7.3-19       
+[43] textshaping_0.3.5   tools_4.1.0         hms_1.1.0          
+[46] lifecycle_1.0.0     munsell_0.5.0       reprex_2.0.0       
+[49] compiler_4.1.0      jquerylib_0.1.4     e1071_1.7-7        
+[52] systemfonts_1.0.2   rlang_0.4.11        units_0.7-2        
+[55] classInt_0.4-3      grid_4.1.0          rstudioapi_0.13    
+[58] labeling_0.4.2      rmarkdown_2.9       gtable_0.3.0       
+[61] DBI_1.1.1           curl_4.3.2          R6_2.5.0           
+[64] lubridate_1.7.10    knitr_1.33          rgeos_0.5-5        
+[67] utf8_1.2.1          ragg_1.1.3          KernSmooth_2.23-20 
+[70] stringi_1.7.3       Rcpp_1.0.7          vctrs_0.3.8        
+[73] sf_1.0-1            dbplyr_2.1.1        tidyselect_1.1.1   
+[76] xfun_0.24          </code></pre>
 </div>
 </details>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

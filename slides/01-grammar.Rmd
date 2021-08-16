@@ -853,7 +853,7 @@ chic <- readr::read_csv(
 * Color the points by season (`season`).
 
 * Color the points by year (`year`).
-  + <span style='color:grey;'>What's the problem? How could you fix it?</span>
+  + What's the problem? How could you fix it?
 
 ---
 background-image: url("img/bg-exercise.png")
@@ -1071,7 +1071,9 @@ data
 The `import()` function from the `{rio}` package allows to load all kind of data formats:
 
 ```{r data-rio-json}
-data_json <- rio::import(here::here("data", "crypto_cleaned.json"), setclass = "tbl")
+data_json <- rio::import(here::here("data", "crypto_cleaned.json"))
+
+data_json <- as_tibble(data_json) ## somehow `setclass` doesn't work with json
 
 data_json
 ```

@@ -49,7 +49,7 @@ options(width = 80)
 <br><br>
 # Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 5: Create Multi-Panel Figures</b>
 <br><br><br><br><br><br><br>
-#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b ><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>September 3, 2021</b ><br>
 
 ```{r prep, echo=FALSE}
 library(tidyverse)

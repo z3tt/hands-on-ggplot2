@@ -88,24 +88,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Hands-On DataViz with ggplot2: Segment 2: Build Plots Layer by Layer</title>
 
+  <meta property="description" itemprop="description" content="Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
 
 
+  <meta name="article:author" content="Cédric Scherer"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Hands-On DataViz with ggplot2: Segment 2: Build Plots Layer by Layer"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Hands-On DataViz with ggplot2"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Hands-On DataViz with ggplot2: Segment 2: Build Plots Layer by Layer"/>
+  <meta property="twitter:description" content="Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 2: Build Plots Layer by Layer"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 2: Build Plots Layer by Layer"]},{"type":"character","attributes":{},"value":["Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Cédric Scherer"]},{"type":"character","attributes":{},"value":["https://cedricscherer.com"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2401,7 +2405,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Segment 2: Build Plots Layer by Layer","authors":[]}
+{"title":"Segment 2: Build Plots Layer by Layer","description":"Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly","authors":[{"author":"Cédric Scherer","authorURL":"https://cedricscherer.com","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2474,18 +2478,768 @@ Codes
 <h1>Segment 2: Build Plots Layer by Layer</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p>Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
 </div>
 
+<div class="d-byline">
+  Cédric Scherer <a href="https://cedricscherer.com" class="uri">https://cedricscherer.com</a> 
+  
+
+</div>
 
 <div class="d-article">
 <div class="d-contents d-contents-float">
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#create-any-chart-type">Create Any Chart Type</a>
+<ul>
+<li><a href="#area-charts">Area Charts</a></li>
+<li><a href="#box-plots">Box Plots</a></li>
+<li><a href="#jitterstrips">Jitterstrips</a></li>
+</ul></li>
+<li><a href="#barcode-plots">Barcode Plots</a>
+<ul>
+<li><a href="#hexagonal-bin-plot">Hexagonal Bin Plot</a></li>
+<li><a href="#rectangular-bin-plot">Rectangular Bin Plot</a></li>
+<li><a href="#heatmaps">Heatmaps</a></li>
+<li><a href="#statistical-transformations">Statistical Transformations</a>
+<ul>
+<li><a href="#draw-fittings">Draw Fittings</a></li>
+<li><a href="#calculate-summaries">Calculate Summaries</a></li>
+<li><a href="#dumbbell-plot">Dumbbell Plot</a></li>
+</ul></li>
+<li><a href="#statistical-transformations-stat_">Statistical Transformations: <code>stat_*()</code></a></li>
+</ul></li>
+<li><a href="#exercise-1">Exercise 1</a>
+<ul>
+<li><a href="#spatial-maps">Spatial Maps</a>
+<ul>
+<li><a href="#simple-features-access">Simple Features (Access)</a></li>
+<li><a href="#natural-earth">Natural Earth</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#get-the-data">Get the Data</a></li>
+<li><a href="#plot-the-map">Plot the Map</a></li>
+<li><a href="#change-the-projection">Change the Projection</a></li>
+</ul></li>
+<li><a href="#exercise-2">Exercise 2</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#appendix">APPENDIX</a>
+<ul>
+<li><a href="#create-any-chart-type-1">Create Any Chart Type</a></li>
+<li><a href="#statistical-transformations-1">Statistical Transformations</a></li>
+</ul></li>
 <li><a href="#session-info">Session Info</a></li>
+</ul></li>
 </ul>
 </nav>
+</div>
+<h2 id="create-any-chart-type">Create Any Chart Type</h2>
+<p>As you have already seen, we can quickly switch through different chart types:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/scatter-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/line-1.png" width="960" /></p>
+</div>
+<h3 id="area-charts">Area Charts</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/area-1.png" width="960" /></p>
+</div>
+<p>Many of the geom’s can further adjusted:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/area-dodge-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/area-fill-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_cartesian</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/area-fill-no-exp-1.png" width="960" /></p>
+</div>
+<h3 id="box-plots">Box Plots</h3>
+<p>Some geom’s drastically change the appearance of the data:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_boxplot</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-1.png" width="960" /></p>
+</div>
+<p>And, as you already know, we can combine geom’s to make the plot more insightful:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-dots-1.png" width="960" /></p>
+</div>
+<h3 id="jitterstrips">Jitterstrips</h3>
+<p>And also the point geom can be adjusted, e.g. adding some random noise called <strong>jitter</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.2</span>, position <span class='op'>=</span> <span class='fu'>position_jitter</span><span class='op'>(</span>height <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-jitter-1.png" width="960" /></p>
+</div>
+<h1 id="barcode-plots">Barcode Plots</h1>
+<p>… or converted to lines forming a <strong>barcode plot</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.1</span>, shape <span class='op'>=</span> <span class='st'>"|"</span>, size <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-barcode-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, width <span class='op'>=</span> <span class='fl'>.4</span>, position <span class='op'>=</span> <span class='fu'>position_nudge</span><span class='op'>(</span>y <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.1</span>, shape <span class='op'>=</span> <span class='st'>"|"</span>, size <span class='op'>=</span> <span class='fl'>9</span>, position <span class='op'>=</span> <span class='fu'>position_nudge</span><span class='op'>(</span>y <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-barcode-nudge-1.png" width="960" /></p>
+</div>
+<h3 id="hexagonal-bin-plot">Hexagonal Bin Plot</h3>
+<p>Plots that bin the data can be helpful to deal with overplotting:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/scatter-open-close-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_hex</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/hex-open-close-1.png" width="960" /></p>
+</div>
+<p>Let’s add the diagonal to the plot:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/scatter-open-close-diag-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_hex</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/hex-open-close-diag-1.png" width="960" /></p>
+</div>
+<h3 id="rectangular-bin-plot">Rectangular Bin Plot</h3>
+<p>If you don’t like hexagonals, use rectangles!</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bin2d</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/rect-open-close-diag-1.png" width="960" /></p>
+</div>
+<p>Actually, the fill is mapped to a hidden summary statistic that is calculated by <code>{ggplot2}</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bin2d</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>..count..</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/rect-count-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bin2d</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>..density..</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/rect-density-1.png" width="960" /></p>
+</div>
+<h3 id="heatmaps">Heatmaps</h3>
+<p>With <code>geom_tile()</code> one can create heatmaps:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>currency</span>, fill <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_tile</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/heatmap-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>currency</span>, fill <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_tile</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_cartesian</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/heatmap-expand-1.png" width="960" /></p>
+</div>
+<h2 id="statistical-transformations">Statistical Transformations</h2>
+<h3 id="draw-fittings">Draw Fittings</h3>
+<p>You can directly add smoothed conditional means:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_smooth</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_smooth</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth2-again-1.png" width="960" /></p>
+</div>
+<p>By default this adds a LOESS (locally weighted scatter plot smoothing) or a GAM (generalized additive model) depending on the number of data points (GAM in case of ≥ 1000 observations).</p>
+<p>You can specify the fitting method and the formula:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, formula <span class='op'>=</span> <span class='va'>y</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>  <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth-polynom-1.png" width="960" /></p>
+</div>
+<p>Other methods such as method = “lm” (without an explicit formula) for simple linear regressions and method = “glm” for generalized linear models are available as well.</p>
+<h3 id="calculate-summaries">Calculate Summaries</h3>
+<p>Without pre-calculations one can easily plot data summaries:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-1.png" width="960" /></p>
+</div>
+<p>You can always go both ways — <code>stat_x(geom = "y") == geom_y(stat = "x")</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_identity</span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"point"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="02-layers-rmarkdown_files/figure-html5/stat-geom-1.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stat-geom-2.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>month</span><span class='op'>)</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"pointrange"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="02-layers-rmarkdown_files/figure-html5/stat-geom-2-1.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>month</span><span class='op'>)</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_pointrange</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"summary"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stat-geom-2-2.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    geom <span class='op'>=</span> <span class='st'>"pointrange"</span>,
+    fun.data <span class='op'>=</span> <span class='st'>"mean_se"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-default-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+      geom <span class='op'>=</span> <span class='st'>"text"</span>,
+      <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-label-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+      geom <span class='op'>=</span> <span class='st'>"text"</span>,
+      fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+      <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-label-warning-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+      geom <span class='op'>=</span> <span class='st'>"text"</span>,
+      fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+      <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
+      size <span class='op'>=</span> <span class='fl'>5</span>,
+      hjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.5</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-label-adj-1.png" width="960" /></p>
+</div>
+<h3 id="dumbbell-plot">Dumbbell Plot</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    geom <span class='op'>=</span> <span class='st'>"linerange"</span>,
+    fun.min <span class='op'>=</span> <span class='st'>"min"</span>,
+    fun.max <span class='op'>=</span> <span class='st'>"max"</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-dumbbell-1-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    geom <span class='op'>=</span> <span class='st'>"linerange"</span>,
+    fun.min <span class='op'>=</span> <span class='st'>"min"</span>,
+    fun.max <span class='op'>=</span> <span class='st'>"max"</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='st'>"range"</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-dumbbell-2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    geom <span class='op'>=</span> <span class='st'>"linerange"</span>,
+    fun.min <span class='op'>=</span> <span class='st'>"min"</span>,
+    fun.max <span class='op'>=</span> <span class='st'>"max"</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='st'>"range"</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_summary</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='st'>"range"</span>,
+    <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
+    geom <span class='op'>=</span> <span class='st'>"text"</span>,
+    size <span class='op'>=</span> <span class='fl'>4</span>,
+    hjust <span class='op'>=</span> <span class='fl'>1</span>,
+    position <span class='op'>=</span> <span class='fu'>position_nudge</span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.08</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-dumbbell-3-1.png" width="960" /></p>
+</div>
+<h2 id="statistical-transformations-stat_">Statistical Transformations: <code>stat_*()</code></h2>
+<p>There are several other statistical transformations available:</p>
+<ul>
+<li><code>stat_count()</code> to count observations (e.g. for bar charts)</li>
+<li><code>stat_bin()</code> and <code>stat_bin2d()</code> to count observations per bin (e.g. for histograms)</li>
+<li><code>stat_density()</code> and <code>stat_density2d()</code> to compute kernel density estimates (e.g. for density curves)</li>
+<li><code>stat_contour()</code> and <code>stat_contour_filled()</code> to retrieve threshold levels (e.g. for contour maps)</li>
+<li><code>stat_function()</code> to draw functions as a continuous curves</li>
+<li><code>stat_boxplot()</code> to calculate the five summary statistics for a box plot</li>
+<li><code>stat_ydensity()</code> to compute vertical density estimates (e.g. for violin plots)</li>
+</ul>
+<hr />
+<h1 id="exercise-1">Exercise 1</h1>
+<ul>
+<li>Import the password data set: <a href="https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv" class="uri">https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv</a></li>
+<li>Visualize the number of passwords per category as bar chart.</li>
+<li>Add to each bar a label of the number of passwords.</li>
+</ul>
+<hr />
+<p>class: center, middle, inverse</p>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/extensions.png" alt="Collection of some chart types provided by ggplot2 extension packages" /><figcaption aria-hidden="true">Collection of some chart types provided by ggplot2 extension packages</figcaption>
+</figure>
+<h2 id="spatial-maps">Spatial Maps</h2>
+<h3 id="simple-features-access">Simple Features (Access)</h3>
+<p><a href="https://r-spatial.github.io/sf/articles/sf1.html"><strong>Simple features</strong> or <strong>simple features access</strong></a> refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the <em>spatial geometry</em>.</p>
+<p><code>{sf}</code> is an R package that provides simple features access for R.</p>
+<h3 id="natural-earth">Natural Earth</h3>
+<p><a href="https://www.naturalearthdata.com/"><strong>Natural Earth</strong></a> is a <em>public domain map data set of physical and cultural features</em>, available at 1:10m, 1:50m,and 1:110 million scales.</p>
+<p><code>{rnaturalearth}</code> is an R package to hold and facilitate interaction with Natural Earth map data.</p>
+<h3 id="setup">Setup</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("sf")</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
+
+<span class='co'>#install.packages("rnaturalearth")</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/ropenscilabs/rnaturalearth'>rnaturalearth</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="get-the-data">Get the Data</h3>
+<p>The <code>{rnaturalearth}</code> allows downloading the Natural Earth data sets in simple feature format.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sf_world</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html'>ne_countries</a></span><span class='op'>(</span>returnclass <span class='op'>=</span> <span class='st'>"sf"</span><span class='op'>)</span>
+<span class='va'>sf_airports</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rnaturalearth/man/ne_download.html'>ne_download</a></span><span class='op'>(</span>scale <span class='op'>=</span> <span class='st'>'large'</span>, category <span class='op'>=</span> <span class='st'>"cultural"</span>, type <span class='op'>=</span> <span class='st'>"airports"</span>, returnclass <span class='op'>=</span> <span class='st'>"sf"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>OGR data source with driver: ESRI Shapefile 
+Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\RtmpEXC2dB&quot;, layer: &quot;ne_10m_airports&quot;
+with 891 features
+It has 35 fields
+Integer64 fields read as strings:  ne_id </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Rows: 177
+Columns: 64
+$ scalerank  &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+$ featurecla &lt;chr&gt; &quot;Admin-0 country&quot;, &quot;Admin-0 country&quot;, &quot;Admin-0 co~
+$ labelrank  &lt;dbl&gt; 3, 3, 6, 4, 2, 6, 4, 6, 2, 4, 5, 6, 2, 5, 3, 3, 4~
+$ sovereignt &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ sov_a3     &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ adm0_dif   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0~
+$ level      &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2~
+$ type       &lt;chr&gt; &quot;Sovereign country&quot;, &quot;Sovereign country&quot;, &quot;Sovere~
+$ admin      &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ adm0_a3    &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ geou_dif   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
+$ geounit    &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ gu_a3      &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ su_dif     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
+$ subunit    &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ su_a3      &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ brk_diff   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
+$ name       &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ name_long  &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ brk_a3     &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ brk_name   &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ brk_group  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ abbrev     &lt;chr&gt; &quot;Afg.&quot;, &quot;Ang.&quot;, &quot;Alb.&quot;, &quot;U.A.E.&quot;, &quot;Arg.&quot;, &quot;Arm.&quot;,~
+$ postal     &lt;chr&gt; &quot;AF&quot;, &quot;AO&quot;, &quot;AL&quot;, &quot;AE&quot;, &quot;AR&quot;, &quot;ARM&quot;, &quot;AQ&quot;, &quot;TF&quot;, ~
+$ formal_en  &lt;chr&gt; &quot;Islamic State of Afghanistan&quot;, &quot;People&#39;s Republi~
+$ formal_fr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ note_adm0  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, &quot;Fr.&quot;, NA, NA, NA, NA~
+$ note_brk   &lt;chr&gt; NA, NA, NA, NA, NA, NA, &quot;Multiple claims held in ~
+$ name_sort  &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Angola&quot;, &quot;Albania&quot;, &quot;United Arab ~
+$ name_alt   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ mapcolor7  &lt;dbl&gt; 5, 3, 1, 2, 3, 3, 4, 7, 1, 3, 1, 2, 3, 1, 2, 3, 4~
+$ mapcolor8  &lt;dbl&gt; 6, 2, 4, 1, 1, 1, 5, 5, 2, 1, 6, 2, 2, 2, 1, 4, 5~
+$ mapcolor9  &lt;dbl&gt; 8, 6, 1, 3, 3, 2, 1, 9, 2, 3, 5, 5, 1, 2, 5, 7, 1~
+$ mapcolor13 &lt;dbl&gt; 7, 1, 6, 3, 13, 10, NA, 11, 7, 4, 8, 8, 8, 12, 11~
+$ pop_est    &lt;dbl&gt; 28400000, 12799293, 3639453, 4798491, 40913584, 2~
+$ gdp_md_est &lt;dbl&gt; 22270.0, 110300.0, 21810.0, 184300.0, 573900.0, 1~
+$ pop_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ lastcensus &lt;dbl&gt; 1979, 1970, 2001, 2010, 2010, 2001, NA, NA, 2006,~
+$ gdp_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ economy    &lt;chr&gt; &quot;7. Least developed region&quot;, &quot;7. Least developed ~
+$ income_grp &lt;chr&gt; &quot;5. Low income&quot;, &quot;3. Upper middle income&quot;, &quot;4. Lo~
+$ wikipedia  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ fips_10    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ iso_a2     &lt;chr&gt; &quot;AF&quot;, &quot;AO&quot;, &quot;AL&quot;, &quot;AE&quot;, &quot;AR&quot;, &quot;AM&quot;, &quot;AQ&quot;, &quot;TF&quot;, &quot;~
+$ iso_a3     &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ iso_n3     &lt;chr&gt; &quot;004&quot;, &quot;024&quot;, &quot;008&quot;, &quot;784&quot;, &quot;032&quot;, &quot;051&quot;, &quot;010&quot;, ~
+$ un_a3      &lt;chr&gt; &quot;004&quot;, &quot;024&quot;, &quot;008&quot;, &quot;784&quot;, &quot;032&quot;, &quot;051&quot;, NA, NA,~
+$ wb_a2      &lt;chr&gt; &quot;AF&quot;, &quot;AO&quot;, &quot;AL&quot;, &quot;AE&quot;, &quot;AR&quot;, &quot;AM&quot;, NA, NA, &quot;AU&quot;,~
+$ wb_a3      &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, NA, NA,~
+$ woe_id     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ adm0_a3_is &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ adm0_a3_us &lt;chr&gt; &quot;AFG&quot;, &quot;AGO&quot;, &quot;ALB&quot;, &quot;ARE&quot;, &quot;ARG&quot;, &quot;ARM&quot;, &quot;ATA&quot;, ~
+$ adm0_a3_un &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ adm0_a3_wb &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ continent  &lt;chr&gt; &quot;Asia&quot;, &quot;Africa&quot;, &quot;Europe&quot;, &quot;Asia&quot;, &quot;South Americ~
+$ region_un  &lt;chr&gt; &quot;Asia&quot;, &quot;Africa&quot;, &quot;Europe&quot;, &quot;Asia&quot;, &quot;Americas&quot;, &quot;~
+$ subregion  &lt;chr&gt; &quot;Southern Asia&quot;, &quot;Middle Africa&quot;, &quot;Southern Europ~
+$ region_wb  &lt;chr&gt; &quot;South Asia&quot;, &quot;Sub-Saharan Africa&quot;, &quot;Europe &amp; Cen~
+$ name_len   &lt;dbl&gt; 11, 6, 7, 20, 9, 7, 10, 22, 9, 7, 10, 7, 7, 5, 12~
+$ long_len   &lt;dbl&gt; 11, 6, 7, 20, 9, 7, 10, 35, 9, 7, 10, 7, 7, 5, 12~
+$ abbrev_len &lt;dbl&gt; 4, 4, 4, 6, 4, 4, 4, 10, 4, 5, 4, 4, 5, 5, 4, 5, ~
+$ tiny       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2, NA, NA, NA, NA, NA~
+$ homepart   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, NA, 1, 1, 1, 1, 1, 1, 1, 1, ~
+$ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((61.21082 35..., MULT~</code></pre>
+</div>
+<h3 id="plot-the-map">Plot the Map</h3>
+<p><code>{ggplot2}</code> comes with a set of <code>geom</code>, <code>stat</code>, and <code>coord</code> are used to visualize sf objects.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-1.png" width="960" /></p>
+</div>
+<p><code>geom_sf()</code> works with all types of vector data and returns geometries depending on the simple features:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_airports</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/sf-polygon-point-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"forestgreen"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_airports</span>, color <span class='op'>=</span> <span class='st'>"purple"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-colors-1.png" width="960" /></p>
+</div>
+<p>Generate simple features objects e.g. to highlight a location:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sf_bln</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/sfc.html'>st_sfc</a></span><span class='op'>(</span><span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_point</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>13.4050</span>, <span class='fl'>52.5200</span><span class='op'>)</span><span class='op'>)</span>, crs <span class='op'>=</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_crs.html'>st_crs</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>sf_bln</span>
+</code></pre>
+</div>
+<pre><code>Geometry set for 1 feature 
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 13.405 ymin: 52.52 xmax: 13.405 ymax: 52.52
+CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span>color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_bln</span>, shape <span class='op'>=</span> <span class='fl'>21</span>, color <span class='op'>=</span> <span class='st'>"firebrick"</span>, fill <span class='op'>=</span> <span class='cn'>NA</span>, size <span class='op'>=</span> <span class='fl'>5</span>, stroke <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-locator-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"forestgreen"</span>, fill <span class='op'>=</span> <span class='st'>"forestgreen"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-fill-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-fill-economy-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-color-1.png" width="960" /></p>
+</div>
+<h3 id="change-the-projection">Change the Projection</h3>
+<p>Use <code>coord_sf()</code> to change the projection without changing the spatial data set!</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-moll-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-custom1-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=-30 +lat_0=-25"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-custom2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=-70 +lat_0=0"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-custom3-1.png" width="960" /></p>
+</div>
+<hr />
+<h2 id="exercise-2">Exercise 2</h2>
+<ul>
+<li>Download data set(s) for your home country and plot it/them.</li>
+<li>Change the projection with <code>coord_sf</code> and observe how the spatial mapping changes.</li>
+</ul>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li><p>Chapters on <a href="https://ggplot2-book.org/individual-geoms.html">individual geom’s</a>, <a href="https://ggplot2-book.org/collective-geoms.html">collective geom’s</a>, <a href="https://ggplot2-book.org/statistical-summaries.html">statistical summaries</a>, and <a href="https://ggplot2-book.org/maps.html">maps</a>of the “ggplot2” book by Hadley Wickham et al.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/">Overview of layers</a> contained in the <code>{ggplot2}</code> package</p></li>
+<li><p><a href="https://www.r-graph-gallery.com/">R Graph Gallery</a> that provides hundreds of charts with their reproducible code</p></li>
+<li><p>List of <a href="https://exts.ggplot2.tidyverse.org/"><code>{ggplot2}</code> extension packages</a></p></li>
+<li><p><a href="https://geocompr.robinlovelace.net/">“Geocomputation with R”</a>, free-access book by Robin Lovelace et al.</p></li>
+<li><p><a href="https://r-spatial.github.io/sf/"><code>{sf}</code> package page</a></p></li>
+<li><p><a href="https://github.com/r-spatial/sf/issues/1050">StackOverflow discussion</a> and <a href="https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1">code</a> to plot a true globe</p></li>
+<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+</ul>
+<hr />
+<h2 id="appendix">APPENDIX</h2>
+<h3 id="create-any-chart-type-1">Create Any Chart Type</h3>
+<h4 id="candlestick-charts">Candlestick Charts</h4>
+<p>There is a package for that — but it’s simple enough to do it manually!</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/candle-step-1-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/candle-step-2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/candle-color-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_date</span><span class='op'>(</span>date_labels <span class='op'>=</span> <span class='st'>"%b %d, %Y"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/candle-scale-date-1.png" width="960" /></p>
+</div>
+<h3 id="statistical-transformations-1">Statistical Transformations</h3>
+<h4 id="draw-functions">Draw Functions</h4>
+<p><code>stat_function()</code> makes it easy to add a function to a plot, either continuous or discrete:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>8</span>, <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_function</span><span class='op'>(</span>fun <span class='op'>=</span> <span class='va'>dnorm</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_function</span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='va'>dcauchy</span>,
+    color <span class='op'>=</span> <span class='st'>"red"</span>,
+    n <span class='op'>=</span> <span class='fl'>75</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-function-1.png" width="960" /></p>
 </div>
 <hr />
 <h2 id="session-info">Session Info</h2>
@@ -2494,10 +3248,10 @@ Codes
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-16 13:18:04 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-16 22:54:33 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [f444bee] 2021-08-16: finalize slides</code></pre>
+Head:     [6f43476] 2021-08-16: update slide links</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -2515,38 +3269,42 @@ attached base packages:
 [7] base     
 
 other attached packages:
-[1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
-[5] readr_1.4.0     tidyr_1.1.3     tibble_3.1.2    ggplot2_3.3.5  
-[9] tidyverse_1.3.1
+ [1] rnaturalearth_0.1.0 sf_1.0-1            forcats_0.5.1      
+ [4] stringr_1.4.0       dplyr_1.0.7         purrr_0.3.4        
+ [7] readr_1.4.0         tidyr_1.1.3         tibble_3.1.2       
+[10] ggplot2_3.3.5       tidyverse_1.3.1    
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2        sass_0.4.0        jsonlite_1.7.2   
- [4] here_1.0.1        modelr_0.1.8      bslib_0.2.5.1    
- [7] assertthat_0.2.1  highr_0.9         cellranger_1.1.0 
-[10] yaml_2.2.1        pillar_1.6.1      backports_1.2.1  
-[13] glue_1.4.2        digest_0.6.27     rvest_1.0.0      
-[16] colorspace_2.0-2  htmltools_0.5.1.1 pkgconfig_2.0.3  
-[19] broom_0.7.8       haven_2.4.1       bookdown_0.22    
-[22] scales_1.1.1      openxlsx_4.2.4    distill_1.2      
-[25] rio_0.5.27        downlit_0.2.1     git2r_0.28.0     
-[28] generics_0.1.0    farver_2.1.0      ellipsis_0.3.2   
-[31] withr_2.4.2       cli_3.0.0         magrittr_2.0.1   
-[34] crayon_1.4.1      readxl_1.3.1      evaluate_0.14    
-[37] fs_1.5.0          fansi_0.5.0       xml2_1.3.2       
-[40] foreign_0.8-81    textshaping_0.3.5 tools_4.1.0      
-[43] data.table_1.14.0 hms_1.1.0         lifecycle_1.0.0  
-[46] munsell_0.5.0     reprex_2.0.0      zip_2.2.0        
-[49] compiler_4.1.0    jquerylib_0.1.4   systemfonts_1.0.2
-[52] rlang_0.4.11      grid_4.1.0        rstudioapi_0.13  
-[55] labeling_0.4.2    rmarkdown_2.9     gtable_0.3.0     
-[58] DBI_1.1.1         curl_4.3.2        R6_2.5.0         
-[61] lubridate_1.7.10  knitr_1.33        utf8_1.2.1       
-[64] rprojroot_2.0.2   ragg_1.1.3        stringi_1.7.3    
-[67] Rcpp_1.0.7        vctrs_0.3.8       dbplyr_2.1.1     
-[70] tidyselect_1.1.1  xfun_0.24        </code></pre>
+ [1] nlme_3.1-152       fs_1.5.0           lubridate_1.7.10  
+ [4] httr_1.4.2         tools_4.1.0        backports_1.2.1   
+ [7] bslib_0.2.5.1      rgdal_1.5-23       utf8_1.2.1        
+[10] R6_2.5.0           KernSmooth_2.23-20 rgeos_0.5-5       
+[13] DBI_1.1.1          mgcv_1.8-35        colorspace_2.0-2  
+[16] withr_2.4.2        sp_1.4-5           tidyselect_1.1.1  
+[19] downlit_0.2.1      git2r_0.28.0       curl_4.3.2        
+[22] compiler_4.1.0     textshaping_0.3.5  cli_3.0.0         
+[25] rvest_1.0.0        xml2_1.3.2         labeling_0.4.2    
+[28] sass_0.4.0         scales_1.1.1       classInt_0.4-3    
+[31] hexbin_1.28.2      proxy_0.4-26       systemfonts_1.0.2 
+[34] digest_0.6.27      rmarkdown_2.9      pkgconfig_2.0.3   
+[37] htmltools_0.5.1.1  dbplyr_2.1.1       highr_0.9         
+[40] rlang_0.4.11       readxl_1.3.1       rstudioapi_0.13   
+[43] jquerylib_0.1.4    farver_2.1.0       generics_0.1.0    
+[46] jsonlite_1.7.2     distill_1.2        magrittr_2.0.1    
+[49] s2_1.0.6           Matrix_1.3-3       Rcpp_1.0.7        
+[52] munsell_0.5.0      fansi_0.5.0        lifecycle_1.0.0   
+[55] stringi_1.7.3      yaml_2.2.1         grid_4.1.0        
+[58] crayon_1.4.1       lattice_0.20-44    haven_2.4.1       
+[61] splines_4.1.0      hms_1.1.0          knitr_1.33        
+[64] pillar_1.6.1       wk_0.5.0           reprex_2.0.0      
+[67] glue_1.4.2         evaluate_0.14      modelr_0.1.8      
+[70] vctrs_0.3.8        cellranger_1.1.0   gtable_0.3.0      
+[73] assertthat_0.2.1   xfun_0.24          broom_0.7.8       
+[76] e1071_1.7-7        ragg_1.1.3         class_7.3-19      
+[79] units_0.7-2        ellipsis_0.3.2    </code></pre>
 </div>
 </details>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

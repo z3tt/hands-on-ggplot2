@@ -49,7 +49,7 @@ options(width = 80)
 <br><br>
 # Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 3: Polish Your Visualization</b>
 <br><br><br><br><br><br><br>
-#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>O'Reilly Live Training Session<br>September 3, 2021</b ><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>September 3, 2021</b ><br>
 
 ```{r prep, echo=FALSE}
 library(tidyverse)
@@ -229,6 +229,11 @@ ggplot(data, aes(x = date, y = close,
 ---
 class: center, middle
 
+<img src="img/ah_continuous_discrete.png" style='width:64%;'><br><cap>Illustration by Allison Horst</cap>
+
+---
+class: center, middle
+
 <img src="img/color-pal-types.png" style='width:88%;'>
 
 ---
@@ -299,7 +304,7 @@ class: middle, center
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -324,7 +329,7 @@ class: middle, center
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -349,7 +354,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -375,7 +380,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -430,7 +435,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_brewer_\*()</code>
 
 Colorbrewer provides color schemes for maps.
 
@@ -440,7 +445,7 @@ RColorBrewer::display.brewer.all()
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <code style='font-weight:700;'>scale\_color\_brewer_\*()</code>
 
 Colorbrewer provides color schemes for maps.
 
@@ -661,7 +666,18 @@ class(g) #<<
 ---
 class: inverse, center, middle
 
-# <b style='font-size:70pt;color:#ebc500;'>Legends</b><br><br>
+# <b style='font-size:70pt;color:#ebc500;'>Legends</b><br><b style='font-size:50pt;'>(Guides)</b><br><br>
+
+---
+
+## Style Legends: <code style='font-weight:700;'>guides()</code>
+
+The `guides()` function allows to adjust the appearance of each legend:
+
+```{r guide-default, fig.width=16, fig.height=5.6}
+g +
+  guides(fill = guide_colorbar()) #<<
+```
 
 ---
 
@@ -670,6 +686,17 @@ class: inverse, center, middle
 The `guides()` function allows to adjust the appearance of each legend:
 
 ```{r guide-legend, fig.width=16, fig.height=5.6}
+g +
+  guides(fill = guide_legend()) #<<
+```
+
+---
+
+## Style Legends: <code style='font-weight:700;'>guides()</code>
+
+The `guides()` function allows to adjust the appearance of each legend:
+
+```{r guide-legend-rev, fig.width=16, fig.height=5.6}
 g +
   guides(fill = guide_legend(reverse = TRUE)) #<<
 ```
@@ -759,12 +786,38 @@ ggplot(data, aes(close, open, color = high)) +
 ```
 
 ---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: What isthe best position for the legend?
+
+<ul style='font-size:26pt;margin: 50px 50px;'>
+<li style='margin-bottom: 15px;'>On the right.</li>
+<li style='margin-bottom: 15px;'>On the left.</li>
+<li style='margin-bottom: 15px;'>At the top.</li>
+<li style='margin-bottom: 15px;'>At the bottom.</li>
+<li style='margin-bottom: 15px;'>Inside the chart.</li>
+</ul>
+
+---
 
 ## Style Legends: <code style='font-weight:700;'>theme()</code>
 
-The position of the legend and some other properties can be changed via `theme()`
+The position of the legend and some other properties can be changed via `theme()`:
 
 ```{r guide-colorbar-theme, fig.width=16, fig.height=5.2}
+g +
+  guides(fill = guide_legend()) +
+  theme(legend.position = "top") #<<
+```
+
+---
+
+## Style Legends: <code style='font-weight:700;'>theme()</code>
+
+The position of the legend and some other properties can be changed via `theme()`:
+
+```{r guide-colorbar-theme-key-size, fig.width=16, fig.height=5.2}
 g +
   guides(fill = guide_legend()) +
   theme(legend.position = "top", legend.key.height = unit(.5, "lines"), #<<
@@ -854,8 +907,8 @@ You can either add theme changes to each plot or globally for all plots:
 
 .pull-left[
 ```{r theme-local, fig.height=4}
-ggplot(data, aes(x = date, y = close, color = currency)) +
-  geom_line(size = 1.5) + 
+ggplot(data, aes(x = date, y = close)) +
+  geom_line(aes(color = currency)) + 
   theme_classic(base_size = 16) #<<
 ```
 ]
@@ -863,10 +916,15 @@ ggplot(data, aes(x = date, y = close, color = currency)) +
 .pull-left[
 ```{r theme-global, fig.height=4}
 theme_set(theme_classic(base_size = 16)) #<<
-ggplot(data, aes(x = date, y = close, color = currency)) +
-  geom_line(size = 1.5)
+ggplot(data, aes(x = date, y = close)) +
+  geom_line(aes(color = currency))
 ```
 ]
+
+```{r reset-theme, echo=FALSE}
+theme_set(theme_light(base_size = 18, base_family = "Roboto Condensed"))
+```
+
 
 ---
 
@@ -895,6 +953,79 @@ There are many elements you can customize. You can either group them by their ty
   - `panel.*`&nbsp;&nbsp;&rarr;&nbsp;&nbsp; background, border, margin, spacing, grid (major and minor)
   - `plot.*`&nbsp;&nbsp;&rarr;&nbsp;&nbsp; background, title, subtitle, caption, tag, margin
   - `strip.*`&nbsp;&nbsp;&rarr;&nbsp;&nbsp; background, placement, text
+
+---
+
+## Rectangular Elements via `element_rect()`
+
+<p style='text-align:center;'><img src="img/element-rect-1.png" style='width:85%;'></p>
+
+---
+
+## Rectangular Elements via `element_rect()`
+
+<p style='text-align:center;'><img src="img/element-rect-2.png" style='width:85%;'></p>
+
+---
+
+## Rectangular Elements via `element_rect()`
+
+```{r element-rect}
+my_rect_element <- 
+  element_rect(
+    color = "black",
+    fill = "orange",
+    size = 2,
+    linetype = "dotted"
+  )
+```
+
+---
+
+## Rectangular Elements via `element_rect()`
+
+You can directly alter the appearance by adding `theme()` to a ggplot:
+
+```{r element-rect-example, fig.width=16, fig.height=5.7}
+g +
+  theme(plot.background = my_rect_element)
+```
+
+
+---
+
+## Line Elements via `element_line()`
+
+<p style='text-align:center;'><img src="img/element-line.png" style='width:85%;'></p>
+
+---
+
+## Line Elements via `element_line()`
+
+```{r element-line}
+my_line_element <- 
+  element_line(
+    color = "black",
+    size = 3,
+    linetype = "dashed",
+    lineend = "square", # round, butt
+    arrow = arrow(
+      angle = 30, 
+      length = unit(0.25, "inches")
+    )
+  )
+```
+
+---
+
+## Line Elements via `element_line()`
+
+You can directly alter the appearance by adding `theme()` to a ggplot:
+
+```{r element-line-example, fig.width=16, fig.height=5.7}
+g +
+  theme(panel.grid = my_line_element)
+```
 
 ---
 
@@ -932,39 +1063,10 @@ my_text_element <-
 
 You can directly alter the appearance by adding `theme()` to a ggplot:
 
-```{r element-text-example, fig.width=16, fig.height=5.7}
+```{r element-text-example, fig.width=16, fig.height=5.5}
 g +
   ggtitle("My New\nTitle") +
   theme(plot.title = my_text_element)
-```
-
----
-
-## Line Elements via `element_line()`
-
-```{r element-line}
-my_line_element <- 
-  element_line(
-    color = "black",
-    size = 3,
-    linetype = "dashed",
-    lineend = "square", # round, butt
-    arrow = arrow(
-      angle = 30, 
-      length = unit(0.25, "inches")
-    )
-  )
-```
-
----
-
-## Line Elements via `element_line()`
-
-You can directly alter the appearance by adding `theme()` to a ggplot:
-
-```{r element-line-example, fig.width=16, fig.height=5.7}
-g +
-  theme(panel.grid = my_line_element)
 ```
 
 ---
@@ -973,11 +1075,9 @@ background-size: cover
 
 ## Exercise 3:
 
-* Have a closer look at the code of `theme_grey` and of the other themes. What's the difference? 
+* Have a closer look at the codes of `theme_grey`/`theme_gray` and one of the other themes.<br>What's the difference? 
 
-* Create a theme that is as ugly as possible!<br><br><u>or:</u><br>
-
-* Create a theme that you can use ass personal theme.
+* Create a theme that is as ugly as possible!<br><br><u>or:</u><br><br>Create a theme that you can use ass personal theme.
 
 * Apply it to a plot.
 
@@ -991,19 +1091,19 @@ theme_grey
 
 ---
 
-## Exercise 3: <code style='font-weight:700;'>theme_bw()</code>
+## Exercise 3: <code style='font-weight:700;'>theme_dark()</code>
 
 ```{r theme-bw}
-theme_bw
+theme_dark
 ```
 
 ---
 
 ## Exercise 3: Create Your Own Theme!
 
-```{r theme-ugly}
-theme_ugly <-
-  function(base_size = 14, ...) {
+```{r theme-ugly-function-a}
+theme_ugly <- #<<
+  function(base_size = 14, ...) { #<<
     theme_dark(base_size = base_size) %+replace% 
         theme(
           text = element_text(color = "coral1", family = "Sniglet", size = base_size),
@@ -1018,9 +1118,60 @@ theme_ugly <-
           panel.grid = element_line(color = "red", linetype = "4127"),
           plot.background = element_rect(fill = "grey10", color = "red", size = 5),
           plot.margin = margin(rep(25, 4)),
-          legend.background = element_rect(fill = "black", color = "red", size = 2), 
-          complete = TRUE
+          legend.background = element_rect(fill = "black", color = "red", size = 2)
         )
+} #<<
+```
+
+---
+
+## Exercise 3: Create Your Own Theme!
+
+```{r theme-ugly-function-b}
+theme_ugly <- 
+  function(base_size = 14, ...) {
+    theme_dark(base_size = base_size) %+replace%  #<<
+        theme( #<<
+          text = element_text(color = "coral1", family = "Sniglet", size = base_size),
+          axis.text = element_text(color = "grey80", size = rel(.7)),
+          axis.ticks = element_line(color = "grey90"),
+          plot.title = element_text(
+            family = "Bigfish Black",
+            color = "red", size = rel(1.5), lineheight = 1.2,
+            margin = margin(base_size, 0, base_size * 2, 0)
+          ),
+          plot.title.position = "plot",
+          panel.grid = element_line(color = "red", linetype = "4127"),
+          plot.background = element_rect(fill = "grey10", color = "red", size = 5),
+          plot.margin = margin(rep(25, 4)),
+          legend.background = element_rect(fill = "black", color = "red", size = 2)
+        )
+}
+```
+
+---
+
+## Exercise 3: Create Your Own Theme!
+
+```{r theme-ugly-function-c}
+theme_ugly <- 
+  function(base_size = 14, ...) {
+    theme_dark(base_size = base_size) %+replace%
+        theme( #<<
+          text = element_text(color = "coral1", family = "Sniglet", size = base_size), #<<
+          axis.text = element_text(color = "grey80", size = rel(.7)), #<<
+          axis.ticks = element_line(color = "grey90"), #<<
+          plot.title = element_text( #<<
+            family = "Bigfish Black", #<<
+            color = "red", size = rel(1.5), lineheight = 1.2, #<<
+            margin = margin(base_size, 0, base_size * 2, 0) #<<
+          ), #<<
+          plot.title.position = "plot", #<<
+          panel.grid = element_line(color = "red", linetype = "4127"), #<<
+          plot.background = element_rect(fill = "grey10", color = "red", size = 5), #<<
+          plot.margin = margin(rep(25, 4)), #<<
+          legend.background = element_rect(fill = "black", color = "red", size = 2) #<<
+        ) #<<
 }
 ```
 
@@ -1063,7 +1214,7 @@ ggplot(data, aes(x = date, y = close, color = high)) +
   guides(color = guide_colorsteps(barheight = unit(15, "lines"))) +
   coord_polar() +
   ggtitle("I went to Cédric's ggplot2 course and\nall I got is this ridiculous chart") +
-  theme_ugly(base_size = 20)
+  theme_ugly(base_size = 20) #<<
 ```
 
 ---

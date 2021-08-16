@@ -1,5 +1,9 @@
 ---
 title: "Segment 1: The Basics of ggplot2"
+description: "Part 1 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"
+author:
+  - name: Cédric Scherer
+    url: https://cedricscherer.com
 output:
   distill::distill_article:
     toc: true
@@ -11,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
                       dev = "ragg_png", res = 1000)
 ```
 
-### The `{ggplot2}` Package
+## The `{ggplot2}` Package
 
 > `{ggplot2}` is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).
 > You provide the data, tell `{ggplot2}` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
@@ -112,7 +116,6 @@ Furthermore, it helps readers to understand from which package a function is imp
 ## Exercise 1
 
 * Import the data set on Chicago weather data:<br>https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv
-  
 * Inspect the data.
 
 ---
@@ -227,12 +230,9 @@ chic <- readr::read_csv(
 ```
 
 * Create a scatter plot of temperature (`temp`) versus day (`date`).
-
 * Color the points by season (`season`).
-
 * Color the points by year (`year`).
   + What's the problem? How could you fix it?
-
 * **Bonus:** Turn the scatter plot, colored by season, into a line plot.
   + What's the problem? How could you fix it?
 
@@ -254,6 +254,22 @@ ggsave(filename = "my_ggplot.png",
 ![Source: canva.com](https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png)
 
 -> Scales, Coordinate Systems, Facets, Themes, and Annotations will follow later
+
+---
+
+## Resources
+
+* [“ggplot2: Elegant Graphics for Data Analysis”](https://ggplot2-book.org/), free–access book by Hadley Wickham et al.
+
+* [{ggplot2} reference](https://ggplot2.tidyverse.org/reference/)
+
+* [{ggplot2} cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+* [“R for Data Science”](https://4ds.had.co.nz), free–access book by Hadley Wickham
+
+* [“Data Visualization: A Practical Introduction”](https://socviz.co), free–access book  by Kieran Healy
+
+* [“A `{ggplot2}` Tutorial for Beautiful Plotting in R”](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/), my extensive "how to"-tutorial
 
 ---
 
@@ -317,7 +333,9 @@ data
 You could also load, for example, JSON or Excel files with the same function:
 
 ```{r data-rio-json}
-data_json <- rio::import(here::here("data", "crypto_cleaned.json"), setclass = "tbl")
+data_json <- rio::import(here::here("data", "crypto_cleaned.json"))
+
+data_json <- as_tibble(data_json) ## somehow `setclass` doesn't work with json
 
 data_json
 ```

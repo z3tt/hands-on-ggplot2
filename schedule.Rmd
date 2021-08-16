@@ -19,8 +19,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  The Grammar of Graphics
 -  Our First ggplot
 
-→ Slides: [html](slides/grammar.html) | [pdf](slides/grammar.pdf)  
-→ [Notebook](codes/grammar-rmarkdown.html) 
+→ Slides: [html](slides/grammar.html), [pdf](slides/grammar.pdf)  
+→ [Notebook](codes/grammar-rmarkdown.html)   
 → [Codes](codes/grammar-rmarkdown.Rmd)  
 
 *Break: 5 min*
@@ -34,8 +34,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Statistical Transformations
 -  Plot Spatial Maps
 
-→ Slides: [html](slides/layers.html) | [pdf](slides/layers.pdf)  
-→ [Notebook](codes/layers-rmarkdown.html) 
+→ Slides: [html](slides/layers.html), [pdf](slides/layers.pdf)  
+→ [Notebook](codes/layers-rmarkdown.html)   
 → [Codes](codes/layers-rmarkdown.Rmd)  
 
 *Break: 10 min*
@@ -48,8 +48,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Template Designs
 -  Create Custom Themes
 
-→ Slides: [html](slides/themes.html) | [pdf](slides/themes.pdf)  
-→ [Notebook](codes/themes-rmarkdown.html) 
+→ Slides: [html](slides/themes.html), [pdf](slides/themes.pdf)  
+→ [Notebook](codes/themes-rmarkdown.html)   
 → [Codes](codes/themes-rmarkdown.Rmd)  
 
 *Break: 5 min*
@@ -62,8 +62,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Basic and Advanced Text Labeling
 -  Add Images and Illustrations
 
-→ Slides: [html](slides/annotation.html) | [pdf](slides/annotation.pdf)  
-→ [Notebook](codes/annotation-rmarkdown.html) 
+→ Slides: [html](slides/annotation.html), [pdf](slides/annotation.pdf)  
+→ [Notebook](codes/annotation-rmarkdown.html)   
 → [Codes](codes/annotation-rmarkdown.Rmd)  
 
 *Break: 10 min*
@@ -76,12 +76,12 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Small Multiples (Facets)
 -  Combine Multiple Plots with patchwork
 
-→ Slides: [html](slides/multipanel.html) | [pdf](slides/multipanel.pdf)  
-→ [Notebook](codes/multipanel-rmarkdown.html) 
+→ Slides: [html](slides/multipanel.html), [pdf](slides/multipanel.pdf)  
+→ [Notebook](codes/multipanel-rmarkdown.html)   
 → [Codes](codes/multipanel-rmarkdown.Rmd)  
 
 
-## <b style='color:gray;'Course Wrap–Up</b><br><b style='font-size:20pt;'>Next Steps and Q&A</b>
+## <b style='color:gray;'>Wrap–Up</b><br><b style='font-size:20pt;'>Course Summary and Q&A</b>
 
 *Duration: 15 min*
 
