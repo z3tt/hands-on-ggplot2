@@ -273,7 +273,7 @@ ggsave(filename = "my_ggplot.png",
 
 ---
 
-## APPENDIX
+## Appendix
 
 ### Import the Data
 

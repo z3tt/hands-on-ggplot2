@@ -525,7 +525,7 @@ ggplot(sf_world) +
 
 ---
 
-## APPENDIX
+## Appendix
 
 ### Create Any Chart Type
 

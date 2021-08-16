@@ -397,7 +397,7 @@ ggplot(data, aes(currency, close)) +
 
 ---
 
-## <code style='font-weight:700;'>stat\_\*()</code> versus <code style='font-weight:700;'>geom\_\*()</code>
+## <b><code>stat\_\*()</code></b> versus <b><code>geom\_\*()</code></b>
 
 You can go both ways — `stat_x(geom = "y") == geom_y(stat = "x")`:
 
@@ -417,7 +417,7 @@ ggplot(data, aes(open, close)) +
 
 ---
 
-## <code style='font-weight:700;'>stat\_\*()</code> versus <code style='font-weight:700;'>geom\_\*()</code>
+## <b><code>stat\_\*()</code></b> versus <b><code>geom\_\*()</code></b>
 
 You can go both ways — `stat_x(geom = "y") == geom_y(stat = "x")`:
 
@@ -642,7 +642,7 @@ ggplot(data, aes(currency, close)) +
 
 ---
 
-## Statistical Transformations: <code style='font-weight:700;'>stat\_\*()</code>
+## Statistical Transformations: <b><code>stat\_\*()</code></b>
 
 <br>
 There are several other statistical transformations available:

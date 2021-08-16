@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 4 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-16" />
+    <meta name="date" content="2021-08-17" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -20,7 +20,7 @@ background-size: contain
 &lt;br&gt;&lt;br&gt;
 # Hands–On Data Visualization with &lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt;&lt;br&gt;&lt;b style='font-size:25pt;color:#a7a7a7;'&gt;Segment 4: Provide Context with Annotations&lt;/b&gt;
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-#### Dr. Cédric Scherer&lt;b style='color:#ccba56;font-weight:400;line-height:150%;'&gt;&lt;br&gt;O'Reilly Live Training Session&lt;br&gt;September 3, 2021&lt;/b &gt;&lt;br&gt;
+#### Dr. Cédric Scherer&lt;b style='color:#ccba56;font-weight:400;line-height:150%;'&gt;&lt;br&gt;Pearson Live Training Session for O'Reilly&lt;br&gt;September 3, 2021&lt;/b &gt;&lt;br&gt;
 
 
 
@@ -31,7 +31,7 @@ class: inverse, center, middle
 
 ---
 
-## Labels: &lt;code style='font-weight:700;'&gt;labs()&lt;/code&gt;
+## Labels: &lt;b&gt;&lt;code&gt;labs()&lt;/code&gt;&lt;/b&gt;
 
 To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
 
@@ -46,7 +46,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Labels: &lt;code style='font-weight:700;'&gt;labs()&lt;/code&gt;
+## Labels: &lt;b&gt;&lt;code&gt;labs()&lt;/code&gt;&lt;/b&gt;
 
 There are multiple ways to add labels:
 
@@ -69,7 +69,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Labels: &lt;code style='font-weight:700;'&gt;labs()&lt;/code&gt;
+## Labels: &lt;b&gt;&lt;code&gt;labs()&lt;/code&gt;&lt;/b&gt;
 
 To change the labels and add a title, a subtitle, a caption and/or a tag, use `labs()`:
 
@@ -114,7 +114,28 @@ ggplot(data, aes(close, currency)) +
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
+
+The `{ggtext}` package provides simple Markdown and HTML rendering for `{ggplot2}`.
+
+---
+background-image: url("img/bg-poll.png")
+background-size: cover
+
+## POLL: What is your level of expertise?
+
+&lt;ul style='font-size:26pt;margin: 50px 50px;'&gt;
+&lt;li style='margin-bottom: 15px;'&gt;I know neither Markdown nor HTML.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;I use Markdown but not HTML.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;I use HTML (basic) but not Markdown.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;I use HTML (extensively) but not Markdown.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;I use HTML (basic) &lt;u&gt;and&lt;/u&gt; Markdown.&lt;/li&gt;
+&lt;li style='margin-bottom: 15px;'&gt;I use HTML (extensively) &lt;u&gt;and&lt;/u&gt; Markdown.&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package provides simple &lt;u&gt;Markdown&lt;/u&gt; and HTML rendering for `{ggplot2}`.
 
@@ -131,7 +152,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package provides simple &lt;u&gt;Markdown&lt;/u&gt; and HTML rendering for `{ggplot2}`.
 
@@ -147,7 +168,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package provides simple Markdown and &lt;u&gt;HTML&lt;/u&gt; rendering for `{ggplot2}`.
 
@@ -164,7 +185,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 `element_textbox` and `element_textbox_simple` automatically wrap long text:
 
@@ -180,7 +201,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 `element_textbox` and `element_textbox_simple` automatically wrap long text:
 
@@ -196,7 +217,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 `element_textbox` and `element_textbox_simple` automatically wrap long text:
 
@@ -206,14 +227,14 @@ ggplot(data, aes(date, close, color = currency)) +
   geom_line() + 
   labs(title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero.") +
   theme(plot.title = element_textbox_simple(margin = margin(b = 15), lineheight = .9,
-*                                                   linetype = 1, padding = margin(rep(10, 4))))
+*                                           linetype = 1, padding = margin(rep(10, 4))))
 ```
 
 &lt;img src="04-annotation_files/figure-html/ggtext-wrap-title-3-1.png" width="1152" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Text Rendering with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Text Rendering with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 `element_textbox` and `element_textbox_simple` automatically wrap long text:
 
@@ -223,8 +244,8 @@ ggplot(data, aes(date, close, color = currency)) +
   geom_line() + 
   labs(title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero.") +
   theme(plot.title = element_textbox_simple(margin = margin(b = 15), lineheight = .9,
-                                                    linetype = 1, padding = margin(rep(10, 4)),
-*                                                   r = unit(10, "pt"), fill = "moccasin"))
+                                            linetype = 1, padding = margin(rep(10, 4)),
+*                                           r = unit(10, "pt"), fill = "moccasin"))
 ```
 
 &lt;img src="04-annotation_files/figure-html/ggtext-wrap-title-4-1.png" width="1152" style="display: block; margin: auto;" /&gt;
@@ -236,9 +257,9 @@ class: inverse, center, middle
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -260,9 +281,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -288,9 +309,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -314,9 +335,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -340,9 +361,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -370,9 +391,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -400,9 +421,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -432,9 +453,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -466,9 +487,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -540,7 +561,7 @@ background-size: cover
 
 ---
 
-## Exercise 1: Add Labels with &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Exercise 1: Add Annotations with &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
 
 ```r
@@ -559,7 +580,7 @@ annotate
 
 ---
 
-## Exercise 1: Add Labels with &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Exercise 1: Add Annotations with &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
 
 ```r
@@ -572,7 +593,7 @@ g +
 
 ---
 
-## Exercise 1: Add Labels with &lt;code style='font-weight:700;'&gt;annotate()&lt;/code&gt;
+## Exercise 1: Add Annotations with &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
 
 ```r
@@ -591,7 +612,7 @@ g +
 
 ---
 
-## Exercise 1: Add Labels with &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Exercise 1: Add Annotations with &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
 
 ```r
@@ -604,7 +625,7 @@ g +
 
 ---
 
-## Exercise 1: Add Labels with &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Exercise 1: Add Annotations with &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
 
 ```r
@@ -617,7 +638,7 @@ g +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
 You already know `geom_text()`:
 
@@ -639,9 +660,9 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
-Let's tag those days that are considerably far from the diagonal:
+Let's tag only those days that are considerably far from the diagonal:
 
 
 ```r
@@ -652,9 +673,9 @@ outliers &lt;- data %&gt;%
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
-Let's tag those days that are considerably far from the diagonal:
+Let's tag only those days that are considerably far from the diagonal:
 
 
 ```r
@@ -684,9 +705,9 @@ outliers
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
-You already know `geom_text()`:
+We can use both data sets in the same ggplot:
 
 .pull-left[
 
@@ -707,7 +728,7 @@ ggplot(outliers, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
 We can offset the labels with the help of the nudge arguments:
 
@@ -733,7 +754,7 @@ ggplot(outliers, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom_text|label()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
 We can offset the labels with the help of the nudge arguments:
 
@@ -767,7 +788,7 @@ class: inverse, center, middle
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_text|label\_repel()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_text|label\_repel()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggrepel}` package provides two geom's to repel overlapping text labels:
 
@@ -781,7 +802,7 @@ The `{ggrepel}` package provides two geom's to repel overlapping text labels:
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_text|label\_repel()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_text|label\_repel()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggrepel}` package provides two geom's to repel overlapping text labels:
 
@@ -807,7 +828,7 @@ ggplot(outliers, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_text|label\_repel()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_text|label\_repel()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggrepel}` package provides two geom's to repel overlapping text labels:
 
@@ -832,7 +853,7 @@ ggplot(outliers, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_text|label\_repel()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_text|label\_repel()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggrepel}` package provides two geom's to repel overlapping text labels:
 
@@ -861,7 +882,7 @@ ggplot(outliers, aes(close, open)) +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 For illustration purposes we use a data set about Palmer penguins (Horst, Hill &amp; Gorman 2020).
 
@@ -889,7 +910,7 @@ penguins &lt;- read_csv(
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -917,7 +938,7 @@ exclude: true
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -947,7 +968,7 @@ exclude: true
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -978,7 +999,7 @@ exclude: true
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -1004,7 +1025,7 @@ g +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -1030,7 +1051,7 @@ g +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -1056,7 +1077,7 @@ g +
 
 ---
 
-## Annotations via &lt;code style='font-weight:700;'&gt;geom\_mark\_*()&lt;/code&gt;
+## Annotations via &lt;b&gt;&lt;code&gt;geom\_mark\_*()&lt;/code&gt;&lt;/b&gt;
 
 The `{ggforce}` package provides functionality to highlight groups:
 
@@ -1087,7 +1108,7 @@ class: inverse, center, middle
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `magick::image_read()` allows to directly store images from the web in `R`:
 
@@ -1105,7 +1126,7 @@ img
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1128,7 +1149,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1152,7 +1173,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1178,7 +1199,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1206,7 +1227,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Image: The &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
+## Add Images with the &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
 
 The `cowplot` package can also be used to add images:
 
@@ -1232,7 +1253,7 @@ g &lt;- ggplot(data, aes(close, open)) +
 
 ---
 
-## Add Image: The &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
+## Add Images with the &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
 
 The `cowplot` package can not only add plots to other plots but also images:
 
@@ -1259,7 +1280,7 @@ g &lt;- ggplot(data, aes(close, open)) +
 
 ---
 
-## Add Image: The &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
+## Add Images with the &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
 
 The `cowplot` package can also be used to add images:
 
@@ -1365,7 +1386,7 @@ add_logo(my_plot)
 
 ---
 
-## Ressources
+## Resources
 
 * Chapter 8 [Annotations](https://ggplot2-book.org/annotations.html) of the “ggplot2” book by Hadley Wickham et al.
 
@@ -1384,7 +1405,7 @@ class: inverse, center, middle
 
 ---
 
-## Annotations with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Annotations with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
 
@@ -1409,7 +1430,7 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Annotations with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
 
@@ -1438,7 +1459,7 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Annotations with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
 
@@ -1463,7 +1484,7 @@ ggplot(data, aes(close, open)) +
 
 ---
 
-## Annotations with &lt;code style='font-weight:700;'&gt;{ggtext}&lt;/code&gt;
+## Annotations with &lt;b&gt;&lt;code&gt;{ggtext}&lt;/code&gt;&lt;/b&gt;
 
 The `{ggtext}` package also comes with two geom's: `geom_richtext()` and `geom_textbox()`:
 

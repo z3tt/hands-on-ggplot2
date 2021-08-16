@@ -2502,6 +2502,38 @@ Codes
 <li><strong>Business managers</strong> that aim to quickly gain data insights based on reproducible and elegantly formatted charts and reports.</li>
 </ul>
 <hr />
+<h1 id="course-set-up">Course Set-Up</h1>
+<p>To run any of the materials locally on your own machine, you will need the following:</p>
+<ul>
+<li>A recent version of <strong>R</strong> (download from <a href="https://cloud.r-project.org/">here</a>) and <strong>RStudio</strong>, (download from <a href="https://rstudio.com/products/rstudio/download/#download">here</a>).
+<ul>
+<li>for more detailed instructions see <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter 2 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
+</ul></li>
+<li>The following R packages:
+<ul>
+<li><a href="https://www.tidyverse.org/"><code>tidyverse</code></a> (includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>)</li>
+<li><a href="https://ggrepel.slowkow.com/"><code>ggrepel</code></a></li>
+<li><a href="https://wilkelab.org/ggtext/"><code>ggtext</code></a></li>
+<li><a href="https://ggforce.data-imaginist.com/"><code>ggforce</code></a></li>
+<li><a href="https://r-spatial.github.io/sf/"><code>sf</code></a></li>
+<li><a href="https://docs.ropensci.org/rnaturalearth/"><code>rnaturalearth</code></a></li>
+<li><a href="https://patchwork.data-imaginist.com/"><code>patchwork</code></a></li>
+<li><a href="https://wilkelab.org/cowplot/index.html"><code>cowplot</code></a></li>
+<li><a href="https://docs.ropensci.org/magick/"><code>magick</code></a></li>
+<li><a href="https://ragg.r-lib.org/"><code>ragg</code></a></li>
+</ul></li>
+</ul>
+<p>You can install all required R packages at once by running the following code in the R command line:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Package names</span>
+<span class='va'>packages</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span>, <span class='st'>"ggrepel"</span>, <span class='st'>"ggtext"</span>, <span class='st'>"ggforce"</span>, <span class='st'>"sf"</span>, <span class='st'>"rnaturalearth"</span>, <span class='st'>"patchwork"</span>, <span class='st'>"cowplot"</span>, <span class='st'>"magick"</span>, <span class='st'>"ragg"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='va'>packages</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>To run the code, open up Rstudio and copy–paste the code in <strong>console windonw</strong> and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.</p>
+<hr />
 <h1 id="prerequisites-and-preparation">Prerequisites and Preparation</h1>
 <ul>
 <li><strong>Familiarity with Rstudio</strong> <em>(required)</em><br><br>Suggested Material:
@@ -2522,35 +2554,6 @@ Codes
 <li>Scenario: <a href="https://www.oreilly.com/scenarios/format-and-shape/9781492079064/">“Format and Shape Your Data in R with the Tidyverse”</a> by Martin Frigaard</li>
 </ul></li>
 </ul>
-<hr />
-<h1 id="course-set-up">Course Set-Up</h1>
-<p>To run any of the materials locally on your own machine, you will need the following:</p>
-<ul>
-<li>A recent version of <strong>R</strong> (download from <a href="https://cloud.r-project.org/">here</a>) and <strong>RStudio</strong>, (download from <a href="https://rstudio.com/products/rstudio/download/#download">here</a>).
-<ul>
-<li>for more detailed instructions see <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter 2 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
-</ul></li>
-<li>The following R packages:
-<ul>
-<li><a href="https://www.tidyverse.org/"><code>tidyverse</code></a> (includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>)</li>
-<li><a href="https://ggrepel.slowkow.com/"><code>ggrepel</code></a></li>
-<li><a href="https://wilkelab.org/ggtext/"><code>ggtext</code></a></li>
-<li><a href="https://patchwork.data-imaginist.com/"><code>patchwork</code></a></li>
-<li><a href="https://ggforce.data-imaginist.com/"><code>ggforce</code></a></li>
-<li><a href="https://ragg.r-lib.org/"><code>ragg</code></a></li>
-<li><a href="https://docs.ropensci.org/magick/"><code>magick</code></a></li>
-</ul></li>
-</ul>
-<p>You can install all required R packages at once by running the following code in the R command line:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Package names</span>
-<span class='va'>packages</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span>, <span class='st'>"ggrepel"</span>, <span class='st'>"ggtext"</span>, <span class='st'>"patchwork"</span>, <span class='st'>"ragg"</span>, <span class='st'>"magick"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='va'>packages</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>To run the code, open up Rstudio and copy–paste the code in <strong>console windonw</strong> and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.</p>
 <h2 class="appendix" id="reuse">Reuse</h2>
 <p><i>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

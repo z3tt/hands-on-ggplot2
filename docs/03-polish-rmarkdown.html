@@ -2526,7 +2526,7 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='fu'>theme_set</span><span class='op'>(</span><span class='fu'>theme_light</span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv"</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2553,11 +2553,11 @@ Codes
 <p>Scales are directly connected to aesthetics:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_x_date</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>scale_y_continuous</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>scale_color_discrete</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-1.png" width="960" /></p>
@@ -2565,56 +2565,56 @@ Codes
 <p>All scales come with some general and specific arguments to change the appearance:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_x_date</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span>
     expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## general</span>
     date_breaks <span class='op'>=</span> <span class='st'>"4 months"</span>, <span class='co'>## date-only </span>
     date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>, <span class='co'>## date only</span>
     name <span class='op'>=</span> <span class='cn'>NULL</span> <span class='co'>## general </span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_y_continuous</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>  
-  <span class='fu'>scale_color_discrete</span><span class='op'>(</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>  
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-adj-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_x_date</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span>
     expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## general</span>
     date_breaks <span class='op'>=</span> <span class='st'>"4 months"</span>, <span class='co'>## date-only  </span>
     date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>, <span class='co'>## date only</span>
     name <span class='op'>=</span> <span class='cn'>NULL</span> <span class='co'>## general </span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>
     labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='co'>## general </span>
-    sec.axis <span class='op'>=</span> <span class='fu'>dup_axis</span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, <span class='co'>## axis only</span>
+    sec.axis <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/sec_axis.html'>dup_axis</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, <span class='co'>## axis only</span>
     name <span class='op'>=</span> <span class='st'>"Closing Price"</span> <span class='co'>## general </span>
   <span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>scale_color_discrete</span><span class='op'>(</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-adj2-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_x_date</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span>
     expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## general </span>
     date_breaks <span class='op'>=</span> <span class='st'>"4 months"</span>, <span class='co'>## date-only </span>
     date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>, <span class='co'>## date only </span>
     name <span class='op'>=</span> <span class='cn'>NULL</span> <span class='co'>## general </span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>
     labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='co'>## general  </span>
-    sec.axis <span class='op'>=</span> <span class='fu'>dup_axis</span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, <span class='co'>## axis only </span>
+    sec.axis <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/sec_axis.html'>dup_axis</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, <span class='co'>## axis only </span>
     name <span class='op'>=</span> <span class='st'>"Closing Price"</span> <span class='co'>## general </span>
   <span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>scale_color_discrete</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span>
     type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span>,  <span class='co'>## color only</span>
     name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span> <span class='co'>## general </span>
   <span class='op'>)</span>
@@ -2632,18 +2632,18 @@ Codes
 <p>All colors and fills that are mapped to <strong>categorical</strong> variables can be manipulated with either <code>scale_color|fill_discrete()</code> or <code>scale_color|fill_manual()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_discrete</span><span class='op'>(</span>type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>,<span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span>type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>,<span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-discrete-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-manual-1.png" width="960" /></p>
@@ -2651,9 +2651,9 @@ Codes
 <p>Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_manual</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>
     values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#F0B90B"</span>, <span class='st'>"#4d4d4e"</span>, <span class='st'>"#810080"</span>, <span class='st'>"#00aeff"</span><span class='op'>)</span>,
     labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Binance"</span>, <span class='st'>"Bitcoin"</span>, <span class='st'>"EOS"</span>, <span class='st'>"Litecoin"</span><span class='op'>)</span>,
     name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span> 
@@ -2672,18 +2672,18 @@ Codes
 <h3 id="scales-scale_color_viridis_">Scales: <code>scale_color_viridis_*()</code></h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_viridis_d</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_color_viridis_d</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-viridis-default-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_viridis_d</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_color_viridis_d</a></span><span class='op'>(</span>
     option <span class='op'>=</span> <span class='st'>"turbo"</span>,
     begin <span class='op'>=</span> <span class='fl'>.1</span>,
     end <span class='op'>=</span> <span class='fl'>.9</span>,
@@ -2699,9 +2699,9 @@ Codes
 <p>The viridis palettes are more suitable for continuous data:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>yday</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_viridis_c</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>yday</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_color_viridis_c</a></span><span class='op'>(</span>
     option <span class='op'>=</span> <span class='st'>"turbo"</span>,
     begin <span class='op'>=</span> <span class='fl'>.1</span>,
     end <span class='op'>=</span> <span class='fl'>.9</span>, 
@@ -2713,9 +2713,9 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>open</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_viridis_c</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>open</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_color_viridis_c</a></span><span class='op'>(</span>
     option <span class='op'>=</span> <span class='st'>"rocket"</span>,
     direction <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,
     end <span class='op'>=</span> <span class='fl'>.9</span>,
@@ -2728,9 +2728,9 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>open</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_viridis_c</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>open</span>, group <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_color_viridis_c</a></span><span class='op'>(</span>
     option <span class='op'>=</span> <span class='st'>"rocket"</span>,
     direction <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>, 
     end <span class='op'>=</span> <span class='fl'>.9</span>,
@@ -2753,9 +2753,9 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'>scale_color_brewer</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_color_brewer</a></span><span class='op'>(</span>
         palette <span class='op'>=</span> <span class='st'>"Set2"</span>,
         name <span class='op'>=</span> <span class='st'>"Cryptocurrency:"</span>
     <span class='op'>)</span>
@@ -2785,10 +2785,10 @@ Codes
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sf_world</span> <span class='op'>&lt;-</span> <span class='fu'>rnaturalearth</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html'>ne_countries</a></span><span class='op'>(</span>returnclass <span class='op'>=</span> <span class='st'>"sf"</span><span class='op'>)</span>
 
-<span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>pop_est</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>scale_fill_gradient</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"grey90"</span>, high <span class='op'>=</span> <span class='st'>"firebrick4"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>pop_est</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"grey90"</span>, high <span class='op'>=</span> <span class='st'>"firebrick4"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-1.png" width="960" /></p>
@@ -2797,24 +2797,24 @@ Codes
 <p>You can also build your own <strong>diverging color palettes</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_fill_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient2</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-div-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_fill_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span>, 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient2</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span>, 
                        midpoint <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-div-midpoint-1.png" width="1622.4" /></p>
+<p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-div-midpoint-1.png" width="960" /></p>
 </div>
 <h3 id="color-palettes-in-r">Color Palettes in <code>R</code></h3>
 <p>Several packages offer predefined palettes, e.g.:</p>
@@ -2831,11 +2831,11 @@ Codes
 <p>By the way, you can store ggplots in objects and extend them later:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_fill_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span>, 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income_grp</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient2</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"firebrick4"</span>, high <span class='op'>=</span> <span class='st'>"darkcyan"</span>, mid <span class='op'>=</span> <span class='st'>"grey90"</span>, name <span class='op'>=</span> <span class='st'>"Income group:"</span>, 
                        midpoint <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>g</span><span class='op'>)</span>
 </code></pre>
@@ -2848,7 +2848,7 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_colorbar</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_colourbar.html'>guide_colorbar</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-default-1.png" width="960" /></p>
@@ -2856,7 +2856,7 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-legend-1.png" width="960" /></p>
@@ -2864,7 +2864,7 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>reverse <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>reverse <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-legend-rev-1.png" width="960" /></p>
@@ -2872,7 +2872,7 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>reverse <span class='op'>=</span> <span class='cn'>TRUE</span>, keyheight <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>2</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>reverse <span class='op'>=</span> <span class='cn'>TRUE</span>, keyheight <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-legend-height-1.png" width="960" /></p>
@@ -2880,8 +2880,8 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_colorbar</span><span class='op'>(</span>barheight <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>12</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
-                               barwidth <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>1</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_colourbar.html'>guide_colorbar</a></span><span class='op'>(</span>barheight <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>12</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+                               barwidth <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-height-width-1.png" width="960" /></p>
@@ -2897,8 +2897,8 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-1.png" width="960" /></p>
@@ -2906,9 +2906,9 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span>, legend.key.height <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>.5</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
-        legend.key.width <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span>, legend.key.height <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>.5</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+        legend.key.width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-key-size-1.png" width="960" /></p>
@@ -2917,9 +2917,9 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_legend</span><span class='op'>(</span>title.position <span class='op'>=</span> <span class='st'>"top"</span>, title.hjust <span class='op'>=</span> <span class='fl'>.5</span>, label.position <span class='op'>=</span> <span class='st'>"bottom"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span>, legend.key.height <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>.5</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
-        legend.key.width <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title.position <span class='op'>=</span> <span class='st'>"top"</span>, title.hjust <span class='op'>=</span> <span class='fl'>.5</span>, label.position <span class='op'>=</span> <span class='st'>"bottom"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span>, legend.key.height <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>.5</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+        legend.key.width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"lines"</span><span class='op'>)</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-legendtitlepos-1.png" width="960" /></p>
@@ -2929,61 +2929,61 @@ Codes
 <p>You have already seen built-in themes in segment 1:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-       <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+       <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span>
 
 <span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_grey</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_grey()  or  theme_gray()"</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_grey</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_grey()  or  theme_gray()"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-1.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_classic()"</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_classic()"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-2.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_bw()"</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_bw()"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-3.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_light</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_light()"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_light()"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-4.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_minimal()"</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_minimal()"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-5.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_dark</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_dark()"</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_dark</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_dark()"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-6.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_linedraw()"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_linedraw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_linedraw()"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <img src="03-polish-rmarkdown_files/figure-html5/themes-7.png" width="960" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gg</span> <span class='op'>+</span>
-  <span class='fu'>theme_void</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"theme_void()"</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"theme_void()"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/themes-8.png" width="960" /></p>
@@ -2991,18 +2991,18 @@ Codes
 <p>You can either add theme changes to each plot or globally for all plots:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>theme_classic</span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/theme-local-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>theme_set</span><span class='op'>(</span><span class='fu'>theme_classic</span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/theme-global-1.png" width="960" /></p>
@@ -3073,7 +3073,7 @@ Codes
             half_line, half_line, half_line), complete = TRUE)
     ggplot_global$theme_all_null %+replace% t
 }
-&lt;bytecode: 0x000000001902d2c0&gt;
+&lt;bytecode: 0x0000000013157e98&gt;
 &lt;environment: namespace:ggplot2&gt;</code></pre>
 </div>
 <h3 id="theme-arguments"><code>theme()</code> Arguments</h3>
@@ -3105,7 +3105,7 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>plot.background <span class='op'>=</span> <span class='fu'>element_rect</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>plot.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>
     color <span class='op'>=</span> <span class='st'>"black"</span>,
     fill <span class='op'>=</span> <span class='st'>"orange"</span>,
     size <span class='op'>=</span> <span class='fl'>2</span>,
@@ -3122,12 +3122,12 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>panel.grid <span class='op'>=</span> <span class='fu'>element_line</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.grid <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>
     color <span class='op'>=</span> <span class='st'>"black"</span>,
     size <span class='op'>=</span> <span class='fl'>3</span>,
     linetype <span class='op'>=</span> <span class='st'>"dashed"</span>,
     lineend <span class='op'>=</span> <span class='st'>"square"</span>, <span class='co'># round, butt</span>
-    arrow <span class='op'>=</span> <span class='fu'>arrow</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>30</span>, length <span class='op'>=</span> <span class='fu'>unit</span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='st'>"inches"</span><span class='op'>)</span><span class='op'>)</span>
+    arrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/arrow.html'>arrow</a></span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>30</span>, length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='st'>"inches"</span><span class='op'>)</span><span class='op'>)</span>
   <span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -3140,8 +3140,8 @@ Codes
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
-  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"My New\nTitle"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"My New\nTitle"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>
     <span class='co'>#family = "Roboto", ## you need {systemfonts} for this</span>
     face <span class='op'>=</span> <span class='st'>"bold"</span>, <span class='co'>## plain, italic, bolditalic</span>
     size <span class='op'>=</span> <span class='fl'>24</span>,
@@ -3150,7 +3150,7 @@ Codes
     angle <span class='op'>=</span> <span class='fl'>180</span>,
     hjust <span class='op'>=</span> <span class='fl'>.5</span>,
     vjust <span class='op'>=</span> <span class='fl'>.0</span>,
-    margin <span class='op'>=</span> <span class='fu'>margin</span><span class='op'>(</span>
+    margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>
       <span class='fl'>10</span>, <span class='co'>## t (top)</span>
       <span class='fl'>0</span>,  <span class='co'>## r (right)</span>
       <span class='fl'>30</span>, <span class='co'>## b (bottom)</span>
@@ -3187,10 +3187,10 @@ Create a theme that you can use ass personal theme.<br />
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-16 23:33:57 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-17 00:13:50 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [6f43476] 2021-08-16: update slide links</code></pre>
+Head:     [f709b70] 2021-08-16: update slides + notebooks</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -3208,37 +3208,42 @@ attached base packages:
 [7] base     
 
 other attached packages:
-[1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
-[5] readr_1.4.0     tidyr_1.1.3     tibble_3.1.2    ggplot2_3.3.5  
-[9] tidyverse_1.3.1
+ [1] rnaturalearth_0.1.0 sf_1.0-1            forcats_0.5.1      
+ [4] stringr_1.4.0       dplyr_1.0.7         purrr_0.3.4        
+ [7] readr_1.4.0         tidyr_1.1.3         tibble_3.1.2       
+[10] ggplot2_3.3.5       tidyverse_1.3.1    
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2          rnaturalearth_0.1.0 sass_0.4.0         
- [4] jsonlite_1.7.2      viridisLite_0.4.0   modelr_0.1.8       
- [7] bslib_0.2.5.1       assertthat_0.2.1    sp_1.4-5           
-[10] highr_0.9           cellranger_1.1.0    yaml_2.2.1         
-[13] lattice_0.20-44     pillar_1.6.1        backports_1.2.1    
-[16] glue_1.4.2          digest_0.6.27       RColorBrewer_1.1-2 
-[19] rvest_1.0.0         colorspace_2.0-2    htmltools_0.5.1.1  
-[22] pkgconfig_2.0.3     broom_0.7.8         haven_2.4.1        
-[25] scales_1.1.1        distill_1.2         downlit_0.2.1      
-[28] git2r_0.28.0        proxy_0.4-26        generics_0.1.0     
-[31] farver_2.1.0        ellipsis_0.3.2      withr_2.4.2        
-[34] cli_3.0.0           magrittr_2.0.1      crayon_1.4.1       
-[37] readxl_1.3.1        evaluate_0.14       fs_1.5.0           
-[40] fansi_0.5.0         xml2_1.3.2          class_7.3-19       
-[43] textshaping_0.3.5   tools_4.1.0         hms_1.1.0          
-[46] lifecycle_1.0.0     munsell_0.5.0       reprex_2.0.0       
-[49] compiler_4.1.0      jquerylib_0.1.4     e1071_1.7-7        
-[52] systemfonts_1.0.2   rlang_0.4.11        units_0.7-2        
-[55] classInt_0.4-3      grid_4.1.0          rstudioapi_0.13    
-[58] labeling_0.4.2      rmarkdown_2.9       gtable_0.3.0       
-[61] DBI_1.1.1           curl_4.3.2          R6_2.5.0           
-[64] lubridate_1.7.10    knitr_1.33          rgeos_0.5-5        
-[67] utf8_1.2.1          ragg_1.1.3          KernSmooth_2.23-20 
-[70] stringi_1.7.3       Rcpp_1.0.7          vctrs_0.3.8        
-[73] sf_1.0-1            dbplyr_2.1.1        tidyselect_1.1.1   
-[76] xfun_0.24          </code></pre>
+ [1] nlme_3.1-152       fs_1.5.0           lubridate_1.7.10  
+ [4] RColorBrewer_1.1-2 httr_1.4.2         rprojroot_2.0.2   
+ [7] tools_4.1.0        backports_1.2.1    bslib_0.2.5.1     
+[10] rgdal_1.5-23       utf8_1.2.1         R6_2.5.0          
+[13] KernSmooth_2.23-20 rgeos_0.5-5        DBI_1.1.1         
+[16] mgcv_1.8-35        colorspace_2.0-2   sp_1.4-5          
+[19] withr_2.4.2        tidyselect_1.1.1   downlit_0.2.1     
+[22] curl_4.3.2         compiler_4.1.0     git2r_0.28.0      
+[25] textshaping_0.3.5  cli_3.0.0          rvest_1.0.0       
+[28] xml2_1.3.2         labeling_0.4.2     bookdown_0.22     
+[31] sass_0.4.0         scales_1.1.1       classInt_0.4-3    
+[34] hexbin_1.28.2      proxy_0.4-26       systemfonts_1.0.2 
+[37] digest_0.6.27      foreign_0.8-81     rmarkdown_2.9     
+[40] rio_0.5.27         pkgconfig_2.0.3    htmltools_0.5.1.1 
+[43] dbplyr_2.1.1       highr_0.9          rlang_0.4.11      
+[46] readxl_1.3.1       rstudioapi_0.13    jquerylib_0.1.4   
+[49] farver_2.1.0       generics_0.1.0     jsonlite_1.7.2    
+[52] zip_2.2.0          distill_1.2        magrittr_2.0.1    
+[55] s2_1.0.6           Matrix_1.3-3       Rcpp_1.0.7        
+[58] munsell_0.5.0      fansi_0.5.0        lifecycle_1.0.0   
+[61] stringi_1.7.3      yaml_2.2.1         grid_4.1.0        
+[64] crayon_1.4.1       lattice_0.20-44    haven_2.4.1       
+[67] splines_4.1.0      hms_1.1.0          knitr_1.33        
+[70] pillar_1.6.1       wk_0.5.0           reprex_2.0.0      
+[73] glue_1.4.2         evaluate_0.14      data.table_1.14.0 
+[76] modelr_0.1.8       vctrs_0.3.8        cellranger_1.1.0  
+[79] gtable_0.3.0       assertthat_0.2.1   xfun_0.24         
+[82] openxlsx_4.2.4     broom_0.7.8        e1071_1.7-7       
+[85] viridisLite_0.4.0  class_7.3-19       ragg_1.1.3        
+[88] units_0.7-2        ellipsis_0.3.2     here_1.0.1        </code></pre>
 </div>
 </details>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

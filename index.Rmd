@@ -33,6 +33,36 @@ This is the home page for the Pearson Live Training Session "Hands–On Data Vis
 
 ---
 
+# Course Set-Up
+
+To run any of the materials locally on your own machine, you will need the following:
+
+- A recent version of **R** (download from [here](https://cloud.r-project.org/)) and **RStudio**, (download from [here](https://rstudio.com/products/rstudio/download/#download)).
+    * for more detailed instructions see [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers
+- The following R packages:
+  + [`tidyverse`](https://www.tidyverse.org/) (includes [`ggplot2`](https://ggplot2.tidyverse.org/))
+  + [`ggrepel`](https://ggrepel.slowkow.com/)
+  + [`ggtext`](https://wilkelab.org/ggtext/)
+  + [`ggforce`](https://ggforce.data-imaginist.com/)
+  + [`sf`](https://r-spatial.github.io/sf/)
+  + [`rnaturalearth`](https://docs.ropensci.org/rnaturalearth/)
+  + [`patchwork`](https://patchwork.data-imaginist.com/)
+  + [`cowplot`](https://wilkelab.org/cowplot/index.html)
+  + [`magick`](https://docs.ropensci.org/magick/)
+  + [`ragg`](https://ragg.r-lib.org/)
+
+You can install all required R packages at once by running the following code in the R command line:
+
+```{r install, eval=FALSE, echo=TRUE}
+# Package names
+packages <- c("tidyverse", "ggrepel", "ggtext", "ggforce", "sf", "rnaturalearth", "patchwork", "cowplot", "magick", "ragg")
+install.packages(packages)
+```
+
+To run the code, open up Rstudio and copy–paste the code in **console windonw** and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.
+
+---
+
 # Prerequisites and Preparation
 
 - **Familiarity with Rstudio** *(required)*<br><br>Suggested Material:
@@ -49,33 +79,6 @@ This is the home page for the Pearson Live Training Session "Hands–On Data Vis
 - **Data Wrangling with the tidyverse** *(helpful but not required)*<br><br>Suggested Material:
   * Book: [Chapter 9–16 (Section: Wrangle) of “R for Data Science”](https://learning.oreilly.com/library/view/r-for-data/9781491910382/) by Hadley Wickham &  Garrett Grolemund
   * Scenario: [“Format and Shape Your Data in R with the Tidyverse”](https://www.oreilly.com/scenarios/format-and-shape/9781492079064/) by Martin Frigaard 
-
----
-
-# Course Set-Up
-
-To run any of the materials locally on your own machine, you will need the following:
-
-- A recent version of **R** (download from [here](https://cloud.r-project.org/)) and **RStudio**, (download from [here](https://rstudio.com/products/rstudio/download/#download)).
-    * for more detailed instructions see [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers
-- The following R packages:
-  + [`tidyverse`](https://www.tidyverse.org/) (includes [`ggplot2`](https://ggplot2.tidyverse.org/))
-  + [`ggrepel`](https://ggrepel.slowkow.com/)
-  + [`ggtext`](https://wilkelab.org/ggtext/)
-  + [`patchwork`](https://patchwork.data-imaginist.com/)
-  + [`ggforce`](https://ggforce.data-imaginist.com/)
-  + [`ragg`](https://ragg.r-lib.org/)
-  + [`magick`](https://docs.ropensci.org/magick/)
-
-You can install all required R packages at once by running the following code in the R command line:
-
-```{r install, eval=FALSE, echo=TRUE}
-# Package names
-packages <- c("tidyverse", "ggrepel", "ggtext", "patchwork", "ragg", "magick")
-install.packages(packages)
-```
-
-To run the code, open up Rstudio and copy–paste the code in **console windonw** and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.
 
 
 

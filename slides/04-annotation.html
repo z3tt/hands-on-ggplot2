@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 4 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-16" />
+    <meta name="date" content="2021-08-17" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -259,7 +259,7 @@ class: inverse, center, middle
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -283,7 +283,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -311,7 +311,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -337,7 +337,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -363,7 +363,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -393,7 +393,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -423,7 +423,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -455,7 +455,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -489,7 +489,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;annotate()&lt;/code&gt;&lt;/b&gt;
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 
@@ -662,7 +662,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
-Let's tag those days that are considerably far from the diagonal:
+Let's tag only those days that are considerably far from the diagonal:
 
 
 ```r
@@ -675,7 +675,7 @@ outliers &lt;- data %&gt;%
 
 ## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
-Let's tag those days that are considerably far from the diagonal:
+Let's tag only those days that are considerably far from the diagonal:
 
 
 ```r
@@ -707,7 +707,7 @@ outliers
 
 ## Annotations via &lt;b&gt;&lt;code&gt;geom_text|label()&lt;/code&gt;&lt;/b&gt;
 
-You already know `geom_text()`:
+We can use both data sets in the same ggplot:
 
 .pull-left[
 
@@ -1108,7 +1108,7 @@ class: inverse, center, middle
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `magick::image_read()` allows to directly store images from the web in `R`:
 
@@ -1126,7 +1126,7 @@ img
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1149,7 +1149,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1173,7 +1173,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1199,7 +1199,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
+## Add Images via &lt;b&gt;&lt;code&gt;annotation_custom()&lt;/code&gt;&lt;/b&gt;
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1227,7 +1227,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Image: The &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
+## Add Images with the &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
 
 The `cowplot` package can also be used to add images:
 
@@ -1253,7 +1253,7 @@ g &lt;- ggplot(data, aes(close, open)) +
 
 ---
 
-## Add Image: The &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
+## Add Images with the &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
 
 The `cowplot` package can not only add plots to other plots but also images:
 
@@ -1280,7 +1280,7 @@ g &lt;- ggplot(data, aes(close, open)) +
 
 ---
 
-## Add Image: The &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
+## Add Images with the &lt;b&gt;&lt;code&gt;{cowplot}&lt;/code&gt;&lt;/b&gt; Package
 
 The `cowplot` package can also be used to add images:
 
@@ -1386,7 +1386,7 @@ add_logo(my_plot)
 
 ---
 
-## Ressources
+## Resources
 
 * Chapter 8 [Annotations](https://ggplot2-book.org/annotations.html) of the “ggplot2” book by Hadley Wickham et al.
 

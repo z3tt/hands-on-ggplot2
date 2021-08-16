@@ -263,7 +263,7 @@ class: inverse, center, middle
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text, eval=FALSE}
@@ -287,7 +287,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text-adj, eval=FALSE}
@@ -315,7 +315,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-box, eval=FALSE}
@@ -341,7 +341,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-box-adj, eval=FALSE}
@@ -367,7 +367,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text-line, eval=FALSE}
@@ -397,7 +397,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text-curve, eval=FALSE}
@@ -427,7 +427,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text-arrow, eval=FALSE}
@@ -459,7 +459,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text-arrow-type2, eval=FALSE}
@@ -493,7 +493,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>annotate()</code></b>
 
-The `annotate()` functions allows to add geom's to a plot without mapping to variables to aesthetics:
+The `annotate()` function allows to add geom's to a plot without mapping to variables to aesthetics:
 
 .pull-left[
 ```{r annotate-text-arrow-skewed, eval=FALSE}
@@ -652,7 +652,7 @@ ggplot(data, aes(close, open)) +
 
 ## Annotations via <b><code>geom_text|label()</code></b>
 
-Let's tag those days that are considerably far from the diagonal:
+Let's tag only those days that are considerably far from the diagonal:
 
 ```{r geom-text-outlier-data, eval=FALSE}
 outliers <- data %>%
@@ -664,7 +664,7 @@ outliers <- data %>%
 
 ## Annotations via <b><code>geom_text|label()</code></b>
 
-Let's tag those days that are considerably far from the diagonal:
+Let's tag only those days that are considerably far from the diagonal:
 
 ```{r geom-text-outlier-data-output}
 outliers <- data %>%
@@ -678,7 +678,7 @@ outliers
 
 ## Annotations via <b><code>geom_text|label()</code></b>
 
-You already know `geom_text()`:
+We can use both data sets in the same ggplot:
 
 .pull-left[
 ```{r geom-text-outlier, eval=FALSE}
@@ -1100,7 +1100,7 @@ class: inverse, center, middle
 
 ---
 
-## Add Images: <b><code>annotation_custom()</code></b>
+## Add Images via <b><code>annotation_custom()</code></b>
 
 `magick::image_read()` allows to directly store images from the web in `R`:
 
@@ -1115,7 +1115,7 @@ img
 
 ---
 
-## Add Images: <b><code>annotation_custom()</code></b>
+## Add Images via <b><code>annotation_custom()</code></b>
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1138,7 +1138,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: <b><code>annotation_custom()</code></b>
+## Add Images via <b><code>annotation_custom()</code></b>
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1162,7 +1162,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: <b><code>annotation_custom()</code></b>
+## Add Images via <b><code>annotation_custom()</code></b>
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1188,7 +1188,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Images: <b><code>annotation_custom()</code></b>
+## Add Images via <b><code>annotation_custom()</code></b>
 
 `annotation_custom()` in combination with `grid::rasterGrob()` allows to add images:
 
@@ -1216,7 +1216,7 @@ ggplot(data, aes(date, close, color = currency)) +
 
 ---
 
-## Add Image: The <b><code>{cowplot}</code></b> Package
+## Add Images with the <b><code>{cowplot}</code></b> Package
 
 The `cowplot` package can also be used to add images:
 
@@ -1242,7 +1242,7 @@ cowplot::ggdraw(g) + #<<
 
 ---
 
-## Add Image: The <b><code>{cowplot}</code></b> Package
+## Add Images with the <b><code>{cowplot}</code></b> Package
 
 The `cowplot` package can not only add plots to other plots but also images:
 
@@ -1269,7 +1269,7 @@ cowplot::ggdraw() + #<<
 
 ---
 
-## Add Image: The <b><code>{cowplot}</code></b> Package
+## Add Images with the <b><code>{cowplot}</code></b> Package
 
 The `cowplot` package can also be used to add images:
 
@@ -1365,7 +1365,7 @@ add_logo(my_plot)
 
 ---
 
-## Ressources
+## Resources
 
 * Chapter 8 [Annotations](https://ggplot2-book.org/annotations.html) of the “ggplot2” book by Hadley Wickham et al.
 

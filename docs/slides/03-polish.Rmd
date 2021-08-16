@@ -71,13 +71,13 @@ class: inverse, center, middle
 
 ---
 
-## Adjust Colors and Other <code style='font-weight:700;'>aes</code>thetics
+## Adjust Colors and Other <b><code>aes</code><b>thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
 
 ---
 
-## Adjust Colors and Other <code style='font-weight:700;'>aes</code>thetics
+## Adjust Colors and Other <b><code>aes</code><b>thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**.
 
@@ -95,7 +95,7 @@ One can use `scale_*()` to change properties of all the **aesthetic dimensions m
 
 ---
 
-## Adjust Colors and Other <code style='font-weight:700;'>aes</code>thetics
+## Adjust Colors and Other <b><code>aes</code><b>thetics
 
 One can use `scale_*()` to change properties of all the **aesthetic dimensions mapped to the data**
 
@@ -113,7 +113,7 @@ One can use `scale_*()` to change properties of all the **aesthetic dimensions m
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_\*()</code>
+## Scales: <b><code>scale\_\*()</code></b>
 
 Scales are directly connected to aesthetics:
 
@@ -135,7 +135,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_\*()</code>
+## Scales: <b><code>scale\_\*()</code></b>
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -162,7 +162,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_\*()</code>
+## Scales: <b><code>scale\_\*()</code></b>
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -193,7 +193,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_\*()</code>
+## Scales: <b><code>scale\_\*()</code></b>
 
 All scales come with some general and specific arguments to change the appearance:
 
@@ -238,7 +238,7 @@ class: center, middle
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <b><code>scale\_color\_\*()</code></b>
 
 All colors and fills that are mapped to **categorical** variables can be manipulated with either `scale_color|fill_discrete()` or `scale_color|fill_manual()`.
 
@@ -268,7 +268,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <b><code>scale\_color\_\*()</code></b>
 
 Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!
 
@@ -304,7 +304,7 @@ class: middle, center
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
+## Scales: <b><code>scale\_color\_viridis_\*()</code></b>
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -329,7 +329,7 @@ class: middle, center
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
+## Scales: <b><code>scale\_color\_viridis_\*()</code></b>
 
 There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).
 
@@ -354,7 +354,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
+## Scales: <b><code>scale\_color\_viridis_\*()</code></b>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -380,7 +380,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_viridis_\*()</code>
+## Scales: <b><code>scale\_color\_viridis_\*()</code></b>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -407,7 +407,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_\*()</code>
+## Scales: <b><code>scale\_color\_viridis_\*()</code></b>
 
 The viridis palettes are more suitable for continuous data:
 
@@ -435,7 +435,7 @@ ggplot(data, aes(x = date, y = close,
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_brewer_\*()</code>
+## Scales: <b><code>scale\_color\_brewer_\*()</code></b>
 
 Colorbrewer provides color schemes for maps.
 
@@ -445,7 +445,7 @@ RColorBrewer::display.brewer.all()
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_color\_brewer_\*()</code>
+## Scales: <b><code>scale\_color\_brewer_\*()</code></b>
 
 Colorbrewer provides color schemes for maps.
 
@@ -594,7 +594,7 @@ ggplot(sf_world) +
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_fill\_gradient()</code>
+## Scales: <b><code>scale\_fill\_gradient()</code></b>
 
 You can also build your own **sequential color palettes**:
 
@@ -607,7 +607,7 @@ ggplot(sf_world) +
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_fill\_gradient2()</code>
+## Scales: <b><code>scale\_fill\_gradient2()</code></b>
 
 You can also build your own **diverging color palettes**:
 
@@ -620,7 +620,7 @@ ggplot(sf_world) +
 
 ---
 
-## Scales: <code style='font-weight:700;'>scale\_fill\_gradient2()</code>
+## Scales: <b><code>scale\_fill\_gradient2()</code></b>
 
 You can also build your own **diverging color palettes**:
 
@@ -634,7 +634,7 @@ ggplot(sf_world) +
 
 ---
 
-## Color Palettes in <code style='font-weight:700;'>R</code>
+## Color Palettes in <b><code>R</code></b>
 
 <span style='font-size:18pt;'>Several packages offer predefined palettes, e.g.:</span>
 
@@ -670,7 +670,7 @@ class: inverse, center, middle
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>guides()</code>
+## Style Legends: <b><code>guides()</code></b>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -681,7 +681,7 @@ g +
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>guides()</code>
+## Style Legends: <b><code>guides()</code></b>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -692,7 +692,7 @@ g +
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>guides()</code>
+## Style Legends: <b><code>guides()</code></b>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -703,7 +703,7 @@ g +
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>guides()</code>
+## Style Legends: <b><code>guides()</code></b>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -714,7 +714,7 @@ g +
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>guides()</code>
+## Style Legends: <b><code>guides()</code></b>
 
 The `guides()` function allows to adjust the appearance of each legend:
 
@@ -801,7 +801,7 @@ background-size: cover
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>theme()</code>
+## Style Legends: <b><code>theme()</code></b>
 
 The position of the legend and some other properties can be changed via `theme()`:
 
@@ -813,7 +813,7 @@ g +
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>theme()</code>
+## Style Legends: <b><code>theme()</code></b>
 
 The position of the legend and some other properties can be changed via `theme()`:
 
@@ -826,7 +826,7 @@ g +
 
 ---
 
-## Style Legends: <code style='font-weight:700;'>theme()</code>
+## Style Legends: <b><code>theme()</code></b>
 
 You can change the position of the legend title and labels in `guides()`:
 
@@ -844,7 +844,7 @@ class: inverse, center, middle
 
 ---
 
-## Themes: <code style='font-weight:700;'>theme_*()</code>
+## Style Legends: <b><code>theme()</code></b>
 
 You have already seen built-in themes in segment 1:
 
@@ -875,7 +875,7 @@ d <- gg +
 
 ---
 
-## Themes: <code style='font-weight:700;'>theme_*()</code>
+## Style Legends: <b><code>theme()</code></b>
 
 You have already seen built-in themes in segment 1:
 
@@ -901,7 +901,7 @@ d <- gg +
 
 ---
 
-## Themes: <code style='font-weight:700;'>theme_*()</code>
+## Style Legends: <b><code>theme()</code></b>
 
 You can either add theme changes to each plot or globally for all plots:
 
@@ -934,7 +934,7 @@ theme_grey
 
 ---
 
-## <code style='font-weight:700;'>theme()</code> Arguments</b>
+## <b><code>theme()</code> Arguments</b>
 
 There are many elements you can customize. You can either group them by their type or by their category:
 
@@ -1083,7 +1083,7 @@ background-size: cover
 
 ---
 
-## Exercise 3: <code style='font-weight:700;'>theme_grey|gray()</code
+## Exercise 3: <b><code>theme_grey|gray()</b></code>
 
 ```{r theme-grey}
 theme_grey
@@ -1091,7 +1091,7 @@ theme_grey
 
 ---
 
-## Exercise 3: <code style='font-weight:700;'>theme_dark()</code>
+## Exercise 3: <b><code>theme_dark()</b></code>
 
 ```{r theme-bw}
 theme_dark

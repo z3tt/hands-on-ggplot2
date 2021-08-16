@@ -2497,12 +2497,11 @@ Codes
 <li><a href="#area-charts">Area Charts</a></li>
 <li><a href="#box-plots">Box Plots</a></li>
 <li><a href="#jitterstrips">Jitterstrips</a></li>
-</ul></li>
-<li><a href="#barcode-plots">Barcode Plots</a>
-<ul>
+<li><a href="#barcode-plots">Barcode Plots</a></li>
 <li><a href="#hexagonal-bin-plot">Hexagonal Bin Plot</a></li>
 <li><a href="#rectangular-bin-plot">Rectangular Bin Plot</a></li>
 <li><a href="#heatmaps">Heatmaps</a></li>
+</ul></li>
 <li><a href="#statistical-transformations">Statistical Transformations</a>
 <ul>
 <li><a href="#draw-fittings">Draw Fittings</a></li>
@@ -2510,9 +2509,7 @@ Codes
 <li><a href="#dumbbell-plot">Dumbbell Plot</a></li>
 </ul></li>
 <li><a href="#statistical-transformations-stat_">Statistical Transformations: <code>stat_*()</code></a></li>
-</ul></li>
-<li><a href="#exercise-1">Exercise 1</a>
-<ul>
+<li><a href="#exercise-1">Exercise 1</a></li>
 <li><a href="#spatial-maps">Spatial Maps</a>
 <ul>
 <li><a href="#simple-features-access">Simple Features (Access)</a></li>
@@ -2524,13 +2521,12 @@ Codes
 </ul></li>
 <li><a href="#exercise-2">Exercise 2</a></li>
 <li><a href="#resources">Resources</a></li>
-<li><a href="#appendix">APPENDIX</a>
+<li><a href="#appendix">Appendix</a>
 <ul>
 <li><a href="#create-any-chart-type-1">Create Any Chart Type</a></li>
 <li><a href="#statistical-transformations-1">Statistical Transformations</a></li>
 </ul></li>
 <li><a href="#session-info">Session Info</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
@@ -2538,16 +2534,16 @@ Codes
 <p>As you have already seen, we can quickly switch through different chart types:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/scatter-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/line-1.png" width="960" /></p>
@@ -2555,8 +2551,8 @@ Codes
 <h3 id="area-charts">Area Charts</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_area</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/area-1.png" width="960" /></p>
@@ -2564,25 +2560,25 @@ Codes
 <p>Many of the geom’s can further adjusted:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_area</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/area-dodge-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_area</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/area-fill-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_area</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_cartesian</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_area</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.5</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>expand <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/area-fill-no-exp-1.png" width="960" /></p>
@@ -2591,8 +2587,8 @@ Codes
 <p>Some geom’s drastically change the appearance of the data:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_boxplot</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-1.png" width="960" /></p>
@@ -2600,9 +2596,9 @@ Codes
 <p>And, as you already know, we can combine geom’s to make the plot more insightful:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-dots-1.png" width="960" /></p>
@@ -2611,29 +2607,29 @@ Codes
 <p>And also the point geom can be adjusted, e.g. adding some random noise called <strong>jitter</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.2</span>, position <span class='op'>=</span> <span class='fu'>position_jitter</span><span class='op'>(</span>height <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.2</span>, position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_jitter.html'>position_jitter</a></span><span class='op'>(</span>height <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-jitter-1.png" width="960" /></p>
 </div>
-<h1 id="barcode-plots">Barcode Plots</h1>
+<h3 id="barcode-plots">Barcode Plots</h3>
 <p>… or converted to lines forming a <strong>barcode plot</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.1</span>, shape <span class='op'>=</span> <span class='st'>"|"</span>, size <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"grey60"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.1</span>, shape <span class='op'>=</span> <span class='st'>"|"</span>, size <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-barcode-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_boxplot</span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, width <span class='op'>=</span> <span class='fl'>.4</span>, position <span class='op'>=</span> <span class='fu'>position_nudge</span><span class='op'>(</span>y <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.1</span>, shape <span class='op'>=</span> <span class='st'>"|"</span>, size <span class='op'>=</span> <span class='fl'>9</span>, position <span class='op'>=</span> <span class='fu'>position_nudge</span><span class='op'>(</span>y <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span>outlier.alpha <span class='op'>=</span> <span class='fl'>0</span>, width <span class='op'>=</span> <span class='fl'>.4</span>, position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.1</span>, shape <span class='op'>=</span> <span class='st'>"|"</span>, size <span class='op'>=</span> <span class='fl'>9</span>, position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-barcode-nudge-1.png" width="960" /></p>
@@ -2642,16 +2638,16 @@ Codes
 <p>Plots that bin the data can be helpful to deal with overplotting:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/scatter-open-close-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_hex</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_hex.html'>geom_hex</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/hex-open-close-1.png" width="960" /></p>
@@ -2659,20 +2655,20 @@ Codes
 <p>Let’s add the diagonal to the plot:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_abline</a></span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/scatter-open-close-diag-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_hex</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_abline</a></span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_hex.html'>geom_hex</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/hex-open-close-diag-1.png" width="960" /></p>
@@ -2681,10 +2677,10 @@ Codes
 <p>If you don’t like hexagonals, use rectangles!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_bin2d</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_abline</a></span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bin_2d.html'>geom_bin2d</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/rect-open-close-diag-1.png" width="960" /></p>
@@ -2692,20 +2688,20 @@ Codes
 <p>Actually, the fill is mapped to a hidden summary statistic that is calculated by <code>{ggplot2}</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_bin2d</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>..count..</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_abline</a></span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bin_2d.html'>geom_bin2d</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>..count..</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/rect-count-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_abline</span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_bin2d</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>..density..</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_abline</a></span><span class='op'>(</span>slope <span class='op'>=</span> <span class='fl'>1</span>, intercept <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bin_2d.html'>geom_bin2d</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>..density..</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span><span class='op'>(</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/rect-density-1.png" width="960" /></p>
@@ -2714,17 +2710,17 @@ Codes
 <p>With <code>geom_tile()</code> one can create heatmaps:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>currency</span>, fill <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_tile</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>currency</span>, fill <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_tile</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/heatmap-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>currency</span>, fill <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_tile</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_cartesian</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>currency</span>, fill <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_tile</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>expand <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/heatmap-expand-1.png" width="960" /></p>
@@ -2734,18 +2730,18 @@ Codes
 <p>You can directly add smoothed conditional means:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_smooth</span><span class='op'>(</span><span class='op'>)</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth2-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_smooth</span><span class='op'>(</span><span class='op'>)</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth2-again-1.png" width="960" /></p>
@@ -2754,9 +2750,9 @@ Codes
 <p>You can specify the fitting method and the formula:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, formula <span class='op'>=</span> <span class='va'>y</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>  <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>.1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>stat_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, formula <span class='op'>=</span> <span class='va'>y</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>  <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth-polynom-1.png" width="960" /></p>
@@ -2766,8 +2762,8 @@ Codes
 <p>Without pre-calculations one can easily plot data summaries:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-1.png" width="960" /></p>
@@ -2775,36 +2771,36 @@ Codes
 <p>You can always go both ways — <code>stat_x(geom = "y") == geom_y(stat = "x")</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_identity</span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"point"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_identity.html'>stat_identity</a></span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"point"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <img src="02-layers-rmarkdown_files/figure-html5/stat-geom-1.png" width="960" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stat-geom-2.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>month</span><span class='op'>)</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"pointrange"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>month</span><span class='op'>)</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"pointrange"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <img src="02-layers-rmarkdown_files/figure-html5/stat-geom-2-1.png" width="960" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>month</span><span class='op'>)</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_pointrange</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"summary"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>month</span><span class='op'>)</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_pointrange</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"summary"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stat-geom-2-2.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     geom <span class='op'>=</span> <span class='st'>"pointrange"</span>,
     fun.data <span class='op'>=</span> <span class='st'>"mean_se"</span>
   <span class='op'>)</span>
@@ -2814,8 +2810,8 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
@@ -2826,15 +2822,15 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
       geom <span class='op'>=</span> <span class='st'>"text"</span>,
-      <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
   <span class='op'>)</span>
 </code></pre>
 </div>
@@ -2842,16 +2838,16 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
       geom <span class='op'>=</span> <span class='st'>"text"</span>,
       fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-      <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
   <span class='op'>)</span>
 </code></pre>
 </div>
@@ -2859,16 +2855,16 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
     fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
       geom <span class='op'>=</span> <span class='st'>"text"</span>,
       fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-      <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
       size <span class='op'>=</span> <span class='fl'>5</span>,
       hjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.5</span>
   <span class='op'>)</span>
@@ -2879,8 +2875,8 @@ Codes
 <h3 id="dumbbell-plot">Dumbbell Plot</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     geom <span class='op'>=</span> <span class='st'>"linerange"</span>,
     fun.min <span class='op'>=</span> <span class='st'>"min"</span>,
     fun.max <span class='op'>=</span> <span class='st'>"max"</span>
@@ -2891,13 +2887,13 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     geom <span class='op'>=</span> <span class='st'>"linerange"</span>,
     fun.min <span class='op'>=</span> <span class='st'>"min"</span>,
     fun.max <span class='op'>=</span> <span class='st'>"max"</span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='st'>"range"</span>
   <span class='op'>)</span> 
 </code></pre>
@@ -2906,22 +2902,22 @@ Codes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     geom <span class='op'>=</span> <span class='st'>"linerange"</span>,
     fun.min <span class='op'>=</span> <span class='st'>"min"</span>,
     fun.max <span class='op'>=</span> <span class='st'>"max"</span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='st'>"range"</span>
   <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_summary</span><span class='op'>(</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='st'>"range"</span>,
-    <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
     geom <span class='op'>=</span> <span class='st'>"text"</span>,
     size <span class='op'>=</span> <span class='fl'>4</span>,
     hjust <span class='op'>=</span> <span class='fl'>1</span>,
-    position <span class='op'>=</span> <span class='fu'>position_nudge</span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.08</span><span class='op'>)</span>
+    position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.08</span><span class='op'>)</span>
   <span class='op'>)</span>
 </code></pre>
 </div>
@@ -2939,7 +2935,7 @@ Codes
 <li><code>stat_ydensity()</code> to compute vertical density estimates (e.g. for violin plots)</li>
 </ul>
 <hr />
-<h1 id="exercise-1">Exercise 1</h1>
+<h2 id="exercise-1">Exercise 1</h2>
 <ul>
 <li>Import the password data set: <a href="https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv" class="uri">https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv</a></li>
 <li>Visualize the number of passwords per category as bar chart.</li>
@@ -2977,7 +2973,7 @@ Codes
 </code></pre>
 </div>
 <pre><code>OGR data source with driver: ESRI Shapefile 
-Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\RtmpEXC2dB&quot;, layer: &quot;ne_10m_airports&quot;
+Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\RtmpaCJPr9&quot;, layer: &quot;ne_10m_airports&quot;
 with 891 features
 It has 35 fields
 Integer64 fields read as strings:  ne_id </code></pre>
@@ -3056,8 +3052,8 @@ $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((61.21082 35..., MULT~</co
 <p><code>{ggplot2}</code> comes with a set of <code>geom</code>, <code>stat</code>, and <code>coord</code> are used to visualize sf objects.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-1.png" width="960" /></p>
@@ -3065,18 +3061,18 @@ $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((61.21082 35..., MULT~</co
 <p><code>geom_sf()</code> works with all types of vector data and returns geometries depending on the simple features:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_airports</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_airports</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/sf-polygon-point-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"forestgreen"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_airports</span>, color <span class='op'>=</span> <span class='st'>"purple"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"forestgreen"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_airports</span>, color <span class='op'>=</span> <span class='st'>"purple"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-colors-1.png" width="960" /></p>
@@ -3097,33 +3093,33 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span>color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_bln</span>, shape <span class='op'>=</span> <span class='fl'>21</span>, color <span class='op'>=</span> <span class='st'>"firebrick"</span>, fill <span class='op'>=</span> <span class='cn'>NA</span>, size <span class='op'>=</span> <span class='fl'>5</span>, stroke <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sf_bln</span>, shape <span class='op'>=</span> <span class='fl'>21</span>, color <span class='op'>=</span> <span class='st'>"firebrick"</span>, fill <span class='op'>=</span> <span class='cn'>NA</span>, size <span class='op'>=</span> <span class='fl'>5</span>, stroke <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-locator-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"forestgreen"</span>, fill <span class='op'>=</span> <span class='st'>"forestgreen"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"forestgreen"</span>, fill <span class='op'>=</span> <span class='st'>"forestgreen"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-fill-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-fill-economy-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-color-1.png" width="960" /></p>
@@ -3132,36 +3128,36 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 <p>Use <code>coord_sf()</code> to change the projection without changing the spatial data set!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=moll"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-moll-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-custom1-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=-30 +lat_0=-25"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=-30 +lat_0=-25"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-custom2-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_sf</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_sf</span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=-70 +lat_0=0"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>economy</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"white"</span>, size <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>coord_sf</a></span><span class='op'>(</span>crs <span class='op'>=</span> <span class='st'>"+proj=laea +x_0=0 +y_0=0 +lon_0=-70 +lat_0=0"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-proj-custom3-1.png" width="960" /></p>
@@ -3185,42 +3181,42 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 <li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
 </ul>
 <hr />
-<h2 id="appendix">APPENDIX</h2>
+<h2 id="appendix">Appendix</h2>
 <h3 id="create-any-chart-type-1">Create Any Chart Type</h3>
 <h4 id="candlestick-charts">Candlestick Charts</h4>
 <p>There is a package for that — but it’s simple enough to do it manually!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/candle-step-1-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/candle-step-2-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/candle-color-1.png" width="960" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'>geom_linerange</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_x_date</span><span class='op'>(</span>date_labels <span class='op'>=</span> <span class='st'>"%b %d, %Y"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>low</span>, ymax <span class='op'>=</span> <span class='va'>high</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_linerange</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>open</span>, ymax <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>close</span> <span class='op'>&gt;</span> <span class='va'>open</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span>date_labels <span class='op'>=</span> <span class='st'>"%b %d, %Y"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/candle-scale-date-1.png" width="960" /></p>
@@ -3230,9 +3226,9 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 <p><code>stat_function()</code> makes it easy to add a function to a plot, either continuous or discrete:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>8</span>, <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_function</span><span class='op'>(</span>fun <span class='op'>=</span> <span class='va'>dnorm</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>stat_function</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>8</span>, <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_function.html'>stat_function</a></span><span class='op'>(</span>fun <span class='op'>=</span> <span class='va'>dnorm</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_function.html'>stat_function</a></span><span class='op'>(</span>
     fun <span class='op'>=</span> <span class='va'>dcauchy</span>,
     color <span class='op'>=</span> <span class='st'>"red"</span>,
     n <span class='op'>=</span> <span class='fl'>75</span>
@@ -3248,10 +3244,10 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-16 22:54:33 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-17 00:13:17 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [6f43476] 2021-08-16: update slide links</code></pre>
+Head:     [f709b70] 2021-08-16: update slides + notebooks</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -3276,32 +3272,35 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] nlme_3.1-152       fs_1.5.0           lubridate_1.7.10  
- [4] httr_1.4.2         tools_4.1.0        backports_1.2.1   
- [7] bslib_0.2.5.1      rgdal_1.5-23       utf8_1.2.1        
-[10] R6_2.5.0           KernSmooth_2.23-20 rgeos_0.5-5       
-[13] DBI_1.1.1          mgcv_1.8-35        colorspace_2.0-2  
-[16] withr_2.4.2        sp_1.4-5           tidyselect_1.1.1  
-[19] downlit_0.2.1      git2r_0.28.0       curl_4.3.2        
-[22] compiler_4.1.0     textshaping_0.3.5  cli_3.0.0         
-[25] rvest_1.0.0        xml2_1.3.2         labeling_0.4.2    
-[28] sass_0.4.0         scales_1.1.1       classInt_0.4-3    
-[31] hexbin_1.28.2      proxy_0.4-26       systemfonts_1.0.2 
-[34] digest_0.6.27      rmarkdown_2.9      pkgconfig_2.0.3   
-[37] htmltools_0.5.1.1  dbplyr_2.1.1       highr_0.9         
-[40] rlang_0.4.11       readxl_1.3.1       rstudioapi_0.13   
-[43] jquerylib_0.1.4    farver_2.1.0       generics_0.1.0    
-[46] jsonlite_1.7.2     distill_1.2        magrittr_2.0.1    
-[49] s2_1.0.6           Matrix_1.3-3       Rcpp_1.0.7        
-[52] munsell_0.5.0      fansi_0.5.0        lifecycle_1.0.0   
-[55] stringi_1.7.3      yaml_2.2.1         grid_4.1.0        
-[58] crayon_1.4.1       lattice_0.20-44    haven_2.4.1       
-[61] splines_4.1.0      hms_1.1.0          knitr_1.33        
-[64] pillar_1.6.1       wk_0.5.0           reprex_2.0.0      
-[67] glue_1.4.2         evaluate_0.14      modelr_0.1.8      
-[70] vctrs_0.3.8        cellranger_1.1.0   gtable_0.3.0      
-[73] assertthat_0.2.1   xfun_0.24          broom_0.7.8       
-[76] e1071_1.7-7        ragg_1.1.3         class_7.3-19      
-[79] units_0.7-2        ellipsis_0.3.2    </code></pre>
+ [4] httr_1.4.2         rprojroot_2.0.2    tools_4.1.0       
+ [7] backports_1.2.1    bslib_0.2.5.1      rgdal_1.5-23      
+[10] utf8_1.2.1         R6_2.5.0           KernSmooth_2.23-20
+[13] rgeos_0.5-5        DBI_1.1.1          mgcv_1.8-35       
+[16] colorspace_2.0-2   sp_1.4-5           withr_2.4.2       
+[19] tidyselect_1.1.1   downlit_0.2.1      curl_4.3.2        
+[22] compiler_4.1.0     git2r_0.28.0       textshaping_0.3.5 
+[25] cli_3.0.0          rvest_1.0.0        xml2_1.3.2        
+[28] labeling_0.4.2     bookdown_0.22      sass_0.4.0        
+[31] scales_1.1.1       classInt_0.4-3     hexbin_1.28.2     
+[34] proxy_0.4-26       systemfonts_1.0.2  digest_0.6.27     
+[37] foreign_0.8-81     rmarkdown_2.9      rio_0.5.27        
+[40] pkgconfig_2.0.3    htmltools_0.5.1.1  dbplyr_2.1.1      
+[43] highr_0.9          rlang_0.4.11       readxl_1.3.1      
+[46] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0      
+[49] generics_0.1.0     jsonlite_1.7.2     zip_2.2.0         
+[52] distill_1.2        magrittr_2.0.1     s2_1.0.6          
+[55] Matrix_1.3-3       Rcpp_1.0.7         munsell_0.5.0     
+[58] fansi_0.5.0        lifecycle_1.0.0    stringi_1.7.3     
+[61] yaml_2.2.1         grid_4.1.0         crayon_1.4.1      
+[64] lattice_0.20-44    haven_2.4.1        splines_4.1.0     
+[67] hms_1.1.0          knitr_1.33         pillar_1.6.1      
+[70] wk_0.5.0           reprex_2.0.0       glue_1.4.2        
+[73] evaluate_0.14      data.table_1.14.0  modelr_0.1.8      
+[76] vctrs_0.3.8        cellranger_1.1.0   gtable_0.3.0      
+[79] assertthat_0.2.1   xfun_0.24          openxlsx_4.2.4    
+[82] broom_0.7.8        e1071_1.7-7        class_7.3-19      
+[85] ragg_1.1.3         units_0.7-2        ellipsis_0.3.2    
+[88] here_1.0.1        </code></pre>
 </div>
 </details>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
