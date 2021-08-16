@@ -19,9 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  The Grammar of Graphics
 -  Our First ggplot
 
-→ [Slides (html)](slides/introduction.html)  
-→ [Slides (pdf)](slides/introduction.pdf)  
-→ [Codes](codes/introduction-rmarkdown.Rmd)  
+→ Slides: [html](slides/grammar.html) | [pdf](slides/grammar.pdf)  
+→ [Notebook](codes/grammar-rmarkdown.html) 
+→ [Codes](codes/grammar-rmarkdown.Rmd)  
 
 *Break: 5 min*
 
@@ -34,9 +34,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Statistical Transformations
 -  Plot Spatial Maps
 
-→ [Slides (html)](slides/grammar.html)  
-→ [Slides (pdf)](slides/grammar.pdf)  
-→ [Codes](codes/grammar-rmarkdown.Rmd)  
+→ Slides: [html](slides/layers.html) | [pdf](slides/layers.pdf)  
+→ [Notebook](codes/layers-rmarkdown.html) 
+→ [Codes](codes/layers-rmarkdown.Rmd)  
 
 *Break: 10 min*
 
@@ -48,8 +48,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Template Designs
 -  Create Custom Themes
 
-→ [Slides (html)](slides/themes.html)  
-→ [Slides (pdf)](slides/themes.pdf)  
+→ Slides: [html](slides/themes.html) | [pdf](slides/themes.pdf)  
+→ [Notebook](codes/themes-rmarkdown.html) 
 → [Codes](codes/themes-rmarkdown.Rmd)  
 
 *Break: 5 min*
@@ -62,9 +62,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Basic and Advanced Text Labeling
 -  Add Images and Illustrations
 
-
-→ [Slides (html)](slides/annotation.html)  
-→ [Slides (pdf)](slides/annotation.pdf)  
+→ Slides: [html](slides/annotation.html) | [pdf](slides/annotation.pdf)  
+→ [Notebook](codes/annotation-rmarkdown.html) 
 → [Codes](codes/annotation-rmarkdown.Rmd)  
 
 *Break: 10 min*
@@ -77,8 +76,8 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Small Multiples (Facets)
 -  Combine Multiple Plots with patchwork
 
-→ [Slides (html)](slides/multipanel.html)  
-→ [Slides (pdf)](slides/multipanel.pdf)  
+→ Slides: [html](slides/multipanel.html) | [pdf](slides/multipanel.pdf)  
+→ [Notebook](codes/multipanel-rmarkdown.html) 
 → [Codes](codes/multipanel-rmarkdown.Rmd)  
 
 
