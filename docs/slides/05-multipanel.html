@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 5 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-16" />
+    <meta name="date" content="2021-08-17" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -18,9 +18,9 @@ background-size: contain
 
 
 &lt;br&gt;&lt;br&gt;
-# Hands–On Data Visualization with &lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt;&lt;br&gt;&lt;b style='font-size:25pt;color:#a7a7a7;'&gt;Segment 5: Create Multi-Panel Figures&lt;/b&gt;
+# Hands–On Data Visualization with &lt;code style='color:#ebc500;'&gt;ggplot2&lt;/code&gt;&lt;br&gt;&lt;b style='font-size:25pt;color:#a7a7a7;'&gt;Segment 5: Create multipanel Figures&lt;/b&gt;
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-#### Dr. Cédric Scherer&lt;b style='color:#ccba56;font-weight:400;line-height:150%;'&gt;&lt;br&gt;O'Reilly Live Training Session&lt;br&gt;September 3, 2021&lt;/b &gt;&lt;br&gt;
+#### Dr. Cédric Scherer&lt;b style='color:#ccba56;font-weight:400;line-height:150%;'&gt;&lt;br&gt;Pearson Live Training Session for O'Reilly&lt;br&gt;September 3, 2021&lt;/b &gt;&lt;br&gt;
 
 
 
@@ -479,7 +479,7 @@ class: middle, center
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Build up your multipanel plot sequentially using **The Composer of Plots**:
 
 .pull-left[
 
@@ -509,7 +509,7 @@ Build up your multi-panel plot sequentially using **The Composer of Plots**:
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Build up your multipanel plot sequentially using **The Composer of Plots**:
 
 
 ```r
@@ -524,7 +524,7 @@ Build up your multi-panel plot sequentially using **The Composer of Plots**:
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Build up your multipanel plot sequentially using **The Composer of Plots**:
 
 
 ```r
@@ -537,7 +537,7 @@ Build up your multi-panel plot sequentially using **The Composer of Plots**:
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+With the help of `plot_layout()` you can adjust widths and/or heights:
 
 
 ```r
@@ -551,7 +551,7 @@ time + box +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+The `plot_spacer()` function allows to add empty panels:
 
 
 ```r
@@ -565,7 +565,7 @@ Build up your multi-panel plot sequentially using **The Composer of Plots**:
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Let's add another plot — with parentheses you can nest plots:
 
 .pull-left[
 
@@ -596,7 +596,7 @@ scatter &lt;-
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Note that even with legends the plot panels align:
 
 .pull-left[
 
@@ -627,7 +627,7 @@ time / (box + scatter_guide) +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+The argument `guides = "collect"` groups legends and places them relative to the composition:
 
 .pull-left[
 
@@ -648,7 +648,7 @@ time / (box + scatter_guide) +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Furthermore, `plot_annotation()` allows to add labels on the compositional level:
 
 .pull-left[
 
@@ -672,7 +672,7 @@ time / (box + scatter_guide) +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`plot_annotation()` also comes with the functionality to tag panels in one step:
 
 .pull-left[
 
@@ -698,7 +698,7 @@ time / (box + scatter_guide) +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`plot_annotation()` also comes with the functionality to tag panels in one step:
 
 .pull-left[
 
@@ -725,7 +725,7 @@ time / (box + scatter_guide) +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`{patchwork}` also allows to place plots as insets:
 
 .pull-left[
 
@@ -752,7 +752,7 @@ scatter +
 
 ## The &lt;b&gt;&lt;code&gt;patchwork&lt;/code&gt;&lt;/b&gt; package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`{patchwork}` also allows to place plots as insets:
 
 .pull-left[
 
@@ -781,7 +781,7 @@ background-size: cover
 
 ## Exercise 2: 
 
-* Using the [“Datasaurus Dozen”](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) data set and the previous codes, create this multi-panel visualization&lt;br&gt;with the help of `facet_wrap()` and the `{patchwork}` package.
+* Using the [“Datasaurus Dozen”](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) data set and the previous codes, create this multipanel visualization&lt;br&gt;with the help of `facet_wrap()` and the `{patchwork}` package.
 
 &lt;img src="05-multipanel_files/figure-html/exercise-saurus-patchwork-1.png" width="1080" style="display: block; margin: auto;" /&gt;
 
@@ -825,7 +825,7 @@ dino &lt;-
 
 ---
 
-## Exercise 2: Create Multi-Panel Plot
+## Exercise 2: Create multipanel Plot
 
 
 ```r

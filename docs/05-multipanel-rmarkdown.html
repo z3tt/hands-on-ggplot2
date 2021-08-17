@@ -86,7 +86,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Hands-On DataViz with ggplot2: Segment 5: Create Multi-Panel Figures</title>
+  <title>Hands-On DataViz with ggplot2: Segment 5: Create multipanel Figures</title>
 
   <meta property="description" itemprop="description" content="Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
 
@@ -94,7 +94,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Cédric Scherer"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Hands-On DataViz with ggplot2: Segment 5: Create Multi-Panel Figures"/>
+  <meta property="og:title" content="Hands-On DataViz with ggplot2: Segment 5: Create multipanel Figures"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
   <meta property="og:locale" content="en_US"/>
@@ -102,14 +102,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Hands-On DataViz with ggplot2: Segment 5: Create Multi-Panel Figures"/>
+  <meta property="twitter:title" content="Hands-On DataViz with ggplot2: Segment 5: Create multipanel Figures"/>
   <meta property="twitter:description" content="Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 5: Create Multi-Panel Figures"]},{"type":"character","attributes":{},"value":["Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Cédric Scherer"]},{"type":"character","attributes":{},"value":["https://cedricscherer.com"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Segment 5: Create multipanel Figures"]},{"type":"character","attributes":{},"value":["Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Cédric Scherer"]},{"type":"character","attributes":{},"value":["https://cedricscherer.com"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2405,7 +2405,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Segment 5: Create Multi-Panel Figures","description":"Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly","authors":[{"author":"Cédric Scherer","authorURL":"https://cedricscherer.com","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
+{"title":"Segment 5: Create multipanel Figures","description":"Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly","authors":[{"author":"Cédric Scherer","authorURL":"https://cedricscherer.com","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2475,7 +2475,7 @@ Codes
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Segment 5: Create Multi-Panel Figures</h1>
+<h1>Segment 5: Create multipanel Figures</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p>Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
@@ -2492,6 +2492,15 @@ Codes
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#creating-small-multiples-with-facet_">Creating Small Multiples with <code>facet_*()</code></a>
+<ul>
+<li><a href="#facet_wrap"><code>facet_wrap()</code></a></li>
+<li><a href="#facet_grid"><code>facet_grid()</code></a></li>
+</ul></li>
+<li><a href="#exercise-1">Exercise 1:</a></li>
+<li><a href="#create-plot-compositions-with-the-patchwork-package">Create Plot Compositions with the <code>patchwork</code> Package</a></li>
+<li><a href="#exercise-2">Exercise 2:</a></li>
+<li><a href="#resources">Resources</a></li>
 <li><a href="#session-info">Session Info</a></li>
 </ul>
 </nav>
@@ -2504,6 +2513,383 @@ Codes
 </code></pre>
 </div>
 </div>
+<h2 id="creating-small-multiples-with-facet_">Creating Small Multiples with <code>facet_*()</code></h2>
+<p>Faceting can be used to visualize data as small multiples, each showing a different subset of the data. Small multiples are a powerful tool for exploratory data analysis to avoid overplotting, compare many groups, and highlight differences.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/position-facets.png" alt="Adapted from “ggplot2: Elegant Graphics for Data Analysis” by Hadley Wickham" /><figcaption aria-hidden="true">Adapted from “ggplot2: Elegant Graphics for Data Analysis” by Hadley Wickham</figcaption>
+</figure>
+<p>The well-known plot we are going to use for our small multiples, saved as <code>g</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>,
+      size <span class='op'>=</span> <span class='fl'>1</span>
+    <span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span><span class='op'>(</span>
+      date_labels <span class='op'>=</span> <span class='st'>"%m/%y"</span>,
+      expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>
+    <span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>
+      labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>
+    <span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_color_brewer</a></span><span class='op'>(</span>
+      palette <span class='op'>=</span> <span class='st'>"Set1"</span>,
+      guide <span class='op'>=</span> <span class='st'>"none"</span>
+    <span class='op'>)</span>
+
+<span class='va'>g</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-no-1.png" width="960" /></p>
+</div>
+<h3 id="facet_wrap"><code>facet_wrap()</code></h3>
+<p><code>facet_wrap()</code> splits the data into small multiples based on <strong>one grouping variable</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-year-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-currency-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span> <span class='va'>currency</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-currency-2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>currency</span><span class='op'>)</span>,
+    scales <span class='op'>=</span> <span class='st'>"free"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-scales-free-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>currency</span><span class='op'>)</span>,
+    scales <span class='op'>=</span> <span class='st'>"free_y"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-scales-free-y-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>currency</span><span class='op'>)</span>,
+    nrow <span class='op'>=</span> <span class='fl'>1</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-nrow-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>currency</span><span class='op'>)</span>,
+    ncol <span class='op'>=</span> <span class='fl'>1</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-wrap-ncol-1.png" width="960" /></p>
+</div>
+<h3 id="facet_grid"><code>facet_grid()</code></h3>
+<p><code>facet_grid()</code> spans a grid of each combination of <strong>two grouping variables</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>
+    cols <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>currency</span><span class='op'>)</span>,
+    rows <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-grid-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>
+    <span class='va'>year</span> <span class='op'>~</span> <span class='va'>currency</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-grid-2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>
+    <span class='va'>currency</span> <span class='op'>~</span> <span class='va'>year</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-grid-2-inv-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>
+    <span class='va'>currency</span> <span class='op'>~</span> <span class='va'>year</span>,
+    scales <span class='op'>=</span> <span class='st'>"free"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-grid-inv-scales-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>
+    <span class='va'>currency</span> <span class='op'>~</span> <span class='va'>year</span>,
+    scales <span class='op'>=</span> <span class='st'>"free_y"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/facet-grid-inv-scales-y-1.png" width="960" /></p>
+</div>
+<hr />
+<h2 id="exercise-1">Exercise 1:</h2>
+<ul>
+<li>A famous statistical data set is the <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">“Datasaurus Dozen”</a>, which is based on <a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">“Anscome’s Quartet”</a>.<br><br>Import the according data into R and inspect it: <code>datasaurus.csv</code></li>
+<li>Visualize all 12 sets as small multiples of scatter plots.</li>
+<li>Also, add to each facet a linear fitting in the back.</li>
+<li>Use a built-in theme and add a title and explanation of the visual.</li>
+</ul>
+<hr />
+<h2 id="create-plot-compositions-with-the-patchwork-package">Create Plot Compositions with the <code>patchwork</code> Package</h2>
+<figure>
+<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ah_patchwork.jpg" alt="Illustration by Allison Horst" /><figcaption aria-hidden="true">Illustration by Allison Horst</figcaption>
+</figure>
+<p>Build up your multipanel plot sequentially using <strong>The Composer of Plots</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>time</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_color_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"Set1"</span>,
+                     guide <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-basic-plots-1.png" width="960" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>(</span><span class='va'>box</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_color_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"Set1"</span>,
+                     guide <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-basic-plots-2.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("patchwork")</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span>
+
+<span class='va'>time</span> <span class='op'>+</span> <span class='va'>box</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-plots-composed-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>/</span> <span class='va'>box</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-plots-divided-1.png" width="960" /></p>
+</div>
+<p>With the help of <code>plot_layout()</code> you can adjust widths and/or heights:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>+</span> <span class='va'>box</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-widths-1.png" width="960" /></p>
+</div>
+<p>The <code>plot_spacer()</code> function allows to add empty panels:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>+</span> <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_spacer.html'>plot_spacer</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>box</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>.5</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-spacer-1.png" width="1344" /></p>
+</div>
+<p>Let’s add another plot — with parentheses you can nest plots:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>scatter</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>,
+         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>open</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>,
+    size <span class='op'>=</span> <span class='fl'>1.5</span>,
+    alpha <span class='op'>=</span> <span class='fl'>.25</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_color_brewer</a></span><span class='op'>(</span>
+    palette <span class='op'>=</span> <span class='st'>"Set1"</span>,
+    guide <span class='op'>=</span> <span class='st'>"none"</span>
+  <span class='op'>)</span>
+
+<span class='va'>time</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>box</span> <span class='op'>+</span> <span class='va'>scatter</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-adv-1.png" width="960" /></p>
+</div>
+<p>Note that even with legends the plot panels align:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>scatter_guide</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>,
+         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>open</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span>,
+    size <span class='op'>=</span> <span class='fl'>1.5</span>,
+    alpha <span class='op'>=</span> <span class='fl'>.25</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_color_brewer</a></span><span class='op'>(</span>
+    palette <span class='op'>=</span> <span class='st'>"Set1"</span>,
+    <span class='co'>#guide = "none"</span>
+  <span class='op'>)</span>
+
+<span class='va'>time</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>box</span> <span class='op'>+</span> <span class='va'>scatter_guide</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-adv-legend-1.png" width="960" /></p>
+</div>
+<p>The argument <code>guides = "collect"</code> groups legends and places them relative to the composition:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>box</span> <span class='op'>+</span> <span class='va'>scatter_guide</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>
+    heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+    guides <span class='op'>=</span> <span class='st'>"collect"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-adv-legend-collect-1.png" width="960" /></p>
+</div>
+<p>Furthermore, <code>plot_annotation()</code> allows to add labels on the compositional level:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>box</span> <span class='op'>+</span> <span class='va'>scatter_guide</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>
+    heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+    guides <span class='op'>=</span> <span class='st'>"collect"</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_annotation.html'>plot_annotation</a></span><span class='op'>(</span>
+    title <span class='op'>=</span> <span class='st'>"Performance of Top 4 Cryptocurrencies"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-annotate-1.png" width="960" /></p>
+</div>
+<p><code>plot_annotation()</code> also comes with the functionality to tag panels in one step:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>box</span> <span class='op'>+</span> <span class='va'>scatter_guide</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>
+    heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+    guides <span class='op'>=</span> <span class='st'>"collect"</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_annotation.html'>plot_annotation</a></span><span class='op'>(</span>
+    title <span class='op'>=</span> <span class='st'>"Performance of Top 4 Cryptocurrencies"</span>,
+    tag_levels <span class='op'>=</span> <span class='st'>"A"</span>,
+    tag_suffix <span class='op'>=</span> <span class='st'>")"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-annotate-2-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>time</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>box</span> <span class='op'>+</span> <span class='va'>scatter_guide</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>
+    heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+    guides <span class='op'>=</span> <span class='st'>"collect"</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_annotation.html'>plot_annotation</a></span><span class='op'>(</span>
+    title <span class='op'>=</span> <span class='st'>"Performance of Top 4 Cryptocurrencies"</span>,
+    tag_levels <span class='op'>=</span> <span class='st'>"i"</span>,
+    tag_prefix <span class='op'>=</span> <span class='st'>"("</span>,
+    tag_suffix <span class='op'>=</span> <span class='st'>")"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-annotate-3-1.png" width="960" /></p>
+</div>
+<p><code>{patchwork}</code> also allows to place plots as insets:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>box</span> <span class='op'>&lt;-</span> <span class='va'>box</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>plot.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>scatter</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/inset_element.html'>inset_element</a></span><span class='op'>(</span>
+    <span class='va'>box</span>, 
+    top <span class='op'>=</span> <span class='fl'>.55</span>,
+    right <span class='op'>=</span> <span class='fl'>1</span>, 
+    bottom <span class='op'>=</span> <span class='fl'>0</span>,
+    left <span class='op'>=</span> <span class='fl'>.6</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-inset-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>box</span> <span class='op'>&lt;-</span> <span class='va'>box</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>scatter</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/inset_element.html'>inset_element</a></span><span class='op'>(</span>
+    <span class='va'>box</span>, 
+    top <span class='op'>=</span> <span class='fl'>.9</span>,
+    right <span class='op'>=</span> <span class='fl'>.9</span>,
+    bottom <span class='op'>=</span> <span class='fl'>.1</span>,
+    left <span class='op'>=</span> <span class='fl'>.1</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="05-multipanel-rmarkdown_files/figure-html5/patchwork-inset-2-1.png" width="960" /></p>
+</div>
+<hr />
+<h2 id="exercise-2">Exercise 2:</h2>
+<ul>
+<li>Using the <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">“Datasaurus Dozen”</a> data set and the previous codes, create this multipanel visualization<br>with the help of <code>facet_wrap()</code> and the <code>{patchwork}</code> package. <img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/img/exercise-5-2.png" /></li>
+</ul>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li><p>Chapters on <a href="https://ggplot2-book.org/facet.html">faceting</a> and <a href="https://ggplot2-book.org/arranging-plots.html">arranging plots</a> of the “ggplot2” book by Hadley Wickham et al.</p></li>
+<li><p><a href="https://patchwork.data-imaginist.com/index.html"><code>{patchwork}</code> package reference</a> with lots of articles on ho to create (more complex) layouts</p></li>
+<li><p><a href="https://wilkelab.org/cowplot/articles/plot_grid.html"><code>{cowplot}</code> package reference</a>, another package to arrange multiple plots in a grid<br>(and to add insets and images)</p></li>
+<li><p><a href="https://r-graphics.org/recipe-annotate-facet">How to add annotations to individual facets</a>, part of the “R Graphics Cookbook” book by Winston Chang</p></li>
+<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+</ul>
 <hr />
 <h2 id="session-info">Session Info</h2>
 <details>
@@ -2511,10 +2897,10 @@ Codes
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-17 00:14:39 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-08-17 14:29:49 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [f709b70] 2021-08-16: update slides + notebooks</code></pre>
+Head:     [74839e7] 2021-08-16: update index</code></pre>
 <pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -2532,10 +2918,11 @@ attached base packages:
 [7] base     
 
 other attached packages:
- [1] ggtext_0.1.1        rnaturalearth_0.1.0 sf_1.0-1           
- [4] forcats_0.5.1       stringr_1.4.0       dplyr_1.0.7        
- [7] purrr_0.3.4         readr_1.4.0         tidyr_1.1.3        
-[10] tibble_3.1.2        ggplot2_3.3.5       tidyverse_1.3.1    
+ [1] patchwork_1.1.1     ggtext_0.1.1        rnaturalearth_0.1.0
+ [4] sf_1.0-1            forcats_0.5.1       stringr_1.4.0      
+ [7] dplyr_1.0.7         purrr_0.3.4         readr_1.4.0        
+[10] tidyr_1.1.3         tibble_3.1.2        ggplot2_3.3.5      
+[13] tidyverse_1.3.1    
 
 loaded via a namespace (and not attached):
   [1] colorspace_2.0-2   ellipsis_0.3.2     class_7.3-19      

@@ -47,7 +47,7 @@ options(width = 80)
 ```
 
 <br><br>
-# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 5: Create Multi-Panel Figures</b>
+# Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 5: Create multipanel Figures</b>
 <br><br><br><br><br><br><br>
 #### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>September 3, 2021</b ><br>
 
@@ -472,7 +472,7 @@ class: middle, center
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Build up your multipanel plot sequentially using **The Composer of Plots**:
 
 .pull-left[
 ```{r patchwork-basic-plot-1, fig.height=4.1}
@@ -496,9 +496,9 @@ Build up your multi-panel plot sequentially using **The Composer of Plots**:
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Build up your multipanel plot sequentially using **The Composer of Plots**:
 
-```{r patchwork, fig.width=14, fig.height=5.4, fig.align="center"}
+```{r patchwork, fig.width=14, fig.height=5.4}
 #install.packages("patchwork")
 library(patchwork) #<<
 time + box #<<
@@ -508,9 +508,9 @@ time + box #<<
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Build up your multipanel plot sequentially using **The Composer of Plots**:
 
-```{r patchwork-2, fig.height=5.8, fig.align="center"}
+```{r patchwork-2, fig.height=5.8}
 time / box #<<
 ```
 
@@ -518,9 +518,9 @@ time / box #<<
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+With the help of `plot_layout()` you can adjust widths and/or heights:
 
-```{r patchwork-widths, fig.width=14, fig.height=5.4, fig.align="center"}
+```{r patchwork-widths, fig.width=14, fig.height=5.4}
 time + box + 
   plot_layout(widths = c(2, 1)) #<<
 ```
@@ -529,9 +529,9 @@ time + box +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+The `plot_spacer()` function allows to add empty panels:
 
-```{r patchwork-spacer, fig.width=14, fig.height=5.4, fig.align="center"}
+```{r patchwork-spacer, fig.width=14, fig.height=5.4}
 time + plot_spacer() + box +  #<<
   plot_layout(widths = c(2, .5, 1)) #<<
 ```
@@ -540,7 +540,7 @@ time + plot_spacer() + box +  #<<
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Let's add another plot — with parentheses you can nest plots:
 
 .pull-left[
 ```{r patchwork-adv, eval=FALSE}
@@ -571,7 +571,7 @@ time / (box + scatter) + #<<
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Note that even with legends the plot panels align:
 
 .pull-left[
 ```{r patchwork-adv-legend, eval=FALSE}
@@ -602,7 +602,7 @@ time / (box + scatter_guide) +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+The argument `guides = "collect"` groups legends and places them relative to the composition:
 
 .pull-left[
 ```{r patchwork-adv-legend-collect, eval=FALSE}
@@ -623,7 +623,7 @@ time / (box + scatter_guide) +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+Furthermore, `plot_annotation()` allows to add labels on the compositional level:
 
 .pull-left[
 ```{r patchwork-annotate, eval=FALSE}
@@ -647,7 +647,7 @@ time / (box + scatter_guide) +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`plot_annotation()` also comes with the functionality to tag panels in one step:
 
 .pull-left[
 ```{r patchwork-annotate-2, eval=FALSE}
@@ -673,7 +673,7 @@ time / (box + scatter_guide) +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`plot_annotation()` also comes with the functionality to tag panels in one step:
 
 .pull-left[
 ```{r patchwork-annotate-3, eval=FALSE}
@@ -700,7 +700,7 @@ time / (box + scatter_guide) +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`{patchwork}` also allows to place plots as insets:
 
 .pull-left[
 ```{r patchwork-inset, eval=FALSE}
@@ -727,7 +727,7 @@ scatter +
 
 ## The <b><code>patchwork</code></b> package
 
-Build up your multi-panel plot sequentially using **The Composer of Plots**:
+`{patchwork}` also allows to place plots as insets:
 
 .pull-left[
 ```{r patchwork-inset-2, eval=FALSE}
@@ -756,7 +756,7 @@ background-size: cover
 
 ## Exercise 2: 
 
-* Using the [“Datasaurus Dozen”](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) data set and the previous codes, create this multi-panel visualization<br>with the help of `facet_wrap()` and the `{patchwork}` package.
+* Using the [“Datasaurus Dozen”](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) data set and the previous codes, create this multipanel visualization<br>with the help of `facet_wrap()` and the `{patchwork}` package.
 
 ```{r exercise-saurus-patchwork, echo=FALSE, fig.width=15, fig.height=6}
 a <- ggplot(filter(saurus, dataset == "dino"), aes(x, y)) +
@@ -817,7 +817,7 @@ dino <-
 
 ---
 
-## Exercise 2: Create Multi-Panel Plot
+## Exercise 2: Create multipanel Plot
 
 ```{r facet-patchwork, fig.width=15, fig.height=6}
 dino + facet
