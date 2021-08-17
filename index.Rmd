@@ -41,21 +41,21 @@ To run any of the materials locally on your own machine, you will need the follo
     * for more detailed instructions see [Chapter 2 of “R Programming for Statistics and Data Science”](https://learning.oreilly.com/videos/r-programming-for/9781789950298/) by 365 Careers
 - The following R packages:
   + [`tidyverse`](https://www.tidyverse.org/) (includes [`ggplot2`](https://ggplot2.tidyverse.org/))
+  + [`cowplot`](https://wilkelab.org/cowplot/index.html)
+  + [`ggforce`](https://ggforce.data-imaginist.com/)
   + [`ggrepel`](https://ggrepel.slowkow.com/)
   + [`ggtext`](https://wilkelab.org/ggtext/)
-  + [`ggforce`](https://ggforce.data-imaginist.com/)
-  + [`sf`](https://r-spatial.github.io/sf/)
-  + [`rnaturalearth`](https://docs.ropensci.org/rnaturalearth/)
-  + [`patchwork`](https://patchwork.data-imaginist.com/)
-  + [`cowplot`](https://wilkelab.org/cowplot/index.html)
   + [`magick`](https://docs.ropensci.org/magick/)
+  + [`patchwork`](https://patchwork.data-imaginist.com/)
   + [`ragg`](https://ragg.r-lib.org/)
+  + [`rnaturalearth`](https://docs.ropensci.org/rnaturalearth/)
+  + [`sf`](https://r-spatial.github.io/sf/)
 
 You can install all required R packages at once by running the following code in the R command line:
 
 ```{r install, eval=FALSE, echo=TRUE}
 # Package names
-packages <- c("tidyverse", "ggrepel", "ggtext", "ggforce", "sf", "rnaturalearth", "patchwork", "cowplot", "magick", "ragg")
+packages <- c("tidyverse", "cowplot", "ggforce", "ggrepel", "ggtext", "magick", "patchwork", "ragg", "rnaturalearth", "sf")
 install.packages(packages)
 ```
 
