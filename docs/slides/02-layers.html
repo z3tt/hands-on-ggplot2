@@ -4,7 +4,7 @@
     <title>Hands–On Data Visualization with ggplot2 – Segment 2 – Cédric Scherer</title>
     <meta charset="utf-8" />
     <meta name="author" content="Cédric Scherer" />
-    <meta name="date" content="2021-08-16" />
+    <meta name="date" content="2021-08-30" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -994,9 +994,9 @@ The `{rnaturalearth}` allows downloading the Natural Earth data sets in simple f
 
 ```r
 sf_world &lt;- ne_countries(returnclass = "sf")
-sf_airports &lt;- ne_download(scale = 'large', category = "cultural", type = "airports", returnclass = "sf")
+sf_airports &lt;- ne_download(scale = "large", category = "cultural", type = "airports", returnclass = "sf")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "C:\Users\DataVizard\AppData\Local\Temp\RtmpA58lt9", layer: "ne_10m_airports"
+## Source: "C:\Users\DataVizard\AppData\Local\Temp\RtmpoxZTGc", layer: "ne_10m_airports"
 ## with 891 features
 ## It has 35 fields
 ## Integer64 fields read as strings:  ne_id

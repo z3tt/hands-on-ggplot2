@@ -408,7 +408,7 @@ The `{rnaturalearth}` allows downloading the Natural Earth data sets in simple f
 
 ```{r rnatural-earth-download}
 sf_world <- ne_countries(returnclass = "sf")
-sf_airports <- ne_download(scale = 'large', category = "cultural", type = "airports", returnclass = "sf")
+sf_airports <- ne_download(scale = "large", category = "cultural", type = "airports", returnclass = "sf")
 
 tibble::glimpse(sf_world)
 ```
