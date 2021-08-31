@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  The Grammar of Graphics
 -  Our First ggplot
 
-→ Slides: [html](slides/01-grammar.html), [pdf](slides/01-grammar.pdf)  
+→ Slides: [html](slides/01-grammar.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/01-grammar.pdf)  
 → [Notebook](codes/01-grammar-rmarkdown.html)   
 → [Codes](codes/01-grammar-rmarkdown.Rmd)  
 
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Statistical Transformations
 -  Plot Spatial Maps
 
-→ Slides: [html](slides/02-layers.html), [pdf](slides/02-layers.pdf)  
+→ Slides: [html](slides/02-layers.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/02-layers.pdf)
 → [Notebook](codes/02-layers-rmarkdown.html)   
 → [Codes](codes/02-layers-rmarkdown.Rmd)  
 
@@ -48,7 +48,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Template Designs
 -  Create Custom Themes
 
-→ Slides: [html](slides/03-themes.html), [pdf](slides/03-themes.pdf)  
+→ Slides: [html](slides/03-themes.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/03-themes.pdf)
 → [Notebook](codes/03-themes-rmarkdown.html)   
 → [Codes](codes/03-themes-rmarkdown.Rmd)  
 
@@ -62,7 +62,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Basic and Advanced Text Labeling
 -  Add Images and Illustrations
 
-→ Slides: [html](slides/04-annotation.html), [pdf](slides/04-annotation.pdf)  
+→ Slides: [html](slides/04-annotation.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/04-annotation.pdf)
 → [Notebook](codes/04-annotation-rmarkdown.html)   
 → [Codes](codes/04-annotation-rmarkdown.Rmd)  
 
@@ -76,7 +76,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Small Multiples (Facets)
 -  Combine Multiple Plots with patchwork
 
-→ Slides: [html](slides/05-multipanel.html), [pdf](slides/05-multipanel.pdf)  
+→ Slides: [html](slides/05-multipanel.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/05-multipanel.pdf)  
 → [Notebook](codes/05-multipanel-rmarkdown.html)   
 → [Codes](codes/05-multipanel-rmarkdown.Rmd)  
 
