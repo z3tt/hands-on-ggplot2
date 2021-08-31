@@ -19,9 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  The Grammar of Graphics
 -  Our First ggplot
 
-→ Slides: [html](slides/grammar.html), [pdf](slides/grammar.pdf)  
-→ [Notebook](codes/grammar-rmarkdown.html)   
-→ [Codes](codes/grammar-rmarkdown.Rmd)  
+→ Slides: [html](slides/01-grammar.html), [pdf](slides/01-grammar.pdf)  
+→ [Notebook](codes/01-grammar-rmarkdown.html)   
+→ [Codes](codes/01-grammar-rmarkdown.Rmd)  
 
 *Break: 5 min*
 
@@ -34,9 +34,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Statistical Transformations
 -  Plot Spatial Maps
 
-→ Slides: [html](slides/layers.html), [pdf](slides/layers.pdf)  
-→ [Notebook](codes/layers-rmarkdown.html)   
-→ [Codes](codes/layers-rmarkdown.Rmd)  
+→ Slides: [html](slides/02-layers.html), [pdf](slides/02-layers.pdf)  
+→ [Notebook](codes/02-layers-rmarkdown.html)   
+→ [Codes](codes/02-layers-rmarkdown.Rmd)  
 
 *Break: 10 min*
 
@@ -48,9 +48,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Template Designs
 -  Create Custom Themes
 
-→ Slides: [html](slides/themes.html), [pdf](slides/themes.pdf)  
-→ [Notebook](codes/themes-rmarkdown.html)   
-→ [Codes](codes/themes-rmarkdown.Rmd)  
+→ Slides: [html](slides/03-themes.html), [pdf](slides/03-themes.pdf)  
+→ [Notebook](codes/03-themes-rmarkdown.html)   
+→ [Codes](codes/03-themes-rmarkdown.Rmd)  
 
 *Break: 5 min*
 
@@ -62,9 +62,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Basic and Advanced Text Labeling
 -  Add Images and Illustrations
 
-→ Slides: [html](slides/annotation.html), [pdf](slides/annotation.pdf)  
-→ [Notebook](codes/annotation-rmarkdown.html)   
-→ [Codes](codes/annotation-rmarkdown.Rmd)  
+→ Slides: [html](slides/04-annotation.html), [pdf](slides/04-annotation.pdf)  
+→ [Notebook](codes/04-annotation-rmarkdown.html)   
+→ [Codes](codes/04-annotation-rmarkdown.Rmd)  
 
 *Break: 10 min*
 
@@ -76,9 +76,9 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Create Small Multiples (Facets)
 -  Combine Multiple Plots with patchwork
 
-→ Slides: [html](slides/multipanel.html), [pdf](slides/multipanel.pdf)  
-→ [Notebook](codes/multipanel-rmarkdown.html)   
-→ [Codes](codes/multipanel-rmarkdown.Rmd)  
+→ Slides: [html](slides/05-multipanel.html), [pdf](slides/05-multipanel.pdf)  
+→ [Notebook](codes/05-multipanel-rmarkdown.html)   
+→ [Codes](codes/05-multipanel-rmarkdown.Rmd)  
 
 
 ## <b style='color:gray;'>Wrap–Up</b><br><b style='font-size:20pt;'>Course Summary and Q&A</b>
