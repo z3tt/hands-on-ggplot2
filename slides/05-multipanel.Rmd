@@ -49,7 +49,7 @@ options(width = 80)
 <br><br>
 # Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 5: Create Multipanel Figures</b>
 <br><br><br><br><br><br><br>
-#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>September 3, 2021</b ><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>December 17, 2021</b ><br>
 
 ```{r prep, echo=FALSE}
 library(tidyverse)
@@ -761,7 +761,7 @@ background-size: cover
 ```{r exercise-saurus-patchwork, echo=FALSE, fig.width=15, fig.height=6}
 a <- ggplot(filter(saurus, dataset == "dino"), aes(x, y)) +
   geom_smooth(method = "lm", se = FALSE) + 
-  geom_point(alpha = .4) + 
+  geom_point(alpha = .4, size = .8) + 
   facet_wrap(~ dataset) +
   #coord_fixed() +
   scale_x_continuous(guide = "none", name = NULL) + 
@@ -769,7 +769,7 @@ a <- ggplot(filter(saurus, dataset == "dino"), aes(x, y)) +
 
 b <- ggplot(filter(saurus, dataset != "dino"), aes(x, y)) + 
   geom_smooth(method = "lm", se = FALSE) +
-  geom_point(alpha = .4) +
+  geom_point(alpha = .4, size = 3) +
   facet_wrap(~ dataset, nrow = 2) +
   #coord_fixed() +
   scale_x_continuous(guide = "none", name = NULL) + 
@@ -787,7 +787,7 @@ a + b + plot_layout(widths = c(1, 2.5)) +
 facet <- 
   ggplot(filter(saurus, dataset != "dino"), aes(x, y)) +#<<
     geom_smooth(method = "lm", se = FALSE) +
-    geom_point(alpha = .4) +
+    geom_point(alpha = .4, size = .8) +
     facet_wrap(~ dataset, nrow = 2) +
     scale_x_continuous(guide = "none", name = NULL) + 
     scale_y_continuous(guide = "none", name = NULL)
@@ -801,7 +801,7 @@ facet <-
 facet <- 
   ggplot(filter(saurus, dataset != "dino"), aes(x, y)) +
     geom_smooth(method = "lm", se = FALSE) +
-    geom_point(alpha = .4) +
+    geom_point(alpha = .4, size = .8) +
     facet_wrap(~ dataset, nrow = 2) +
     scale_x_continuous(guide = "none", name = NULL) + 
     scale_y_continuous(guide = "none", name = NULL)
@@ -809,7 +809,7 @@ facet <-
 dino <- 
   ggplot(filter(saurus, dataset == "dino"), aes(x, y)) + #<<
     geom_smooth(method = "lm", se = FALSE) + 
-    geom_point(alpha = .4) + 
+    geom_point(alpha = .4, size = 3) + 
     facet_wrap(~ dataset) + #<<
     scale_x_continuous(guide = "none", name = NULL) + 
     scale_y_continuous(guide = "none", name = NULL)

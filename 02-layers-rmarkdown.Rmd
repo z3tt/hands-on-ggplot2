@@ -260,12 +260,23 @@ ggplot(data, aes(currency, close)) +
   ) 
 ```
 
+The common standard placeholder for numeric inputs in functions is `x`. However, it might be more intuitive to use `y` here as we are summarizing our y variable:
+
+```{r stats-summary-custom-y}
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
+  ) 
+```
+
 ```{r stats-summary-custom-label}
 ggplot(data, aes(currency, close)) +
   stat_summary(
-    fun = function(x) mean(x),
-    fun.min = function(x) mean(x) - sd(x),
-    fun.max = function(x) mean(x) + sd(x)
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
   ) +
   stat_summary(
       geom = "text",
@@ -276,13 +287,13 @@ ggplot(data, aes(currency, close)) +
 ```{r stats-summary-custom-label-warning}
 ggplot(data, aes(currency, close)) +
   stat_summary(
-    fun = function(x) mean(x),
-    fun.min = function(x) mean(x) - sd(x),
-    fun.max = function(x) mean(x) + sd(x)
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
   ) +
   stat_summary(
       geom = "text",
-      fun = function(x) mean(x),
+      fun = function(y) mean(y),
       aes(label = round(..y.., 2))
   )
 ```
@@ -290,13 +301,13 @@ ggplot(data, aes(currency, close)) +
 ```{r stats-summary-custom-label-adj}
 ggplot(data, aes(currency, close)) +
   stat_summary(
-    fun = function(x) mean(x),
-    fun.min = function(x) mean(x) - sd(x),
-    fun.max = function(x) mean(x) + sd(x)
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
   ) +
   stat_summary(
       geom = "text",
-      fun = function(x) mean(x),
+      fun = function(y) mean(y),
       aes(label = round(..y.., 2)),
       size = 5,
       hjust = -.5

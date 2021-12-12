@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,13 +77,14 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Hands-On DataViz with ggplot2: Segment 2: Build Plots Layer by Layer</title>
@@ -456,7 +457,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1863,7 +1864,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2385,7 +2389,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2820,13 +2824,26 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-1.png" width="960" /></p>
 </div>
+<p>The common standard placeholder for numeric inputs in functions is <code>x</code>. However, it might be more intuitive to use <code>y</code> here as we are summarizing our y variable:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
-    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-y-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
       geom <span class='op'>=</span> <span class='st'>"text"</span>,
@@ -2840,13 +2857,13 @@ Codes
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
-    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
       geom <span class='op'>=</span> <span class='st'>"text"</span>,
-      fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+      fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
       <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
   <span class='op'>)</span>
 </code></pre>
@@ -2857,13 +2874,13 @@ Codes
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
-    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+    fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.min <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    fun.max <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span>
       geom <span class='op'>=</span> <span class='st'>"text"</span>,
-      fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+      fun <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
       <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>..y..</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
       size <span class='op'>=</span> <span class='fl'>5</span>,
       hjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.5</span>
@@ -2973,9 +2990,9 @@ Codes
 </code></pre>
 </div>
 <pre><code>OGR data source with driver: ESRI Shapefile 
-Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\RtmpaYuyUI&quot;, layer: &quot;ne_10m_airports&quot;
-with 891 features
-It has 35 fields
+Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\RtmpWmonVc&quot;, layer: &quot;ne_10m_airports&quot;
+with 893 features
+It has 40 fields
 Integer64 fields read as strings:  ne_id </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span>
@@ -3244,11 +3261,11 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-08-31 16:41:58 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2021-12-12 15:45:44 CET&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [d0cedc4] 2021-08-31: add pdf&#39;s and update links</code></pre>
-<pre><code>R version 4.1.0 (2021-05-18)
+Head:     [6d69169] 2021-08-31: add latest pdf&#39;s + fix links</code></pre>
+<pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
 
@@ -3265,42 +3282,44 @@ attached base packages:
 [7] base     
 
 other attached packages:
- [1] rnaturalearth_0.1.0 sf_1.0-1            forcats_0.5.1      
+ [1] rnaturalearth_0.1.0 sf_1.0-3            forcats_0.5.1      
  [4] stringr_1.4.0       dplyr_1.0.7         purrr_0.3.4        
- [7] readr_1.4.0         tidyr_1.1.3         tibble_3.1.2       
+ [7] readr_2.0.2         tidyr_1.1.4         tibble_3.1.5       
 [10] ggplot2_3.3.5       tidyverse_1.3.1    
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-152       fs_1.5.0           lubridate_1.7.10  
- [4] httr_1.4.2         rprojroot_2.0.2    tools_4.1.0       
- [7] backports_1.2.1    bslib_0.2.5.1      rgdal_1.5-23      
-[10] utf8_1.2.1         R6_2.5.0           KernSmooth_2.23-20
-[13] rgeos_0.5-5        DBI_1.1.1          mgcv_1.8-35       
-[16] colorspace_2.0-2   sp_1.4-5           withr_2.4.2       
-[19] tidyselect_1.1.1   downlit_0.2.1      curl_4.3.2        
-[22] compiler_4.1.0     git2r_0.28.0       textshaping_0.3.5 
-[25] cli_3.0.0          rvest_1.0.0        xml2_1.3.2        
-[28] labeling_0.4.2     bookdown_0.22      sass_0.4.0        
-[31] scales_1.1.1       classInt_0.4-3     hexbin_1.28.2     
-[34] proxy_0.4-26       systemfonts_1.0.2  digest_0.6.27     
-[37] foreign_0.8-81     rmarkdown_2.9      rio_0.5.27        
-[40] pkgconfig_2.0.3    htmltools_0.5.1.1  dbplyr_2.1.1      
-[43] highr_0.9          rlang_0.4.11       readxl_1.3.1      
-[46] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0      
-[49] generics_0.1.0     jsonlite_1.7.2     zip_2.2.0         
-[52] distill_1.2        magrittr_2.0.1     s2_1.0.6          
-[55] Matrix_1.3-3       Rcpp_1.0.7         munsell_0.5.0     
-[58] fansi_0.5.0        lifecycle_1.0.0    stringi_1.7.3     
-[61] yaml_2.2.1         grid_4.1.0         crayon_1.4.1      
-[64] lattice_0.20-44    haven_2.4.1        splines_4.1.0     
-[67] hms_1.1.0          knitr_1.33         pillar_1.6.1      
-[70] wk_0.5.0           reprex_2.0.0       glue_1.4.2        
-[73] evaluate_0.14      data.table_1.14.0  modelr_0.1.8      
-[76] vctrs_0.3.8        cellranger_1.1.0   gtable_0.3.0      
-[79] assertthat_0.2.1   xfun_0.24          openxlsx_4.2.4    
-[82] broom_0.7.8        e1071_1.7-7        class_7.3-19      
-[85] ragg_1.1.3         units_0.7-2        ellipsis_0.3.2    
-[88] here_1.0.1        </code></pre>
+ [1] nlme_3.1-153       fs_1.5.0           lubridate_1.8.0   
+ [4] bit64_4.0.5        httr_1.4.2         rprojroot_2.0.2   
+ [7] tools_4.1.2        backports_1.2.1    bslib_0.3.1       
+[10] rgdal_1.5-27       utf8_1.2.2         R6_2.5.1          
+[13] KernSmooth_2.23-20 rgeos_0.5-8        mgcv_1.8-38       
+[16] DBI_1.1.1          colorspace_2.0-2   sp_1.4-5          
+[19] withr_2.4.2        tidyselect_1.1.1   downlit_0.2.1     
+[22] bit_4.0.4          curl_4.3.2         compiler_4.1.2    
+[25] git2r_0.28.0       textshaping_0.3.6  cli_3.0.0         
+[28] rvest_1.0.2        xml2_1.3.2         labeling_0.4.2    
+[31] bookdown_0.24      sass_0.4.0         scales_1.1.1      
+[34] classInt_0.4-3     hexbin_1.28.2      proxy_0.4-26      
+[37] systemfonts_1.0.3  digest_0.6.28      foreign_0.8-81    
+[40] rmarkdown_2.11     rio_0.5.27         pkgconfig_2.0.3   
+[43] htmltools_0.5.2    dbplyr_2.1.1       fastmap_1.1.0     
+[46] highr_0.9          rlang_0.4.12       readxl_1.3.1      
+[49] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0      
+[52] generics_0.1.0     jsonlite_1.7.2     vroom_1.5.5       
+[55] zip_2.2.0          distill_1.3        magrittr_2.0.1    
+[58] s2_1.0.7           Matrix_1.3-4       Rcpp_1.0.7        
+[61] munsell_0.5.0      fansi_0.5.0        lifecycle_1.0.1   
+[64] stringi_1.7.5      yaml_2.2.1         grid_4.1.2        
+[67] parallel_4.1.2     crayon_1.4.1       lattice_0.20-45   
+[70] splines_4.1.2      haven_2.4.3        hms_1.1.1         
+[73] knitr_1.36         pillar_1.6.4       wk_0.5.0          
+[76] reprex_2.0.1       glue_1.4.2         evaluate_0.14     
+[79] data.table_1.14.2  modelr_0.1.8       vctrs_0.3.8       
+[82] tzdb_0.1.2         cellranger_1.1.0   gtable_0.3.0      
+[85] assertthat_0.2.1   xfun_0.27          openxlsx_4.2.4    
+[88] broom_0.7.9        e1071_1.7-9        class_7.3-19      
+[91] ragg_1.1.3         units_0.7-2        ellipsis_0.3.2    
+[94] here_1.0.1        </code></pre>
 </div>
 </details>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

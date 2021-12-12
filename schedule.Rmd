@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Statistical Transformations
 -  Plot Spatial Maps
 
-→ Slides: [html](slides/02-layers.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/02-layers.pdf)
+→ Slides: [html](slides/02-layers.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/02-layers.pdf)  
 → [Notebook](codes/02-layers-rmarkdown.html)   
 → [Codes](codes/02-layers-rmarkdown.Rmd)  
 
@@ -48,7 +48,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Use Template Designs
 -  Create Custom Themes
 
-→ Slides: [html](slides/03-themes.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/03-themes.pdf)
+→ Slides: [html](slides/03-themes.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/03-themes.pdf)  
 → [Notebook](codes/03-themes-rmarkdown.html)   
 → [Codes](codes/03-themes-rmarkdown.Rmd)  
 
@@ -62,7 +62,7 @@ knitr::opts_chunk$set(echo = FALSE)
 -  Basic and Advanced Text Labeling
 -  Add Images and Illustrations
 
-→ Slides: [html](slides/04-annotation.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/04-annotation.pdf)
+→ Slides: [html](slides/04-annotation.html), [pdf](https://github.com/z3tt/hands-on-ggplot2/raw/main/slides/04-annotation.pdf)  
 → [Notebook](codes/04-annotation-rmarkdown.html)   
 → [Codes](codes/04-annotation-rmarkdown.Rmd)  
 

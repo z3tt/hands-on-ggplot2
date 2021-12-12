@@ -15,7 +15,7 @@ This is the home page for the Pearson Live Training Session "Hands–On Data Vis
 ### Details
 
 *Instructor:* [Dr Cédric Scherer](https://z3tt.github.io/hands-on-ggplot2/about.html)   
-*Date:* September 3, 2021
+*Date:* December 17, 2021
 
 ### What You’ll Learn
 
