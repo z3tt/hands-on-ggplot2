@@ -448,9 +448,6 @@ g +
   )
 ```
 
-```{r plot-geom-mark-ellipse-desc-adj, ref.label="geom-mark-ellipse-desc-adj", echo=FALSE, fig.width=14, fig.height=8}
-```
-
 ```{r geom-mark-ellipse-desc}
 g +
   ggforce::geom_mark_ellipse(
