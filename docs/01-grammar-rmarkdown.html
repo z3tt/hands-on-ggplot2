@@ -2807,7 +2807,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2&quot;</code></pre>
+<pre><code>[1] &quot;C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2022_OReilly_Trainings/hands-on-ggplot2&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_local</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"crypto_cleaned.csv"</span><span class='op'>)</span><span class='op'>)</span>
 
@@ -2917,7 +2917,7 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_json</span> <span class='op'>&lt;-</span> <span class='fu'>rio</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rio/man/import.html'>import</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"crypto_cleaned.json"</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='va'>data_json</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>data_json</span><span class='op'>)</span> <span class='co'>## somehow `setclass` doesn't work with json</span>
+<span class='va'>data_json</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='va'>data_json</span><span class='op'>)</span> <span class='co'>## somehow `setclass` doesn't work with json</span>
 
 <span class='va'>data_json</span>
 </code></pre>
@@ -3054,10 +3054,10 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-12-12 16:06:57 CET&quot;</code></pre>
-<pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2021_OReilly_Trainings/hands-on-ggplot2
+<pre><code>[1] &quot;2022-04-06 13:55:16 CEST&quot;</code></pre>
+<pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2022_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [0dfa224] 2021-12-12: update slides + scripts for next session</code></pre>
+Head:     [59ea33b] 2022-01-28: rm xaringan chunk in script</code></pre>
 <pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -3076,7 +3076,7 @@ attached base packages:
 
 other attached packages:
 [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
-[5] readr_2.0.2     tidyr_1.1.4     tibble_3.1.5    ggplot2_3.3.5  
+[5] readr_2.0.2     tidyr_1.1.4     tibble_3.1.6    ggplot2_3.3.5  
 [9] tidyverse_1.3.1
 
 loaded via a namespace (and not attached):
@@ -3085,27 +3085,27 @@ loaded via a namespace (and not attached):
  [7] modelr_0.1.8      bslib_0.3.1       assertthat_0.2.1 
 [10] highr_0.9         cellranger_1.1.0  yaml_2.2.1       
 [13] pillar_1.6.4      backports_1.2.1   glue_1.4.2       
-[16] digest_0.6.28     rvest_1.0.2       colorspace_2.0-2 
-[19] htmltools_0.5.2   pkgconfig_2.0.3   broom_0.7.9      
-[22] haven_2.4.3       scales_1.1.1      openxlsx_4.2.4   
-[25] rio_0.5.27        distill_1.3       tzdb_0.1.2       
-[28] downlit_0.2.1     git2r_0.28.0      generics_0.1.0   
-[31] farver_2.1.0      ellipsis_0.3.2    withr_2.4.2      
-[34] cli_3.0.0         magrittr_2.0.1    crayon_1.4.1     
-[37] readxl_1.3.1      evaluate_0.14     fs_1.5.0         
-[40] fansi_0.5.0       foreign_0.8-81    xml2_1.3.2       
-[43] textshaping_0.3.6 data.table_1.14.2 tools_4.1.2      
-[46] hms_1.1.1         lifecycle_1.0.1   munsell_0.5.0    
-[49] reprex_2.0.1      zip_2.2.0         compiler_4.1.2   
-[52] jquerylib_0.1.4   systemfonts_1.0.3 rlang_0.4.12     
-[55] grid_4.1.2        rstudioapi_0.13   labeling_0.4.2   
-[58] rmarkdown_2.11    gtable_0.3.0      DBI_1.1.1        
-[61] curl_4.3.2        R6_2.5.1          lubridate_1.8.0  
-[64] knitr_1.36        fastmap_1.1.0     bit_4.0.4        
-[67] utf8_1.2.2        rprojroot_2.0.2   ragg_1.1.3       
-[70] stringi_1.7.5     parallel_4.1.2    Rcpp_1.0.7       
-[73] vctrs_0.3.8       dbplyr_2.1.1      tidyselect_1.1.1 
-[76] xfun_0.27        </code></pre>
+[16] digest_0.6.29     rvest_1.0.2       colorspace_2.0-2 
+[19] htmltools_0.5.2   pkgconfig_2.0.3   broom_0.7.11     
+[22] haven_2.4.3       scales_1.1.1      openxlsx_4.2.5   
+[25] rio_0.5.29        distill_1.3       tzdb_0.1.2       
+[28] downlit_0.4.0     git2r_0.29.0      generics_0.1.1   
+[31] farver_2.1.0      ellipsis_0.3.2    cachem_1.0.6     
+[34] withr_2.4.3       cli_3.1.0         magrittr_2.0.1   
+[37] crayon_1.4.2      readxl_1.3.1      memoise_2.0.1    
+[40] evaluate_0.14     fs_1.5.0          fansi_0.5.0      
+[43] foreign_0.8-81    xml2_1.3.2        textshaping_0.3.6
+[46] data.table_1.14.2 tools_4.1.2       hms_1.1.1        
+[49] lifecycle_1.0.1   munsell_0.5.0     reprex_2.0.1     
+[52] zip_2.2.0         compiler_4.1.2    jquerylib_0.1.4  
+[55] systemfonts_1.0.3 rlang_0.4.12      grid_4.1.2       
+[58] rstudioapi_0.13   labeling_0.4.2    rmarkdown_2.11   
+[61] gtable_0.3.0      DBI_1.1.2         curl_4.3.2       
+[64] R6_2.5.1          lubridate_1.8.0   knitr_1.36       
+[67] fastmap_1.1.0     bit_4.0.4         utf8_1.2.2       
+[70] rprojroot_2.0.2   ragg_1.1.3        stringi_1.7.5    
+[73] parallel_4.1.2    Rcpp_1.0.7        vctrs_0.3.8      
+[76] dbplyr_2.1.1      tidyselect_1.1.1  xfun_0.27        </code></pre>
 </div>
 </details>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
