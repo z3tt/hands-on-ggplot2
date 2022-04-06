@@ -49,7 +49,7 @@ options(width = 80)
 <br><br>
 # Hands–On Data Visualization with <code style='color:#ebc500;'>ggplot2</code><br><b style='font-size:25pt;color:#a7a7a7;'>Segment 1: The Grammar of Graphics</b>
 <br><br><br><br><br><br><br>
-#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>December 17, 2021</b><br>
+#### Dr. Cédric Scherer<b style='color:#ccba56;font-weight:400;line-height:150%;'><br>Pearson Live Training Session for O'Reilly<br>April 19, 2022</b><br>
 
 ```{r prep, echo=FALSE, purl=FALSE}
 library(tidyverse)
@@ -59,7 +59,7 @@ theme_set(theme_grey(base_size = 15, base_family = "Roboto Condensed"))
 ```
 
 ---
-background-image: url("img/portfolio/Cards.png")
+background-image: url("img/portfolio/portfolio_cards.png")
 background-position: center
 background-size: contain
 
