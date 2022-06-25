@@ -2482,11 +2482,13 @@ Codes
 <h1>Segment 4: Provide Context with Annotations</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
+<p>Part 3 of the Pearson Live Training Session “Hands–On Data
+Visualization with ggplot2” for O’Reilly</p>
 </div>
 
 <div class="d-byline">
-  Cédric Scherer <a href="https://cedricscherer.com" class="uri">https://cedricscherer.com</a> 
+  Cédric Scherer <a href="https://cedricscherer.com"
+class="uri">https://cedricscherer.com</a> 
   
 
 </div>
@@ -2500,31 +2502,39 @@ Codes
 <ul>
 <li><a href="#labels-labs">Labels: <code>labs()</code></a></li>
 <li><a href="#plot-position">Plot Position</a></li>
-<li><a href="#text-rendering-with-ggtext">Text Rendering with <code>{ggtext}</code></a></li>
+<li><a href="#text-rendering-with-ggtext">Text Rendering with
+<code>{ggtext}</code></a></li>
 </ul></li>
 <li><a href="#basic-text-labelling">Basic Text Labelling</a>
 <ul>
-<li><a href="#annotations-via-annotate">Annotations via <code>annotate()</code></a></li>
+<li><a href="#annotations-via-annotate">Annotations via
+<code>annotate()</code></a></li>
 </ul></li>
 <li><a href="#exercise-1">Exercise 1:</a>
 <ul>
-<li><a href="#annotations-via-geom_textlabel">Annotations via <code>geom_text|label()</code></a></li>
+<li><a href="#annotations-via-geom_textlabel">Annotations via
+<code>geom_text|label()</code></a></li>
 </ul></li>
 <li><a href="#advanced-text-labelling">Advanced Text Labelling</a>
 <ul>
-<li><a href="#annotations-via-geom_textlabel_repel">Annotations via <code>geom\_text|label\_repel()</code></a></li>
+<li><a href="#annotations-via-geom_textlabel_repel">Annotations via
+<code>geom\_text|label\_repel()</code></a></li>
 </ul></li>
-<li><a href="#annotations-via-geom_mark_">Annotations via <code>geom\_mark\_*()</code></a></li>
+<li><a href="#annotations-via-geom_mark_">Annotations via
+<code>geom\_mark\_*()</code></a></li>
 <li><a href="#add-images">Add Images</a>
 <ul>
-<li><a href="#add-images-via-annotation_custom">Add Images via <code>annotation_custom()</code></a></li>
-<li><a href="#add-images-with-the-cowplotpackage">Add Images with the <code>{cowplot}</code>Package</a></li>
+<li><a href="#add-images-via-annotation_custom">Add Images via
+<code>annotation_custom()</code></a></li>
+<li><a href="#add-images-with-the-cowplotpackage">Add Images with the
+<code>{cowplot}</code>Package</a></li>
 </ul></li>
 <li><a href="#exercise-2">Exercise 2:</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#appendix">Appendix</a>
 <ul>
-<li><a href="#annotations-with-ggtext">Annotations with <code>{ggtext}</code></a></li>
+<li><a href="#annotations-with-ggtext">Annotations with
+<code>{ggtext}</code></a></li>
 </ul></li>
 <li><a href="#session-info">Session Info</a></li>
 </ul>
@@ -2540,7 +2550,8 @@ Codes
 </div>
 <h2 id="titles-labels-co">Titles, Labels &amp; Co</h2>
 <h3 id="labels-labs">Labels: <code>labs()</code></h3>
-<p>To change the labels and add a title, a subtitle, a caption and/or a tag, use <code>labs()</code>:</p>
+<p>To change the labels and add a title, a subtitle, a caption and/or a
+tag, use <code>labs()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2564,7 +2575,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/structure-labs-alt-1.png" width="960" /></p>
 </div>
-<p>To change the labels and add a title, a subtitle, a caption and/or a tag, use <code>labs()</code>:</p>
+<p>To change the labels and add a title, a subtitle, a caption and/or a
+tag, use <code>labs()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2597,8 +2609,10 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/boxplot-title-position-plot-1.png" width="960" /></p>
 </div>
-<h3 id="text-rendering-with-ggtext">Text Rendering with <code>{ggtext}</code></h3>
-<p>The <code>{ggtext}</code> package provides simple Markdown and HTML rendering for <code>{ggplot2}</code>.</p>
+<h3 id="text-rendering-with-ggtext">Text Rendering with
+<code>{ggtext}</code></h3>
+<p>The <code>{ggtext}</code> package provides simple Markdown and HTML
+rendering for <code>{ggplot2}</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("ggtext")</span>
@@ -2632,7 +2646,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/ggtext-showcase-2-1.png" width="960" /></p>
 </div>
-<p><code>element_textbox</code> and <code>element_textbox_simple</code> automatically wrap long text:</p>
+<p><code>element_textbox</code> and <code>element_textbox_simple</code>
+automatically wrap long text:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2677,8 +2692,10 @@ Codes
 <p><img src="04-annotation-rmarkdown_files/figure-html5/ggtext-wrap-title-4-1.png" width="960" /></p>
 </div>
 <h2 id="basic-text-labelling">Basic Text Labelling</h2>
-<h3 id="annotations-via-annotate">Annotations via <code>annotate()</code></h3>
-<p>The <code>annotate()</code> function allows to add geom’s to a plot without mapping to variables to aesthetics:</p>
+<h3 id="annotations-via-annotate">Annotations via
+<code>annotate()</code></h3>
+<p>The <code>annotate()</code> function allows to add geom’s to a plot
+without mapping to variables to aesthetics:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>open</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2727,7 +2744,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/annotate-box-1.png" width="960" /></p>
 </div>
-<p>The <code>annotate()</code> function also allows to add geom’s to a plot without mapping to variables to aesthetics:</p>
+<p>The <code>annotate()</code> function also allows to add geom’s to a
+plot without mapping to variables to aesthetics:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>open</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2858,10 +2876,12 @@ Codes
 <hr />
 <h2 id="exercise-1">Exercise 1:</h2>
 <ul>
-<li>Create the following visualization: <img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/img/exercise-4-1.png" /></li>
+<li>Create the following visualization: <img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/img/exercise-4-1.png" /></li>
 </ul>
 <hr />
-<h3 id="annotations-via-geom_textlabel">Annotations via <code>geom_text|label()</code></h3>
+<h3 id="annotations-via-geom_textlabel">Annotations via
+<code>geom_text|label()</code></h3>
 <p>You already know <code>geom_text()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2875,7 +2895,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/geom-text-1.png" width="960" /></p>
 </div>
-<p>Let’s tag only those days that are considerably far from the diagonal:</p>
+<p>Let’s tag only those days that are considerably far from the
+diagonal:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>outliers</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
@@ -2962,8 +2983,10 @@ Codes
 <p><img src="04-annotation-rmarkdown_files/figure-html5/geom-text-outlier-adj-limits-1.png" width="960" /></p>
 </div>
 <h2 id="advanced-text-labelling">Advanced Text Labelling</h2>
-<h3 id="annotations-via-geom_textlabel_repel">Annotations via <code>geom\_text|label\_repel()</code></h3>
-<p>The <code>{ggrepel}</code> package provides two geom’s to repel overlapping text labels</p>
+<h3 id="annotations-via-geom_textlabel_repel">Annotations via
+<code>geom\_text|label\_repel()</code></h3>
+<p>The <code>{ggrepel}</code> package provides two geom’s to repel
+overlapping text labels</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("ggrepel")</span>
@@ -2999,8 +3022,10 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/geom-label-repel-adj-1.png" width="960" /></p>
 </div>
-<h2 id="annotations-via-geom_mark_">Annotations via <code>geom\_mark\_*()</code></h2>
-<p>For illustration purposes we use a data set about Palmer penguins (Horst, Hill &amp; Gorman 2020).</p>
+<h2 id="annotations-via-geom_mark_">Annotations via
+<code>geom\_mark\_*()</code></h2>
+<p>For illustration purposes we use a data set about Palmer penguins
+(Horst, Hill &amp; Gorman 2020).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>penguins</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span>
@@ -3019,7 +3044,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/penguin-scatter-1.png" width="960" /></p>
 </div>
-<p>The <code>{ggforce}</code> package provides functionality to highlight groups:</p>
+<p>The <code>{ggforce}</code> package provides functionality to
+highlight groups:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("ggforce")</span>
@@ -3126,8 +3152,10 @@ Codes
 <p><img src="04-annotation-rmarkdown_files/figure-html5/geom-mark-hull-filter-1.png" width="960" /></p>
 </div>
 <h2 id="add-images">Add Images</h2>
-<h3 id="add-images-via-annotation_custom">Add Images via <code>annotation_custom()</code></h3>
-<p><code>magick::image_read()</code> allows to directly store images from the web in <code>R</code>:</p>
+<h3 id="add-images-via-annotation_custom">Add Images via
+<code>annotation_custom()</code></h3>
+<p><code>magick::image_read()</code> allows to directly store images
+from the web in <code>R</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("magick")</span>
@@ -3139,7 +3167,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/annotation-custom-img-prep-1.png" width="444" /></p>
 </div>
-<p><code>annotation_custom()</code> in combination with <code>grid::rasterGrob()</code> allows to add images:</p>
+<p><code>annotation_custom()</code> in combination with
+<code>grid::rasterGrob()</code> allows to add images:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3201,7 +3230,8 @@ Codes
 </div>
 <p><img src="04-annotation-rmarkdown_files/figure-html5/annotation-custom-img-below-1.png" width="960" /></p>
 </div>
-<h3 id="add-images-with-the-cowplotpackage">Add Images with the <code>{cowplot}</code>Package</h3>
+<h3 id="add-images-with-the-cowplotpackage">Add Images with the
+<code>{cowplot}</code>Package</h3>
 <p>The <code>cowplot</code> package can also be used to add images:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -3261,22 +3291,36 @@ Codes
 <hr />
 <h2 id="exercise-2">Exercise 2:</h2>
 <ul>
-<li>Play around with the two different approaches and how they differ in placing and scaling the images.</li>
-<li><strong>Bonus:</strong> Write a function that lets you add your company’s logo to a ggplot object.</li>
+<li>Play around with the two different approaches and how they differ in
+placing and scaling the images.</li>
+<li><strong>Bonus:</strong> Write a function that lets you add your
+company’s logo to a ggplot object.</li>
 </ul>
 <hr />
 <h2 id="resources">Resources</h2>
 <ul>
-<li><p>Chapter 8 <a href="https://ggplot2-book.org/annotations.html">Annotations</a> of the “ggplot2” book by Hadley Wickham et al.</p></li>
-<li><p>Chapter 7 <a href="https://r-graphics.org/chapter-annotate">Annotations</a> of the “R Graphics Cookbook” book by Winston Chang</p></li>
-<li><p><a href="https://themockup.blog/posts/2019-01-09-add-a-logo-to-your-plot/">“Add a Logo to Your Plot”</a>, blog post by Thomas Mock</p></li>
-<li><p><a href="https://www.danielphadley.com/ggplot-logo/">“How to Add a Logo to ggplot by Magick”</a>, blog post by Daniel Hadley</p></li>
-<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+<li><p>Chapter 8 <a
+href="https://ggplot2-book.org/annotations.html">Annotations</a> of the
+“ggplot2” book by Hadley Wickham et al.</p></li>
+<li><p>Chapter 7 <a
+href="https://r-graphics.org/chapter-annotate">Annotations</a> of the “R
+Graphics Cookbook” book by Winston Chang</p></li>
+<li><p><a
+href="https://themockup.blog/posts/2019-01-09-add-a-logo-to-your-plot/">“Add
+a Logo to Your Plot”</a>, blog post by Thomas Mock</p></li>
+<li><p><a href="https://www.danielphadley.com/ggplot-logo/">“How to Add
+a Logo to ggplot by Magick”</a>, blog post by Daniel Hadley</p></li>
+<li><p><a
+href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A
+<code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my
+extensive “how to”-tutorial</p></li>
 </ul>
 <hr />
 <h2 id="appendix">Appendix</h2>
-<h3 id="annotations-with-ggtext">Annotations with <code>{ggtext}</code></h3>
-<p>The <code>{ggtext}</code> package also comes with two geom’s: <code>geom_richtext()</code> and <code>geom_textbox()</code>:</p>
+<h3 id="annotations-with-ggtext">Annotations with
+<code>{ggtext}</code></h3>
+<p>The <code>{ggtext}</code> package also comes with two geom’s:
+<code>geom_richtext()</code> and <code>geom_textbox()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>open</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3349,11 +3393,11 @@ Codes
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2022-04-06 13:56:44 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2022-06-25 13:59:44 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2022_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [668f713] 2022-04-06: update date for next round</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
+Head:     [4423fc3] 2022-04-06: rebuild page</code></pre>
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
 
@@ -3382,40 +3426,41 @@ loaded via a namespace (and not attached):
  [10] rstudioapi_0.13    proxy_0.4-26       farver_2.1.0      
  [13] hexbin_1.28.2      ggrepel_0.9.1      bit64_4.0.5       
  [16] fansi_0.5.0        lubridate_1.8.0    xml2_1.3.2        
- [19] splines_4.1.2      downlit_0.4.0      cachem_1.0.6      
- [22] knitr_1.36         polyclip_1.10-0    jsonlite_1.7.2    
- [25] broom_0.7.11       dbplyr_2.1.1       png_0.1-7         
- [28] ggforce_0.3.3      compiler_4.1.2     httr_1.4.2        
- [31] backports_1.2.1    assertthat_0.2.1   Matrix_1.3-4      
+ [19] splines_4.1.0      downlit_0.4.0      cachem_1.0.6      
+ [22] knitr_1.39         polyclip_1.10-0    jsonlite_1.7.2    
+ [25] broom_0.8.0        dbplyr_2.1.1       png_0.1-7         
+ [28] ggforce_0.3.3      compiler_4.1.0     httr_1.4.2        
+ [31] backports_1.2.1    assertthat_0.2.1   Matrix_1.3-3      
  [34] fastmap_1.1.0      cli_3.1.0          tweenr_1.0.2      
- [37] s2_1.0.7           htmltools_0.5.2    tools_4.1.2       
+ [37] s2_1.0.7           htmltools_0.5.2    tools_4.1.0       
  [40] gtable_0.3.0       glue_1.4.2         wk_0.6.0          
  [43] V8_3.4.2           Rcpp_1.0.7         cellranger_1.1.0  
- [46] jquerylib_0.1.4    vctrs_0.3.8        nlme_3.1-153      
- [49] xfun_0.27          openxlsx_4.2.5     rvest_1.0.2       
+ [46] jquerylib_0.1.4    vctrs_0.3.8        nlme_3.1-152      
+ [49] xfun_0.31          openxlsx_4.2.5     rvest_1.0.2       
  [52] lifecycle_1.0.1    MASS_7.3-54        scales_1.1.1      
  [55] vroom_1.5.5        ragg_1.1.3         hms_1.1.1         
- [58] parallel_4.1.2     RColorBrewer_1.1-2 yaml_2.2.1        
+ [58] parallel_4.1.0     RColorBrewer_1.1-2 yaml_2.2.1        
  [61] curl_4.3.2         memoise_2.0.1      sass_0.4.0        
  [64] distill_1.3        stringi_1.7.5      highr_0.9         
- [67] e1071_1.7-9        zip_2.2.0          rlang_0.4.12      
- [70] pkgconfig_2.0.3    systemfonts_1.0.3  evaluate_0.14     
- [73] lattice_0.20-45    labeling_0.4.2     cowplot_1.1.1     
+ [67] e1071_1.7-9        zip_2.2.0          rlang_1.0.2       
+ [70] pkgconfig_2.0.3    systemfonts_1.0.3  evaluate_0.15     
+ [73] lattice_0.20-44    labeling_0.4.2     cowplot_1.1.1     
  [76] bit_4.0.4          tidyselect_1.1.1   here_1.0.1        
  [79] magrittr_2.0.1     bookdown_0.24      R6_2.5.1          
  [82] magick_2.7.3       generics_0.1.1     DBI_1.1.2         
  [85] pillar_1.6.4       haven_2.4.3        foreign_0.8-81    
- [88] withr_2.4.3        mgcv_1.8-38        units_0.7-2       
+ [88] withr_2.4.3        mgcv_1.8-35        units_0.7-2       
  [91] sp_1.4-6           modelr_0.1.8       crayon_1.4.2      
  [94] KernSmooth_2.23-20 utf8_1.2.2         tzdb_0.1.2        
- [97] rmarkdown_2.11     grid_4.1.2         readxl_1.3.1      
+ [97] rmarkdown_2.11     grid_4.1.0         readxl_1.3.1      
 [100] data.table_1.14.2  git2r_0.29.0       reprex_2.0.1      
 [103] digest_0.6.29      classInt_0.4-3     textshaping_0.3.6 
 [106] munsell_0.5.0      viridisLite_0.4.0  concaveman_1.1.0  
 [109] bslib_0.3.1       </code></pre>
 </div>
 </details>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

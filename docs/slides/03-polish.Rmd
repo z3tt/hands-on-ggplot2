@@ -216,7 +216,7 @@ ggplot(data, aes(x = date, y = close,
   scale_color_discrete(
     type = c("#F0B90B", "#4d4d4e", #<<
              "#810080", "#00aeff"),  ## color only #<<
-    name = "Cryptocurrency:" ## general  #<<
+    name = "Closing Price:" ## general  #<<
   )
 ```
 ]
@@ -395,7 +395,7 @@ ggplot(data, aes(x = date, y = close,
     direction = -1, #<<
     end = .9,
     labels = scales::dollar_format(), #<<
-    name = "Julian Day:"
+    name = "Open Price:"
   )
 ```
 ]
@@ -423,7 +423,7 @@ ggplot(data, aes(x = date, y = close,
     end = .9,
     breaks = seq(50, 300, by = 100), #<<
     labels = scales::dollar_format(), 
-    name = "Julian Day:"
+    name = "Open Price:"
   )
 ```
 ]

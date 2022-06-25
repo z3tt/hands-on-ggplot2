@@ -2487,47 +2487,75 @@ Codes
 
 <div class="d-article">
 <h1 id="overview">Overview</h1>
-<p>This is the home page for the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly. All course materials will be posted on this site.</p>
+<p>This is the home page for the Pearson Live Training Session “Hands–On
+Data Visualization with ggplot2” for O’Reilly. All course materials will
+be posted on this site.</p>
 <h3 id="details">Details</h3>
-<p><em>Instructor:</em> <a href="https://z3tt.github.io/hands-on-ggplot2/about.html">Dr Cédric Scherer</a><br />
+<p><em>Instructor:</em> <a
+href="https://z3tt.github.io/hands-on-ggplot2/about.html">Dr Cédric
+Scherer</a><br />
 <em>Date:</em> April 19, 2022</p>
 <h3 id="what-youll-learn">What You’ll Learn</h3>
 <ul>
-<li>Load data into R and visualize it with the help of the powerful ggplot2 library.</li>
-<li>Customize your ggplot2 output as you like including theming, colors, annotations, and many more.</li>
-<li>Get to know useful extension libraries that will boost your workflow and improve your ggplot2 design.</li>
+<li>Load data into R and visualize it with the help of the powerful
+ggplot2 library.</li>
+<li>Customize your ggplot2 output as you like including theming, colors,
+annotations, and many more.</li>
+<li>Get to know useful extension libraries that will boost your workflow
+and improve your ggplot2 design.</li>
 <li>Use Rmarkdown notebooks to build reproducible reports.</li>
-<li>Get insights how to prepare and wrangle data with the popular tidyverse package collection.</li>
+<li>Get insights how to prepare and wrangle data with the popular
+tidyverse package collection.</li>
 </ul>
 <h3 id="who-is-the-training-for">Who is the Training for</h3>
 <ul>
-<li><strong>Anyone</strong> interested in creating visually appealing charts with R and ggplot2—no matter if you have no or minimal experience with R.</li>
-<li><strong>Data scientists</strong> aiming to use the powerful ggplot2 library in their workflow for exploration and communication.</li>
-<li><strong>Business managers</strong> that aim to quickly gain data insights based on reproducible and elegantly formatted charts and reports.</li>
+<li><strong>Anyone</strong> interested in creating visually appealing
+charts with R and ggplot2—no matter if you have no or minimal experience
+with R.</li>
+<li><strong>Data scientists</strong> aiming to use the powerful ggplot2
+library in their workflow for exploration and communication.</li>
+<li><strong>Business managers</strong> that aim to quickly gain data
+insights based on reproducible and elegantly formatted charts and
+reports.</li>
 </ul>
 <hr />
 <h1 id="course-set-up">Course Set-Up</h1>
-<p>To run any of the materials locally on your own machine, you will need the following:</p>
+<p>To run any of the materials locally on your own machine, you will
+need the following:</p>
 <ul>
-<li>A recent version of <strong>R</strong> (download from <a href="https://cloud.r-project.org/">here</a>) and <strong>RStudio</strong>, (download from <a href="https://rstudio.com/products/rstudio/download/#download">here</a>).
+<li>A recent version of <strong>R</strong> (download from <a
+href="https://cloud.r-project.org/">here</a>) and
+<strong>RStudio</strong>, (download from <a
+href="https://rstudio.com/products/rstudio/download/#download">here</a>).
 <ul>
-<li>for more detailed instructions see <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter 2 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
+<li>for more detailed instructions see <a
+href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter
+2 of “R Programming for Statistics and Data Science”</a> by 365
+Careers</li>
 </ul></li>
 <li>The following R packages:
 <ul>
-<li><a href="https://www.tidyverse.org/"><code>tidyverse</code></a> (includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>)</li>
-<li><a href="https://wilkelab.org/cowplot/index.html"><code>cowplot</code></a></li>
-<li><a href="https://ggforce.data-imaginist.com/"><code>ggforce</code></a></li>
+<li><a href="https://www.tidyverse.org/"><code>tidyverse</code></a>
+(includes <a
+href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>)</li>
+<li><a
+href="https://wilkelab.org/cowplot/index.html"><code>cowplot</code></a></li>
+<li><a
+href="https://ggforce.data-imaginist.com/"><code>ggforce</code></a></li>
 <li><a href="https://ggrepel.slowkow.com/"><code>ggrepel</code></a></li>
 <li><a href="https://wilkelab.org/ggtext/"><code>ggtext</code></a></li>
-<li><a href="https://docs.ropensci.org/magick/"><code>magick</code></a></li>
-<li><a href="https://patchwork.data-imaginist.com/"><code>patchwork</code></a></li>
+<li><a
+href="https://docs.ropensci.org/magick/"><code>magick</code></a></li>
+<li><a
+href="https://patchwork.data-imaginist.com/"><code>patchwork</code></a></li>
 <li><a href="https://ragg.r-lib.org/"><code>ragg</code></a></li>
-<li><a href="https://docs.ropensci.org/rnaturalearth/"><code>rnaturalearth</code></a></li>
+<li><a
+href="https://docs.ropensci.org/rnaturalearth/"><code>rnaturalearth</code></a></li>
 <li><a href="https://r-spatial.github.io/sf/"><code>sf</code></a></li>
 </ul></li>
 </ul>
-<p>You can install all required R packages at once by running the following code in the R command line:</p>
+<p>You can install all required R packages at once by running the
+following code in the R command line:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Package names</span>
@@ -2536,31 +2564,67 @@ Codes
 </code></pre>
 </div>
 </div>
-<p>To run the code, open up Rstudio and copy–paste the code in <strong>console window</strong> and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.</p>
+<p>To run the code, open up Rstudio and copy–paste the code in
+<strong>console window</strong> and hit enter. Several messages should
+pop up. Scan these messages that are returned for errors and
+troubleshoot them if necessary. Warnings and other informational
+messages can be ignored.</p>
 <hr />
-<h1 id="prerequisites-and-preparation">Prerequisites and Preparation</h1>
+<h1 id="prerequisites-and-preparation">Prerequisites and
+Preparation</h1>
 <ul>
-<li><strong>Familiarity with Rstudio</strong> <em>(required)</em><br><br>Suggested Material:
+<li><strong>Familiarity with Rstudio</strong>
+<em>(required)</em><br><br>Suggested Material:
 <ul>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter 1 of “R for Data Science”</a> by Hadley Wickham &amp; Garrett Grolemund</li>
-<li>Video: <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter 2 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
+<li>Book: <a
+href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter
+1 of “R for Data Science”</a> by Hadley Wickham &amp; Garrett
+Grolemund</li>
+<li>Video: <a
+href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapter
+2 of “R Programming for Statistics and Data Science”</a> by 365
+Careers</li>
 </ul></li>
-<li><strong>Basic Knowledge of R</strong> <em>(helpful but not required)</em><br><br>Suggested Material:
+<li><strong>Basic Knowledge of R</strong> <em>(helpful but not
+required)</em><br><br>Suggested Material:
 <ul>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter 4–6 of “R for Data Science”</a> by Hadley Wickham &amp; Garrett Grolemund</li>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-everyone/9780134546988/">Chapter 1–3 “R for Everyone: Advanced Analytics and Graphics, 2nd Edition”</a> by Jared Lander</li>
-<li>Book: <a href="https://learning.oreilly.com/library/view/programming-skills-for/9780135159071/">Section 1 and 3 “Programming Skills for Data Science: Start Writing Code to Wrangle, Analyze, and Visualize Data with R”</a> by Joel Ross &amp; Michael Freeman</li>
-<li>Video: <a href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapters 3, 4, and 7 of “R Programming for Statistics and Data Science”</a> by 365 Careers</li>
+<li>Book: <a
+href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter
+4–6 of “R for Data Science”</a> by Hadley Wickham &amp; Garrett
+Grolemund</li>
+<li>Book: <a
+href="https://learning.oreilly.com/library/view/r-for-everyone/9780134546988/">Chapter
+1–3 “R for Everyone: Advanced Analytics and Graphics, 2nd Edition”</a>
+by Jared Lander</li>
+<li>Book: <a
+href="https://learning.oreilly.com/library/view/programming-skills-for/9780135159071/">Section
+1 and 3 “Programming Skills for Data Science: Start Writing Code to
+Wrangle, Analyze, and Visualize Data with R”</a> by Joel Ross &amp;
+Michael Freeman</li>
+<li>Video: <a
+href="https://learning.oreilly.com/videos/r-programming-for/9781789950298/">Chapters
+3, 4, and 7 of “R Programming for Statistics and Data Science”</a> by
+365 Careers</li>
 </ul></li>
-<li><strong>Data Wrangling with the tidyverse</strong> <em>(helpful but not required)</em><br><br>Suggested Material:
+<li><strong>Data Wrangling with the tidyverse</strong> <em>(helpful but
+not required)</em><br><br>Suggested Material:
 <ul>
-<li>Book: <a href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter 9–16 (Section: Wrangle) of “R for Data Science”</a> by Hadley Wickham &amp; Garrett Grolemund</li>
-<li>Scenario: <a href="https://www.oreilly.com/scenarios/format-and-shape/9781492079064/">“Format and Shape Your Data in R with the Tidyverse”</a> by Martin Frigaard</li>
+<li>Book: <a
+href="https://learning.oreilly.com/library/view/r-for-data/9781491910382/">Chapter
+9–16 (Section: Wrangle) of “R for Data Science”</a> by Hadley Wickham
+&amp; Garrett Grolemund</li>
+<li>Scenario: <a
+href="https://www.oreilly.com/scenarios/format-and-shape/9781492079064/">“Format
+and Shape Your Data in R with the Tidyverse”</a> by Martin Frigaard</li>
 </ul></li>
 </ul>
 <h2 class="appendix" id="reuse">Reuse</h2>
-<p><i>Text and figures are licensed under Creative Commons Attribution <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>.<br>Note that figures in slides may be pulled in from external sources and may be licensed under different terms.</i></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p><i>Text and figures are licensed under Creative Commons Attribution
+<a href='https://creativecommons.org/licenses/by/4.0/'>CC BY
+4.0</a>.<br>Note that figures in slides may be pulled in from external
+sources and may be licensed under different terms.</i></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

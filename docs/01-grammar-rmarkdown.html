@@ -2482,11 +2482,13 @@ Codes
 <h1>Segment 1: The Basics of ggplot2</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Part 1 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
+<p>Part 1 of the Pearson Live Training Session “Hands–On Data
+Visualization with ggplot2” for O’Reilly</p>
 </div>
 
 <div class="d-byline">
-  Cédric Scherer <a href="https://cedricscherer.com" class="uri">https://cedricscherer.com</a> 
+  Cédric Scherer <a href="https://cedricscherer.com"
+class="uri">https://cedricscherer.com</a> 
   
 
 </div>
@@ -2496,9 +2498,11 @@ Codes
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#the-ggplot2-package">The <code>{ggplot2}</code> Package</a>
+<li><a href="#the-ggplot2-package">The <code>{ggplot2}</code>
+Package</a>
 <ul>
-<li><a href="#advantages-of-ggplot2">Advantages of <code>{ggplot2}</code></a></li>
+<li><a href="#advantages-of-ggplot2">Advantages of
+<code>{ggplot2}</code></a></li>
 </ul></li>
 <li><a href="#the-setup">The Setup</a>
 <ul>
@@ -2512,13 +2516,17 @@ Codes
 <li><a href="#exercise-1">Exercise 1</a></li>
 <li><a href="#the-grammar-of-graphics">The Grammar of Graphics</a>
 <ul>
-<li><a href="#the-structure-of-ggplot2">The Structure of ggplot2</a></li>
+<li><a href="#the-structure-of-ggplot2">The Structure of
+ggplot2</a></li>
 <li><a href="#data-ggplotdata">Data: ggplot(data)</a></li>
 <li><a href="#aesthetics-aes">Aesthetics: aes()</a></li>
-<li><a href="#layers-geom_-and-stat_">Layers: geom_*() and stat_*()</a></li>
+<li><a href="#layers-geom_-and-stat_">Layers: geom_*() and
+stat_*()</a></li>
 <li><a href="#aesthetics-aes-again">Aesthetics: aes() (again)</a></li>
-<li><a href="#important-things-first-change-the-default-theme">Important Things First: Change the Default Theme</a></li>
-<li><a href="#layers-geom_-and-stat_-repeated">Layers: geom_*() and stat_*() (repeated)</a></li>
+<li><a href="#important-things-first-change-the-default-theme">Important
+Things First: Change the Default Theme</a></li>
+<li><a href="#layers-geom_-and-stat_-repeated">Layers: geom_*() and
+stat_*() (repeated)</a></li>
 </ul></li>
 <li><a href="#exercise-2">Exercise 2</a></li>
 <li><a href="#saving-a-ggplot">Saving a <code>ggplot</code></a></li>
@@ -2527,7 +2535,8 @@ Codes
 <ul>
 <li><a href="#import-the-data-1">Import the Data</a></li>
 <li><a href="#aesthetics-aes-1">Aesthetics: aes()</a></li>
-<li><a href="#coordinate-systems-coord_">Coordinate Systems: coord_*()</a></li>
+<li><a href="#coordinate-systems-coord_">Coordinate Systems:
+coord_*()</a></li>
 </ul></li>
 <li><a href="#session-info">Session Info</a></li>
 </ul>
@@ -2535,7 +2544,11 @@ Codes
 </div>
 <h2 id="the-ggplot2-package">The <code>{ggplot2}</code> Package</h2>
 <blockquote>
-<p><code>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on “The Grammar of Graphics” (Wilkinson, 2005). You provide the data, tell <code>{ggplot2}</code> how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
+<p><code>{ggplot2}</code> is a system for declaratively creating
+graphics,<br>based on “The Grammar of Graphics” (Wilkinson, 2005). You
+provide the data, tell <code>{ggplot2}</code> how to map variables to
+aesthetics, what graphical primitives to use, and it takes care of the
+details.</p>
 </blockquote>
 <h3 id="advantages-of-ggplot2">Advantages of <code>{ggplot2}</code></h3>
 <ul>
@@ -2547,28 +2560,40 @@ Codes
 <h2 id="the-setup">The Setup</h2>
 <h3 id="the-course-material">The Course Material</h3>
 <ul>
-<li>Clone the <a href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.</li>
+<li>Clone the <a
+href="https://github.com/z3tt/hands-on-ggplot2-training">repository</a>.</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/repo.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/repo.png" /></p>
 <ul>
 <li>Open the R Project: <code>hands-on-ggplot2.Rproj</code></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/rproj.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/rproj.png" /></p>
 <ul>
 <li>Open the first script: <code>01-grammar.Rmd</code></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/rstudio-file.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/rstudio-file.png" /></p>
 <ul>
 <li>Run code locally</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/run-code.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/run-code.png" /></p>
 <ul>
 <li>… or knit the report</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/knit.png" /> <img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/report.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/knit.png" />
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/setup/report.png" /></p>
 <h3 id="the-package">The Package</h3>
-<p><code>ggplot2</code> is a <strong>data visualization package</strong> for the programming language <code>R</code> created by Hadley Wickham.</p>
-<p>It should be already installed on your system (if not run the first line in the following chunk). The functionality of the package can be loaded by calling <code>library()</code> as for any other package:</p>
+<p><code>ggplot2</code> is a <strong>data visualization package</strong>
+for the programming language <code>R</code> created by Hadley
+Wickham.</p>
+<p>It should be already installed on your system (if not run the first
+line in the following chunk). The functionality of the package can be
+loaded by calling <code>library()</code> as for any other package:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("ggplot2")</span>
@@ -2576,7 +2601,10 @@ Codes
 </code></pre>
 </div>
 </div>
-<p><code>ggplot2</code> is part of the <a href="https://www.tidyverse.org/"><code>tidyverse</code> package collection</a>. Thus, you can also load <code>tidyverse</code> without running <code>library(ggplot2)</code>:</p>
+<p><code>ggplot2</code> is part of the <a
+href="https://www.tidyverse.org/"><code>tidyverse</code> package
+collection</a>. Thus, you can also load <code>tidyverse</code> without
+running <code>library(ggplot2)</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("tidyverse")</span>
@@ -2585,10 +2613,16 @@ Codes
 </div>
 </div>
 <h2 id="the-data-set">The Data Set</h2>
-<p>We use <strong>cryptocurrency financial data</strong>, pulled from <a href="https://www.kaggle.com/philmohun/cryptocurrency-financial-data">CoinMarketCap.com</a>. For our purposes, we limit the data to the period 08/2017–12/2019 and the top 4 cryptocurrencies.</p>
-<p>I have already prepared the data. If you want to know how, you can have a look <a href="">here</a>.</p>
+<p>We use <strong>cryptocurrency financial data</strong>, pulled from <a
+href="https://www.kaggle.com/philmohun/cryptocurrency-financial-data">CoinMarketCap.com</a>.
+For our purposes, we limit the data to the period 08/2017–12/2019 and
+the top 4 cryptocurrencies.</p>
+<p>I have already prepared the data. If you want to know how, you can
+have a look <a href="">here</a>.</p>
 <h3 id="import-the-data">Import the Data</h3>
-<p>Using the <code>read_csv()</code> function form the <code>{readr}</code> package, we can read the data directly from the web:</p>
+<p>Using the <code>read_csv()</code> function from the
+<code>{readr}</code> package, we can read the data directly from the
+web:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/data/crypto_cleaned.csv"</span>
@@ -2636,22 +2670,29 @@ Codes
 10 binance-coin 2019-11-25  15.3  15.7  14.2  15.3  2019    11   329
 # ... with 2,802 more rows</code></pre>
 </div>
-<p>This assumes that you have placed the file in a folder called <code>data</code> in your working directory.<br />
-You can specify this directory via <code>setwd()</code> or, and preferably, use R projects.</p>
+<p>This assumes that you have placed the file in a folder called
+<code>data</code> in your working directory.<br />
+You can specify this directory via <code>setwd()</code> or, and
+preferably, use R projects.</p>
 <h4 id="short-explanation-of">Short Explanation of ::</h4>
-<p>The so–called <strong>namespace</strong> allows to access functions from a package directly without loading it first.</p>
+<p>The so–called <strong>namespace</strong> allows to access functions
+from a package directly without loading it first.</p>
 <p><code>packagename::function(argument)</code></p>
-<p>Furthermore, it helps readers to understand from which package a function is imported from.</p>
+<p>Furthermore, it helps readers to understand from which package a
+function is imported from.</p>
 <hr />
 <h2 id="exercise-1">Exercise 1</h2>
 <ul>
-<li>Import the data set on Chicago weather data:<br><a href="https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv" class="uri">https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv</a></li>
+<li>Import the data set on Chicago weather data:<br><a
+href="https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv"
+class="uri">https://raw.githubusercontent.com/z3tt/ggplot-courses/master/data/chicago-nmmaps.csv</a></li>
 <li>Inspect the data.</li>
 </ul>
 <hr />
 <h2 id="the-grammar-of-graphics">The Grammar of Graphics</h2>
 <h3 id="the-structure-of-ggplot2">The Structure of ggplot2</h3>
-<p><img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/structure-table.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/structure-table.png" /></p>
 <h3 id="data-ggplotdata">Data: ggplot(data)</h3>
 <p>We need to specify the data in the <code>ggplot()</code> call:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2661,9 +2702,11 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-data-1.png" width="960" /></p>
 </div>
-<p>There is only an empty panel because <code>ggplot2</code> doesn’t know <strong>what</strong> of the data it should plot.</p>
+<p>There is only an empty panel because <code>ggplot2</code> doesn’t
+know <strong>what</strong> of the data it should plot.</p>
 <h3 id="aesthetics-aes">Aesthetics: aes()</h3>
-<p>We need to specify two variables we want to plot as positional <code>aes</code>thetics:</p>
+<p>We need to specify two variables we want to plot as positional
+<code>aes</code>thetics:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>data</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span>
@@ -2671,8 +2714,10 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-aes-1.png" width="960" /></p>
 </div>
-<p>There is only an empty panel because <code>ggplot2</code> doesn’t know <strong>how</strong> it should plot the data.</p>
-<p>Thanks to implicit matching of arguments in <code>ggplot()</code> and <code>aes()</code>, we can also write:</p>
+<p>There is only an empty panel because <code>ggplot2</code> doesn’t
+know <strong>how</strong> it should plot the data.</p>
+<p>Thanks to implicit matching of arguments in <code>ggplot()</code> and
+<code>aes()</code>, we can also write:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span>
@@ -2681,11 +2726,19 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-aes-implicit-1.png" width="960" /></p>
 </div>
 <h3 id="layers-geom_-and-stat_">Layers: geom_*() and stat_*()</h3>
-<p>By adding one or multiple layers we can tell <code>ggplot2</code> <em>how</em> to represent the data. There are lots of built-in geometric elements (<code>geom's</code>) and statistical transformations (<code>stat's</code>):</p>
+<p>By adding one or multiple layers we can tell <code>ggplot2</code>
+<em>how</em> to represent the data. There are lots of built-in geometric
+elements (<code>geom's</code>) and statistical transformations
+(<code>stat's</code>):</p>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ggplot-layers.png" alt="Adapted from ggplot2.tidyverse.org/reference" /><figcaption aria-hidden="true">Adapted from ggplot2.tidyverse.org/reference</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ggplot-layers.png"
+alt="Adapted from ggplot2.tidyverse.org/reference" />
+<figcaption aria-hidden="true">Adapted from
+ggplot2.tidyverse.org/reference</figcaption>
 </figure>
-<p>We can tell <code>ggplot2</code> to represent the data for example as a <strong>scatter plot</strong>:</p>
+<p>We can tell <code>ggplot2</code> to represent the data for example as
+a <strong>scatter plot</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2695,7 +2748,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-geom-point-1.png" width="960" /></p>
 </div>
 <h3 id="aesthetics-aes-again">Aesthetics: aes() (again)</h3>
-<p>Aesthetics do not only refer to x and y positions, but also groupings, colors, fills, shapes etc.</p>
+<p>Aesthetics do not only refer to x and y positions, but also
+groupings, colors, fills, shapes etc.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>data</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2704,17 +2758,25 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-aes-line-colors-1.png" width="960" /></p>
 </div>
-<h3 id="important-things-first-change-the-default-theme">Important Things First: Change the Default Theme</h3>
-<p>You can replace the default theme with one of the other built-in themes with <code>theme_set()</code>. Note that you can as well adjust some global settings, for example the <code>base_size</code> which is often too small in the default (11).</p>
+<h3 id="important-things-first-change-the-default-theme">Important
+Things First: Change the Default Theme</h3>
+<p>You can replace the default theme with one of the other built-in
+themes with <code>theme_set()</code>. Note that you can as well adjust
+some global settings, for example the <code>base_size</code> which is
+often too small in the default (11).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p>By using <code>theme_set()</code> the new theme is used for any plot you create aftwerwards! Give it a try on go back to the last chunk and re-run the code to generate the colored scatter plot.</p>
-<h3 id="layers-geom_-and-stat_-repeated">Layers: geom_*() and stat_*() (repeated)</h3>
-<p>The exciting thing about layers is that you can combine several <code>geom_*()</code> and <code>stat_*()</code> calls:</p>
+<p>By using <code>theme_set()</code> the new theme is used for any plot
+you create aftwerwards! Give it a try on go back to the last chunk and
+re-run the code to generate the colored scatter plot.</p>
+<h3 id="layers-geom_-and-stat_-repeated">Layers: geom_*() and stat_*()
+(repeated)</h3>
+<p>The exciting thing about layers is that you can combine several
+<code>geom_*()</code> and <code>stat_*()</code> calls:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2758,13 +2820,15 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 </div>
 <ul>
-<li>Create a scatter plot of temperature (<code>temp</code>) versus day (<code>date</code>).</li>
+<li>Create a scatter plot of temperature (<code>temp</code>) versus day
+(<code>date</code>).</li>
 <li>Color the points by season (<code>season</code>).</li>
 <li>Color the points by year (<code>year</code>).
 <ul>
 <li>What’s the problem? How could you fix it?</li>
 </ul></li>
-<li><strong>Bonus:</strong> Turn the scatter plot, colored by season, into a line plot.
+<li><strong>Bonus:</strong> Turn the scatter plot, colored by season,
+into a line plot.
 <ul>
 <li>What’s the problem? How could you fix it?</li>
 </ul></li>
@@ -2784,24 +2848,39 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 </div>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png" alt="Source: canva.com" /><figcaption aria-hidden="true">Source: canva.com</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/canva_vector.png"
+alt="Source: canva.com" />
+<figcaption aria-hidden="true">Source: canva.com</figcaption>
 </figure>
-<p>-&gt; Scales, Coordinate Systems, Facets, Themes, and Annotations will follow later</p>
+<p>-&gt; Scales, Coordinate Systems, Facets, Themes, and Annotations
+will follow later</p>
 <hr />
 <h2 id="resources">Resources</h2>
 <ul>
-<li><p><a href="https://ggplot2-book.org/">“ggplot2: Elegant Graphics for Data Analysis”</a>, free–access book by Hadley Wickham et al.</p></li>
-<li><p><a href="https://ggplot2.tidyverse.org/reference/">{ggplot2} reference</a></p></li>
-<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">{ggplot2} cheatsheet</a></p></li>
-<li><p><a href="https://4ds.had.co.nz">“R for Data Science”</a>, free–access book by Hadley Wickham</p></li>
-<li><p><a href="https://socviz.co">“Data Visualization: A Practical Introduction”</a>, free–access book by Kieran Healy</p></li>
-<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+<li><p><a href="https://ggplot2-book.org/">“ggplot2: Elegant Graphics
+for Data Analysis”</a>, free–access book by Hadley Wickham et
+al.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/">{ggplot2}
+reference</a></p></li>
+<li><p><a
+href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">{ggplot2}
+cheatsheet</a></p></li>
+<li><p><a href="https://r4ds.had.co.nz/">“R for Data Science”</a>,
+free–access book by Hadley Wickham</p></li>
+<li><p><a href="https://socviz.co">“Data Visualization: A Practical
+Introduction”</a>, free–access book by Kieran Healy</p></li>
+<li><p><a
+href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A
+<code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my
+extensive “how to”-tutorial</p></li>
 </ul>
 <hr />
 <h2 id="appendix">Appendix</h2>
 <h3 id="import-the-data-1">Import the Data</h3>
 <h4 id="the-here-package">The <code>{here}</code> Package</h4>
-<p>A good workflow when working with local files is offered by the <code>{here}</code> package in combination with R projects:</p>
+<p>A good workflow when working with local files is offered by the
+<code>{here}</code> package in combination with R projects:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -2830,7 +2909,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 # ... with 2,802 more rows</code></pre>
 </div>
 <h4 id="base-r">Base R</h4>
-<p>The base R function <code>read.csv()</code> works in the same way as <code>readr::read_csv()</code>:</p>
+<p>The base R function <code>read.csv()</code> works in the same way as
+<code>readr::read_csv()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"crypto_cleaned.csv"</span><span class='op'>)</span><span class='op'>)</span>
@@ -2869,9 +2949,11 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 10 binance-coin 2019-11-25  15.3  15.7  14.2  15.3  2019    11   329
 # ... with 2,802 more rows</code></pre>
 </div>
-<p>However, note that by default the date column is runed into type <code>character</code>.</p>
+<p>However, note that by default the date column is runed into type
+<code>character</code>.</p>
 <h4 id="the-rio-package">The {rio} Package</h4>
-<p>The <code>import()</code> function from the <code>{rio}</code> package allows to load all kind of data formats:</p>
+<p>The <code>import()</code> function from the <code>{rio}</code>
+package allows to load all kind of data formats:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#install.packages("rio")</span>
@@ -2889,7 +2971,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 5 binance-coin 2019-11-30 16.26 16.37 15.54 15.72 2019    11  334
 6 binance-coin 2019-11-29 15.68 16.34 15.65 16.27 2019    11  333</code></pre>
 </div>
-<p>We can turn it into a <strong>tibble</strong> afterwards—or specify it directly when importing the data set:</p>
+<p>We can turn it into a <strong>tibble</strong> afterwards—or specify
+it directly when importing the data set:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'>rio</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rio/man/import.html'>import</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"crypto_cleaned.csv"</span><span class='op'>)</span>, setclass <span class='op'>=</span> <span class='st'>"tbl"</span><span class='op'>)</span>
@@ -2912,7 +2995,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 10 binance-coin 2019-11-25  15.3  15.7  14.2  15.3  2019    11   329
 # ... with 2,802 more rows</code></pre>
 </div>
-<p>You could also load, for example, JSON or Excel files with the same function:</p>
+<p>You could also load, for example, JSON or Excel files with the same
+function:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_json</span> <span class='op'>&lt;-</span> <span class='fu'>rio</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rio/man/import.html'>import</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"crypto_cleaned.json"</span><span class='op'>)</span><span class='op'>)</span>
@@ -2963,7 +3047,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 # ... with 2,802 more rows, and 2 more variables: month &lt;dbl&gt;,
 #   yday &lt;dbl&gt;</code></pre>
 </div>
-<p>We can remove the first column by using the <code>select()</code> function from the <code>{dplyr}</code> package:</p>
+<p>We can remove the first column by using the <code>select()</code>
+function from the <code>{dplyr}</code> package:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_xlsx</span> <span class='op'>&lt;-</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>data_xlsx</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>
@@ -2989,7 +3074,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 </div>
 <hr />
 <h3 id="aesthetics-aes-1">Aesthetics: aes()</h3>
-<p>Some prefer to place the <code>aes()</code> outside the <code>ggplot()</code> call:</p>
+<p>Some prefer to place the <code>aes()</code> outside the
+<code>ggplot()</code> call:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2999,7 +3085,8 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 <p><img src="01-grammar-rmarkdown_files/figure-html5/structure-aes-outside-1.png" width="960" /></p>
 </div>
 <h3 id="coordinate-systems-coord_">Coordinate Systems: coord_*()</h3>
-<p>The coordinate system maps the two position to a 2d position on the plot:</p>
+<p>The coordinate system maps the two position to a 2d position on the
+plot:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, 
@@ -3054,11 +3141,11 @@ You can specify this directory via <code>setwd()</code> or, and preferably, use 
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2022-04-06 13:55:16 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2022-06-25 13:57:40 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2022_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [59ea33b] 2022-01-28: rm xaringan chunk in script</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
+Head:     [4423fc3] 2022-04-06: rebuild page</code></pre>
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
 
@@ -3086,29 +3173,30 @@ loaded via a namespace (and not attached):
 [10] highr_0.9         cellranger_1.1.0  yaml_2.2.1       
 [13] pillar_1.6.4      backports_1.2.1   glue_1.4.2       
 [16] digest_0.6.29     rvest_1.0.2       colorspace_2.0-2 
-[19] htmltools_0.5.2   pkgconfig_2.0.3   broom_0.7.11     
+[19] htmltools_0.5.2   pkgconfig_2.0.3   broom_0.8.0      
 [22] haven_2.4.3       scales_1.1.1      openxlsx_4.2.5   
 [25] rio_0.5.29        distill_1.3       tzdb_0.1.2       
 [28] downlit_0.4.0     git2r_0.29.0      generics_0.1.1   
 [31] farver_2.1.0      ellipsis_0.3.2    cachem_1.0.6     
 [34] withr_2.4.3       cli_3.1.0         magrittr_2.0.1   
 [37] crayon_1.4.2      readxl_1.3.1      memoise_2.0.1    
-[40] evaluate_0.14     fs_1.5.0          fansi_0.5.0      
+[40] evaluate_0.15     fs_1.5.0          fansi_0.5.0      
 [43] foreign_0.8-81    xml2_1.3.2        textshaping_0.3.6
-[46] data.table_1.14.2 tools_4.1.2       hms_1.1.1        
+[46] data.table_1.14.2 tools_4.1.0       hms_1.1.1        
 [49] lifecycle_1.0.1   munsell_0.5.0     reprex_2.0.1     
-[52] zip_2.2.0         compiler_4.1.2    jquerylib_0.1.4  
-[55] systemfonts_1.0.3 rlang_0.4.12      grid_4.1.2       
+[52] zip_2.2.0         compiler_4.1.0    jquerylib_0.1.4  
+[55] systemfonts_1.0.3 rlang_1.0.2       grid_4.1.0       
 [58] rstudioapi_0.13   labeling_0.4.2    rmarkdown_2.11   
 [61] gtable_0.3.0      DBI_1.1.2         curl_4.3.2       
-[64] R6_2.5.1          lubridate_1.8.0   knitr_1.36       
+[64] R6_2.5.1          lubridate_1.8.0   knitr_1.39       
 [67] fastmap_1.1.0     bit_4.0.4         utf8_1.2.2       
 [70] rprojroot_2.0.2   ragg_1.1.3        stringi_1.7.5    
-[73] parallel_4.1.2    Rcpp_1.0.7        vctrs_0.3.8      
-[76] dbplyr_2.1.1      tidyselect_1.1.1  xfun_0.27        </code></pre>
+[73] parallel_4.1.0    Rcpp_1.0.7        vctrs_0.3.8      
+[76] dbplyr_2.1.1      tidyselect_1.1.1  xfun_0.31        </code></pre>
 </div>
 </details>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

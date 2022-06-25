@@ -2482,11 +2482,13 @@ Codes
 <h1>Segment 2: Build Plots Layer by Layer</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Part 2 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
+<p>Part 2 of the Pearson Live Training Session “Hands–On Data
+Visualization with ggplot2” for O’Reilly</p>
 </div>
 
 <div class="d-byline">
-  Cédric Scherer <a href="https://cedricscherer.com" class="uri">https://cedricscherer.com</a> 
+  Cédric Scherer <a href="https://cedricscherer.com"
+class="uri">https://cedricscherer.com</a> 
   
 
 </div>
@@ -2506,13 +2508,15 @@ Codes
 <li><a href="#rectangular-bin-plot">Rectangular Bin Plot</a></li>
 <li><a href="#heatmaps">Heatmaps</a></li>
 </ul></li>
-<li><a href="#statistical-transformations">Statistical Transformations</a>
+<li><a href="#statistical-transformations">Statistical
+Transformations</a>
 <ul>
 <li><a href="#draw-fittings">Draw Fittings</a></li>
 <li><a href="#calculate-summaries">Calculate Summaries</a></li>
 <li><a href="#dumbbell-plot">Dumbbell Plot</a></li>
 </ul></li>
-<li><a href="#statistical-transformations-stat_">Statistical Transformations: <code>stat_*()</code></a></li>
+<li><a href="#statistical-transformations-stat_">Statistical
+Transformations: <code>stat_*()</code></a></li>
 <li><a href="#exercise-1">Exercise 1</a></li>
 <li><a href="#spatial-maps">Spatial Maps</a>
 <ul>
@@ -2528,14 +2532,16 @@ Codes
 <li><a href="#appendix">Appendix</a>
 <ul>
 <li><a href="#create-any-chart-type-1">Create Any Chart Type</a></li>
-<li><a href="#statistical-transformations-1">Statistical Transformations</a></li>
+<li><a href="#statistical-transformations-1">Statistical
+Transformations</a></li>
 </ul></li>
 <li><a href="#session-info">Session Info</a></li>
 </ul>
 </nav>
 </div>
 <h2 id="create-any-chart-type">Create Any Chart Type</h2>
-<p>As you have already seen, we can quickly switch through different chart types:</p>
+<p>As you have already seen, we can quickly switch through different
+chart types:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2597,7 +2603,8 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-1.png" width="960" /></p>
 </div>
-<p>And, as you already know, we can combine geom’s to make the plot more insightful:</p>
+<p>And, as you already know, we can combine geom’s to make the plot more
+insightful:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2608,7 +2615,8 @@ Codes
 <p><img src="02-layers-rmarkdown_files/figure-html5/boxplot-dots-1.png" width="960" /></p>
 </div>
 <h3 id="jitterstrips">Jitterstrips</h3>
-<p>And also the point geom can be adjusted, e.g. adding some random noise called <strong>jitter</strong>:</p>
+<p>And also the point geom can be adjusted, e.g. adding some random
+noise called <strong>jitter</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>close</span>, <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2689,7 +2697,8 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/rect-open-close-diag-1.png" width="960" /></p>
 </div>
-<p>Actually, the fill is mapped to a hidden summary statistic that is calculated by <code>{ggplot2}</code>:</p>
+<p>Actually, the fill is mapped to a hidden summary statistic that is
+calculated by <code>{ggplot2}</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2750,7 +2759,9 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth2-again-1.png" width="960" /></p>
 </div>
-<p>By default this adds a LOESS (locally weighted scatter plot smoothing) or a GAM (generalized additive model) depending on the number of data points (GAM in case of ≥ 1000 observations).</p>
+<p>By default this adds a LOESS (locally weighted scatter plot
+smoothing) or a GAM (generalized additive model) depending on the number
+of data points (GAM in case of ≥ 1000 observations).</p>
 <p>You can specify the fitting method and the formula:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2761,7 +2772,9 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-smooth-polynom-1.png" width="960" /></p>
 </div>
-<p>Other methods such as method = “lm” (without an explicit formula) for simple linear regressions and method = “glm” for generalized linear models are available as well.</p>
+<p>Other methods such as method = “lm” (without an explicit formula) for
+simple linear regressions and method = “glm” for generalized linear
+models are available as well.</p>
 <h3 id="calculate-summaries">Calculate Summaries</h3>
 <p>Without pre-calculations one can easily plot data summaries:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2772,7 +2785,8 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-1.png" width="960" /></p>
 </div>
-<p>You can always go both ways — <code>stat_x(geom = "y") == geom_y(stat = "x")</code>:</p>
+<p>You can always go both ways —
+<code>stat_x(geom = "y") == geom_y(stat = "x")</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>open</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2824,7 +2838,9 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-custom-1.png" width="960" /></p>
 </div>
-<p>The common standard placeholder for numeric inputs in functions is <code>x</code>. However, it might be more intuitive to use <code>y</code> here as we are summarizing our y variable:</p>
+<p>The common standard placeholder for numeric inputs in functions is
+<code>x</code>. However, it might be more intuitive to use
+<code>y</code> here as we are summarizing our y variable:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>currency</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2940,36 +2956,60 @@ Codes
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/stats-summary-dumbbell-3-1.png" width="960" /></p>
 </div>
-<h2 id="statistical-transformations-stat_">Statistical Transformations: <code>stat_*()</code></h2>
+<h2 id="statistical-transformations-stat_">Statistical Transformations:
+<code>stat_*()</code></h2>
 <p>There are several other statistical transformations available:</p>
 <ul>
-<li><code>stat_count()</code> to count observations (e.g. for bar charts)</li>
-<li><code>stat_bin()</code> and <code>stat_bin2d()</code> to count observations per bin (e.g. for histograms)</li>
-<li><code>stat_density()</code> and <code>stat_density2d()</code> to compute kernel density estimates (e.g. for density curves)</li>
-<li><code>stat_contour()</code> and <code>stat_contour_filled()</code> to retrieve threshold levels (e.g. for contour maps)</li>
-<li><code>stat_function()</code> to draw functions as a continuous curves</li>
-<li><code>stat_boxplot()</code> to calculate the five summary statistics for a box plot</li>
-<li><code>stat_ydensity()</code> to compute vertical density estimates (e.g. for violin plots)</li>
+<li><code>stat_count()</code> to count observations (e.g. for bar
+charts)</li>
+<li><code>stat_bin()</code> and <code>stat_bin2d()</code> to count
+observations per bin (e.g. for histograms)</li>
+<li><code>stat_density()</code> and <code>stat_density2d()</code> to
+compute kernel density estimates (e.g. for density curves)</li>
+<li><code>stat_contour()</code> and <code>stat_contour_filled()</code>
+to retrieve threshold levels (e.g. for contour maps)</li>
+<li><code>stat_function()</code> to draw functions as a continuous
+curves</li>
+<li><code>stat_boxplot()</code> to calculate the five summary statistics
+for a box plot</li>
+<li><code>stat_ydensity()</code> to compute vertical density estimates
+(e.g. for violin plots)</li>
 </ul>
 <hr />
 <h2 id="exercise-1">Exercise 1</h2>
 <ul>
-<li>Import the password data set: <a href="https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv" class="uri">https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv</a></li>
+<li>Import the password data set: <a
+href="https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv"
+class="uri">https://raw.githubusercontent.com/Z3tt/ggplot-courses/master/data/passwords.csv</a></li>
 <li>Visualize the number of passwords per category as bar chart.</li>
 <li>Add to each bar a label of the number of passwords.</li>
 </ul>
 <hr />
 <p>class: center, middle, inverse</p>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/extensions.png" alt="Collection of some chart types provided by ggplot2 extension packages" /><figcaption aria-hidden="true">Collection of some chart types provided by ggplot2 extension packages</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/extensions.png"
+alt="Collection of some chart types provided by ggplot2 extension packages" />
+<figcaption aria-hidden="true">Collection of some chart types provided
+by ggplot2 extension packages</figcaption>
 </figure>
 <h2 id="spatial-maps">Spatial Maps</h2>
 <h3 id="simple-features-access">Simple Features (Access)</h3>
-<p><a href="https://r-spatial.github.io/sf/articles/sf1.html"><strong>Simple features</strong> or <strong>simple features access</strong></a> refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the <em>spatial geometry</em>.</p>
-<p><code>{sf}</code> is an R package that provides simple features access for R.</p>
+<p><a
+href="https://r-spatial.github.io/sf/articles/sf1.html"><strong>Simple
+features</strong> or <strong>simple features access</strong></a> refers
+to a formal standard (ISO 19125-1:2004) that describes how objects in
+the real world can be represented in computers, with emphasis on the
+<em>spatial geometry</em>.</p>
+<p><code>{sf}</code> is an R package that provides simple features
+access for R.</p>
 <h3 id="natural-earth">Natural Earth</h3>
-<p><a href="https://www.naturalearthdata.com/"><strong>Natural Earth</strong></a> is a <em>public domain map data set of physical and cultural features</em>, available at 1:10m, 1:50m,and 1:110 million scales.</p>
-<p><code>{rnaturalearth}</code> is an R package to hold and facilitate interaction with Natural Earth map data.</p>
+<p><a href="https://www.naturalearthdata.com/"><strong>Natural
+Earth</strong></a> is a <em>public domain map data set of physical and
+cultural features</em>, available at 1:10m, 1:50m,and 1:110 million
+scales.</p>
+<p><code>{rnaturalearth}</code> is an R package to hold and facilitate
+interaction with Natural Earth map data.</p>
 <h3 id="setup">Setup</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2982,7 +3022,8 @@ Codes
 </div>
 </div>
 <h3 id="get-the-data">Get the Data</h3>
-<p>The <code>{rnaturalearth}</code> allows downloading the Natural Earth data sets in simple feature format.</p>
+<p>The <code>{rnaturalearth}</code> allows downloading the Natural Earth
+data sets in simple feature format.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sf_world</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html'>ne_countries</a></span><span class='op'>(</span>returnclass <span class='op'>=</span> <span class='st'>"sf"</span><span class='op'>)</span>
@@ -2990,7 +3031,7 @@ Codes
 </code></pre>
 </div>
 <pre><code>OGR data source with driver: ESRI Shapefile 
-Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\RtmpAhlQZU&quot;, layer: &quot;ne_10m_airports&quot;
+Source: &quot;C:\Users\DataVizard\AppData\Local\Temp\Rtmp8caVLs&quot;, layer: &quot;ne_10m_airports&quot;
 with 893 features
 It has 40 fields
 Integer64 fields read as strings:  ne_id </code></pre>
@@ -3066,7 +3107,9 @@ $ homepart   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, NA, 1, 1, 1, 1, 1, 1, 1, 1, ~
 $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((61.21082 35..., MULT~</code></pre>
 </div>
 <h3 id="plot-the-map">Plot the Map</h3>
-<p><code>{ggplot2}</code> comes with a set of <code>geom</code>, <code>stat</code>, and <code>coord</code> are used to visualize sf objects.</p>
+<p><code>{ggplot2}</code> comes with a set of <code>geom</code>,
+<code>stat</code>, and <code>coord</code> are used to visualize sf
+objects.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3075,7 +3118,8 @@ $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((61.21082 35..., MULT~</co
 </div>
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-1.png" width="960" /></p>
 </div>
-<p><code>geom_sf()</code> works with all types of vector data and returns geometries depending on the simple features:</p>
+<p><code>geom_sf()</code> works with all types of vector data and
+returns geometries depending on the simple features:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3142,7 +3186,8 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 <p><img src="02-layers-rmarkdown_files/figure-html5/first-map-color-1.png" width="960" /></p>
 </div>
 <h3 id="change-the-projection">Change the Projection</h3>
-<p>Use <code>coord_sf()</code> to change the projection without changing the spatial data set!</p>
+<p>Use <code>coord_sf()</code> to change the projection without changing
+the spatial data set!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3183,25 +3228,48 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 <h2 id="exercise-2">Exercise 2</h2>
 <ul>
 <li>Download data set(s) for your home country and plot it/them.</li>
-<li>Change the projection with <code>coord_sf</code> and observe how the spatial mapping changes.</li>
+<li>Change the projection with <code>coord_sf</code> and observe how the
+spatial mapping changes.</li>
 </ul>
 <hr />
 <h2 id="resources">Resources</h2>
 <ul>
-<li><p>Chapters on <a href="https://ggplot2-book.org/individual-geoms.html">individual geom’s</a>, <a href="https://ggplot2-book.org/collective-geoms.html">collective geom’s</a>, <a href="https://ggplot2-book.org/statistical-summaries.html">statistical summaries</a>, and <a href="https://ggplot2-book.org/maps.html">maps</a>of the “ggplot2” book by Hadley Wickham et al.</p></li>
-<li><p><a href="https://ggplot2.tidyverse.org/reference/">Overview of layers</a> contained in the <code>{ggplot2}</code> package</p></li>
-<li><p><a href="https://www.r-graph-gallery.com/">R Graph Gallery</a> that provides hundreds of charts with their reproducible code</p></li>
-<li><p>List of <a href="https://exts.ggplot2.tidyverse.org/"><code>{ggplot2}</code> extension packages</a></p></li>
-<li><p><a href="https://geocompr.robinlovelace.net/">“Geocomputation with R”</a>, free-access book by Robin Lovelace et al.</p></li>
-<li><p><a href="https://r-spatial.github.io/sf/"><code>{sf}</code> package page</a></p></li>
-<li><p><a href="https://github.com/r-spatial/sf/issues/1050">StackOverflow discussion</a> and <a href="https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1">code</a> to plot a true globe</p></li>
-<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+<li><p>Chapters on <a
+href="https://ggplot2-book.org/individual-geoms.html">individual
+geom’s</a>, <a
+href="https://ggplot2-book.org/collective-geoms.html">collective
+geom’s</a>, <a
+href="https://ggplot2-book.org/statistical-summaries.html">statistical
+summaries</a>, and <a
+href="https://ggplot2-book.org/maps.html">maps</a>of the “ggplot2” book
+by Hadley Wickham et al.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/">Overview of
+layers</a> contained in the <code>{ggplot2}</code> package</p></li>
+<li><p><a href="https://www.r-graph-gallery.com/">R Graph Gallery</a>
+that provides hundreds of charts with their reproducible code</p></li>
+<li><p>List of <a
+href="https://exts.ggplot2.tidyverse.org/"><code>{ggplot2}</code>
+extension packages</a></p></li>
+<li><p><a href="https://geocompr.robinlovelace.net/">“Geocomputation
+with R”</a>, free-access book by Robin Lovelace et al.</p></li>
+<li><p><a href="https://r-spatial.github.io/sf/"><code>{sf}</code>
+package page</a></p></li>
+<li><p><a
+href="https://github.com/r-spatial/sf/issues/1050">StackOverflow
+discussion</a> and <a
+href="https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1">code</a>
+to plot a true globe</p></li>
+<li><p><a
+href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A
+<code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my
+extensive “how to”-tutorial</p></li>
 </ul>
 <hr />
 <h2 id="appendix">Appendix</h2>
 <h3 id="create-any-chart-type-1">Create Any Chart Type</h3>
 <h4 id="candlestick-charts">Candlestick Charts</h4>
-<p>There is a package for that — but it’s simple enough to do it manually!</p>
+<p>There is a package for that — but it’s simple enough to do it
+manually!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2019</span>, <span class='va'>month</span> <span class='op'>&gt;</span> <span class='fl'>9</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3240,7 +3308,8 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 </div>
 <h3 id="statistical-transformations-1">Statistical Transformations</h3>
 <h4 id="draw-functions">Draw Functions</h4>
-<p><code>stat_function()</code> makes it easy to add a function to a plot, either continuous or discrete:</p>
+<p><code>stat_function()</code> makes it easy to add a function to a
+plot, either continuous or discrete:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>8</span>, <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3261,11 +3330,11 @@ CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0</
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2022-04-06 13:55:51 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2022-06-25 13:58:21 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2022_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [668f713] 2022-04-06: update date for next round</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
+Head:     [4423fc3] 2022-04-06: rebuild page</code></pre>
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
 
@@ -3288,14 +3357,14 @@ other attached packages:
 [10] ggplot2_3.3.5       tidyverse_1.3.1    
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-153       fs_1.5.0           lubridate_1.8.0   
+ [1] nlme_3.1-152       fs_1.5.0           lubridate_1.8.0   
  [4] bit64_4.0.5        httr_1.4.2         rprojroot_2.0.2   
- [7] tools_4.1.2        backports_1.2.1    bslib_0.3.1       
+ [7] tools_4.1.0        backports_1.2.1    bslib_0.3.1       
 [10] rgdal_1.5-28       utf8_1.2.2         R6_2.5.1          
-[13] KernSmooth_2.23-20 mgcv_1.8-38        DBI_1.1.2         
+[13] KernSmooth_2.23-20 mgcv_1.8-35        DBI_1.1.2         
 [16] colorspace_2.0-2   sp_1.4-6           withr_2.4.3       
 [19] tidyselect_1.1.1   downlit_0.4.0      bit_4.0.4         
-[22] curl_4.3.2         compiler_4.1.2     git2r_0.29.0      
+[22] curl_4.3.2         compiler_4.1.0     git2r_0.29.0      
 [25] textshaping_0.3.6  cli_3.1.0          rvest_1.0.2       
 [28] xml2_1.3.2         labeling_0.4.2     bookdown_0.24     
 [31] sass_0.4.0         scales_1.1.1       classInt_0.4-3    
@@ -3303,26 +3372,27 @@ loaded via a namespace (and not attached):
 [37] digest_0.6.29      foreign_0.8-81     rmarkdown_2.11    
 [40] rio_0.5.29         pkgconfig_2.0.3    htmltools_0.5.2   
 [43] dbplyr_2.1.1       fastmap_1.1.0      highr_0.9         
-[46] rlang_0.4.12       readxl_1.3.1       rstudioapi_0.13   
+[46] rlang_1.0.2        readxl_1.3.1       rstudioapi_0.13   
 [49] jquerylib_0.1.4    farver_2.1.0       generics_0.1.1    
 [52] jsonlite_1.7.2     vroom_1.5.5        zip_2.2.0         
 [55] distill_1.3        magrittr_2.0.1     s2_1.0.7          
-[58] Matrix_1.3-4       Rcpp_1.0.7         munsell_0.5.0     
+[58] Matrix_1.3-3       Rcpp_1.0.7         munsell_0.5.0     
 [61] fansi_0.5.0        lifecycle_1.0.1    stringi_1.7.5     
-[64] yaml_2.2.1         grid_4.1.2         parallel_4.1.2    
-[67] crayon_1.4.2       lattice_0.20-45    splines_4.1.2     
-[70] haven_2.4.3        hms_1.1.1          knitr_1.36        
+[64] yaml_2.2.1         grid_4.1.0         parallel_4.1.0    
+[67] crayon_1.4.2       lattice_0.20-44    splines_4.1.0     
+[70] haven_2.4.3        hms_1.1.1          knitr_1.39        
 [73] pillar_1.6.4       wk_0.6.0           reprex_2.0.1      
-[76] glue_1.4.2         evaluate_0.14      data.table_1.14.2 
+[76] glue_1.4.2         evaluate_0.15      data.table_1.14.2 
 [79] modelr_0.1.8       vctrs_0.3.8        tzdb_0.1.2        
 [82] cellranger_1.1.0   gtable_0.3.0       assertthat_0.2.1  
-[85] cachem_1.0.6       xfun_0.27          openxlsx_4.2.5    
-[88] broom_0.7.11       e1071_1.7-9        class_7.3-19      
+[85] cachem_1.0.6       xfun_0.31          openxlsx_4.2.5    
+[88] broom_0.8.0        e1071_1.7-9        class_7.3-19      
 [91] ragg_1.1.3         memoise_2.0.1      units_0.7-2       
 [94] ellipsis_0.3.2     here_1.0.1        </code></pre>
 </div>
 </details>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

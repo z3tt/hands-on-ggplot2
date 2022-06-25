@@ -485,12 +485,34 @@ ggplot(data, aes(currency, close)) +
 Without pre-calculations one can easily plot data summaries:
 
 .pull-left[
+```{r stats-summary-custom, eval=FALSE}
+ggplot(data, aes(currency, close)) +
+  stat_summary(
+    fun = function(y) mean(y), #<<
+    fun.min = function(y) mean(y) - sd(y), #<<
+    fun.max = function(y) mean(y) + sd(y) #<<
+  ) 
+```
+]
+
+.pull-right[
+```{r plot-stats-summary-custom, ref.label="stats-summary-custom", echo=FALSE}
+```
+]
+
+---
+
+## Statistical Transformations: Calculate Summaries
+
+Without pre-calculations one can easily plot data summaries:
+
+.pull-left[
 ```{r stats-summary-custom-label, eval=FALSE}
 ggplot(data, aes(currency, close)) +
   stat_summary(
-    fun = function(x) mean(x),
-    fun.min = function(x) mean(x) - sd(x),
-    fun.max = function(x) mean(x) + sd(x)
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
   ) +
   stat_summary( #<<
       geom = "text", #<<
@@ -514,13 +536,13 @@ Without pre-calculations one can easily plot data summaries:
 ```{r stats-summary-custom-label-warning, eval=FALSE}
 ggplot(data, aes(currency, close)) +
   stat_summary(
-    fun = function(x) mean(x),
-    fun.min = function(x) mean(x) - sd(x),
-    fun.max = function(x) mean(x) + sd(x)
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
   ) +
   stat_summary(
       geom = "text",
-      fun = function(x) mean(x), #<<
+      fun = function(y) mean(y), #<<
       aes(label = round(..y.., 2))
   )
 ```
@@ -541,13 +563,13 @@ Without pre-calculations one can easily plot data summaries:
 ```{r stats-summary-custom-label-adj, eval=FALSE}
 ggplot(data, aes(currency, close)) +
   stat_summary(
-    fun = function(x) mean(x),
-    fun.min = function(x) mean(x) - sd(x),
-    fun.max = function(x) mean(x) + sd(x)
+    fun = function(y) mean(y),
+    fun.min = function(y) mean(y) - sd(y),
+    fun.max = function(y) mean(y) + sd(y)
   ) +
   stat_summary(
       geom = "text",
-      fun = function(x) mean(x),
+      fun = function(y) mean(y),
       aes(label = round(..y.., 2)),
       size = 5, #<<
       hjust = -.5 #<<
@@ -1216,7 +1238,7 @@ ggplot(filter(data, year == 2019, month > 9), aes(date, close)) +
 
 .pull-left[
 ```{r stats-function, eval=FALSE}
-ggplot(tibble(x = c(-8, 8)), aes(x)) +
+ggplot(tibble(x = c(-8, 8)), aes(x = x)) +
   stat_function(fun = dnorm) + #<<
   stat_function( #<<
     fun = dcauchy, #<<

@@ -2482,11 +2482,13 @@ Codes
 <h1>Segment 3: Provide Context with Annotations</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Part 3 of the Pearson Live Training Session “Hands–On Data Visualization with ggplot2” for O’Reilly</p>
+<p>Part 3 of the Pearson Live Training Session “Hands–On Data
+Visualization with ggplot2” for O’Reilly</p>
 </div>
 
 <div class="d-byline">
-  Cédric Scherer <a href="https://cedricscherer.com" class="uri">https://cedricscherer.com</a> 
+  Cédric Scherer <a href="https://cedricscherer.com"
+class="uri">https://cedricscherer.com</a> 
   
 
 </div>
@@ -2496,27 +2498,37 @@ Codes
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#adjust-colors-and-other-aesthetics">Adjust Colors and Other <code>aes</code>thetics</a>
+<li><a href="#adjust-colors-and-other-aesthetics">Adjust Colors and
+Other <code>aes</code>thetics</a>
 <ul>
 <li><a href="#scales-scale_">Scales: <code>scale_*()</code></a></li>
-<li><a href="#scales-scale_color_">Scales: <code>scale_color_*()</code></a></li>
-<li><a href="#scales-scale_color_viridis_">Scales: <code>scale_color_viridis_*()</code></a></li>
-<li><a href="#scales-scale_color_brewer_">Scales: <code>scale_color_brewer_*()</code></a></li>
+<li><a href="#scales-scale_color_">Scales:
+<code>scale_color_*()</code></a></li>
+<li><a href="#scales-scale_color_viridis_">Scales:
+<code>scale_color_viridis_*()</code></a></li>
+<li><a href="#scales-scale_color_brewer_">Scales:
+<code>scale_color_brewer_*()</code></a></li>
 <li><a href="#exercise-1">Exercise 1</a></li>
-<li><a href="#scales-scale_fill_gradient">Scales: <code>scale_fill_gradient()</code></code>`</a></li>
-<li><a href="#scales-scale_fill_gradient2">Scales: <code>scale_fill_gradient2()</code></code>`</a></li>
-<li><a href="#color-palettes-in-r">Color Palettes in <code>R</code></a></li>
+<li><a href="#scales-scale_fill_gradient">Scales:
+<code>scale_fill_gradient()</code></code>`</a></li>
+<li><a href="#scales-scale_fill_gradient2">Scales:
+<code>scale_fill_gradient2()</code></code>`</a></li>
+<li><a href="#color-palettes-in-r">Color Palettes in
+<code>R</code></a></li>
 </ul></li>
 <li><a href="#a-ggplot-object">A ggplot Object</a></li>
 <li><a href="#legends-guides">Legends (Guides)</a>
 <ul>
-<li><a href="#style-legends-guides">Style Legends: <code>guides()</code></a></li>
+<li><a href="#style-legends-guides">Style Legends:
+<code>guides()</code></a></li>
 </ul></li>
 <li><a href="#exercise-2">Exercise 2</a>
 <ul>
-<li><a href="#style-legends-theme">Style Legends: <code>theme()</code></a></li>
+<li><a href="#style-legends-theme">Style Legends:
+<code>theme()</code></a></li>
 </ul></li>
-<li><a href="#template-and-custom-theming">Template and Custom Theming</a>
+<li><a href="#template-and-custom-theming">Template and Custom
+Theming</a>
 <ul>
 <li><a href="#themes-theme_">Themes: <code>theme_*()</code></a></li>
 <li><a href="#theme-arguments"><code>theme()</code> Arguments</a></li>
@@ -2535,23 +2547,39 @@ Codes
 </code></pre>
 </div>
 </div>
-<h2 id="adjust-colors-and-other-aesthetics">Adjust Colors and Other <code>aes</code>thetics</h2>
-<p>One can use <code>scale_*()</code> to change properties of all the <strong>aesthetic dimensions mapped to the data</strong>.</p>
-<p>Consequently, there are <code>scale_*()</code> functions for all aesthetics such as:</p>
+<h2 id="adjust-colors-and-other-aesthetics">Adjust Colors and Other
+<code>aes</code>thetics</h2>
+<p>One can use <code>scale_*()</code> to change properties of all the
+<strong>aesthetic dimensions mapped to the data</strong>.</p>
+<p>Consequently, there are <code>scale_*()</code> functions for all
+aesthetics such as:</p>
 <ul>
-<li><strong>positions</strong> via <code>scale_x_*()</code> and <code>scale_y_*()</code></li>
-<li><strong>colors</strong> via <code>scale_color_*()</code> and <code>scale_fill_*()</code></li>
-<li><strong>sizes</strong> via <code>scale_size_*()</code> and <code>scale_radius_*()</code></li>
-<li><strong>shapes</strong> via <code>scale_shape_*()</code> and <code>scale_linetype_*()</code></li>
+<li><strong>positions</strong> via <code>scale_x_*()</code> and
+<code>scale_y_*()</code></li>
+<li><strong>colors</strong> via <code>scale_color_*()</code> and
+<code>scale_fill_*()</code></li>
+<li><strong>sizes</strong> via <code>scale_size_*()</code> and
+<code>scale_radius_*()</code></li>
+<li><strong>shapes</strong> via <code>scale_shape_*()</code> and
+<code>scale_linetype_*()</code></li>
 <li><strong>transparency</strong> via <code>scale_alpha_*()</code></li>
 </ul>
 <p>The extensions (<code>*</code>) can be filled by e.g.:</p>
 <ul>
-<li><code>continuous()</code>, <code>discrete()</code>, <code>reverse()</code>, <code>log10()</code>, <code>sqrt()</code>, <code>date()</code> for positions</li>
-<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>gradient()</code>, <code>gradient2()</code>, <code>brewer()</code> for colors</li>
-<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>ordinal()</code>, <code>area()</code>, <code>date()</code> for sizes</li>
-<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>ordinal()</code> for shapes</li>
-<li><code>continuous()</code>, <code>discrete()</code>, <code>manual()</code>, <code>ordinal()</code>, <code>date()</code> for transparency</li>
+<li><code>continuous()</code>, <code>discrete()</code>,
+<code>reverse()</code>, <code>log10()</code>, <code>sqrt()</code>,
+<code>date()</code> for positions</li>
+<li><code>continuous()</code>, <code>discrete()</code>,
+<code>manual()</code>, <code>gradient()</code>,
+<code>gradient2()</code>, <code>brewer()</code> for colors</li>
+<li><code>continuous()</code>, <code>discrete()</code>,
+<code>manual()</code>, <code>ordinal()</code>, <code>area()</code>,
+<code>date()</code> for sizes</li>
+<li><code>continuous()</code>, <code>discrete()</code>,
+<code>manual()</code>, <code>ordinal()</code> for shapes</li>
+<li><code>continuous()</code>, <code>discrete()</code>,
+<code>manual()</code>, <code>ordinal()</code>, <code>date()</code> for
+transparency</li>
 </ul>
 <h3 id="scales-scale_">Scales: <code>scale_*()</code></h3>
 <p>Scales are directly connected to aesthetics:</p>
@@ -2566,7 +2594,8 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-1.png" width="960" /></p>
 </div>
-<p>All scales come with some general and specific arguments to change the appearance:</p>
+<p>All scales come with some general and specific arguments to change
+the appearance:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2627,13 +2656,23 @@ Codes
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-adj3-1.png" width="960" /></p>
 </div>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ah_continuous_discrete.png" alt="Illustration by Allison Horst" /><figcaption aria-hidden="true">Illustration by Allison Horst</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/ah_continuous_discrete.png"
+alt="Illustration by Allison Horst" />
+<figcaption aria-hidden="true">Illustration by Allison
+Horst</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/color-pal-types.png" alt="Color palette types" /><figcaption aria-hidden="true">Color palette types</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/color-pal-types.png"
+alt="Color palette types" />
+<figcaption aria-hidden="true">Color palette types</figcaption>
 </figure>
 <h3 id="scales-scale_color_">Scales: <code>scale_color_*()</code></h3>
-<p>All colors and fills that are mapped to <strong>categorical</strong> variables can be manipulated with either <code>scale_color|fill_discrete()</code> or <code>scale_color|fill_manual()</code>.</p>
+<p>All colors and fills that are mapped to <strong>categorical</strong>
+variables can be manipulated with either
+<code>scale_color|fill_discrete()</code> or
+<code>scale_color|fill_manual()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2652,7 +2691,8 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-manual-1.png" width="960" /></p>
 </div>
-<p>Here, you can overwrite the labels of your legend items—no need to manipulate the data itself!</p>
+<p>Here, you can overwrite the labels of your legend items—no need to
+manipulate the data itself!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2667,13 +2707,23 @@ Codes
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-manual-labels-1.png" width="960" /></p>
 </div>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/rainbow_alternatives.png" alt="Comparison of continuous color palettes, taken from the {viridis} package reference" /><figcaption aria-hidden="true">Comparison of continuous color palettes, taken from the {viridis} package reference</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/rainbow_alternatives.png"
+alt="Comparison of continuous color palettes, taken from the {viridis} package reference" />
+<figcaption aria-hidden="true">Comparison of continuous color palettes,
+taken from the {viridis} package reference</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/rainbow_alternatives_coblis.png" alt="The same collection of palettes for diferent color vision deficiencies" /><figcaption aria-hidden="true">The same collection of palettes for diferent color vision deficiencies</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/rainbow_alternatives_coblis.png"
+alt="The same collection of palettes for diferent color vision deficiencies" />
+<figcaption aria-hidden="true">The same collection of palettes for
+diferent color vision deficiencies</figcaption>
 </figure>
-<p>There are a few and well crafted built-in palettes you can use as well (the defaults are pretty bad).</p>
-<h3 id="scales-scale_color_viridis_">Scales: <code>scale_color_viridis_*()</code></h3>
+<p>There are a few and well crafted built-in palettes you can use as
+well (the defaults are pretty bad).</p>
+<h3 id="scales-scale_color_viridis_">Scales:
+<code>scale_color_viridis_*()</code></h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, color <span class='op'>=</span> <span class='va'>currency</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2698,7 +2748,12 @@ Codes
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-viridis-turbo-1.png" width="960" /></p>
 </div>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/viridis-scales.png" alt="Color palettes contained in the latest version of the {viridis} package, taken from the {viridis} package reference" /><figcaption aria-hidden="true">Color palettes contained in the latest version of the <code>{viridis}</code> package, taken from the {viridis} package reference</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/viridis-scales.png"
+alt="Color palettes contained in the latest version of the {viridis} package, taken from the {viridis} package reference" />
+<figcaption aria-hidden="true">Color palettes contained in the latest
+version of the <code>{viridis}</code> package, taken from the {viridis}
+package reference</figcaption>
 </figure>
 <p>The viridis palettes are more suitable for continuous data:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2724,7 +2779,7 @@ Codes
     direction <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,
     end <span class='op'>=</span> <span class='fl'>.9</span>,
     labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>,
-    name <span class='op'>=</span> <span class='st'>"Julian Day:"</span>
+    name <span class='op'>=</span> <span class='st'>"Open Price:"</span>
   <span class='op'>)</span>
 </code></pre>
 </div>
@@ -2740,13 +2795,14 @@ Codes
     end <span class='op'>=</span> <span class='fl'>.9</span>,
     breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>50</span>, <span class='fl'>300</span>, by <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,
     labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar_format</a></span><span class='op'>(</span><span class='op'>)</span>, 
-    name <span class='op'>=</span> <span class='st'>"Julian Day:"</span>
+    name <span class='op'>=</span> <span class='st'>"Open Price:"</span>
   <span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/structure-scales-color-breaks-1.png" width="960" /></p>
 </div>
-<h3 id="scales-scale_color_brewer_">Scales: <code>scale_color_brewer_*()</code></h3>
+<h3 id="scales-scale_color_brewer_">Scales:
+<code>scale_color_brewer_*()</code></h3>
 <p>Colorbrewer provides color schemes for maps.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2775,16 +2831,21 @@ Codes
 <ul>
 <li>see segment 2 if you don’t remember how</li>
 </ul></li>
-<li>Visualize the economy classes (<code>economy</code>) as a choropleth map and use one of the categorical colorbrewer palettes.</li>
-<li>Now change the code so the fill colors encode the estimated population (<code>pop_est</code>).
+<li>Visualize the economy classes (<code>economy</code>) as a choropleth
+map and use one of the categorical colorbrewer palettes.</li>
+<li>Now change the code so the fill colors encode the estimated
+population (<code>pop_est</code>).
 <ul>
 <li>What’s the problem? How can you fix it?</li>
-<li>Tip: Have a look at the note and examples on the help page: <code>?scale_fill_brewer</code></li>
+<li>Tip: Have a look at the note and examples on the help page:
+<code>?scale_fill_brewer</code></li>
 </ul></li>
 </ul>
 <hr />
-<h3 id="scales-scale_fill_gradient">Scales: <code>scale_fill_gradient()</code></code>`</h3>
-<p>You can also build your own <strong>sequential color palettes</strong>:</p>
+<h3 id="scales-scale_fill_gradient">Scales:
+<code>scale_fill_gradient()</code></code>`</h3>
+<p>You can also build your own <strong>sequential color
+palettes</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sf_world</span> <span class='op'>&lt;-</span> <span class='fu'>rnaturalearth</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html'>ne_countries</a></span><span class='op'>(</span>returnclass <span class='op'>=</span> <span class='st'>"sf"</span><span class='op'>)</span>
@@ -2797,8 +2858,10 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/map-gradient-1.png" width="960" /></p>
 </div>
-<h3 id="scales-scale_fill_gradient2">Scales: <code>scale_fill_gradient2()</code></code>`</h3>
-<p>You can also build your own <strong>diverging color palettes</strong>:</p>
+<h3 id="scales-scale_fill_gradient2">Scales:
+<code>scale_fill_gradient2()</code></code>`</h3>
+<p>You can also build your own <strong>diverging color
+palettes</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2826,13 +2889,19 @@ Codes
 <li><code>{viridis}</code> for perceptually uniform palettes</li>
 <li><code>{scico}</code> for more perceptually uniform palettes</li>
 <li><code>{rcartocolor}</code> for map color palettes</li>
-<li><code>{ggsci}</code> for scientific journal and sci-fi themed color</li>
-<li><code>{ggthemes}</code> for colors of popular software &amp; publishers</li>
+<li><code>{ggsci}</code> for scientific journal and sci-fi themed
+color</li>
+<li><code>{ggthemes}</code> for colors of popular software &amp;
+publishers</li>
 <li><code>{LaCroixColoR}</code> for vibrant summery colors</li>
 </ul>
-<p>Check the <a href="https://github.com/EmilHvitfeldt/r-color-palettes/blob/master/type-sorted-palettes.md">collection by Emil Hvitfeldt</a> for an extensive list of color palettes available in <code>R</code></p>
+<p>Check the <a
+href="https://github.com/EmilHvitfeldt/r-color-palettes/blob/master/type-sorted-palettes.md">collection
+by Emil Hvitfeldt</a> for an extensive list of color palettes available
+in <code>R</code></p>
 <h2 id="a-ggplot-object">A ggplot Object</h2>
-<p>By the way, you can store ggplots in objects and extend them later:</p>
+<p>By the way, you can store ggplots in objects and extend them
+later:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sf_world</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2848,7 +2917,8 @@ Codes
 </div>
 <h2 id="legends-guides">Legends (Guides)</h2>
 <h3 id="style-legends-guides">Style Legends: <code>guides()</code></h3>
-<p>The <code>guides()</code> function allows to adjust the appearance of each legend:</p>
+<p>The <code>guides()</code> function allows to adjust the appearance of
+each legend:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
@@ -2893,11 +2963,13 @@ Codes
 <hr />
 <h2 id="exercise-2">Exercise 2</h2>
 <ul>
-<li>Create the following visualization with a viridis palette: <img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/img/exercise-3-2.png" /></li>
+<li>Create the following visualization with a viridis palette: <img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/img/exercise-3-2.png" /></li>
 </ul>
 <hr />
 <h3 id="style-legends-theme">Style Legends: <code>theme()</code></h3>
-<p>The position of the legend and some other properties can be changed via <code>theme()</code>:</p>
+<p>The position of the legend and some other properties can be changed
+via <code>theme()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
@@ -2917,7 +2989,8 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/guide-colorbar-theme-key-size-1.png" width="960" /></p>
 </div>
-<p>You can change the position of the legend title and labels in <code>guides()</code>:</p>
+<p>You can change the position of the legend title and labels in
+<code>guides()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span>
@@ -2992,7 +3065,8 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/themes-8.png" width="960" /></p>
 </div>
-<p>You can either add theme changes to each plot or globally for all plots:</p>
+<p>You can either add theme changes to each plot or globally for all
+plots:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3077,34 +3151,50 @@ Codes
             half_line, half_line, half_line), complete = TRUE)
     ggplot_global$theme_all_null %+replace% t
 }
-&lt;bytecode: 0x0000000034d4a3f0&gt;
+&lt;bytecode: 0x00000000165b1c60&gt;
 &lt;environment: namespace:ggplot2&gt;</code></pre>
 </div>
 <h3 id="theme-arguments"><code>theme()</code> Arguments</h3>
-<p>There are many elements you can customize. You can either group them by their type or by their category:</p>
+<p>There are many elements you can customize. You can either group them
+by their type or by their category:</p>
 <ul>
 <li>element types:
 <ul>
-<li><code>text</code> → all labels, axis text, legend title and text</li>
+<li><code>text</code> → all labels, axis text, legend title and
+text</li>
 <li><code>line</code> → axis lines, ticks, grid lines</li>
-<li><code>rect</code> → plot area, panel area, legend and legend keys, facets</li>
+<li><code>rect</code> → plot area, panel area, legend and legend keys,
+facets</li>
 </ul></li>
 <li>element category:
 <ul>
 <li><code>axis.*</code> → titles, text, ticks, lines</li>
-<li><code>legend.*</code> → background, margin, spacing, keys, text, title, position, direction, box</li>
-<li><code>panel.*</code> → background, border, margin, spacing, grid (major and minor)</li>
-<li><code>plot.*</code> → background, title, subtitle, caption, tag, margin</li>
+<li><code>legend.*</code> → background, margin, spacing, keys, text,
+title, position, direction, box</li>
+<li><code>panel.*</code> → background, border, margin, spacing, grid
+(major and minor)</li>
+<li><code>plot.*</code> → background, title, subtitle, caption, tag,
+margin</li>
 <li><code>strip.*</code> → background, placement, text</li>
 </ul></li>
 </ul>
-<p>You can directly alter the appearance by adding <code>theme()</code> to a ggplot.</p>
-<h4 id="rectangular-elements-via-element_rect">Rectangular Elements via <code>element_rect()</code></h4>
+<p>You can directly alter the appearance by adding <code>theme()</code>
+to a ggplot.</p>
+<h4 id="rectangular-elements-via-element_rect">Rectangular Elements via
+<code>element_rect()</code></h4>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-rect-1.png" alt="Theme components that are element_rect (Part 1)" /><figcaption aria-hidden="true">Theme components that are <code>element_rect</code> (Part 1)</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-rect-1.png"
+alt="Theme components that are element_rect (Part 1)" />
+<figcaption aria-hidden="true">Theme components that are
+<code>element_rect</code> (Part 1)</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-rect-2.png" alt="Theme components that are element_rect (Part 2)" /><figcaption aria-hidden="true">Theme components that are <code>element_rect</code> (Part 2)</figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-rect-2.png"
+alt="Theme components that are element_rect (Part 2)" />
+<figcaption aria-hidden="true">Theme components that are
+<code>element_rect</code> (Part 2)</figcaption>
 </figure>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -3121,9 +3211,14 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/element-rect-example-1.png" width="960" /></p>
 </div>
-<h4 id="line-elements-via-element_line">Line Elements via <code>element_line()</code></h4>
+<h4 id="line-elements-via-element_line">Line Elements via
+<code>element_line()</code></h4>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-line.png" alt="Theme components that are element_line" /><figcaption aria-hidden="true">Theme components that are <code>element_line</code></figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-line.png"
+alt="Theme components that are element_line" />
+<figcaption aria-hidden="true">Theme components that are
+<code>element_line</code></figcaption>
 </figure>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -3139,9 +3234,14 @@ Codes
 </div>
 <p><img src="03-polish-rmarkdown_files/figure-html5/element-line-example-1.png" width="960" /></p>
 </div>
-<h4 id="text-elements-via-element_text">Text Elements via <code>element_text()</code></h4>
+<h4 id="text-elements-via-element_text">Text Elements via
+<code>element_text()</code></h4>
 <figure>
-<img src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-text.png" alt="Theme components that are element_text" /><figcaption aria-hidden="true">Theme components that are <code>element_text</code></figcaption>
+<img
+src="https://raw.githubusercontent.com/z3tt/hands-on-ggplot2/main/slides/img/element-text.png"
+alt="Theme components that are element_text" />
+<figcaption aria-hidden="true">Theme components that are
+<code>element_text</code></figcaption>
 </figure>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -3172,7 +3272,9 @@ Codes
 <hr />
 <h2 id="exercise-3">Exercise 3</h2>
 <ul>
-<li>Have a closer look at the codes of <code>theme_grey</code>/<code>theme_gray</code> and one of the other themes. What’s the difference?</li>
+<li>Have a closer look at the codes of
+<code>theme_grey</code>/<code>theme_gray</code> and one of the other
+themes. What’s the difference?</li>
 <li>Create a theme that is as ugly as possible!<br />
 or:<br />
 Create a theme that you can use ass personal theme.<br />
@@ -3182,11 +3284,24 @@ Create a theme that you can use ass personal theme.<br />
 <hr />
 <h2 id="resources">Resources</h2>
 <ul>
-<li><p><a href="https://ggplot2.tidyverse.org/reference/theme.html">Modify theme components</a> on the ggplot reference page</p></li>
-<li><p>Chapter 19 <a href="https://ggplot2-book.org/polishing.html">Themes</a> of the “ggplot2” book by Hadley Wickham et al.</p></li>
-<li><p><a href="https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/">“Creating and Using Custom ggplot2 Themes”</a>, blog post by Thomas Mock</p></li>
-<li><p><a href="https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/">“Themes to Improve Your ggplot Figures”</a> from <a href="https://rfortherestofus.com/">R for the Rest of Us</a> with a collection of additional themes</p></li>
-<li><p><a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A <code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my extensive “how to”-tutorial</p></li>
+<li><p><a
+href="https://ggplot2.tidyverse.org/reference/theme.html">Modify theme
+components</a> on the ggplot reference page</p></li>
+<li><p>Chapter 19 <a
+href="https://ggplot2-book.org/polishing.html">Themes</a> of the
+“ggplot2” book by Hadley Wickham et al.</p></li>
+<li><p><a
+href="https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/">“Creating
+and Using Custom ggplot2 Themes”</a>, blog post by Thomas Mock</p></li>
+<li><p><a
+href="https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/">“Themes
+to Improve Your ggplot Figures”</a> from <a
+href="https://rfortherestofus.com/">R for the Rest of Us</a> with a
+collection of additional themes</p></li>
+<li><p><a
+href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">“A
+<code>{ggplot2}</code> Tutorial for Beautiful Plotting in R”</a>, my
+extensive “how to”-tutorial</p></li>
 </ul>
 <hr />
 <h2 id="session-info">Session Info</h2>
@@ -3195,11 +3310,11 @@ Create a theme that you can use ass personal theme.<br />
 Expand for details
 </summary>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2022-04-06 13:56:13 CEST&quot;</code></pre>
+<pre><code>[1] &quot;2022-06-25 13:58:58 CEST&quot;</code></pre>
 <pre><code>Local:    main C:/Users/DataVizard/Google Drive/Work/DataViz/Teaching/2022_OReilly_Trainings/hands-on-ggplot2
 Remote:   main @ origin (https://github.com/z3tt/hands-on-ggplot2.git)
-Head:     [668f713] 2022-04-06: update date for next round</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
+Head:     [4423fc3] 2022-04-06: rebuild page</code></pre>
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
 
@@ -3222,14 +3337,14 @@ other attached packages:
 [10] ggplot2_3.3.5       tidyverse_1.3.1    
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-153       fs_1.5.0           lubridate_1.8.0   
+ [1] nlme_3.1-152       fs_1.5.0           lubridate_1.8.0   
  [4] bit64_4.0.5        RColorBrewer_1.1-2 httr_1.4.2        
- [7] rprojroot_2.0.2    tools_4.1.2        backports_1.2.1   
+ [7] rprojroot_2.0.2    tools_4.1.0        backports_1.2.1   
 [10] bslib_0.3.1        rgdal_1.5-28       utf8_1.2.2        
-[13] R6_2.5.1           KernSmooth_2.23-20 mgcv_1.8-38       
+[13] R6_2.5.1           KernSmooth_2.23-20 mgcv_1.8-35       
 [16] DBI_1.1.2          colorspace_2.0-2   sp_1.4-6          
 [19] withr_2.4.3        tidyselect_1.1.1   downlit_0.4.0     
-[22] bit_4.0.4          curl_4.3.2         compiler_4.1.2    
+[22] bit_4.0.4          curl_4.3.2         compiler_4.1.0    
 [25] git2r_0.29.0       textshaping_0.3.6  cli_3.1.0         
 [28] rvest_1.0.2        xml2_1.3.2         labeling_0.4.2    
 [31] bookdown_0.24      sass_0.4.0         scales_1.1.1      
@@ -3237,27 +3352,28 @@ loaded via a namespace (and not attached):
 [37] systemfonts_1.0.3  digest_0.6.29      foreign_0.8-81    
 [40] rmarkdown_2.11     rio_0.5.29         pkgconfig_2.0.3   
 [43] htmltools_0.5.2    dbplyr_2.1.1       fastmap_1.1.0     
-[46] highr_0.9          rlang_0.4.12       readxl_1.3.1      
+[46] highr_0.9          rlang_1.0.2        readxl_1.3.1      
 [49] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0      
 [52] generics_0.1.1     jsonlite_1.7.2     vroom_1.5.5       
 [55] zip_2.2.0          distill_1.3        magrittr_2.0.1    
-[58] s2_1.0.7           Matrix_1.3-4       Rcpp_1.0.7        
+[58] s2_1.0.7           Matrix_1.3-3       Rcpp_1.0.7        
 [61] munsell_0.5.0      fansi_0.5.0        lifecycle_1.0.1   
-[64] stringi_1.7.5      yaml_2.2.1         grid_4.1.2        
-[67] parallel_4.1.2     crayon_1.4.2       lattice_0.20-45   
-[70] splines_4.1.2      haven_2.4.3        hms_1.1.1         
-[73] knitr_1.36         pillar_1.6.4       wk_0.6.0          
-[76] reprex_2.0.1       glue_1.4.2         evaluate_0.14     
+[64] stringi_1.7.5      yaml_2.2.1         grid_4.1.0        
+[67] parallel_4.1.0     crayon_1.4.2       lattice_0.20-44   
+[70] splines_4.1.0      haven_2.4.3        hms_1.1.1         
+[73] knitr_1.39         pillar_1.6.4       wk_0.6.0          
+[76] reprex_2.0.1       glue_1.4.2         evaluate_0.15     
 [79] data.table_1.14.2  modelr_0.1.8       vctrs_0.3.8       
 [82] tzdb_0.1.2         cellranger_1.1.0   gtable_0.3.0      
-[85] assertthat_0.2.1   cachem_1.0.6       xfun_0.27         
-[88] openxlsx_4.2.5     broom_0.7.11       e1071_1.7-9       
+[85] assertthat_0.2.1   cachem_1.0.6       xfun_0.31         
+[88] openxlsx_4.2.5     broom_0.8.0        e1071_1.7-9       
 [91] viridisLite_0.4.0  class_7.3-19       ragg_1.1.3        
 [94] memoise_2.0.1      units_0.7-2        ellipsis_0.3.2    
 [97] here_1.0.1        </code></pre>
 </div>
 </details>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
